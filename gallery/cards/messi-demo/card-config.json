@@ -30,5 +30,6 @@
     "text": "./assets/text.png",
     "lineart": "./assets/lineart.png",
     "model": "./assets/card.glb"
-  }
+  },
+  "_card_id": "messi-demo"
 }

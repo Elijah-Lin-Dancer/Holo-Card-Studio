@@ -164,11 +164,8 @@ def main(argv=None) -> int:
     print(f"[1/5] 初始化共享 vendor…")
     ensure_vendor()
 
-    print(f"[2/5] 生成缩略图…")
-    make_thumb(project, dest)
-
-    print(f"[3/5] 复制 web/ → gallery/cards/{card_id}/（剔除依赖与运行文件）…")
-    # 先清空旧归档，防止残留被排除的文件
+    print(f"[2/5] 复制 web/ → gallery/cards/{card_id}/（剔除依赖与运行文件）…")
+    # 先清空旧归档，防止残留被排除的文件（必须在生成缩略图之前）
     for old in dest.iterdir():
         if old.is_dir():
             shutil.rmtree(old)
@@ -185,11 +182,19 @@ def main(argv=None) -> int:
         else:
             shutil.copy2(item, target)
 
+    print(f"[3/5] 生成缩略图 thumb.jpg（复用 renders/hero.png）…")
+    make_thumb(project, dest)
+
     print(f"[4/5] 改写 importmap → 共享 vendor…")
     rewrite_importmap(dest / "index.html")
 
     cfg = json.loads((web / "card-config.json").read_text(encoding="utf-8-sig"))
     cfg["_card_id"] = card_id
+    # 把 _card_id 写回归档副本，保持清单与归档一致
+    dest_cfg = dest / "card-config.json"
+    saved = json.loads(dest_cfg.read_text(encoding="utf-8-sig"))
+    saved["_card_id"] = card_id
+    dest_cfg.write_text(json.dumps(saved, ensure_ascii=False, indent=2), encoding="utf-8")
     meta = load_card_meta(cfg, tags)
     print(f"[5/5] 更新 cards.json…")
     update_cards_json(meta, Path(f"cards/{card_id}/thumb.jpg"), f"cards/{card_id}/", date)
