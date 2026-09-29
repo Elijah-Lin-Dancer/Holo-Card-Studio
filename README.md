@@ -92,12 +92,14 @@ cd generator/projects/<id>/web && npm install && node server.mjs
 # 打开 http://127.0.0.1:4173
 ```
 
-5. 发布进展厅：
+5. 发布进展厅（**自动完成压缩 + 预览动画渲染**）：
 
 ```bash
 python3 generator/scripts/publish_card.py --project generator/projects/<id> --id <id> --tags "风格,题材"
 cd gallery && python3 -m http.server 4174   # 预览展厅
 ```
+
+发布脚本会自动：四层贴图 PNG→WebP 压缩（保留透明通道）、定位 Blender 并渲染 96 帧旋转预览动画 → ffmpeg 合成 `preview.webm`、更新 `cards.json` 清单。重跑幂等（已有 webp/动画自动跳过）；`--skip-preview` 可跳过动画渲染。
 
 部署到 GitHub Pages 见 [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md)（三步上线）。
 
@@ -111,6 +113,8 @@ python3 generator/scripts/one_shot_card.py "给中国航天员设计一张全息
 
 # 2-4. 走标准流水线出卡、渲染、发布（见上文「做一张新卡」）
 ```
+
+发布阶段全自动：压缩 + 预览动画 + 清单更新一键完成，无需任何手动渲染/压缩步骤。
 
 示例输出（自动校验 + 编号 + 渲染参数，直接可跑流水线）：
 
@@ -140,6 +144,7 @@ Seedream 会保留照片中主体的姿态与构图，重绘为卡牌风格。
 holo-lab/
 ├── generator/
 │   ├── scripts/
+│   │   ├── one_shot_card.py      # 一句话自动出卡（文字模型 → card-config.json）
 │   │   ├── ai_generate.py        # 豆包 Seedream 分层画图（本项目的核心增量）
 │   │   ├── run_pipeline.py       # 流水线编排（Blender 构建/渲染/导出）
 │   │   ├── build_card.py         # Blender 程序化场景 + 材质节点
@@ -147,7 +152,8 @@ holo-lab/
 │   │   ├── generate_typography.py# 文字层精确排版
 │   │   ├── validate_assets.py    # 四层素材体检（真实 alpha / 线稿极值）
 │   │   ├── ensure_blender.py     # Blender 自动下载 + SHA-256 校验
-│   │   ├── publish_card.py       # 一键发布进展厅（本项目的核心增量）
+│   │   ├── render_preview.py     # 旋转预览帧渲染（360×500 / 96 帧）
+│   │   ├── publish_card.py       # 一键发布：压缩 + 预览动画 + 清单（核心增量）
 │   │   └── web-template-holographic/  # Three.js 查看器模板
 │   └── projects/<card-id>/       # 每张卡的项目目录（素材/场景/产物）
 ├── gallery/                      # 纯静态展厅（可直接推 GitHub Pages）
@@ -172,14 +178,19 @@ holo-lab/
 
 ## 🎴 示例卡
 
-「梅西称王」—— 球王 · 阿根廷十号 · 全息典藏系列。
+- 「梅西称王」—— 球王 · 阿根廷十号 · 全息典藏系列
+- 「流行之王」—— 迈克尔·杰克逊 · 舞台之巅 · 传奇系列
+- 「星辰远征」—— 中国航天员 · 逐梦星海 · 星辰远征系列（一句话自动出卡生成）
+- 「齐天大圣」—— 孙悟空 · 傲世苍穹 · 西游系列（一句话自动出卡生成）
 
 ## 🛤️ 路线图
 
 - [x] 豆包 Seedream 分层生成 + 抠图 + 线稿提取
 - [x] Blender 全息流水线 + Three.js 查看器
 - [x] 静态展厅 + 一键发布 + CI 部署就绪
-- [ ] 素材体积压缩（网页加载优化）
+- [x] 素材体积压缩（PNG→WebP，-81%，已入发布流水线）
+- [x] 卡片动态预览（Blender 旋转序列 → preview.webm + hover 播放，已入发布流水线）
+- [x] 一句话自动出卡（文字模型 → 配置 → 全自动闭环）
 - [ ] lenticular 双图光栅模式接入
 - [ ] 展厅自动分类（按人物/风格/稀有度）
 

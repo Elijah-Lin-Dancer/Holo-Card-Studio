@@ -41,18 +41,31 @@
 - 验收：✅ 新卡线上可打开、缩略图 420px、清单置顶；问题 E u2net 176MB 自动重下成功
 - 验收：新卡在线上可打开、缩略图正常、清单新增条目
 
-## P3 · 卡片动态预览（L2→L1 转化）
+## P3 · 卡片动态预览（L2→L1 转化） ✅ 2026-09-29 完成
 
 **目的**：让视频工具变成产品功能，而非纯展示——每张卡生成自动旋转 3D 预览，
 首页缩略图 hover 播放，提升展厅互动感。
 
-- 工具：视频生成（image_to_video / 渲染序列）、byted-mediakit 处理
+- 工具：**方案 B：Blender 旋转序列 + ffmpeg**（`render_preview.py`：360×500、Cycles 16 samples、96 帧；ffmpeg libvpx-vp9 crf42 合成 webm，<2MB/卡）。注：早期方案 A（image_to_video 视频生成）因 Seedance 2.0 fast 未开通、且 3D 旋转可控性差而弃用
 - 任务：
-  1. 用 hero 渲染图（或 GLB 旋转序列）生成 5–8 秒卡片旋转预览
-  2. 压缩为 webm/gif，接入首页缩略图 hover
-  3. 适配多卡
-- 产出：gallery 每卡一个 preview.webm + 首页 hover 效果
-- 验收：真实浏览器 hover 播放流畅；文件体积可控（<2MB/卡）
+  1. 用 hero 渲染图 + Blender 卡片场景生成 4 秒旋转预览（96 帧 @24fps）
+  2. 压缩为 webm，接入首页缩略图 hover（app.js + style.css）
+  3. 适配多卡：四卡均生成 preview.webm（messi 628KB / mj 488KB / taikonaut 427KB / wukong 573KB）
+- 产出：✅ gallery 每卡 preview.webm + 首页 hover 播放 + cards.json preview 字段
+- 验收：✅ 线上四卡 preview.webm 全部 200；文件体积均 <2MB/卡
+
+## P3.5 · 素材压缩 + 预览动画自动化入发布流水线（L1 工程化） ✅ 2026-09-29 完成
+
+**目的**：用户一句话出卡后，发布无需任何手动步骤——压缩与预览渲染全部自动化。
+
+- 工具：`publish_card.py`（`compress_assets` + `find_blender` + `render_preview`）
+- 任务：
+  1. `compress_assets`：四层贴图 PNG→WebP（保留 alpha，前端零改动），幂等（已有 webp 跳过）
+  2. `find_blender`：自动定位便携版 Blender（无需手传 --blender）
+  3. `render_preview`：96 帧分段渲染（每段 40 帧、已渲染帧复用）→ ffmpeg 合成 preview.webm → 自动更新 cards.json preview 字段；幂等（webm 存在跳过）
+  4. 发布流程升级：[1/5]初始化→[2/5]复制（保留已有 webm）→[3/6]缩略图→[4/7]压缩→[5/7]渲染预览→[6/7]importmap→[7/7]清单；支持 `--skip-preview` / `--blender`
+- 修了两个集成 bug：①清空归档删掉已有 webm → 暂存还原；②`update_cards_json` 重建条目丢 preview → 合并保留
+- 成果：✅ commit `f6cfcc3` 已推送；重跑 publish 全链路幂等实测通过（webm 保留、渲染跳过、压缩跳过、preview 保留）
 
 ## P4 · 项目白皮书（作品集交付物） ✅ 2026-09-29 完成
 
@@ -89,10 +102,10 @@
 ## 执行顺序与依赖
 
 ```
-P1（主视觉+信息图）→ P2（第二张卡，含验证 E）→ P3（动态预览）→ P4（白皮书）→ P5（demo 视频）→ P6（研究）
+P1（主视觉+信息图）→ P2（第二张卡，含验证 E）→ P3（动态预览）→ P3.5（压缩+预览自动化）→ P4（白皮书）→ P7（一句话出卡）→ P5（demo 视频）→ P6（研究）
 ```
 
-依赖关系：P1/P2 可并行；P3 依赖 P1/P2 的卡资产；P4 依赖 docs 定稿；P5 依赖流水线视频源。
+依赖关系：P1/P2 可并行；P3 依赖 P1/P2 的卡资产；P3.5 依赖 P3 的渲染脚本；P4 依赖 docs 定稿；P5 依赖流水线视频源（Seedance 2.0 fast 开通）。
 
 ## 工具启用清单（对照 TOOLKIT-ROADMAP）
 
@@ -100,7 +113,8 @@ P1（主视觉+信息图）→ P2（第二张卡，含验证 E）→ P3（动态
 |---|---|
 | P1 | doubao-creative-design、doubao-visualization、html |
 | P2 | 豆包 API（已有）+ rembg/Blender 流水线 |
-| P3 | 视频生成 + byted-mediakit |
+| P3 | Blender 渲染序列 + ffmpeg（方案 B，弃用视频生成方案 A） |
+| P3.5 | publish_card.py 工程化（compress_assets / find_blender / render_preview） |
 | P4 | doubao-book-writer（+ doubao-human-signal） |
 | P5 | doubao-creative-video + text_to_audio_plus + byted-mediakit |
 | P6 | doubao-industry-analysis、doubao-product-analysis、doubao-academic-researcher |
