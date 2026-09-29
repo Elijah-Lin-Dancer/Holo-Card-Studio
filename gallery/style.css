@@ -189,6 +189,7 @@ body::after{
 .card img,.card video{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
 .card video{opacity:0;transition:opacity .25s}
 .card:hover video{opacity:1}
+.card canvas.lent{position:absolute;inset:0;width:100%;height:100%;display:none;pointer-events:none;object-fit:cover}
 .card .rarity{
   position:absolute;top:10px;left:10px;font-size:10px;letter-spacing:1.5px;color:var(--cream);
   background:rgba(8,12,20,.55);border:1px solid rgba(255,255,255,.14);border-radius:20px;

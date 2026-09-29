@@ -148,7 +148,7 @@ def validate(cfg: dict, lang: str = "zh") -> list[str]:
             problems.append(f"slug 不合法：{val!r}（需小写字母/数字/连字符，3-64 字符）")
         if key == "title" and (lang == "zh" and not (2 <= len(val) <= 12) or lang == "en" and not (2 <= len(val) <= 40)):
             problems.append(f"title 长度异常：{val!r}（中文 4-8 字 / 英文 3-6 词）")
-        if key == "tagline" and len(val) > 40:
+        if key == "tagline" and len(val) > (24 if lang == "zh" else 64):
             problems.append(f"tagline 过长：{val!r}")
         if key == "description" and len(val) > 160:
             problems.append(f"description 过长：{val!r}")

@@ -1,6 +1,30 @@
 {
   "cards": [
     {
+      "id": "snow-leopard-aurora-ridge",
+      "title": "Aurora Ridge Snow Leopard",
+      "subtitle": "Icy Ridge · Northern Lights",
+      "technique": "Frosted Aurora Waltz",
+      "tagline": "Crouching under skies of green and gold.",
+      "edition": "005 / 005",
+      "collection": "HoloLab Archive · Frosted Wild Series",
+      "description": "This card showcases a snow leopard in its remote arctic home. It highlights the serene beauty of northern lights over an icy ridge.",
+      "style_tags": [
+        "雪原",
+        "极光",
+        "野生",
+        "动物"
+      ],
+      "url": "cards/snow-leopard-aurora-ridge/",
+      "thumb": "cards/snow-leopard-aurora-ridge/thumb.jpg",
+      "date": "2026-09-29",
+      "lenticular": {
+        "L": "cards/snow-leopard-aurora-ridge/lent-L.jpg",
+        "R": "cards/snow-leopard-aurora-ridge/lent-R.jpg"
+      },
+      "preview": "cards/snow-leopard-aurora-ridge/preview.webm"
+    },
+    {
       "id": "great-sage-sun-wukong",
       "title": "齐天大圣",
       "subtitle": "花果山 · 傲世苍穹",
@@ -9,11 +33,18 @@
       "edition": "004 / 004",
       "collection": "HoloLab 典藏 · 西游系列",
       "description": "本卡收录齐天大圣孙悟空经典形象，还原桀骜气质，极具收藏价值。",
-      "style_tags": [],
+      "style_tags": [
+        "西游",
+        "神话"
+      ],
       "url": "cards/great-sage-sun-wukong/",
       "thumb": "cards/great-sage-sun-wukong/thumb.jpg",
       "date": "2026-09-29",
-      "preview": "cards/great-sage-sun-wukong/preview.webm"
+      "preview": "cards/great-sage-sun-wukong/preview.webm",
+      "lenticular": {
+        "L": "cards/great-sage-sun-wukong/lent-L.jpg",
+        "R": "cards/great-sage-sun-wukong/lent-R.jpg"
+      }
     },
     {
       "id": "taikonaut-stellar-expedition",
@@ -24,11 +55,19 @@
       "edition": "003 / 003",
       "collection": "HoloLab 典藏 · 星辰远征系列",
       "description": "致敬中国航天员的太空探索征程，展现人类对星辰大海的无限向往。",
-      "style_tags": [],
+      "style_tags": [
+        "航天",
+        "星空",
+        "夜景"
+      ],
       "url": "cards/taikonaut-stellar-expedition/",
       "thumb": "cards/taikonaut-stellar-expedition/thumb.jpg",
       "date": "2026-09-29",
-      "preview": "cards/taikonaut-stellar-expedition/preview.webm"
+      "preview": "cards/taikonaut-stellar-expedition/preview.webm",
+      "lenticular": {
+        "L": "cards/taikonaut-stellar-expedition/lent-L.jpg",
+        "R": "cards/taikonaut-stellar-expedition/lent-R.jpg"
+      }
     },
     {
       "id": "mj-demo",
@@ -47,7 +86,11 @@
       "url": "cards/mj-demo/",
       "thumb": "cards/mj-demo/thumb.jpg",
       "date": "2026-09-29",
-      "preview": "cards/mj-demo/preview.webm"
+      "preview": "cards/mj-demo/preview.webm",
+      "lenticular": {
+        "L": "cards/mj-demo/lent-L.jpg",
+        "R": "cards/mj-demo/lent-R.jpg"
+      }
     },
     {
       "id": "messi-demo",
@@ -66,7 +109,11 @@
       "url": "cards/messi-demo/",
       "thumb": "cards/messi-demo/thumb.jpg",
       "date": "2026-09-29",
-      "preview": "cards/messi-demo/preview.webm"
+      "preview": "cards/messi-demo/preview.webm",
+      "lenticular": {
+        "L": "cards/messi-demo/lent-L.jpg",
+        "R": "cards/messi-demo/lent-R.jpg"
+      }
     }
   ]
 }

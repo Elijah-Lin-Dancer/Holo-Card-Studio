@@ -26,3 +26,6 @@ gallery/_shots/
 
 # P3 渲染中间产物（帧序列/日志）
 generator/work/
+
+# 根目录本地工具（Blender 便携版等，不入库）
+tools/

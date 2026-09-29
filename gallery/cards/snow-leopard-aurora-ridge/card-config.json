@@ -1,0 +1,36 @@
+{
+  "slug": "snow-leopard-aurora-ridge",
+  "title": "Aurora Ridge Snow Leopard",
+  "subtitle": "Icy Ridge · Northern Lights",
+  "technique": "Frosted Aurora Waltz",
+  "tagline": "Crouching under skies of green and gold.",
+  "collection": "HoloLab Archive · Frosted Wild Series",
+  "description": "This card showcases a snow leopard in its remote arctic home. It highlights the serene beauty of northern lights over an icy ridge.",
+  "style": "Japanese ukiyo-e and ink-wash anime collectible-card illustration, mineral pigment texture, crisp brushwork, arctic night, glowing northern lights, icy ridge terrain",
+  "prompt": "A snow leopard crouches on an icy ridge under the glowing northern lights.",
+  "subject_desc": "A snow leopard with thick spotted fur, crouched low on an icy ledge, alert expression, centered in the frame.",
+  "background_desc": "Icy mountain ridge under a sky of swirling green northern lights, cold arctic atmosphere, cool ambient lighting, leave a quiet empty space in the lower-middle of the frame, no people.",
+  "mode": "holographic",
+  "edition": "005 / 005",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.4,
+    "backgroundDepth": -0.25,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.12,
+    "offset": [
+      -0.06,
+      -0.085
+    ]
+  },
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "snow-leopard-aurora-ridge"
+}

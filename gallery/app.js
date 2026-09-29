@@ -115,7 +115,43 @@ async function load() {
   cards = data.cards || [];
   const stat = document.getElementById('stat-cards');
   if (stat) animateCount(stat, cards.length);
+  renderChips();
   render();
+}
+
+/* 自动分类：chips 从 cards.json 的 style_tags 动态生成（去重），加新卡自动出新筛选项 */
+const filtersBox = document.getElementById('filters');
+function renderChips() {
+  if (!filtersBox) return;
+  const set = [];
+  cards.forEach(c => (c.style_tags || []).forEach(t => { if (set.indexOf(t) === -1) set.push(t); }));
+  const frag = document.createDocumentFragment();
+  const mk = (f, label) => {
+    const b = document.createElement('button');
+    b.className = 'chip' + (f === activeFilter ? ' active' : '');
+    b.dataset.filter = f;
+    b.textContent = label;
+    b.setAttribute('aria-pressed', f === activeFilter ? 'true' : 'false');
+    frag.appendChild(b);
+  };
+  mk('all', (typeof window.HoloLabI18n !== 'undefined' ? window.HoloLabI18n.t('filters_all') : 'All'));
+  set.forEach(tag => mk(tag, tag));
+  filtersBox.innerHTML = '';
+  filtersBox.appendChild(frag);
+}
+if (filtersBox) {
+  filtersBox.addEventListener('click', e => {
+    const chip = e.target.closest('.chip');
+    if (!chip) return;
+    filtersBox.querySelectorAll('.chip').forEach(c => {
+      c.classList.remove('active');
+      c.setAttribute('aria-pressed', 'false');
+    });
+    chip.classList.add('active');
+    chip.setAttribute('aria-pressed', 'true');
+    activeFilter = chip.dataset.filter;
+    render();
+  });
 }
 function animateCount(el, target) {
   const t0 = performance.now(), dur = 1200;
@@ -136,7 +172,9 @@ function makeCard(c, i) {
   card.innerHTML =
     '<div class="thumb-wrap">' +
     '<img src="' + c.thumb + '" alt="' + c.title + '" loading="lazy">' +
-    (c.preview ? '<video class="card-video" src="' + c.preview + '" muted playsinline loop preload="none"></video>' : '') +
+    (c.lenticular
+      ? '<canvas class="lent" width="720" height="1000" aria-hidden="true"></canvas>'
+      : (c.preview ? '<video class="card-video" src="' + c.preview + '" muted playsinline loop preload="none"></video>' : '')) +
     '<span class="rarity">' + (c.collection || '典藏') + '</span>' +
     '</div>' +
     '<div class="meta">' +
@@ -150,6 +188,36 @@ function makeCard(c, i) {
   if (vid) {
     card.addEventListener('mouseenter', () => { vid.currentTime = 0; vid.play().catch(() => { }); });
     card.addEventListener('mouseleave', () => { vid.pause(); });
+  }
+  /* lenticular 光栅：双视角帧按鼠标位置条纹混合（桌面精细指针） */
+  const lent = card.querySelector('canvas.lent');
+  if (lent && finePointer && !reduceMotion) {
+    const imgs = [new Image(), new Image()];
+    imgs[0].src = c.lenticular.L;
+    imgs[1].src = c.lenticular.R;
+    const ctx = lent.getContext('2d');
+    let shown = false, x = 0.5, raf = null;
+    function draw() {
+      raf = null;
+      const w = lent.width, h = lent.height, n = 26, sw = w / n;
+      ctx.clearRect(0, 0, w, h);
+      for (let i = 0; i < n; i++) {
+        const ph = ((i / n) + x) % 1;
+        const img = imgs[ph < 0.5 ? 0 : 1];
+        if (img.complete && img.naturalWidth) ctx.drawImage(img, i * sw, 0, sw + 1, h, i * sw, 0, sw + 1, h);
+      }
+    }
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      x = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width));
+      if (!shown) { lent.style.display = 'block'; shown = true; }
+      if (!raf) raf = requestAnimationFrame(draw);
+    });
+    card.addEventListener('mouseleave', () => {
+      lent.style.display = 'none';
+      shown = false;
+      if (raf) { cancelAnimationFrame(raf); raf = null; }
+    });
   }
   return card;
 }
@@ -199,15 +267,6 @@ function bindTilt(els) {
 }
 
 /* 筛选 */
-document.querySelectorAll('.chip').forEach(chip => {
-  chip.addEventListener('click', () => {
-    document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-    chip.classList.add('active');
-    activeFilter = chip.dataset.filter;
-    render();
-  });
-});
-
 load().catch(err => {
   empty.hidden = false;
   empty.textContent = '加载失败：' + err.message;
