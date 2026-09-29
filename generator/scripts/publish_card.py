@@ -7,8 +7,9 @@ HoloLab Studio · publish_card.py
   1. 校验项目 web/ 产物完整（card.glb + 四层图 + card-config.json）
   2. 用 renders/hero.png 生成瀑布流缩略图 thumb.jpg
   3. 复制 web/ → gallery/cards/<id>/（剔除 node_modules / server / package）
-  4. 改写 index.html 的 importmap 指向展厅共享 vendor（避免每卡重复打包 three）
-  5. 从 card-config.json 更新 gallery/cards.json 清单
+  4. 压缩四层贴图 PNG → WebP（保留透明通道，前端零改动；幂等）
+  5. 改写 index.html 的 importmap 指向展厅共享 vendor（避免每卡重复打包 three）
+  6. 从 card-config.json 更新 gallery/cards.json 清单
 首次发布自动初始化 gallery/vendor/three（共享 three.js 依赖）。
 
 用法：
@@ -85,6 +86,45 @@ def make_thumb(project: Path, dest_dir: Path) -> Path:
     thumb = dest_dir / "thumb.jpg"
     im.convert("RGB").save(thumb, quality=88)
     return thumb
+
+
+# 四层贴图压缩：WebP（保留 alpha），quality 按图层信息量分层
+TEXTURE_COMPRESS = {
+    "background": 78,  # 大面积渐变，低损即可
+    "subject": 82,     # 主体细节 + 透明通道
+    "text": 88,        # 文字清晰度优先
+    "lineart": 80,     # 黑白线条
+}
+
+
+def compress_assets(card_dir: Path) -> None:
+    """把归档卡的四层 PNG 贴图转 WebP，改写 config.assets 映射并删除 PNG。
+
+    幂等：assets/ 下已存在同名 .webp 时跳过，可重复发布。
+    前端 app.js 通过 config.assets[name] 动态加载贴图，无需改页面。
+    """
+    assets_dir = card_dir / "assets"
+    if not assets_dir.is_dir():
+        return
+    cfg_path = card_dir / "card-config.json"
+    cfg = json.loads(cfg_path.read_text(encoding="utf-8-sig"))
+    assets = cfg.get("assets", {})
+    changed = False
+    for name, quality in TEXTURE_COMPRESS.items():
+        png = assets_dir / f"{name}.png"
+        webp = assets_dir / f"{name}.webp"
+        if not png.is_file() or webp.exists():
+            continue  # 无 PNG 或已压缩
+        im = Image.open(png)
+        # RGBA/L 模式保存 WebP 时自动保留 alpha；RGB/L 直接编码
+        im.save(webp, "WEBP", quality=quality, method=4)
+        png.unlink()
+        assets[name] = f"./assets/{name}.webp"
+        changed = True
+    if changed:
+        cfg["assets"] = assets
+        cfg_path.write_text(json.dumps(cfg, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        print(f"  [compress] 四层贴图已转 WebP：{', '.join(str(p) for p in assets_dir.glob('*.webp'))}")
 
 
 def rewrite_importmap(index_html: Path) -> None:
@@ -185,7 +225,10 @@ def main(argv=None) -> int:
     print(f"[3/5] 生成缩略图 thumb.jpg（复用 renders/hero.png）…")
     make_thumb(project, dest)
 
-    print(f"[4/5] 改写 importmap → 共享 vendor…")
+    print(f"[4/6] 压缩四层贴图 PNG → WebP（保留透明通道）…")
+    compress_assets(dest)
+
+    print(f"[5/6] 改写 importmap → 共享 vendor…")
     rewrite_importmap(dest / "index.html")
 
     cfg = json.loads((web / "card-config.json").read_text(encoding="utf-8-sig"))
@@ -196,7 +239,7 @@ def main(argv=None) -> int:
     saved["_card_id"] = card_id
     dest_cfg.write_text(json.dumps(saved, ensure_ascii=False, indent=2), encoding="utf-8")
     meta = load_card_meta(cfg, tags)
-    print(f"[5/5] 更新 cards.json…")
+    print(f"[6/6] 更新 cards.json…")
     update_cards_json(meta, Path(f"cards/{card_id}/thumb.jpg"), f"cards/{card_id}/", date)
 
     print(f"\n发布完成：{dest.relative_to(ROOT)}")
