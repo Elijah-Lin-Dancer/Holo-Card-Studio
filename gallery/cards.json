@@ -16,7 +16,8 @@
       ],
       "url": "cards/mj-demo/",
       "thumb": "cards/mj-demo/thumb.jpg",
-      "date": "2026-09-29"
+      "date": "2026-09-29",
+      "preview": "cards/mj-demo/preview.webm"
     },
     {
       "id": "messi-demo",
@@ -34,7 +35,8 @@
       ],
       "url": "cards/messi-demo/",
       "thumb": "cards/messi-demo/thumb.jpg",
-      "date": "2026-09-29"
+      "date": "2026-09-29",
+      "preview": "cards/messi-demo/preview.webm"
     }
   ]
 }

@@ -33,7 +33,7 @@ except ImportError:
 
 # ---------- 常量 ----------
 API_URL = "https://ark.cn-beijing.volces.com/api/v3/images/generations"
-DEFAULT_MODEL = "doubao-seedream-5-0-260128"
+DEFAULT_MODEL = "doubao-seedream-5-0-flash-260915"
 CANVAS = (1920, 2880)  # 2:3 竖版卡面
 
 
