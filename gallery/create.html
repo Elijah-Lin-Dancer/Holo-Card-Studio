@@ -44,6 +44,22 @@
   }
   .desc-meta button:hover{border-color:var(--gold-dim);color:var(--gold)}
 
+  /* 我的卡（私人存储） */
+  .my-cards{
+    margin-top:18px;padding:16px;border:1px dashed var(--line);border-radius:10px;
+    background:color-mix(in srgb, var(--bg) 82%, transparent);
+  }
+  .my-cards h3{font-size:13px;color:var(--gold);letter-spacing:1px;margin:0 0 10px}
+  .mc-empty{font-size:12px;color:var(--dim);margin:0 0 4px}
+  .mc-note{font-size:12px;color:var(--dim);margin:10px 0 0;line-height:1.6}
+  .my-cards ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+  .mc-item{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
+    border:1px solid var(--line);border-radius:8px;padding:8px 10px}
+  .mc-info{display:flex;flex-direction:column;gap:2px;min-width:0}
+  .mc-idea{font-size:13px;color:var(--fg);font-weight:600;word-break:break-all}
+  .mc-meta{font-size:11px;color:var(--dim)}
+  .mc-ops{display:flex;gap:6px;flex-wrap:wrap}
+
   /* 预演区 */
   .preview{display:none;margin-top:36px}
   .preview.on{display:block}
@@ -180,6 +196,14 @@
 
     <div class="input-actions">
       <button class="btn primary" id="go" data-i18n="cr_go">开始创造</button>
+      <button class="btn ghost" id="save-card" type="button" data-i18n="cr_save">保存到我的卡</button>
+    </div>
+
+    <div class="my-cards" id="my-cards" hidden>
+      <h3 data-i18n="cr_mine">我的卡（私人）</h3>
+      <p class="mc-empty" id="mc-empty" data-i18n="cr_empty">还没有私人卡。保存的创意只存在你的浏览器里，别人看不到。</p>
+      <ul id="mc-list"></ul>
+      <p class="mc-note" data-i18n="cr_pub_note">公开申请会导出卡片包文件。把文件发给 HoloLab 助手，进入策展管线：审核 + 正式渲染后，永久上线公开展厅。</p>
     </div>
   </section>
 
@@ -469,6 +493,86 @@ python3 generator/scripts/one_shot_card.py "<span id="cmdq">…</span>"</div>
     if(!text){ idea.focus(); return; }
     detail.value = buildDesc(text, detectLang(text));
   });
+
+  /* ===== 我的卡（私人存储）+ 公开申请 ===== */
+  var STORE_KEY = 'hololab_mycards';
+  var saveBtn = document.getElementById('save-card');
+  var myCards = document.getElementById('my-cards');
+  var mcEmpty = document.getElementById('mc-empty');
+  var mcList = document.getElementById('mc-list');
+  function loadCards(){ try{ return JSON.parse(localStorage.getItem(STORE_KEY)||'[]'); }catch(e){ return []; } }
+  function storeCards(list){ localStorage.setItem(STORE_KEY, JSON.stringify(list)); }
+  function buildPackage(){
+    var text = idea.value.trim();
+    if(!text) return null;
+    var lang = detectLang(text);
+    var desc = detail.value.trim() || buildDesc(text, lang);
+    return {
+      schema: 'hololab-card-package/v1',
+      lang: lang,
+      idea: text,
+      identity: (desc.match(/【身份锚点】([^\n]+)/) || desc.match(/\[IDENTITY\]\s*([^\n]+)/) || [])[1] || '',
+      design: desc,
+      created_at: new Date().toISOString()
+    };
+  }
+  function renderMyCards(){
+    var list = loadCards();
+    myCards.hidden = false;
+    mcEmpty.hidden = list.length > 0;
+    mcList.innerHTML = '';
+    list.forEach(function(card, idx){
+      var li = document.createElement('li');
+      li.className = 'mc-item';
+      var info = document.createElement('div');
+      info.className = 'mc-info';
+      var ttl = document.createElement('span');
+      ttl.className = 'mc-idea';
+      ttl.textContent = card.idea.length > 42 ? card.idea.slice(0,42) + '…' : card.idea;
+      var meta = document.createElement('span');
+      meta.className = 'mc-meta';
+      meta.textContent = (card.lang === 'zh' ? '中文' : 'EN') + ' · ' + new Date(card.created_at).toLocaleDateString();
+      info.appendChild(ttl); info.appendChild(meta);
+      var ops = document.createElement('div');
+      ops.className = 'mc-ops';
+      var pub = document.createElement('button');
+      pub.type = 'button'; pub.className = 'btn ghost'; pub.textContent = t('cr_publish');
+      pub.onclick = function(){ requestPublish(card); };
+      var exp = document.createElement('button');
+      exp.type = 'button'; exp.className = 'btn ghost'; exp.textContent = t('cr_export');
+      exp.onclick = function(){ exportPackage(card); };
+      var del = document.createElement('button');
+      del.type = 'button'; del.className = 'btn ghost'; del.textContent = t('cr_del');
+      del.onclick = function(){
+        var l = loadCards(); l.splice(idx,1); storeCards(l); renderMyCards();
+      };
+      ops.appendChild(pub); ops.appendChild(exp); ops.appendChild(del);
+      li.appendChild(info); li.appendChild(ops);
+      mcList.appendChild(li);
+    });
+  }
+  function exportPackage(card){
+    var blob = new Blob([JSON.stringify(card, null, 2)], {type:'application/json'});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'hololab-card-' + (card.idea||'untitled').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,40) + '.json';
+    document.body.appendChild(a); a.click(); a.remove();
+    URL.revokeObjectURL(a.href);
+  }
+  function requestPublish(card){
+    exportPackage(card);
+    alert(t('cr_pub_done'));
+  }
+  saveBtn.addEventListener('click', function(){
+    var pkg = buildPackage();
+    if(!pkg){ idea.focus(); return; }
+    var list = loadCards(); list.unshift(pkg); storeCards(list);
+    renderMyCards();
+    saveBtn.textContent = t('cr_saved');
+    setTimeout(function(){ saveBtn.textContent = t('cr_save'); }, 1600);
+  });
+  document.addEventListener('DOMContentLoaded', renderMyCards);
+  if(document.readyState !== 'loading') renderMyCards();
 
   /* 语言 / 主题切换器 */
   var langBtn = document.getElementById('lang-btn');

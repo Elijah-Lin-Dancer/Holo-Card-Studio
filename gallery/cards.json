@@ -1,6 +1,29 @@
 {
   "cards": [
     {
+      "id": "frida-kahlo-mexican-painter",
+      "title": "Frida Kahlo, Visionary Painter",
+      "subtitle": "HoloLab · Frida",
+      "technique": "Vivid Brush Whispers",
+      "tagline": "Art of color and unfiltered truth",
+      "edition": "006 / 006",
+      "collection": "HoloLab Archive · Mexican Masters Series",
+      "description": "This holographic card honors Frida Kahlo, the iconic Mexican artist. It brings her bold identity to life through textured, luminous art.",
+      "style_tags": [
+        "艺术",
+        "画家",
+        "墨西哥"
+      ],
+      "url": "cards/frida-kahlo-mexican-painter/",
+      "thumb": "cards/frida-kahlo-mexican-painter/thumb.jpg",
+      "date": "2026-09-29",
+      "lenticular": {
+        "L": "cards/frida-kahlo-mexican-painter/lent-L.jpg",
+        "R": "cards/frida-kahlo-mexican-painter/lent-R.jpg"
+      },
+      "preview": "cards/frida-kahlo-mexican-painter/preview.webm"
+    },
+    {
       "id": "snow-leopard-aurora-ridge",
       "title": "Aurora Ridge Snow Leopard",
       "subtitle": "Icy Ridge · Northern Lights",

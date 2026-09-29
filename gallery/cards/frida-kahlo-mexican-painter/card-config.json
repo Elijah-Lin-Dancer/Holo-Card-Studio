@@ -1,0 +1,38 @@
+{
+  "slug": "frida-kahlo-mexican-painter",
+  "title": "Frida Kahlo, Visionary Painter",
+  "subtitle": "HoloLab · Frida",
+  "technique": "Vivid Brush Whispers",
+  "tagline": "Art of color and unfiltered truth",
+  "collection": "HoloLab Archive · Mexican Masters Series",
+  "description": "This holographic card honors Frida Kahlo, the iconic Mexican artist. It brings her bold identity to life through textured, luminous art.",
+  "identity": "Frida Kahlo · 20th-century Mexican painter · unibrow, floral headdress, Tehuantepec dress · she created raw personal works about resilience and identity",
+  "back_story": "Frida Kahlo redefined Mexican art on the global stage. This rare holographic card is a must-have for HoloLab and art collectors.",
+  "style": "Japanese ukiyo-e and ink-wash anime collectible-card illustration, mineral pigment texture, crisp brushwork, warm earth tones, floral accents, soft glowing holographic highlights",
+  "prompt": "Frida Kahlo stands in a sunlit Mexican garden, wearing a Tehuantepec dress and floral headdress, looking directly at the viewer",
+  "subject_desc": "Frida Kahlo stands upright, wearing a rich Tehuantepec blouse and skirt, a colorful floral headdress, her signature unibrow, calm confident expression, centered in the frame",
+  "background_desc": "A lush Mexican garden with blooming marigolds and green foliage, soft golden sunlight, gentle warm atmosphere, leave a quiet empty space in the lower-middle of the frame, no people",
+  "mode": "holographic",
+  "edition": "006 / 006",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.4,
+    "backgroundDepth": -0.25,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.12,
+    "offset": [
+      -0.06,
+      -0.085
+    ]
+  },
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "frida-kahlo-mexican-painter"
+}
