@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>HOLO CARD STUDIO</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="importmap">{"imports":{"three":"../../vendor/three/build/three.module.js","three/addons/":"../../vendor/three/examples/jsm/"}}</script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="wordmark" href="./" aria-label="Holo Card Studio">HOLO CARD STUDIO</a>
+    <span id="edition" class="edition">001 / 001</span>
+  </header>
+
+  <main>
+    <section class="identity" aria-labelledby="card-title">
+      <p id="subtitle" class="kicker">COLLECTIBLE CARD</p>
+      <h1 id="card-title">CARD TITLE</h1>
+      <div class="actions" aria-label="Card actions">
+        <button id="auto" type="button" aria-pressed="false">AUTO</button>
+        <button id="flip" type="button">FLIP</button>
+        <button id="reset" type="button">RESET</button>
+        <button id="save" type="button">SAVE</button>
+      </div>
+    </section>
+
+    <section class="display" aria-label="Interactive holographic card">
+      <div id="stage" tabindex="0" role="img" aria-label="Drag to rotate the card. Scroll to zoom. Press F to flip and R to reset.">
+        <div id="loading" role="status">LOADING</div>
+      </div>
+      <output id="view-label" class="view-label">FRONT</output>
+    </section>
+  </main>
+
+  <section class="controls" aria-label="Card controls">
+    <label>
+      <span>FOIL <output id="foil-value">65%</output></span>
+      <input id="foil" type="range" min="0" max="1.2" step="0.01" value="0.65">
+    </label>
+    <label>
+      <span>SUBJECT SCALE <output id="scale-value">1.25</output></span>
+      <input id="scale" type="range" min="1" max="1.7" step="0.01" value="1.25">
+    </label>
+    <label>
+      <span>SUBJECT DEPTH <output id="depth-value">0.40</output></span>
+      <input id="depth" type="range" min="0" max="0.8" step="0.01" value="0.4">
+    </label>
+    <label>
+      <span>BACKGROUND DEPTH <output id="bg-depth-value">−0.25</output></span>
+      <input id="bg-depth" type="range" min="-0.65" max="0" step="0.01" value="-0.25">
+    </label>
+  </section>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "slug": "marco-reus-wm-2014-verpasst",
+  "title": "Marco Reus: Unbeugsamer",
+  "subtitle": "DFB-Team · WM 2014",
+  "technique": "Hologramm-Schimmer der Treue",
+  "tagline": "Verpasste WM, nie aufgegebene Hoffnung",
+  "collection": "HoloLab Archiv · Nationalhelden Serie",
+  "description": "Diese Karte feiert Marco Reus, der die WM 2014 verpasste, aber nie seine Leidenschaft für den deutschen Fußball aufgab. Er gilt als Symbol für Ausdauer im Team.",
+  "identity": "Marco Reus · DFB-Nationalspieler 2010er · weiß-rotes DFB-Trikot, Kapitänsbinde, Nummer 11 · Verpasste die FIFA WM 2014 wegen Verletzung",
+  "back_story": "Marco Reus verpasste die WM 2014 wegen einer Verletzung, blieb dem DFB-Team treu. Sammlerhinweis: Limitierte Auflage von 500 Stück.",
+  "style": "japanische Ukiyo-e- und Tusche-Anime-Sammelkartenillustration, Mineralpigment-Textur, klare Pinselstriche, DFB-Stadion im Hintergrund, warmes Tageslicht",
+  "prompt": "Marco Reus steht im weißen-roten DFB-Trikot mit Nummer 11, blickt entschlossen nach vorne",
+  "subject_desc": "Marco Reus in weißem DFB-Nationalmannschaftstrikot mit Nummer 11, Kapitänsbinde am linken Arm, aufrechte Haltung, entschlossener Ausdruck, zentrale Position",
+  "background_desc": "Hintergrund ist ein Fußballstadion bei Tageslicht, unscharfes Publikum, warmes Licht, im unteren mittleren Bereich einen ruhigen freien Raum lassen, keine Personen",
+  "mode": "holographic",
+  "edition": "008 / 009",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.4,
+    "backgroundDepth": -0.25,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.12,
+    "offset": [
+      -0.06,
+      -0.085
+    ]
+  },
+  "stats": "48 Länderspiele · 15 Tore · 14 Vorlagen · Deutschland",
+  "honors": [
+    "1× WM-Finale erreicht (2014, verletzt verpasst)",
+    "2× DFB-Pokal (2017, 2021)",
+    "2× Fußballer des Jahres (2012, 2019)",
+    "3× Bundesliga-Spieler der Saison"
+  ],
+  "quote": "Niemals aufgeben.",
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "marco-reus-wm-2014-verpasst"
+}

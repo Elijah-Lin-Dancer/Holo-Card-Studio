@@ -1,6 +1,76 @@
 {
   "cards": [
     {
+      "id": "marco-reus-la-galaxy-neue-horizonte",
+      "title": "Marco Reus bei LA Galaxy",
+      "subtitle": "MLS-Champion · Neuer Horizont",
+      "technique": "Hologramm-Flug-Schimmer",
+      "tagline": "Neue Horizonte auf dem Platz der MLS",
+      "edition": "009 / 009",
+      "collection": "HoloLab Archiv · MLS Stars Serie",
+      "description": "Diese holografische Sammelkarte zeigt Marco Reus, der bei LA Galaxy spielt. Er wechselt zur MLS, um seine Karriere in Nordamerika fortzusetzen.",
+      "style_tags": [
+        "足球",
+        "美职联",
+        "洛杉矶"
+      ],
+      "url": "cards/marco-reus-la-galaxy-neue-horizonte/",
+      "thumb": "cards/marco-reus-la-galaxy-neue-horizonte/thumb.jpg",
+      "date": "2026-09-29",
+      "preview": "cards/marco-reus-la-galaxy-neue-horizonte/preview.webm",
+      "lenticular": {
+        "L": "cards/marco-reus-la-galaxy-neue-horizonte/lent-L.jpg",
+        "R": "cards/marco-reus-la-galaxy-neue-horizonte/lent-R.jpg"
+      }
+    },
+    {
+      "id": "marco-reus-wm-2014-verpasst",
+      "title": "Marco Reus: Unbeugsamer",
+      "subtitle": "DFB-Team · WM 2014",
+      "technique": "Hologramm-Schimmer der Treue",
+      "tagline": "Verpasste WM, nie aufgegebene Hoffnung",
+      "edition": "008 / 009",
+      "collection": "HoloLab Archiv · Nationalhelden Serie",
+      "description": "Diese Karte feiert Marco Reus, der die WM 2014 verpasste, aber nie seine Leidenschaft für den deutschen Fußball aufgab. Er gilt als Symbol für Ausdauer im Team.",
+      "style_tags": [
+        "足球",
+        "德国",
+        "国家队"
+      ],
+      "url": "cards/marco-reus-wm-2014-verpasst/",
+      "thumb": "cards/marco-reus-wm-2014-verpasst/thumb.jpg",
+      "date": "2026-09-29",
+      "preview": "cards/marco-reus-wm-2014-verpasst/preview.webm",
+      "lenticular": {
+        "L": "cards/marco-reus-wm-2014-verpasst/lent-L.jpg",
+        "R": "cards/marco-reus-wm-2014-verpasst/lent-R.jpg"
+      }
+    },
+    {
+      "id": "marco-reus-bvb-kapitain",
+      "title": "BVB Kapitän Marco Reus",
+      "subtitle": "Borussia Dortmund · Kapitän",
+      "technique": "Gelbwand-Schimmer",
+      "tagline": "Kapitänstreue auf Signal Iduna Park",
+      "edition": "007 / 009",
+      "collection": "HoloLab Archiv · BVB Serie",
+      "description": "Diese holografische Sammelkarte zeigt Marco Reus, den langjährigen Kapitän von Borussia Dortmund. Sie feiert seine treue Zugehörigkeit zum Verein.",
+      "style_tags": [
+        "足球",
+        "德甲",
+        "多特蒙德",
+        "传奇"
+      ],
+      "url": "cards/marco-reus-bvb-kapitain/",
+      "thumb": "cards/marco-reus-bvb-kapitain/thumb.jpg",
+      "date": "2026-09-29",
+      "preview": "cards/marco-reus-bvb-kapitain/preview.webm",
+      "lenticular": {
+        "L": "cards/marco-reus-bvb-kapitain/lent-L.jpg",
+        "R": "cards/marco-reus-bvb-kapitain/lent-R.jpg"
+      }
+    },
+    {
       "id": "frida-kahlo-mexican-painter",
       "title": "Frida Kahlo, Visionary Painter",
       "subtitle": "HoloLab · Frida",

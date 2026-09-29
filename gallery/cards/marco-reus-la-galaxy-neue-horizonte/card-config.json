@@ -1,0 +1,46 @@
+{
+  "slug": "marco-reus-la-galaxy-neue-horizonte",
+  "title": "Marco Reus bei LA Galaxy",
+  "subtitle": "MLS-Champion · Neuer Horizont",
+  "technique": "Hologramm-Flug-Schimmer",
+  "tagline": "Neue Horizonte auf dem Platz der MLS",
+  "collection": "HoloLab Archiv · MLS Stars Serie",
+  "description": "Diese holografische Sammelkarte zeigt Marco Reus, der bei LA Galaxy spielt. Er wechselt zur MLS, um seine Karriere in Nordamerika fortzusetzen.",
+  "identity": "Marco Reus · Profifußballspieler · ikonische gelb-schwarze Trikots, Kapitänsbinde, Nummer 11 · Wechselt zu LA Galaxy in der MLS",
+  "back_story": "Marco Reus, ehemaliger Bundesliga-Star, wechselt zu LA Galaxy in der MLS. Sammlerhinweis: Diese Karte gehört zur Serie der neuen Herausforderungen.",
+  "style": "japanische Ukiyo-e- und Tusche-Anime-Sammelkartenillustration, Mineralpigment-Textur, klare Pinselstriche, Stadion bei Abend, Flutlicht auf dem Spielfeld",
+  "prompt": "Marco Reus in LA Galaxy Trikot auf einem MLS Stadion, Flutlicht beleuchtet, dynamische Spielpose",
+  "subject_desc": "Marco Reus steht auf dem Spielfeld, trägt LA Galaxy Trikot, hat konzentrierten Ausdruck, Position im zentralen Mittelfeld",
+  "background_desc": "MLS Stadion bei Nacht, Flutlichtschein auf dem Rasen, leere Tribünen im Hintergrund, im unteren mittleren Bereich einen ruhigen freien Raum lassen, keine Personen",
+  "mode": "holographic",
+  "edition": "009 / 009",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.4,
+    "backgroundDepth": -0.25,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.12,
+    "offset": [
+      -0.06,
+      -0.085
+    ]
+  },
+  "stats": "1× MLS-Cup-Champion (2024) · LA Galaxy · Vertrag bis 2027",
+  "honors": [
+    "1× MLS-Cup (2024, LA Galaxy)",
+    "2× DFB-Pokal (2017, 2021)",
+    "3× DFL-Supercup",
+    "2× Fußballer des Jahres (2012, 2019)"
+  ],
+  "quote": "Der Kapitän segelt weiter.",
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "marco-reus-la-galaxy-neue-horizonte"
+}

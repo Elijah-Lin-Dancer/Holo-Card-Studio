@@ -65,12 +65,30 @@ void main(){vec4 art=texture2D(tBack,vec2(1.-vUv.x,vUv.y));vec2 p=vUv-.5;float f
 function backTexture(){
  const c=document.createElement('canvas');c.width=1024;c.height=1536;const ctx=c.getContext('2d');
  ctx.clearRect(0,0,1024,1536);ctx.fillStyle='rgba(255,255,255,.94)';ctx.fillRect(0,0,1024,1536);
- ctx.fillStyle='#0a0a0a';ctx.textAlign='left';ctx.font='700 26px Arial, sans-serif';ctx.fillText('HOLO CARD STUDIO',86,118);
- ctx.strokeStyle='rgba(191,162,107,.45)';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(86,152);ctx.lineTo(938,152);ctx.stroke();
- ctx.fillStyle='#0a0a0a';ctx.font='800 72px Arial, sans-serif';wrapCanvasText(ctx,String(config.title||'CARD TITLE').toUpperCase(),86,320,850,84);
- ctx.fillStyle='#555';ctx.font='600 25px Arial, sans-serif';ctx.fillText(String(config.collection||'').toUpperCase(),86,500);
- ctx.fillStyle='#1c1c1c';ctx.font='500 30px Arial, sans-serif';
- wrapTextSmart(ctx,String(config.back_story||'This card is a HoloLab original.'),86,580,850,46,12);
+ ctx.fillStyle='#0a0a0a';ctx.textAlign='left';ctx.font='700 26px Arial, sans-serif';ctx.fillText('HOLO CARD STUDIO',86,110);
+ ctx.strokeStyle='rgba(191,162,107,.45)';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(86,142);ctx.lineTo(938,142);ctx.stroke();
+ ctx.fillStyle='#0a0a0a';ctx.font='800 72px Arial, sans-serif';wrapCanvasText(ctx,String(config.title||'CARD TITLE').toUpperCase(),86,300,850,84);
+ ctx.fillStyle='#555';ctx.font='600 25px Arial, sans-serif';ctx.fillText(String(config.collection||'').toUpperCase(),86,520);
+ // 结构化卡背：有 stats/honors 字段时采用新版式；否则回退旧版式（仅 back_story 长文）
+ if(config.stats||config.honors||config.quote){
+  ctx.fillStyle='#1c1c1c';ctx.font='500 28px Arial, sans-serif';
+  wrapTextSmart(ctx,String(config.back_story||'This card is a HoloLab original.'),86,568,850,38,5);
+  const label=(t,y)=>{ctx.fillStyle='#bfa26b';ctx.font='700 21px Arial, sans-serif';ctx.fillText(t,86,y);ctx.strokeStyle='rgba(191,162,107,.5)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(86,y+8);ctx.lineTo(938,y+8);ctx.stroke();};
+  label('KARRIERE · CAREER',810);
+  ctx.fillStyle='#0a0a0a';ctx.font='700 26px Arial, sans-serif';
+  wrapTextSmart(ctx,String(config.stats||''),86,854,850,40,2);
+  let hy=968;
+  if(config.honors&&config.honors.length){
+   label('ERFOLGE · HONORS',hy);
+   hy=1020;
+   ctx.fillStyle='#1c1c1c';ctx.font='500 24px Arial, sans-serif';
+   for(const h of config.honors.slice(0,7)){ctx.fillStyle='#bfa26b';ctx.font='700 24px Arial, sans-serif';ctx.fillText('•',86,hy);ctx.fillStyle='#1c1c1c';ctx.font='500 24px Arial, sans-serif';ctx.fillText(String(h).slice(0,64),112,hy);hy+=34;}
+  }
+  if(config.quote){ctx.fillStyle='#0a0a0a';ctx.font='italic 700 27px Arial, sans-serif';wrapTextSmart(ctx,'“'+String(config.quote)+'”',86,hy+12,850,38,2);}
+ } else {
+  ctx.fillStyle='#1c1c1c';ctx.font='500 30px Arial, sans-serif';
+  wrapTextSmart(ctx,String(config.back_story||'This card is a HoloLab original.'),86,580,850,46,12);
+ }
  ctx.fillStyle='#696969';ctx.font='600 21px Arial, sans-serif';ctx.fillText('EDITION '+String(config.edition||'001'),86,1418);
  const tex=new THREE.CanvasTexture(c);tex.colorSpace=THREE.NoColorSpace;return tex;
 }

@@ -1,0 +1,46 @@
+{
+  "slug": "marco-reus-bvb-kapitain",
+  "title": "BVB Kapitän Marco Reus",
+  "subtitle": "Borussia Dortmund · Kapitän",
+  "technique": "Gelbwand-Schimmer",
+  "tagline": "Kapitänstreue auf Signal Iduna Park",
+  "collection": "HoloLab Archiv · BVB Serie",
+  "description": "Diese holografische Sammelkarte zeigt Marco Reus, den langjährigen Kapitän von Borussia Dortmund. Sie feiert seine treue Zugehörigkeit zum Verein.",
+  "identity": "Marco Reus · Profifußballer · gelb-schwarzes BVB-Trikot, Kapitänsbinde, Nummer 11 · Er ist ein bekannter deutscher Fußballspieler.",
+  "back_story": "Marco Reus spielt seit Jahren für Borussia Dortmund und ist dessen langjähriger Kapitän. Diese Karte gehört zur HoloLab BVB-Serie – sammle alle Exemplare!",
+  "style": "japanische Ukiyo-e- und Tusche-Anime-Sammelkartenillustration, Mineralpigment-Textur, klare Pinselstriche, Signal Iduna Park Spielfeld",
+  "prompt": "Marco Reus steht auf dem Borussia Dortmund Spielfeld im gelb-schwarzen Trikot als Kapitän.",
+  "subject_desc": "Marco Reus steht aufrecht, trägt ein gelb-schwarzes Borussia Dortmund Trikot mit Kapitänsbinde und Nummer 11, sein Blick ist konzentriert.",
+  "background_desc": "Hintergrund ist das Rasenfeld des Signal Iduna Parks bei Tageslicht, mit Stadionmauern im Hintergrund, im unteren mittleren Bereich einen ruhigen freien Raum lassen, keine Personen.",
+  "mode": "holographic",
+  "edition": "007 / 009",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.4,
+    "backgroundDepth": -0.25,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.12,
+    "offset": [
+      -0.06,
+      -0.085
+    ]
+  },
+  "stats": "424 Pflichtspiele · 168 Tore · 128 Vorlagen · 12 Jahre BVB",
+  "honors": [
+    "2× DFB-Pokal (2017, 2021)",
+    "3× DFL-Supercup (2013, 2014, 2019)",
+    "2× Fußballer des Jahres (2012, 2019)",
+    "3× Bundesliga-Spieler der Saison"
+  ],
+  "quote": "Eine Stadt. Ein Kapitän.",
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "marco-reus-bvb-kapitain"
+}

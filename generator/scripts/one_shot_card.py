@@ -72,6 +72,26 @@ Output must be valid JSON with all fields below:
 Quality: be accurate, do not exaggerate facts; for real people only state objective identity and iconic traits, do not invent events; title must be punchy, technique poetic. Output JSON only, no other text."""
 
 
+SYSTEM_PROMPT_DE = """Du bist der Creative Director der holografischen Sammelkarten von HoloLab Studio. Der Nutzer gibt dir einen Satz; verwandle ihn in eine vollständige Kartenkonfiguration.
+
+Ausgabe muss gültiges JSON sein, alle Felder unten sind Pflicht:
+- "slug": Slug in englischen Kleinbuchstaben, Buchstaben/Ziffern/Bindestriche, z. B. "reus-gelbe-seele" (für Ordner & URL)
+- "title": Deutscher Haupttitel, 2-6 Wörter, wie eine kühne Kartenüberschrift
+- "subtitle": Deutscher Untertitel, bis 20 Zeichen, z. B. "Borussia Dortmund · Kapitän"
+- "technique": Technikname, 2-4 poetische Wörter, z. B. "Gelbwand-Schimmer"
+- "tagline": Ein kurzes Motto, bis 12 Wörter
+- "collection": Sammlungsname, Format "HoloLab Archiv · XXX Serie"
+- "description": Zwei Sätze, bis 60 Wörter
+- "identity": Identitätsanker, damit der Nutzer das Motiv prüfen kann: bei echten Personen "Name · Ära/Bereich · 2-4 ikonische visuelle Merkmale (z. B. gelb-schwarzes Trikot, Kapitänsbinde, Nummer 11) · ein objektiver Satz"; bei fiktiven Motiven "Erscheinungsbild · ikonische Merkmale · ein Satz Prämisse", bis 60 Wörter, nur Fakten, nichts erfinden
+- "back_story": Geschichte auf der Kartenrückseite, 1-2 Sätze Biografie/Prämisse plus ein Sammlerhinweis (wie auf der Rückseite einer Sportkarte), bis 60 Wörter
+- "style": visueller Stil, beibehalten "japanische Ukiyo-e- und Tusche-Anime-Sammelkartenillustration, Mineralpigment-Textur, klare Pinselstriche" und nach Thema verfeinern (z. B. "Stadion bei Nacht, Flutlicht")
+- "prompt": Ein Satz, der die Motivszene zusammenfasst (für das Bildmodell; klares Subjekt-Verb-Objekt)
+- "subject_desc": Motivdetails: wer/was, Pose, Kleidung, Ausdruck, Position (für eine transparente Motivschicht, muss als eigenes Bild stehen)
+- "background_desc": Hintergrunddetails: Szene, Atmosphäre, Licht; MUSS "im unteren mittleren Bereich einen ruhigen freien Raum lassen, keine Personen" enthalten (für die Hintergrundschicht)
+
+Qualität: genau sein, Fakten nicht übertreiben; bei echten Personen nur objektive Identität und ikonische Merkmale nennen, keine Ereignisse erfinden; Titel muss kraftvoll sein, Technik poetisch. Nur JSON ausgeben, keinen anderen Text."""
+
+
 REQUIRED_KEYS = [
     "slug", "title", "subtitle", "technique", "tagline",
     "collection", "description", "identity", "back_story",
@@ -80,9 +100,15 @@ REQUIRED_KEYS = [
 
 
 def detect_lang(text: str) -> str:
-    """输入语言检测：CJK 占比 ≥20% 判中文，其余（含无法识别）一律英文。"""
+    """输入语言检测：CJK 占比 ≥20% 判中文；含德语 umlaut/ß 或德语停用词判德语；其余（含无法识别）一律英文。"""
     cjk = len(re.findall(r"[\u4e00-\u9fff\u3400-\u4dbf]", text))
-    return "zh" if (cjk / max(len(text), 1)) >= 0.2 else "en"
+    if (cjk / max(len(text), 1)) >= 0.2:
+        return "zh"
+    if re.search(r"[äöüßÄÖÜ]", text):
+        return "de"
+    de_stops = ["der", "die", "das", "und", "ich", "ein", "eine", "möchte", "ist", "für", "dem", "den", "nicht", "mit"]
+    hits = sum(1 for w in de_stops if re.search(r"\b" + w + r"\b", text, re.I))
+    return "de" if hits >= 2 else "en"
 
 
 def call_llm(user_input: str, model: str, api_key: str, system_prompt: str = SYSTEM_PROMPT, max_retries: int = 4) -> str:
@@ -160,7 +186,7 @@ def validate(cfg: dict, lang: str = "zh") -> list[str]:
         if key in ("identity", "back_story") and len(val) > 160:
             problems.append(f"{key} 过长：{val!r}（上限 60 字）")
         if key == "background_desc":
-            marker = "不出现人物" if lang == "zh" else "no people"
+            marker = "不出现人物" if lang == "zh" else ("keine Personen" if lang == "de" else "no people")
             if marker.lower() not in val.lower():
                 problems.append(f"background_desc 缺约束 {marker!r}：{val!r}")
     return problems
@@ -213,9 +239,9 @@ def main() -> int:
         cfg = json.loads((outdir / "card-config.json").read_text(encoding="utf-8"))
     else:
         lang = detect_lang(args.sentence)
-        print(f"[1/3] 调用文字模型 {args.model} 生成配置（语言：{'中文' if lang == 'zh' else 'English'}）…")
+        print(f"[1/3] 调用文字模型 {args.model} 生成配置（语言：{'中文' if lang == 'zh' else 'Deutsch' if lang == 'de' else 'English'}）…")
         raw = call_llm(args.sentence, args.model, api_key,
-                       system_prompt=SYSTEM_PROMPT if lang == "zh" else SYSTEM_PROMPT_EN)
+                       system_prompt=SYSTEM_PROMPT if lang == "zh" else SYSTEM_PROMPT_DE if lang == "de" else SYSTEM_PROMPT_EN)
         cfg = extract_json(raw)
 
     problems = validate(cfg, lang if not args.skip_fetch else "zh")
