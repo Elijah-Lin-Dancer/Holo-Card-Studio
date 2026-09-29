@@ -262,10 +262,63 @@ footer a:hover{text-decoration:underline}
   footer{justify-content:center;text-align:center}
 }
 
+/* ============================================================
+   强化层 v3 · 动态交互升级
+   hero 视差 / 流光扫字 / 卡片光斑+镭射扫过 / 磁吸按钮 / blur 入场
+   全部尊重 prefers-reduced-motion（见文末降级段）
+   ============================================================ */
+.hero-inner{will-change:transform}
+
+/* ---- hero 流光扫字（叠加层随标题文字同步）---- */
+.hero h1{position:relative}
+.hero-shine{
+  position:absolute;inset:0;z-index:2;pointer-events:none;display:block;
+  background:linear-gradient(105deg,transparent 20%,rgba(255,250,235,.9) 45%,rgba(255,255,255,.98) 50%,rgba(255,250,235,.9) 55%,transparent 80%);
+  background-size:220% 100%;background-position:120% 0;
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  opacity:0;animation:shine-sweep 1.5s cubic-bezier(.45,0,.2,1) .85s forwards;
+}
+@keyframes shine-sweep{
+  0%{opacity:0;background-position:120% 0}
+  18%{opacity:1}
+  82%{opacity:1}
+  100%{opacity:0;background-position:-40% 0}
+}
+
+/* ---- 卡片：光斑跟随 + 镭射扫过 + blur 入场 ---- */
+.card{filter:blur(7px)}
+.card.in{filter:blur(0);transition-delay:var(--d,0ms)}
+.card::before{
+  content:"";position:absolute;left:-40%;top:-24%;bottom:-24%;width:34%;z-index:1;pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(201,168,106,.22),rgba(127,212,255,.20),rgba(185,138,230,.20),transparent);
+  transform:rotate(16deg);opacity:0;
+}
+.card:hover::before{animation:card-scan 1.7s ease-in-out .12s}
+@keyframes card-scan{0%{left:-40%;opacity:0}12%{opacity:1}78%{opacity:1}100%{left:112%;opacity:0}}
+.card::after{
+  content:"";position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;transition:opacity .3s;
+  background:radial-gradient(430px circle at var(--mx,50%) var(--my,50%),rgba(255,244,214,.14),rgba(127,212,255,.06) 40%,transparent 62%);
+}
+.card:hover::after{opacity:1}
+.card .thumb-wrap{position:relative;aspect-ratio:420/583;overflow:hidden;z-index:0}
+
+/* ---- CTA 磁吸按钮 ---- */
+.hero-cta .btn{will-change:transform}
+
+/* ---- 创造页：聚焦光晕 ---- */
+.input-panel:focus-within{
+  border-color:rgba(201,168,106,.6);
+  box-shadow:0 0 0 1px rgba(201,168,106,.28),0 0 34px rgba(127,212,255,.12);
+}
+.preview.on{animation:preview-in .55s cubic-bezier(.22,1,.36,1) both}
+@keyframes preview-in{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
 /* 动效降级（尊重系统减弱动效偏好） */
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
-  .card{opacity:1;transform:none}
+  .card{opacity:1;transform:none;filter:none}
+  .card::before,.card::after{display:none}
+  .hero-shine{display:none}
   .cursor-glow{display:none}
   .aurora{display:none}
 }

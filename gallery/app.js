@@ -99,7 +99,7 @@ function splitTitle(el) {
   void el.offsetWidth;
   requestAnimationFrame(() => el.classList.add('in'));
 }
-function reSplitTitle() { if (heroTitle) splitTitle(heroTitle); }
+function reSplitTitle() { if (heroTitle) splitTitle(heroTitle); if (window.__hololabSyncShine) window.__hololabSyncShine(); }
 if (heroTitle && !reduceMotion) reSplitTitle();
 
 /* ============ 5. 卡片加载 + 动效 ============ */
@@ -252,13 +252,15 @@ function render() {
   bindTilt(currentEls);
 }
 
-/* 3D tilt（桌面） */
+/* 3D tilt（桌面）+ 光标光斑跟随 */
 function bindTilt(els) {
   if (!finePointer || reduceMotion) return;
   els.forEach(el => {
     let raf = null;
     el.addEventListener('mousemove', e => {
       const r = el.getBoundingClientRect();
+      el.style.setProperty('--mx', (((e.clientX - r.left) / r.width) * 100).toFixed(1) + '%');
+      el.style.setProperty('--my', (((e.clientY - r.top) / r.height) * 100).toFixed(1) + '%');
       const px = (e.clientX - r.left) / r.width - 0.5;
       const py = (e.clientY - r.top) / r.height - 0.5;
       if (raf) return;
@@ -270,6 +272,62 @@ function bindTilt(els) {
     el.addEventListener('mouseleave', () => { el.style.transform = ''; });
   });
 }
+
+/* ============ 6. 强化层 v3：流光扫字 / 磁吸按钮 / 滚动视差 ============ */
+(function heroShine() {
+  if (!heroTitle || reduceMotion) return;
+  const sh = document.createElement('span');
+  sh.className = 'hero-shine';
+  sh.setAttribute('aria-hidden', 'true');
+  heroTitle.appendChild(sh);
+  window.__hololabSyncShine = () => {
+    if (!sh.isConnected) heroTitle.appendChild(sh);   // splitTitle 清空 h1 时会带走 shine，需重新挂回
+    sh.innerHTML = heroTitle.innerHTML;               // 逐字结构与标题同步，光扫位置与字完全一致
+    sh.style.animation = 'none';
+    void sh.offsetWidth;
+    sh.style.animation = '';
+  };
+  window.__hololabSyncShine();
+})();
+
+(function magnet() {
+  if (!finePointer || reduceMotion) return;
+  const cta = document.querySelector('.hero-cta');
+  if (!cta) return;
+  cta.querySelectorAll('.btn').forEach(b => {
+    b.addEventListener('mousemove', e => {
+      const r = b.getBoundingClientRect();
+      const dx = e.clientX - (r.left + r.width / 2);
+      const dy = e.clientY - (r.top + r.height / 2);
+      const d = Math.hypot(dx, dy);
+      if (d < 100) {
+        const k = Math.min(1, (100 - d) / 100) * 6;
+        b.style.transform = 'translate(' + ((dx / d) * k || 0) + 'px,' + ((dy / d) * k || 0) + 'px)';
+      } else b.style.transform = '';
+    });
+    b.addEventListener('mouseleave', () => { b.style.transform = ''; });
+  });
+})();
+
+(function scrollParallax() {
+  if (!window.gsap || !window.ScrollTrigger || reduceMotion) return;
+  gsap.registerPlugin(ScrollTrigger);
+  const hero = document.querySelector('.hero');
+  const heroInner = document.querySelector('.hero-inner');
+  const scrollHint = document.querySelector('.scroll-hint');
+  if (hero && heroInner) {
+    gsap.to(heroInner, {
+      y: 90, opacity: 0.2, ease: 'none',
+      scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: 0.6 }
+    });
+  }
+  if (scrollHint) {
+    gsap.to(scrollHint, {
+      opacity: 0, ease: 'none',
+      scrollTrigger: { trigger: hero, start: 'top top', end: '28% top', scrub: 0.4 }
+    });
+  }
+})();
 
 /* 筛选 */
 load().catch(err => {

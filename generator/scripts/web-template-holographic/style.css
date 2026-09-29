@@ -56,4 +56,16 @@ input[type="range"]::-moz-range-thumb{width:14px;height:14px;border:0;border-rad
   .view-label{top:6px}
   .controls{grid-template-columns:1fr;gap:17px}
 }
-@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+/* ---- 全息光晕氛围（白底保持印刷感，仅极淡点缀）---- */
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(52vw 42vh at 82% -6%,rgba(201,168,106,.13),transparent 62%),
+    radial-gradient(46vw 40vh at -6% 108%,rgba(127,212,255,.10),transparent 60%),
+    radial-gradient(30vw 30vh at 60% 112%,rgba(185,138,230,.07),transparent 65%);
+}
+.topbar,.identity,.controls{position:relative;z-index:1}
+/* ---- 卡片浮起入场 ---- */
+.display{animation:card-rise .9s cubic-bezier(.22,1,.36,1) .15s both}
+@keyframes card-rise{from{opacity:0;transform:translateY(26px) scale(.985)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;opacity:1!important;transform:none!important}}
