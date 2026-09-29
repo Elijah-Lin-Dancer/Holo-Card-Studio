@@ -1,0 +1,36 @@
+{
+  "slug": "taikonaut-stellar-expedition",
+  "title": "星辰远征",
+  "subtitle": "taikonaut · 逐梦星海",
+  "technique": "星海驭风",
+  "tagline": "逐梦苍穹，远征星海",
+  "collection": "HoloLab 典藏 · 星辰远征系列",
+  "description": "致敬中国航天员的太空探索征程，展现人类对星辰大海的无限向往。",
+  "style": "日式浮世绘与水墨动漫勾勒的收藏卡插画，矿物颜料质感，笔触清晰，点缀星空元素",
+  "prompt": "身着舱外航天服的中国航天员在浩瀚星空中遨游",
+  "subject_desc": "主体是中国航天员，身着白色舱外航天服，头盔面罩反射星光，双臂微张，漂浮在画面中心位置",
+  "background_desc": "背景是深邃星空，悬浮着银色星尘与淡蓝色星云，光线柔和，画面中下部留出安静空间，不出现人物",
+  "mode": "holographic",
+  "edition": "003 / 003",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.4,
+    "backgroundDepth": -0.25,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.12,
+    "offset": [
+      -0.06,
+      -0.085
+    ]
+  },
+  "assets": {
+    "subject": "./assets/subject.png",
+    "background": "./assets/background.png",
+    "text": "./assets/text.png",
+    "lineart": "./assets/lineart.png",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "taikonaut-stellar-expedition"
+}

@@ -101,6 +101,31 @@ cd gallery && python3 -m http.server 4174   # 预览展厅
 
 部署到 GitHub Pages 见 [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md)（三步上线）。
 
+### 一句话自动出卡（One-Sentence Card Generator）
+
+无需手写配置——给一句话，文字模型自动生成整张卡的配置并接入流水线：
+
+```bash
+# 1. 生成配置（默认文字模型 doubao-seed-2-0-mini-260428）
+python3 generator/scripts/one_shot_card.py "给中国航天员设计一张全息收藏卡"
+
+# 2-4. 走标准流水线出卡、渲染、发布（见上文「做一张新卡」）
+```
+
+示例输出（自动校验 + 编号 + 渲染参数，直接可跑流水线）：
+
+```json
+{
+  "title": "星辰远征",
+  "subtitle": "taikonaut · 逐梦星海",
+  "technique": "星海驭风",
+  "tagline": "逐梦苍穹，远征星海",
+  "collection": "HoloLab 典藏 · 星辰远征系列"
+}
+```
+
+展厅第三张卡即由该工具生成：`一句话 → 全息卡` 全自动闭环。
+
 ### 做一张参考图卡（宠物、朋友、角色）
 
 ```bash

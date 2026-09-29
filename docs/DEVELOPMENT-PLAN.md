@@ -104,3 +104,10 @@ P1（主视觉+信息图）→ P2（第二张卡，含验证 E）→ P3（动态
 | P4 | doubao-book-writer（+ doubao-human-signal） |
 | P5 | doubao-creative-video + text_to_audio_plus + byted-mediakit |
 | P6 | doubao-industry-analysis、doubao-product-analysis、doubao-academic-researcher |
+
+## P7 · 一句话自动出卡（One-Sentence Card Generator） ✅ 2026-09-29 完成
+- 工具：generator/scripts/one_shot_card.py（一句话 → card-config.json → 校验/编号/渲染参数 → 接入流水线）
+- 文字模型：Doubao-Seed-2.0-mini-260428（2.1-lite 长文本请求服务端断连，实测后降级到 2.0-mini，长文本正常且更便宜 0.0002-0.0008 元/千tokens）
+- 图片模型适配：CANVAS 1920×2880 → 1728×2592（flash 模型面积上限 4,624,220 px，1920×2880 超限 400）
+- 成果：第三张卡「星辰远征」由一句话全自动生成并上线（三卡展厅，含 hover preview.webm 427KB）
+- 线上：https://xin-hao2003.github.io/Holo-Card-Studio/

@@ -34,7 +34,7 @@ except ImportError:
 # ---------- 常量 ----------
 API_URL = "https://ark.cn-beijing.volces.com/api/v3/images/generations"
 DEFAULT_MODEL = "doubao-seedream-5-0-flash-260915"
-CANVAS = (1920, 2880)  # 2:3 竖版卡面
+CANVAS = (1728, 2592)  # 2:3 竖版卡面（flash 模型面积上限 4,624,220 px）
 
 
 def find_env_file(project: Path) -> Path | None:

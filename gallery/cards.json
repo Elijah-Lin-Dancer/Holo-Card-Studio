@@ -1,6 +1,21 @@
 {
   "cards": [
     {
+      "id": "taikonaut-stellar-expedition",
+      "title": "星辰远征",
+      "subtitle": "taikonaut · 逐梦星海",
+      "technique": "星海驭风",
+      "tagline": "逐梦苍穹，远征星海",
+      "edition": "003 / 003",
+      "collection": "HoloLab 典藏 · 星辰远征系列",
+      "description": "致敬中国航天员的太空探索征程，展现人类对星辰大海的无限向往。",
+      "style_tags": [],
+      "url": "cards/taikonaut-stellar-expedition/",
+      "thumb": "cards/taikonaut-stellar-expedition/thumb.jpg",
+      "date": "2026-09-29",
+      "preview": "cards/taikonaut-stellar-expedition/preview.webm"
+    },
+    {
       "id": "mj-demo",
       "title": "流行之王",
       "subtitle": "KING OF POP · 音乐传奇",
