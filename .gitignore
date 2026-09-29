@@ -19,3 +19,7 @@ generator/projects/
 # 系统
 .DS_Store
 Thumbs.db
+
+# 本地自检产物（不入库）
+gallery/_backup/
+gallery/_shots/

@@ -1,5 +1,5 @@
 // HoloLab Gallery · 瀑布流展厅（纯静态，JSON 清单驱动）
-const grid = document.getElementById('grid');
+const grid = document.getElementById('grid') || document.getElementById('gallery');
 const empty = grid.querySelector('.empty');
 let activeFilter = 'all';
 let cards = [];

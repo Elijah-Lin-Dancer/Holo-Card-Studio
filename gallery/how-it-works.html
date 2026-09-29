@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090d13">
+<title>HoloLab Studio · 全流程架构</title>
+<link rel="stylesheet" href="./style.css">
+<style>
+  .doc{max-width:1080px;margin:0 auto;padding:36px 32px 56px}
+  .doc header{margin-bottom:30px}
+  .doc h1{font-size:32px;font-weight:800;letter-spacing:1px}
+  .doc .sub{color:var(--dim);margin-top:8px;font-size:14px;line-height:1.8}
+  .doc .eyebrow{color:var(--accent);font-size:13px;letter-spacing:3px;margin-bottom:12px}
+
+  /* 管线：横向阶段门，移动端纵向 */
+  .pipeline{display:grid;grid-template-columns:repeat(6,1fr);gap:0;margin:34px 0 10px;position:relative}
+  .stage{
+    position:relative;background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    padding:18px 14px;text-align:center;display:flex;flex-direction:column;gap:8px;
+    transition:border-color .15s,transform .15s;
+  }
+  .stage:hover{border-color:var(--gold-dim);transform:translateY(-3px)}
+  .stage .no{font-size:11px;color:var(--gold);letter-spacing:2px;font-weight:700}
+  .stage .ic{color:var(--accent)}
+  .stage h3{font-size:14px;font-weight:700}
+  .stage p{font-size:11.5px;color:var(--dim);line-height:1.6}
+  .stage .out{font-size:10px;color:var(--gold-dim);margin-top:auto;letter-spacing:.5px}
+  .pipeline .arrow{
+    align-self:center;justify-self:center;color:var(--gold-dim);
+    font-size:16px;padding:0 4px;z-index:1;
+  }
+
+  .cardrow{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:16px 0 34px}
+  .layer{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:16px}
+  .layer h3{font-size:13px;color:var(--gold);margin-bottom:6px;letter-spacing:1px}
+  .layer p{font-size:12px;color:var(--dim);line-height:1.7}
+
+  .tech{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:18px 0 34px}
+  .tech-item{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:flex;gap:14px;align-items:flex-start}
+  .tech-item svg{flex:none;color:var(--gold)}
+  .tech-item h3{font-size:14px;margin-bottom:4px}
+  .tech-item p{font-size:12px;color:var(--dim);line-height:1.7}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:18px 0 8px}
+  .panel{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:20px 22px}
+  .panel h3{font-size:15px;margin-bottom:10px;color:var(--gold)}
+  .panel ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+  .panel li{font-size:13px;color:var(--dim);line-height:1.6;display:flex;gap:10px}
+  .panel li b{color:var(--text);font-weight:600;flex:none}
+  .panel li svg{flex:none;margin-top:2px;color:var(--accent)}
+
+  .doclinks{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+  .doclinks a{
+    border:1px solid var(--line);background:var(--panel2);border-radius:24px;
+    padding:10px 20px;font-size:13px;color:var(--text);transition:.15s;
+  }
+  .doclinks a:hover{border-color:var(--gold-dim);color:var(--gold)}
+  .note{font-size:12px;color:var(--dim);line-height:1.7;margin-top:34px;border-top:1px solid var(--line);padding-top:18px}
+
+  @media(max-width:900px){
+    .pipeline{grid-template-columns:1fr;gap:10px}
+    .pipeline .arrow{transform:rotate(90deg)}
+    .cardrow{grid-template-columns:repeat(2,1fr)}
+    .tech{grid-template-columns:1fr}
+    .grid2{grid-template-columns:1fr}
+  }
+  @media(max-width:560px){
+    .doc{padding:24px 16px 44px}
+    .doc h1{font-size:24px}
+    .cardrow{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="./" aria-label="HoloLab 展厅首页">
+    <span class="seal">幻</span>
+    <span>HoloLab Studio<small>HOLOGRAPHIC ATELIER</small></span>
+  </a>
+  <nav class="site-nav" aria-label="主导航">
+    <a href="./">展厅</a>
+    <a href="./how-it-works.html" aria-current="page">技术</a>
+    <a href="https://github.com/xin-hao2003/Holo-Card-Studio" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+  <span class="edition">HOW IT WORKS <i></i> AI × 3D</span>
+</header>
+
+<main class="doc">
+  <header>
+    <p class="eyebrow">HOW IT WORKS · 全链路</p>
+    <h1>从一句话，到一张可交互的 3D 全息卡</h1>
+    <p class="sub">整条管线为「AIGC 全链路应用工程」作品：纯静态、零后端、可复现。一张卡的生命周期只有六个阶段。</p>
+  </header>
+
+  <!-- 管线阶段门 -->
+  <div class="pipeline">
+    <div class="stage">
+      <span class="no">01</span>
+      <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h16M4 12h16M4 18h10"/></svg></span>
+      <h3>一句话 / 一张照片</h3>
+      <p>主题、风格、卡面文字进入卡片配置，AI 只做画师，不做设计决策。</p>
+      <span class="out">card-config.json</span>
+    </div>
+    <div class="arrow">→</div>
+    <div class="stage">
+      <span class="no">02</span>
+      <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18M3 12h18M5 5l14 14M19 5L5 19"/></svg></span>
+      <h3>AI 四层绘制</h3>
+      <p>豆包 Seedream 按主题分别生成主体、背景、线稿、文字四层高清素材。</p>
+      <span class="out">1920×2880 ×4</span>
+    </div>
+    <div class="arrow">→</div>
+    <div class="stage">
+      <span class="no">03</span>
+      <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l8 4.5v9L12 20l-8-4.5v-9L12 2z"/><path d="M12 2v18M4 6.5l8 4.5 8-4.5"/></svg></span>
+      <h3>合成与 Blender 渲染</h3>
+      <p>四层贴图合成到 3D 卡体，Blender Cycles 灯光渲染，导出 GLB 模型。</p>
+      <span class="out">card.glb</span>
+    </div>
+    <div class="arrow">→</div>
+    <div class="stage">
+      <span class="no">04</span>
+      <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 3a9 9 0 019 9 9 9 0 01-9 9 9 9 0 01-9-9 9 9 0 019-9z" opacity=".5"/></svg></span>
+      <h3>Three.js 实时查看器</h3>
+      <p>拖拽视差、镭射彩虹、翻面动画，浏览器内 WebGL 实时合成。</p>
+      <span class="out">app.js</span>
+    </div>
+    <div class="arrow">→</div>
+    <div class="stage">
+      <span class="no">05</span>
+      <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h18M3 12a9 9 0 0118 0M3 12a9 9 0 0018 0"/><path d="M12 3v9"/></svg></span>
+      <h3>一键发布</h3>
+      <p>脚本生成缩略图、更新清单、归档卡片，全程可重复。</p>
+      <span class="out">publish_card.py</span>
+    </div>
+    <div class="arrow">→</div>
+    <div class="stage">
+      <span class="no">06</span>
+      <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12a9 9 0 019-9 9 9 0 019 9 9 9 0 01-9 9 9 9 0 01-9-9z"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg></span>
+      <h3>在线展厅</h3>
+      <p>GitHub Pages 托管，纯静态零后端，任何人打开即玩。</p>
+      <span class="out">HoloLab Gallery</span>
+    </div>
+  </div>
+
+  <!-- 四层素材 -->
+  <h2 style="font-size:20px;margin:26px 0 4px;letter-spacing:.5px">AI 四层素材分工</h2>
+  <p style="color:var(--dim);font-size:13px;margin-bottom:6px">分层生成是这条管线最核心的设计：每一层只负责一类信息，让 3D 合成时拥有独立的景深与光照通道。</p>
+  <div class="cardrow">
+    <div class="layer"><h3>SUBJECT · 主体层</h3><p>卡面主角，用于 3D 前置凸出，视差最明显；使用抠图工具分离前景。</p></div>
+    <div class="layer"><h3>BACKGROUND · 背景层</h3><p>场景氛围，固定在后层，形成景深；随卡片翻转产生视差。</p></div>
+    <div class="layer"><h3>LINEART · 线稿层</h3><p>轮廓与结构线，作为 3D 卡面的基础造型依据。</p></div>
+    <div class="layer"><h3>TEXT · 文字层</h3><p>卡面标题、编号与签名，排版后独立成层，保证文字清晰。</p></div>
+  </div>
+
+  <!-- 技术栈 -->
+  <h2 style="font-size:20px;margin:26px 0 4px;letter-spacing:.5px">技术栈</h2>
+  <p style="color:var(--dim);font-size:13px;margin-bottom:6px">生成、渲染、交互、部署四个环节各选一个主力工具，整条链路公开可复现。</p>
+  <div class="tech">
+    <div class="tech-item">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.4 6.2L21 9l-5 4.2 1.6 6.8L12 16.5 6.4 20l1.6-6.8L3 9l6.6-.8L12 2z"/></svg>
+      <div><h3>豆包 Seedream 5.0</h3><p>四层素材的 AI 生成引擎，端到端调用，支持分层 prompt 控制。</p></div>
+    </div>
+    <div class="tech-item">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l8 4.5v9L12 20l-8-4.5v-9L12 2z"/><path d="M12 2v18M4 6.5l8 4.5 8-4.5"/></svg>
+      <div><h3>Blender 4.5</h3><p>3D 卡体建模与 Cycles 渲染，输出带四材质通道的 GLB。</p></div>
+    </div>
+    <div class="tech-item">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2a10 10 0 0110 10 10 10 0 01-10 10A10 10 0 012 12 10 10 0 0112 2z"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg>
+      <div><h3>Three.js</h3><p>浏览器 WebGL 查看器：视差、镭射、翻面全部实时渲染。</p></div>
+    </div>
+    <div class="tech-item">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 6l-5 6 5 6M16 6l5 6-5 6"/></svg>
+      <div><h3>Python 脚本管线</h3><p>生成、合成、导出、发布全自动，一张新卡一条命令。</p></div>
+    </div>
+    <div class="tech-item">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+      <div><h3>GitHub Actions + Pages</h3><p>提交即部署，纯静态托管，全球可访问，零服务器成本。</p></div>
+    </div>
+    <div class="tech-item">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M8 15h4"/></svg>
+      <div><h3>Git / 版本控制</h3><p>每张卡、每次改版都有提交记录，工程节奏可审计。</p></div>
+    </div>
+  </div>
+
+  <!-- 设计要点 + 文档 -->
+  <div class="grid2">
+    <div class="panel">
+      <h3>设计决策</h3>
+      <ul>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span><b>纯静态零后端</b>——无数据库、无服务器，作品集可被任何人长期打开。</span></li>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span><b>分层生成</b>——AI 只画素材，3D 结构由工程决定，稳定可复现。</span></li>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span><b>一键发布</b>——从新卡到上线一条命令，清单与归档自动同步。</span></li>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span><b>共享依赖</b>——多卡共用一份 Three.js 资产，展厅保持轻量。</span></li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>文档与代码</h3>
+      <ul>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span><b>README 中/英</b>——项目总览与快速开始。</span></li>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span><b>docs/</b>——架构、AI 管线、图形学原理、部署手册。</span></li>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span><b>generator/</b>——Python 管线源码，全部开源。</span></li>
+        <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span><b>踩坑实录</b>——从 API 限制到渲染修复的真实工程记录。</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="doclinks">
+    <a href="https://github.com/xin-hao2003/Holo-Card-Studio" target="_blank" rel="noopener">GitHub 仓库</a>
+    <a href="./">返回展厅</a>
+  </div>
+
+  <p class="note">HoloLab Studio · 作品集项目（AI × 3D 交叉方向）。页面与管线全部自研：AI 生成、3D 渲染、WebGL 交互、静态部署均为原创实现，所有代码公开可审计。</p>
+</main>
+
+<footer>
+  <span>光随手动，画有余深。</span>
+  <span>HoloLab Studio — 作品集项目 · AI × 3D 交叉方向</span>
+</footer>
+</body>
+</html>
