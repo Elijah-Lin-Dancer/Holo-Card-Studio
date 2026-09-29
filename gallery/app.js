@@ -199,12 +199,17 @@ function makeCard(c, i) {
     let shown = false, x = 0.5, raf = null;
     function draw() {
       raf = null;
-      const w = lent.width, h = lent.height, n = 26, sw = w / n;
+      const w = lent.width, h = lent.height, n = 26, cw = w / n, ch = h;
       ctx.clearRect(0, 0, w, h);
       for (let i = 0; i < n; i++) {
         const ph = ((i / n) + x) % 1;
         const img = imgs[ph < 0.5 ? 0 : 1];
-        if (img.complete && img.naturalWidth) ctx.drawImage(img, i * sw, 0, sw + 1, h, i * sw, 0, sw + 1, h);
+        if (img.complete && img.naturalWidth) {
+          // 源矩形按源图实际尺寸取样（防越界），目标矩形铺满 canvas；源图与 canvas 等比时无缝放大
+          const sw = img.naturalWidth / n, sh = img.naturalHeight;
+          const sww = Math.min(sw + 0.5, img.naturalWidth - i * sw);
+          ctx.drawImage(img, i * sw, 0, sww, sh, i * cw, 0, cw + 1, ch);
+        }
       }
     }
     card.addEventListener('mousemove', e => {
