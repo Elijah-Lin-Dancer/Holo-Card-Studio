@@ -3,71 +3,95 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#090d13">
+<meta name="theme-color" content="#0a0f1e">
+<meta name="description" content="HoloLab Studio — 会随着你的视线流动的光影收藏。AI 分层绘制、Blender 渲染、Three.js 实时合成的 3D 全息收藏卡展厅。A collection of light that flows with your gaze.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='4' y='2' width='24' height='28' rx='3' fill='%230d1420' stroke='%23c9a86a' stroke-width='2'/%3E%3Cpath d='M16 9l1.7 4.3 4.3 1.7-4.3 1.7L16 21l-1.7-4.3L10 15l4.3-1.7z' fill='%23c9a86a'/%3E%3C/svg%3E">
 <title>HoloLab Studio · 全息典藏展厅</title>
+<script src="./theme.js"></script>
 <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+<!-- 背景特效层 -->
+<div class="bg-fx" aria-hidden="true">
+  <canvas id="starfield"></canvas>
+  <div class="aurora a1"></div>
+  <div class="aurora a2"></div>
+  <div class="aurora a3"></div>
+</div>
+<div class="cursor-glow" aria-hidden="true"></div>
+
 <header class="site-header">
   <a class="brand" href="./" aria-label="HoloLab 展厅首页">
     <span class="seal">幻</span>
     <span>HoloLab Studio<small>HOLOGRAPHIC ATELIER</small></span>
   </a>
   <nav class="site-nav" aria-label="主导航">
-    <a href="#gallery">展厅</a>
-    <a href="./create.html">创造</a>
-    <a href="https://github.com/xin-hao2003/Holo-Card-Studio" target="_blank" rel="noopener">GitHub</a>
+    <a href="#gallery" aria-current="page" data-i18n="nav_gallery">展厅</a>
+    <a href="./create.html" data-i18n="nav_create">创造</a>
   </nav>
+  <div class="header-actions">
+    <button class="icon-btn" id="lang-btn" type="button" aria-label="语言切换">EN</button>
+    <button class="icon-btn" id="theme-btn" type="button" aria-label="切换主题">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3a9 9 0 100 18 7 7 0 110-14 9 9 0 000-4z"/></svg>
+    </button>
+    <a class="icon-btn" href="https://github.com/xin-hao2003/Holo-Card-Studio" target="_blank" rel="noopener" data-i18n="nav_github">GitHub</a>
+  </div>
   <span class="edition">COLLECTION 01 <i></i> AI × 3D</span>
 </header>
 
 <main>
   <section class="hero">
-    <div class="hero-kv">
-      <img src="./assets/hero-kv.jpg" alt="HoloLab Studio 主视觉：全息收藏卡悬浮于深空星云，金色粒子环绕" width="2730" height="1536">
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow" data-i18n="hero_eyebrow">HOLOGRAPHIC COLLECTION 01</p>
+        <h1 class="split" id="hero-title" data-i18n="hero_title">会随着你的视线流动的光影收藏。</h1>
+        <p class="sub" data-i18n="hero_sub">每一张卡都由 AI 分层绘制、Blender 渲染、Three.js 实时合成——拖一拖，主体往前凸，背景往后退，镭射彩虹随角度流转。</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#gallery" data-i18n="hero_cta_gallery">进入展厅</a>
+          <a class="btn ghost" href="./create.html" data-i18n="hero_cta_create">开始创造</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="halo" aria-hidden="true"></div>
+        <div class="hcard">
+          <img src="./cards/messi-demo/thumb.jpg" alt="梅西称王 全息卡" loading="eager">
+        </div>
+      </div>
     </div>
-    <h1>会随着你的视线流动的光影收藏。</h1>
-    <p class="sub">每一张卡都由 AI 分层绘制、Blender 渲染、Three.js 实时合成——
-    拖一拖，主体往前凸，背景往后退，镭射彩虹随角度流转。</p>
-    <div class="hero-cta">
-      <a class="btn primary" href="#gallery">进入展厅</a>
-      <a class="btn ghost" href="./create.html">开始创造</a>
-    </div>
-    <div class="stats">
-      <span><b id="stat-cards">0</b> 张卡</span>
-      <span><b>豆包 Seedream</b> 生成</span>
-      <span><b>Blender</b> 渲染</span>
-      <span><b>纯静态</b> 零后端</span>
-    </div>
-  </section>
-
-  <section class="how-entry">
-    <div>
-      <h2>展厅里的卡，都是这样造出来的</h2>
-      <p>AI 四层素材 → Blender 渲染 → Three.js 查看器 → 纯静态发布。你也可以亲手造一张——输入一句话，管线自动完成。</p>
-    </div>
-    <a class="btn ghost" href="./create.html">输入一句话，开始创造</a>
+    <div class="scroll-hint" data-i18n="scroll_hint">向下滚动，进入展厅</div>
   </section>
 
   <section class="filters" aria-label="筛选">
-    <button class="chip active" data-filter="all">全部</button>
+    <button class="chip active" data-filter="all" data-i18n="filters_all">全部</button>
     <button class="chip" data-filter="足球">足球</button>
     <button class="chip" data-filter="传奇">传奇</button>
     <button class="chip" data-filter="夜景">夜景</button>
   </section>
 
   <section class="grid" id="gallery" aria-label="卡片瀑布流">
-    <p class="empty" hidden>暂无卡片，稍后再来看看。</p>
+    <p class="empty" data-i18n="empty" hidden>暂无卡片，稍后再来看看。</p>
+  </section>
+
+  <section class="cta">
+    <h2 data-i18n="cta_title">展厅里的卡，都是这样造出来的</h2>
+    <p data-i18n="cta_sub">AI 四层素材 → Blender 渲染 → Three.js 查看器 → 纯静态发布。输入一句话，管线自动完成。</p>
+    <a class="btn primary" href="./create.html" data-i18n="cta_btn">输入一句话，开始创造</a>
+    <div class="stats">
+      <span><b id="stat-cards">0</b> <span data-i18n="stat_cards">张卡</span></span>
+      <span><b>Seedream</b> <span data-i18n="stat_seedream">豆包 Seedream 生成</span></span>
+      <span><b>Blender</b> <span data-i18n="stat_blender">Blender 渲染</span></span>
+      <span><b>Static</b> <span data-i18n="stat_static">纯静态 · 零后端</span></span>
+    </div>
   </section>
 </main>
 
 <footer>
-  <span>光随手动，画有余深。</span>
-  <span>HoloLab Studio — 作品集项目 · AI × 3D 交叉方向</span>
+  <span data-i18n="footer_slogan">光随手动，画有余深。</span>
+  <span data-i18n="footer_tag">HoloLab Studio — 作品集项目 · AI × 3D 交叉方向</span>
   <a href="https://github.com/xin-hao2003/Holo-Card-Studio" target="_blank" rel="noopener">github.com/xin-hao2003/Holo-Card-Studio</a>
 </footer>
 
+<script src="./i18n.js"></script>
 <script src="./app.js" type="module"></script>
 </body>
 </html>
