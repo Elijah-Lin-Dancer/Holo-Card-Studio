@@ -42,20 +42,12 @@
 <main>
   <section class="hero">
     <div class="hero-inner">
-      <div>
-        <p class="eyebrow" data-i18n="hero_eyebrow">HOLOGRAPHIC COLLECTION 01</p>
-        <h1 class="split" id="hero-title" data-i18n="hero_title">会随着你的视线流动的光影收藏。</h1>
-        <p class="sub" data-i18n="hero_sub">每一张卡都由 AI 分层绘制、Blender 渲染、Three.js 实时合成——拖一拖，主体往前凸，背景往后退，镭射彩虹随角度流转。</p>
-        <div class="hero-cta">
-          <a class="btn primary" href="#gallery" data-i18n="hero_cta_gallery">进入展厅</a>
-          <a class="btn ghost" href="./create.html" data-i18n="hero_cta_create">开始创造</a>
-        </div>
-      </div>
-      <div class="hero-card">
-        <div class="halo" aria-hidden="true"></div>
-        <div class="hcard">
-          <img src="./cards/messi-demo/thumb.jpg" alt="梅西称王 全息卡" loading="eager">
-        </div>
+      <p class="eyebrow" data-i18n="hero_eyebrow">HOLOGRAPHIC COLLECTION 01</p>
+      <h1 class="split" id="hero-title" data-i18n="hero_title">会随着你的视线流动的光影收藏。</h1>
+      <p class="sub" data-i18n="hero_sub">每一张卡都由 AI 分层绘制、Blender 渲染、Three.js 实时合成——拖一拖，主体往前凸，背景往后退，镭射彩虹随角度流转。</p>
+      <div class="hero-cta">
+        <a class="btn primary" href="#gallery" data-i18n="hero_cta_gallery">进入展厅</a>
+        <a class="btn ghost" href="./create.html" data-i18n="hero_cta_create">开始创造</a>
       </div>
     </div>
     <div class="scroll-hint" data-i18n="scroll_hint">向下滚动，进入展厅</div>
@@ -72,16 +64,16 @@
     <p class="empty" data-i18n="empty" hidden>暂无卡片，稍后再来看看。</p>
   </section>
 
-  <section class="cta">
-    <h2 data-i18n="cta_title">展厅里的卡，都是这样造出来的</h2>
-    <p data-i18n="cta_sub">AI 四层素材 → Blender 渲染 → Three.js 查看器 → 纯静态发布。输入一句话，管线自动完成。</p>
-    <a class="btn primary" href="./create.html" data-i18n="cta_btn">输入一句话，开始创造</a>
-    <div class="stats">
-      <span><b id="stat-cards">0</b> <span data-i18n="stat_cards">张卡</span></span>
-      <span><b>Seedream</b> <span data-i18n="stat_seedream">豆包 Seedream 生成</span></span>
-      <span><b>Blender</b> <span data-i18n="stat_blender">Blender 渲染</span></span>
-      <span><b>Static</b> <span data-i18n="stat_static">纯静态 · 零后端</span></span>
-    </div>
+  <section class="stat-band" aria-label="项目数据">
+    <span><b id="stat-cards">0</b> <span data-i18n="stat_cards">张卡</span></span>
+    <i></i>
+    <span><b>Seedream 5.0</b> <span data-i18n="stat_seedream">AI 分层绘制</span></span>
+    <i></i>
+    <span><b>Blender</b> <span data-i18n="stat_blender">3D 渲染</span></span>
+    <i></i>
+    <span><b>100% Static</b> <span data-i18n="stat_static">零后端 · 零数据库</span></span>
+    <i></i>
+    <span><b>MIT</b> <span data-i18n="stat_mit">开源许可</span></span>
   </section>
 </main>
 

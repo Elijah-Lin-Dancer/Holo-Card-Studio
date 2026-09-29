@@ -400,18 +400,23 @@ python3 generator/scripts/one_shot_card.py "<span id="cmdq">…</span>"</div>
     }
   }
 
+  /* 输入语言检测：CJK 占比≥20% 判中文，其余一律英文（无法识别时兜底英文） */
+  function detectLang(text){
+    var cjk = (text.match(/[\u4e00-\u9fff\u3400-\u4dbf]/g) || []).length;
+    return (cjk / Math.max(text.length, 1)) >= 0.2 ? 'zh' : 'en';
+  }
+
   function runExpand(){
     var text = idea.value.trim();
     if(!text){ idea.focus(); return; }
-    var lang = I18N.get();
-    detail.value = buildDesc(text, lang);
+    detail.value = buildDesc(text, detectLang(text));
     descBox.hidden = false;
   }
   genDesc.addEventListener('click', runExpand);
   regen.addEventListener('click', function(){
     var text = idea.value.trim();
     if(!text){ idea.focus(); return; }
-    detail.value = buildDesc(text, I18N.get());
+    detail.value = buildDesc(text, detectLang(text));
   });
 
   /* 语言 / 主题切换器 */

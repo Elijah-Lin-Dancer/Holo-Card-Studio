@@ -1,207 +1,206 @@
-# 🃏 HoloLab Studio
+# HoloLab Studio
 
-**一句话 → 一张会随视线流动光影的 3D 全息卡 → 一个全球可玩的在线展厅。**
+**English · [中文](README.zh-CN.md)**
 
-HoloLab Studio 是一条完整的 **AIGC 全链路系统**：用豆包 Seedream 图像生成模型把
-一句话（或一张参考照片）分层绘制成卡面素材，交给 Blender 构建带视差/镭射的 3D
-场景，导出 GLB 后在浏览器里用 Three.js 实时合成——主体往前凸、背景往后缩、
-镭射彩虹随角度流转。生成好的卡片通过一键发布脚本进入纯静态展厅（GitHub
-Pages 托管，零服务器、零数据库），任何人打开链接即可拖拽、翻面、调节光影。
+> One sentence → a 3D holographic card whose light shifts with your gaze → a live online gallery, playable by anyone on Earth.
 
-> 作品集项目 · AI × 3D 交叉方向
-> 分层素材：豆包 Seedream 5.0 生成 + rembg 抠图 + OpenCV 线稿提取
-> 3D 管线：Blender 4.5（自动下载便携版）→ glTF 导出
-> 实时渲染：Three.js + GLSL 着色器（视差 / 镭射 / 星光 / 辉光）
+**▶ [Live Gallery](https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/)**
+
+A complete **AIGC pipeline** that turns one sentence into an interactive 3D holographic collectible card: Doubao Seedream draws the layered art, Blender builds the parallax / rainbow-foil 3D scene, Three.js composites it live in the browser — drag the card, push the subject forward, ease the background back, watch the rainbow foil shift with the angle. Cards are published to a pure-static gallery (GitHub Pages, zero server, zero database) with one command.
+
+*Portfolio project · AI × 3D intersection · 100% static front-end*
+
+| | |
+|---|---|
+| **Layered art** | Doubao Seedream 5.0 (Flash) + rembg cutout + OpenCV line-art extraction |
+| **3D pipeline** | Blender 4.5 (portable, auto-download) → glTF export |
+| **Real-time render** | Three.js + GLSL shaders (parallax / rainbow foil / stardust / glow) |
 
 ---
 
-## ✨ 为什么值得看
+## Screenshots
 
-这个项目不是"调一个图像模型出张图"，而是一条把生成模型真正落地成可玩产品的
-完整工程链路，覆盖：
+Light theme · full page:
 
-| 能力维度 | 具体体现 |
+![HoloLab gallery — light theme](docs/screenshots/gallery-light.jpg)
+
+Dark theme · hero (card removed, centered narrative):
+
+![HoloLab hero — dark theme](docs/screenshots/gallery-dark-hero.png)
+
+Dark theme · card wall:
+
+![HoloLab card wall — dark theme](docs/screenshots/gallery-dark.png)
+
+---
+
+## Why it's worth your time
+
+This is not "tune an image model and output a picture" — it is a complete engineering chain that turns generative models into a playable product:
+
+| Capability | Evidence in this repo |
 |---|---|
-| **AI 应用开发** | 豆包 Seedream API 集成；主体/背景/线稿/文字四层**分而治之**的生成策略；提示词工程；以图生图保留主体 |
-| **3D 图形学** | Blender 程序化场景（视差 UV、镭射材质节点组）；glTF 导出；Three.js GLSL 片段着色器实时重建材质 |
-| **系统工程** | Python 流水线（生成 → 校验 → 渲染 → 导出 → 发布）；静态站点生成；一键发布脚本；CI/CD 就绪 |
-| **产品设计** | 瀑布流展厅、每卡永久 URL、风格筛选、移动端适配、分享即玩 |
+| **AI application** | Doubao Seedream API integration; **divide-and-conquer** layered generation (subject / background / line-art / typography); prompt engineering; image-to-image subject retention |
+| **3D graphics** | Blender procedural scenes (parallax UV, rainbow-foil material node group); glTF export; Three.js GLSL fragment shader that rebuilds the material in real time |
+| **Systems engineering** | Python pipeline (generate → validate → render → export → publish); static site generation; one-command publish; CI-ready layout |
+| **Product design** | Masonry gallery, per-card permanent URLs, style filters, mobile adaptation, share-and-play |
 
-## 🧱 系统架构
+**Front-end showcase (v2):** dual themes (dark stage / light cabinet), bilingual UI (EN / 中文), stardust particles, aurora, cursor glow, per-letter title reveal, staggered card entrance with tilt, glassmorphism chips — all vanilla JS, zero frameworks, zero backend.
+
+---
+
+## System architecture
 
 ```
-┌─────────────────────────── 本地工具链 ───────────────────────────┐
-│  一句话 / 一张照片                                                 │
-│     │                                                            │
-│     ▼                                                            │
-│  ai_generate.py（豆包 Seedream 5.0）                              │
-│     ├─ 主体层 subject.png   生成 → rembg 抠图 → 透明底 PNG        │
-│     ├─ 背景层 background.png 同风格环境空镜（中下部留白叠字）      │
-│     ├─ 线稿层 lineart.png   OpenCV 从透明主体提取轮廓（像素级注册）│
-│     └─ 文字层 text.png      精确字体排版（不让 AI 画字）          │
-│     │                                                            │
-│     ▼                                                            │
-│  run_pipeline.py（Blender 4.5 自动下载 + SHA-256 校验）           │
-│     ├─ card.blend            可编辑的 3D 场景                     │
-│     ├─ renders/hero.png      Cycles 渲染正面图                    │
-│     └─ web/                  Three.js 查看器 + card.glb           │
-│     │                                                            │
-│     ▼                                                            │
-│  publish_card.py（一键发布：WebP 压缩 + 预览动画 + 清单）          │
-└───────────────────────────┬──────────────────────────────────────┘
-                           │ git push（纯静态，零后端）
-                           ▼
-        GitHub Pages 在线展厅（瀑布流 + 筛选 + 每卡独立 URL）
+┌─────────────────────── Local toolchain ───────────────────────┐
+│  One sentence / one photo                                     │
+│     │                                                         │
+│     ▼                                                         │
+│  ai_generate.py (Doubao Seedream 5.0)                         │
+│     ├─ subject.png   generate → rembg cutout → transparent PNG│
+│     ├─ background.png same-style empty scene (lower space kept)│
+│     ├─ lineart.png   OpenCV contour extraction (pixel-registered)│
+│     └─ text.png      typography layer (precise font layout)   │
+│     │                                                         │
+│     ▼                                                         │
+│  run_pipeline.py (Blender 4.5, headless, auto-download + SHA-256)│
+│     ├─ card.blend       editable 3D scene                     │
+│     ├─ renders/hero.png Cycles front render                   │
+│     └─ web/             Three.js viewer + card.glb            │
+│     │                                                         │
+│     ▼                                                         │
+│  publish_card.py (one-command publish: WebP compress + preview│
+│                   animation + manifest update, idempotent)    │
+└───────────────────────┬───────────────────────────────────────┘
+                        │ git push (pure static, zero backend)
+                        ▼
+        GitHub Pages live gallery (masonry + filters + per-card URL)
 ```
 
-## 🚀 快速开始
+---
 
-### 环境要求
+## Features
 
-- Python 3.10+，`pip install pillow opencv-python-headless rembg onnxruntime`
-- Node.js 18+（查看器依赖 three.js）
-- 豆包（火山方舟）API Key —— 写入项目根目录 `.env`：
+- **One-sentence card creation** — type an idea; the local expander engine turns it into a structured detailed description (subject / background / palette / line-art / typography) that you can edit before generating.
+- **Language follows your input** — card text is produced in the language you typed (CJK → 中文, otherwise English fallback), in both the front-end expander and the local `one_shot_card.py` pipeline.
+- **Gallery** — masonry card wall with style filters (all / football / legend / night-scene), per-card permalinks, drag-to-tilt parallax.
+- **Create studio** — dual input boxes (one-sentence idea → generated detailed description → editable), local preview, zero API usage in the browser (the API key never enters the front-end).
+- **Dual themes + bilingual UI** — dark / light, EN / 中文, shareable `?lang=` URL switch.
+
+---
+
+## Quick start
+
+### Browse the gallery (no setup needed)
+
+Open **[https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/](https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/)** — it is fully static.
+
+### Run the gallery locally
 
 ```bash
-# .env（已被 .gitignore 忽略，勿提交）
-ARK_API_KEY=你的密钥
+cd gallery && python3 -m http.server 8000   # open http://127.0.0.1:8000
 ```
 
-Blender **无需手动安装**：流水线会自动下载官方便携版到 `<项目>/tools/` 并校验
-SHA-256（国内网络可先手动从清华镜像下载同名包放入 `tools/`）。
-
-### 做一张新卡
-
-1. 建项目目录，写 `card-config.json`（参考 `generator/projects/messi-demo/card-config.json`）
-2. 分层生成素材：
+### Make a card with one sentence (local pipeline)
 
 ```bash
-python3 generator/scripts/ai_generate.py --project generator/projects/<id>
-```
+# 1. Requirements
+pip install pillow opencv-python-headless rembg onnxruntime
+# .env (gitignored — never commit it)
+ARK_API_KEY=your_key
 
-3. 跑流水线（Blender 渲染 + GLB 导出 + 查看器）：
-
-```bash
-python3 generator/scripts/run_pipeline.py --project generator/projects/<id>
-```
-
-4. 本地预览：
-
-```bash
-cd generator/projects/<id>/web && npm install && node server.mjs
-# 打开 http://127.0.0.1:4173
-```
-
-5. 发布进展厅（**自动完成压缩 + 预览动画渲染**）：
-
-```bash
-python3 generator/scripts/publish_card.py --project generator/projects/<id> --id <id> --tags "风格,题材"
-cd gallery && python3 -m http.server 4174   # 预览展厅
-```
-
-发布脚本会自动：四层贴图 PNG→WebP 压缩（保留透明通道）、定位 Blender 并渲染 96 帧旋转预览动画 → ffmpeg 合成 `preview.webm`、更新 `cards.json` 清单。重跑幂等（已有 webp/动画自动跳过）；`--skip-preview` 可跳过动画渲染。
-
-部署到 GitHub Pages 见 [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md)（三步上线）。
-
-### 一句话自动出卡（One-Sentence Card Generator）
-
-无需手写配置——给一句话，文字模型自动生成整张卡的配置并接入流水线：
-
-```bash
-# 1. 生成配置（默认文字模型 doubao-seed-2-0-mini-260428）
+# 2. Generate the card config from one sentence
 python3 generator/scripts/one_shot_card.py "给中国航天员设计一张全息收藏卡"
 
-# 2-4. 走标准流水线出卡、渲染、发布（见上文「做一张新卡」）
+# 3. Generate layered art → run the Blender pipeline → publish to gallery
+python3 generator/scripts/ai_generate.py --project generator/projects/<id>
+python3 generator/scripts/run_pipeline.py  --project generator/projects/<id>
+python3 generator/scripts/publish_card.py  --project generator/projects/<id> --id <id> --tags "风格,题材"
 ```
 
-发布阶段全自动：压缩 + 预览动画 + 清单更新一键完成，无需任何手动渲染/压缩步骤。
+The publish step is fully automatic: WebP compression (PNG→WebP, −81%), 96-frame preview animation (Blender turntable → `preview.webm`), and `cards.json` update — no manual compression or rendering. Re-runs are idempotent (`--skip-preview` skips the animation).
 
-示例输出（自动校验 + 编号 + 渲染参数，直接可跑流水线）：
+Blender needs **no manual install** — the pipeline auto-downloads the official portable build to `<repo>/tools/` with SHA-256 verification.
 
-```json
-{
-  "title": "星辰远征",
-  "subtitle": "taikonaut · 逐梦星海",
-  "technique": "星海驭风",
-  "tagline": "逐梦苍穹，远征星海",
-  "collection": "HoloLab 典藏 · 星辰远征系列"
-}
-```
-
-展厅第三张卡即由该工具生成：`一句话 → 全息卡` 全自动闭环。
-
-### 做一张参考图卡（宠物、朋友、角色）
+**Reference-photo card** (pet, friend, character):
 
 ```bash
-python3 generator/scripts/ai_generate.py --project generator/projects/<id> --reference 照片路径
+python3 generator/scripts/ai_generate.py --project generator/projects/<id> --reference photo.jpg
 ```
 
-Seedream 会保留照片中主体的姿态与构图，重绘为卡牌风格。
+Seedream keeps the subject's pose and composition, re-drawing it in card style.
 
-## 📁 目录结构
+**Model defaults (locked):** image `doubao-seedream-5-0-flash-260915` · text `doubao-seed-2-0-mini-260428` · video `doubao-seedance-2-0-fast` (account not yet enabled).
+
+---
+
+## Repository layout
 
 ```
 holo-lab/
+├── gallery/                      # pure-static front-end (index/create/theme/i18n/cards.json)
+│   ├── index.html                # masonry gallery home
+│   ├── create.html               # create studio (dual input boxes)
+│   ├── cards.json                # card manifest (JSON-driven, no database)
+│   └── cards/<card-id>/          # per-card assets: thumb.jpg · card.jpg · scene.glb
 ├── generator/
 │   ├── scripts/
-│   │   ├── one_shot_card.py      # 一句话自动出卡（文字模型 → card-config.json）
-│   │   ├── ai_generate.py        # 豆包 Seedream 分层画图（本项目的核心增量）
-│   │   ├── run_pipeline.py       # 流水线编排（Blender 构建/渲染/导出）
-│   │   ├── build_card.py         # Blender 程序化场景 + 材质节点
-│   │   ├── export_web.py         # glTF/GLB 导出
-│   │   ├── generate_typography.py# 文字层精确排版
-│   │   ├── validate_assets.py    # 四层素材体检（真实 alpha / 线稿极值）
-│   │   ├── ensure_blender.py     # Blender 自动下载 + SHA-256 校验
-│   │   ├── render_preview.py     # 旋转预览帧渲染（360×500 / 96 帧）
-│   │   ├── publish_card.py       # 一键发布：压缩 + 预览动画 + 清单（核心增量）
-│   │   └── web-template-holographic/  # Three.js 查看器模板
-│   └── projects/<card-id>/       # 每张卡的项目目录（素材/场景/产物）
-├── gallery/                      # 纯静态展厅（可直接推 GitHub Pages）
-│   ├── index.html                # 瀑布流首页
-│   ├── cards.json                # 卡片清单（JSON 驱动，无数据库）
-│   ├── vendor/three/             # 共享 three.js 依赖
-│   └── cards/<card-id>/          # 每张卡的查看器 + 资产 + 缩略图
-├── docs/
-│   ├── DEPLOYMENT.md             # GitHub Pages 部署指南
-│   ├── architecture.md           # 系统设计
-│   ├── ai-pipeline.md            # AI 分层生成策略
-│   └── graphics.md               # 3D 渲染与着色器原理
-└── .github/workflows/deploy.yml  # CI 自动部署
+│   │   ├── one_shot_card.py      # one-sentence → card-config.json (language-aware)
+│   │   ├── ai_generate.py        # Seedream layered drawing (core increment)
+│   │   ├── run_pipeline.py       # Blender build/render/export orchestration
+│   │   ├── build_card.py         # procedural 3D scene + material nodes
+│   │   ├── export_web.py         # glTF/GLB export
+│   │   ├── generate_typography.py# precise text-layer layout
+│   │   ├── validate_assets.py    # 4-layer asset health check
+│   │   ├── ensure_blender.py     # Blender auto-download + SHA-256
+│   │   ├── render_preview.py     # turntable frames (360×500 / 96 frames)
+│   │   ├── publish_card.py       # one-command publish (core increment)
+│   │   └── web-template-holographic/  # Three.js viewer template
+│   └── projects/<card-id>/       # per-card working dir
+├── docs/                         # architecture · AI pipeline · graphics · whitepaper
+└── .github/workflows/deploy.yml  # CI deploy
 ```
 
-## 📖 深入阅读
+---
 
-- [`docs/architecture.md`](docs/architecture.md) —— 系统设计与分层决策
-- [`docs/ai-pipeline.md`](docs/ai-pipeline.md) —— 四层生成策略、提示词工程、抠图与线稿提取
-- [`docs/graphics.md`](docs/graphics.md) —— 视差 UV、镭射材质、GLSL 着色器原理
-- [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md) —— 上线步骤
+## Example cards
 
-## 🎴 示例卡
+- **Messi, King** (梅西称王) — Argentina No.10 · Holographic Archive series
+- **King of Pop** (流行之王) — Michael Jackson · Legend series
+- **Stellar Expedition** (星辰远征) — taikonaut · generated by one-sentence pipeline
+- **Great Sage** (齐天大圣) — Sun Wukong · Journey to the West series · generated by one-sentence pipeline
 
-- 「梅西称王」—— 球王 · 阿根廷十号 · 全息典藏系列
-- 「流行之王」—— 迈克尔·杰克逊 · 舞台之巅 · 传奇系列
-- 「星辰远征」—— 中国航天员 · 逐梦星海 · 星辰远征系列（一句话自动出卡生成）
-- 「齐天大圣」—— 孙悟空 · 傲世苍穹 · 西游系列（一句话自动出卡生成）
+---
 
-## 🛤️ 路线图
+## Roadmap
 
-- [x] 豆包 Seedream 分层生成 + 抠图 + 线稿提取
-- [x] Blender 全息流水线 + Three.js 查看器
-- [x] 静态展厅 + 一键发布 + CI 部署就绪
-- [x] 素材体积压缩（PNG→WebP，-81%，已入发布流水线）
-- [x] 卡片动态预览（Blender 旋转序列 → preview.webm + hover 播放，已入发布流水线）
-- [x] 一句话自动出卡（文字模型 → 配置 → 全自动闭环）
-- [ ] lenticular 双图光栅模式接入
-- [ ] 展厅自动分类（按人物/风格/稀有度）
+- [x] Seedream layered generation + cutout + line-art extraction
+- [x] Blender holographic pipeline + Three.js viewer
+- [x] Static gallery + one-command publish + CI-ready
+- [x] Asset compression (PNG→WebP, −81%, in publish pipeline)
+- [x] Animated preview (Blender turntable → preview.webm + hover play)
+- [x] One-sentence auto card (text model → config → full auto loop)
+- [x] Language-following card text (CJK / English fallback)
+- [ ] Lenticular dual-image raster mode
+- [ ] Auto gallery categorization (person / style / rarity)
 
-## ⚖️ 开源声明
+---
 
-本项目在开源项目 [EverettFish/holo-card-studio](https://github.com/EverettFish/holo-card-studio)
-（MIT License）基础上二次开发。个人增量包括：**AI 分层画图自动化**（原项目依赖
-Codex 人工调用图像模型，本项目改为可复现的豆包 API 管线）、**OpenCV 线稿提取**、
-**一键发布与静态展厅系统**、**部署与文档体系**。Blender 场景构建脚本沿用原项目
-的实现，素材规范兼容原项目格式。
+## Docs
 
-## 📄 License
+- [Architecture & system design](docs/architecture.md)
+- [AI layered pipeline](docs/ai-pipeline.md)
+- [3D rendering & shaders](docs/graphics.md)
+- [Deployment](docs/DEPLOYMENT.md)
+- [Whitepaper](docs/whitepaper/deliverables/final.md)
+- [Toolkit roadmap](docs/TOOLKIT-ROADMAP.md)
 
-MIT
+---
+
+## Acknowledgement
+
+Built on the MIT-licensed upstream [`holo-card-studio`](https://github.com/EverettFish/holo-card-studio) by EverettFish — original concept; all derivative work retains upstream attribution. Individual increments include: **AI layered-drawing automation** (upstream relied on manual Codex calls; this repo is a reproducible Doubao API pipeline), **OpenCV line-art extraction**, **one-command publish & static gallery**, and the **deployment & documentation system**. Card art generated with Doubao Seedream; 3D scenes rendered with Blender.
+
+## License
+
+[MIT](LICENSE) © 2026 HoloLab Studio · Elijah Lin

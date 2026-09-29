@@ -50,13 +50,37 @@ SYSTEM_PROMPT = """你是 HoloLab Studio 的全息收藏卡创意总监。用户
 质量要求：内容准确、不夸大事实；涉及真实人物时只写客观身份与标志性特征，不编造事件；title 要响亮，technique 要有意境。只输出 JSON，不要任何其他文字。"""
 
 
+SYSTEM_PROMPT_EN = """You are the creative director of HoloLab Studio's holographic collectible cards. The user gives you one sentence; turn it into a complete card configuration.
+
+Output must be valid JSON with all fields below:
+- "slug": lowercase English slug, letters/digits/hyphens, e.g. "taikonaut-odyssey" (used for folder & URL)
+- "title": English main title, 3-6 words, like a bold card headline
+- "subtitle": English subtitle, up to 20 characters, e.g. "Odyssey · Sea of Stars"
+- "technique": technique name, 2-4 word poetic phrase, e.g. "Lunar Waltz"
+- "tagline": a short motto, up to 12 words
+- "collection": collection name, format "HoloLab Archive · XXX Series"
+- "description": two sentences, up to 60 words
+- "style": visual style, keep "Japanese ukiyo-e and ink-wash anime collectible-card illustration, mineral pigment texture, crisp brushwork" and fine-tune per theme (e.g. add "starry night, night scene")
+- "prompt": one sentence summarizing the subject scene (for the image model; clear subject-verb-object)
+- "subject_desc": subject detail: who/what, pose, outfit, expression, position (for a transparent subject layer, must stand alone as an image)
+- "background_desc": background detail: scene, atmosphere, lighting; MUST include "leave a quiet empty space in the lower-middle of the frame, no people" (for the background layer)
+
+Quality: be accurate, do not exaggerate facts; for real people only state objective identity and iconic traits, do not invent events; title must be punchy, technique poetic. Output JSON only, no other text."""
+
+
 REQUIRED_KEYS = [
     "slug", "title", "subtitle", "technique", "tagline",
     "collection", "description", "style", "prompt", "subject_desc", "background_desc",
 ]
 
 
-def call_llm(user_input: str, model: str, api_key: str, max_retries: int = 4) -> str:
+def detect_lang(text: str) -> str:
+    """输入语言检测：CJK 占比 ≥20% 判中文，其余（含无法识别）一律英文。"""
+    cjk = len(re.findall(r"[\u4e00-\u9fff\u3400-\u4dbf]", text))
+    return "zh" if (cjk / max(len(text), 1)) >= 0.2 else "en"
+
+
+def call_llm(user_input: str, model: str, api_key: str, system_prompt: str = SYSTEM_PROMPT, max_retries: int = 4) -> str:
     """调用文字模型，返回模型输出的原始文本。
 
     服务端偶发限流断连（RemoteDisconnected / 5xx / 429），
@@ -67,7 +91,7 @@ def call_llm(user_input: str, model: str, api_key: str, max_retries: int = 4) ->
     body = {
         "model": model,
         "messages": [
-            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_input},
         ],
         "response_format": {"type": "json_object"},
@@ -112,8 +136,8 @@ def extract_json(text: str) -> dict:
         return json.loads(text[start : end + 1])
 
 
-def validate(cfg: dict) -> list[str]:
-    """校验配置，返回问题列表（空列表 = 通过）。"""
+def validate(cfg: dict, lang: str = "zh") -> list[str]:
+    """校验配置，返回问题列表（空列表 = 通过）。lang 影响中英文差异字段。"""
     problems = []
     for key in REQUIRED_KEYS:
         val = cfg.get(key)
@@ -122,14 +146,16 @@ def validate(cfg: dict) -> list[str]:
             continue
         if key == "slug" and not re.fullmatch(r"[a-z0-9][a-z0-9-]{2,63}", val):
             problems.append(f"slug 不合法：{val!r}（需小写字母/数字/连字符，3-64 字符）")
-        if key == "title" and not (2 <= len(val) <= 12):
-            problems.append(f"title 长度异常：{val!r}（建议 4-8 字）")
-        if key == "tagline" and len(val) > 24:
+        if key == "title" and (lang == "zh" and not (2 <= len(val) <= 12) or lang == "en" and not (2 <= len(val) <= 40)):
+            problems.append(f"title 长度异常：{val!r}（中文 4-8 字 / 英文 3-6 词）")
+        if key == "tagline" and len(val) > 40:
             problems.append(f"tagline 过长：{val!r}")
-        if key == "description" and len(val) > 120:
+        if key == "description" and len(val) > 160:
             problems.append(f"description 过长：{val!r}")
-        if key == "background_desc" and "不出现人物" not in val:
-            problems.append(f"background_desc 缺 '不出现人物' 约束：{val!r}")
+        if key == "background_desc":
+            marker = "不出现人物" if lang == "zh" else "no people"
+            if marker.lower() not in val.lower():
+                problems.append(f"background_desc 缺约束 {marker!r}：{val!r}")
     return problems
 
 
@@ -179,11 +205,13 @@ def main() -> int:
             return 2
         cfg = json.loads((outdir / "card-config.json").read_text(encoding="utf-8"))
     else:
-        print(f"[1/3] 调用文字模型 {args.model} 生成配置…")
-        raw = call_llm(args.sentence, args.model, api_key)
+        lang = detect_lang(args.sentence)
+        print(f"[1/3] 调用文字模型 {args.model} 生成配置（语言：{'中文' if lang == 'zh' else 'English'}）…")
+        raw = call_llm(args.sentence, args.model, api_key,
+                       system_prompt=SYSTEM_PROMPT if lang == "zh" else SYSTEM_PROMPT_EN)
         cfg = extract_json(raw)
 
-    problems = validate(cfg)
+    problems = validate(cfg, lang if not args.skip_fetch else "zh")
     if problems:
         print("校验未通过：", file=sys.stderr)
         for p in problems:
