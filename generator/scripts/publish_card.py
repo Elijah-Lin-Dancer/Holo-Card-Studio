@@ -37,13 +37,13 @@ PREVIEW_CRF = 42
 
 
 def find_blender(override: str | None = None) -> str | None:
-    """定位 Blender 可执行文件：--blender 参数 > 系统 PATH > 已有项目便携版。"""
+    """定位 Blender 可执行文件：--blender 参数 > 系统 PATH > 仓库顶层便携版。"""
     if override and Path(override).is_file():
         return str(Path(override).resolve())
     system = shutil.which("blender")
     if system:
         return system
-    for cand in (ROOT / "generator" / "projects").glob("*/tools/blender*/blender"):
+    for cand in (ROOT / "tools").glob("blender-*/blender"):
         if cand.is_file():
             return str(cand.resolve())
     return None
