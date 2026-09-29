@@ -43,6 +43,7 @@
     qr_douyin:       { zh: '抖音', en: 'Douyin' },
     qr_xhs:          { zh: '小红书', en: 'Xiaohongshu' },
     qr_wx:           { zh: '微信公众号', en: 'WeChat' },
+    qr_ig:           { zh: 'Instagram', en: 'Instagram' },
 
     // 创造页
     cr_eyebrow:      { zh: 'HOLOLAB CREATE · 创作工坊', en: 'HOLOLAB CREATE · Studio' },
