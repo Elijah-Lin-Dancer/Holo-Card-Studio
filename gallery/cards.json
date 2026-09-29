@@ -1,0 +1,22 @@
+{
+  "cards": [
+    {
+      "id": "messi-demo",
+      "title": "梅西称王",
+      "subtitle": "球王 · 阿根廷十号",
+      "technique": "潘帕斯雄鹰",
+      "tagline": "无需多言，数据与荣誉即证明",
+      "edition": "001 / 001",
+      "collection": "HoloLab 典藏 · 传奇系列",
+      "description": "球王梅西的传奇全息收藏卡：蓝白间条、金色纸屑与夜空的镭射流光。",
+      "style_tags": [
+        "足球",
+        "传奇",
+        "夜景"
+      ],
+      "url": "cards/messi-demo/",
+      "thumb": "cards/messi-demo/thumb.jpg",
+      "date": "2026-09-28"
+    }
+  ]
+}

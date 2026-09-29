@@ -1,0 +1,34 @@
+{
+  "mode": "holographic",
+  "title": "梅西称王",
+  "subtitle": "球王 · 阿根廷十号",
+  "technique": "潘帕斯雄鹰",
+  "tagline": "无需多言，数据与荣誉即证明",
+  "edition": "001 / 001",
+  "collection": "HoloLab 典藏 · 传奇系列",
+  "description": "球王梅西的传奇全息收藏卡：蓝白间条、金色纸屑与夜空的镭射流光。",
+  "style": "日式浮世绘与水墨动漫勾勒的收藏卡插画，矿物颜料质感，笔触清晰，戏剧化夜景灯光",
+  "prompt": "梅西身穿阿根廷蓝白间条 10 号球衣，张开双臂庆祝进球，金色纸屑纷飞，身后是夜晚足球场与聚光灯",
+  "subject_desc": "梅西身穿阿根廷蓝白间条 10 号球衣，张开双臂庆祝进球，神情坚毅自信，全身像，占据画面中央",
+  "background_desc": "夜晚的足球场看台与聚光灯，浮世绘风格云纹山影作为远景，光束洒落，画面中下部留出安静空间，不出现人物",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.4,
+    "backgroundDepth": -0.25,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.12,
+    "offset": [
+      -0.06,
+      -0.085
+    ]
+  },
+  "assets": {
+    "subject": "./assets/subject.png",
+    "background": "./assets/background.png",
+    "text": "./assets/text.png",
+    "lineart": "./assets/lineart.png",
+    "model": "./assets/card.glb"
+  }
+}

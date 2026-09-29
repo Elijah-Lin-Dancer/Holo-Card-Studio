@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090d13">
+<title>HoloLab Studio · 全息典藏展厅</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="./" aria-label="HoloLab 展厅首页">
+    <span class="seal">幻</span>
+    <span>HoloLab Studio<small>HOLOGRAPHIC ATELIER</small></span>
+  </a>
+  <span class="edition">COLLECTION 01 <i></i> AI × 3D</span>
+</header>
+
+<main>
+  <section class="hero">
+    <p class="eyebrow">AIGC 全链路 · 一句话到可交互 3D 全息卡</p>
+    <h1>会随着你的视线流动的光影收藏。</h1>
+    <p class="sub">每一张卡都由 AI 分层绘制、Blender 渲染、Three.js 实时合成——
+    拖一拖，主体往前凸，背景往后退，镭射彩虹随角度流转。</p>
+    <div class="stats">
+      <span><b id="stat-cards">0</b> 张卡</span>
+      <span><b>豆包 Seedream</b> 生成</span>
+      <span><b>Blender</b> 渲染</span>
+      <span><b>纯静态</b> 零后端</span>
+    </div>
+  </section>
+
+  <section class="filters" aria-label="筛选">
+    <button class="chip active" data-filter="all">全部</button>
+    <button class="chip" data-filter="足球">足球</button>
+    <button class="chip" data-filter="传奇">传奇</button>
+    <button class="chip" data-filter="夜景">夜景</button>
+  </section>
+
+  <section class="grid" id="grid" aria-label="卡片瀑布流">
+    <p class="empty" hidden>暂无卡片，稍后再来看看。</p>
+  </section>
+</main>
+
+<footer>
+  <span>光随手动，画有余深。</span>
+  <span>HoloLab Studio — 作品集项目 · AI × 3D 交叉方向</span>
+</footer>
+
+<script src="./app.js" type="module"></script>
+</body>
+</html>
