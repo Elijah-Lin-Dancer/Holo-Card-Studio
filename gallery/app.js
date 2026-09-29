@@ -25,24 +25,28 @@ paintLangBtn();
   const cv = document.getElementById('starfield');
   if (!cv) return;
   const ctx = cv.getContext('2d');
-  let W, H, stars = [], raf = null;
+  let W, H, stars = [], raf = null, mx = 0, my = 0;
   function palette() {
     const d = THEME.get() === 'dark';
-    return d ? ['255,255,255', '201,168,106', '127,212,255'] : ['96,84,60', '143,106,44', '14,111,159'];
+    return d ? ['255,255,255', '201,168,106', '127,212,255'] : ['64,52,30', '150,102,26', '8,88,130'];
   }
   function resize() { W = cv.width = innerWidth; H = cv.height = innerHeight; }
   function make() {
-    const density = finePointer ? 16000 : 24000;
-    const n = Math.min(170, Math.floor(W * H / density));
+    const density = finePointer ? 5200 : 8000;
+    const n = Math.min(420, Math.floor(W * H / density));
     const pal = palette();
     stars = [];
     for (let i = 0; i < n; i++) {
       stars.push({
         x: Math.random() * W, y: Math.random() * H,
-        r: Math.random() * 1.4 + 0.35,
-        a: Math.random() * 0.5 + 0.1,
-        s: Math.random() * 0.28 + 0.05,
+        r: Math.random() * 2.0 + 1.2,
+        a: Math.random() * 0.45 + 0.25,
+        s: Math.random() * 0.5 + 0.1,
+        drift: (Math.random() - 0.5) * 0.3,
         tw: Math.random() * Math.PI * 2,
+        tws: 0.02 + Math.random() * 0.05,
+        halo: Math.random() < 0.28,
+        depth: 0.3 + Math.random() * 1.25,
         c: pal[i % 3]
       });
     }
@@ -52,16 +56,27 @@ paintLangBtn();
     for (const st of stars) {
       st.y -= st.s;
       if (st.y < -2) { st.y = H + 2; st.x = Math.random() * W; }
-      st.tw += 0.02;
-      const al = st.a * (0.55 + 0.45 * Math.sin(st.tw));
-      ctx.beginPath();
+      st.x += st.drift;
+      if (st.x < -4) st.x = W + 4; else if (st.x > W + 4) st.x = -4;
+      st.tw += st.tws;
+      const pulse = 0.5 + 0.5 * Math.sin(st.tw);
+      const al = st.a * (0.3 + 0.7 * pulse);
+      const px = st.x - (mx - W / 2) * 0.035 * st.depth;
+      const py = st.y - (my - H / 2) * 0.02 * st.depth;
+      const r = st.halo ? st.r * (1 + 0.3 * Math.sin(st.tw * 0.7)) : st.r;
+      if (st.halo) {
+        ctx.fillStyle = 'rgba(' + st.c + ',' + (al * 0.16).toFixed(3) + ')';
+        ctx.beginPath(); ctx.arc(px, py, r * 3.4, 0, 6.2832); ctx.fill();
+      }
       ctx.fillStyle = 'rgba(' + st.c + ',' + al.toFixed(3) + ')';
-      ctx.arc(st.x, st.y, st.r, 0, 6.2832);
-      ctx.fill();
+      ctx.beginPath(); ctx.arc(px, py, r, 0, 6.2832); ctx.fill();
     }
-    raf = requestAnimationFrame(step);
+    if (!reduceMotion) raf = requestAnimationFrame(step);
   }
-  resize(); make(); step();
+  resize(); make();
+  if (reduceMotion) { step(); return; }
+  step();
+  addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
   addEventListener('resize', () => { resize(); make(); });
   const origOnTheme = window.__hololabOnTheme;
   window.__hololabOnTheme = (th) => { make(); if (origOnTheme) origOnTheme(th); };
