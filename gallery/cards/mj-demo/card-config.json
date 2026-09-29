@@ -1,0 +1,35 @@
+{
+  "mode": "holographic",
+  "title": "流行之王",
+  "subtitle": "KING OF POP · 音乐传奇",
+  "technique": "月球漫步",
+  "tagline": "音乐即魔法，舞台即永恒",
+  "edition": "002 / 002",
+  "collection": "HoloLab 典藏 · 传奇系列",
+  "description": "流行音乐之王的全息收藏卡：金色亮片、白钻手套与聚光灯下的镭射流光。",
+  "style": "日式浮世绘与水墨动漫勾勒的收藏卡插画，矿物颜料质感，笔触清晰，戏剧化舞台灯光",
+  "prompt": "迈克尔·杰克逊以标志性舞台姿态登场：头戴黑色礼帽、白色闪钻手套单手指向天空，金色亮片西装在聚光灯下闪耀，身后是巨型演唱会舞台与光束",
+  "subject_desc": "迈克尔·杰克逊全身像，头戴黑色礼帽、白色闪钻手套、金色亮片西装，经典舞台站姿单手指天，神情自信，占据画面中央",
+  "background_desc": "演唱会巨型舞台与追光灯，浮世绘风格云纹山影作为远景，金色光束洒落，画面中下部留出安静空间，不出现人物",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.4,
+    "backgroundDepth": -0.25,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.12,
+    "offset": [
+      -0.06,
+      -0.085
+    ]
+  },
+  "assets": {
+    "subject": "./assets/subject.png",
+    "background": "./assets/background.png",
+    "text": "./assets/text.png",
+    "lineart": "./assets/lineart.png",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "mj-demo"
+}

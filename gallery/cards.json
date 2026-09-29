@@ -1,6 +1,24 @@
 {
   "cards": [
     {
+      "id": "mj-demo",
+      "title": "流行之王",
+      "subtitle": "KING OF POP · 音乐传奇",
+      "technique": "月球漫步",
+      "tagline": "音乐即魔法，舞台即永恒",
+      "edition": "002 / 002",
+      "collection": "HoloLab 典藏 · 传奇系列",
+      "description": "流行音乐之王的全息收藏卡：金色亮片、白钻手套与聚光灯下的镭射流光。",
+      "style_tags": [
+        "音乐",
+        "传奇",
+        "舞台"
+      ],
+      "url": "cards/mj-demo/",
+      "thumb": "cards/mj-demo/thumb.jpg",
+      "date": "2026-09-29"
+    },
+    {
       "id": "messi-demo",
       "title": "梅西称王",
       "subtitle": "球王 · 阿根廷十号",
