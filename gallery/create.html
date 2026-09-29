@@ -29,6 +29,21 @@
   .hint button{background:none;border:none;color:var(--accent);font-size:12px;cursor:pointer;padding:0;font-family:inherit}
   .hint button:hover{text-decoration:underline}
 
+  /* 详细描述区 */
+  .desc-box{
+    margin-top:18px;padding-top:16px;border-top:1px dashed var(--line);
+    animation:descIn .4s ease both;
+  }
+  @keyframes descIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .desc-box label{font-size:13px;color:var(--gold);letter-spacing:1px;font-weight:700}
+  .desc-box textarea{min-height:150px}
+  .desc-meta{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:10px;font-size:12px;color:var(--dim);flex-wrap:wrap}
+  .desc-meta button{
+    background:none;border:1px solid var(--line);color:var(--accent);font-size:12px;
+    padding:5px 12px;border-radius:6px;cursor:pointer;font-family:inherit;transition:.15s;
+  }
+  .desc-meta button:hover{border-color:var(--gold-dim);color:var(--gold)}
+
   /* 预演区 */
   .preview{display:none;margin-top:36px}
   .preview.on{display:block}
@@ -136,7 +151,7 @@
     <button class="icon-btn" id="theme-btn" type="button" aria-label="切换主题">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3a9 9 0 100 18 7 7 0 110-14 9 9 0 000-4z"/></svg>
     </button>
-    <a class="icon-btn" href="https://github.com/xin-hao2003/Holo-Card-Studio" target="_blank" rel="noopener" data-i18n="nav_github">GitHub</a>
+    <a class="icon-btn" href="https://github.com/Elijah-Lin-Dancer/Holo-Card-Studio" target="_blank" rel="noopener" data-i18n="nav_github">GitHub</a>
   </div>
   <span class="edition">CREATE STUDIO <i></i> AI × 3D</span>
 </header>
@@ -147,11 +162,24 @@
   <p class="sub" data-i18n="cr_sub">展厅里的每一张卡都来自同一条管线：文字模型把你的想法写成卡面配置，AI 分层绘制素材，Blender 合成 3D 卡体，一键发布上线。输入你的创意，先看看它会变成什么——想要真卡，复制命令到本地跑一遍即可。</p>
 
   <section class="input-panel" aria-label="输入创意">
-    <label for="idea" data-i18n="cr_label">你的创意一句话</label>
-    <textarea id="idea" data-i18n-ph="cr_ph" placeholder="例如：给一只在月球上钓鱼的橘猫设计一张全息收藏卡"></textarea>
+    <label for="idea" data-i18n="cr_label1">你的创意一句话</label>
+    <textarea id="idea" data-i18n-ph="cr_ph1" placeholder="例如：我想要一张凤凰"></textarea>
+    <div class="input-actions">
+      <button class="btn ghost" id="gen-desc" type="button" data-i18n="cr_gen">生成具体描述</button>
+      <span class="hint"><span data-i18n="cr_hint_pre">想不到写什么？</span><button id="example" type="button" data-i18n="cr_hint_btn">给我一个示例</button></span>
+    </div>
+
+    <div class="desc-box" id="desc-box" hidden>
+      <label for="detail" data-i18n="cr_label2">详细描述（可自由修改）</label>
+      <textarea id="detail" data-i18n-ph="cr_ph2" placeholder="详细描述将进入创作管线：主体、背景、色调、构图、线稿、卡面文字"></textarea>
+      <div class="desc-meta">
+        <span data-i18n="cr_desc_note">本地扩写引擎生成，无需联网、不消耗额度；想要 LLM 级润色，复制下方命令在本地跑文字模型。</span>
+        <button id="regen" type="button" data-i18n="cr_desc_btn">重新生成</button>
+      </div>
+    </div>
+
     <div class="input-actions">
       <button class="btn primary" id="go" data-i18n="cr_go">开始创造</button>
-      <span class="hint"><span data-i18n="cr_hint_pre">想不到写什么？</span><button id="example" type="button" data-i18n="cr_hint_btn">给我一个示例</button></span>
     </div>
   </section>
 
@@ -203,7 +231,7 @@
   <section class="cmd" id="cmd" aria-label="本地生成命令">
     <h2 data-i18n="cmd_title">想要真卡？复制命令，本地跑一遍</h2>
     <p data-i18n="cmd_sub">在线展厅是纯静态页面，不携带任何密钥。真实生成在本地完成：克隆仓库 → 一句话出卡 → 一键发布，全程约几分钟，管线完全开源可复现。</p>
-    <div class="cmd-box" id="cmdbox">git clone https://github.com/xin-hao2003/Holo-Card-Studio.git
+    <div class="cmd-box" id="cmdbox">git clone https://github.com/Elijah-Lin-Dancer/Holo-Card-Studio.git
 cd Holo-Card-Studio
 python3 generator/scripts/one_shot_card.py "<span id="cmdq">…</span>"</div>
     <button class="copy-btn" id="copy" type="button" data-i18n="cmd_copy">复制命令</button>
@@ -219,16 +247,36 @@ python3 generator/scripts/one_shot_card.py "<span id="cmdq">…</span>"</div>
     <span data-i18n="note_1">一条完整的生成链需要调用豆包 API（密钥绝不能进入前端）并在本地跑 Blender 渲染。这是有意的架构取舍：</span>
     <b data-i18n="note_strong">展厅负责"看"，管线负责"造"</b>
     <span data-i18n="note_2">，两者解耦后，任何人都能长期打开展厅，而创作者拥有全部控制权。管线原理见 </span>
-    <a href="https://github.com/xin-hao2003/Holo-Card-Studio/blob/main/README.md" target="_blank" rel="noopener">README</a>
-    <a href="https://github.com/xin-hao2003/Holo-Card-Studio/tree/main/docs" target="_blank" rel="noopener">docs/</a>
+    <a href="https://github.com/Elijah-Lin-Dancer/Holo-Card-Studio/blob/main/README.md" target="_blank" rel="noopener">README</a>
+    <a href="https://github.com/Elijah-Lin-Dancer/Holo-Card-Studio/tree/main/docs" target="_blank" rel="noopener">docs/</a>
     <span data-i18n="note_3">（架构、AI 管线、图形学、白皮书）。</span>
   </p>
 </main>
 
 <footer>
-  <span data-i18n="footer_slogan">光随手动，画有余深。</span>
-  <span data-i18n="footer_tag">HoloLab Studio — 作品集项目 · AI × 3D 交叉方向</span>
-  <a href="https://github.com/xin-hao2003/Holo-Card-Studio" target="_blank" rel="noopener">github.com/xin-hao2003/Holo-Card-Studio</a>
+  <div class="foot-main">
+    <div class="foot-brand">
+      <span class="seal">幻</span>
+      <div>
+        <b>HoloLab Studio</b>
+        <span data-i18n="footer_slogan">光随手动，画有余深。</span>
+      </div>
+    </div>
+    <nav class="foot-links" aria-label="页脚导航">
+      <a href="./" data-i18n="nav_gallery">展厅</a>
+      <a href="./create.html" data-i18n="nav_create">创造</a>
+      <a href="https://github.com/Elijah-Lin-Dancer/Holo-Card-Studio" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+    <div class="foot-credit">
+      <span data-i18n="footer_tag">作品集项目 · AI × 3D 交叉方向</span>
+      <span data-i18n="footer_credit">基于 MIT 开源项目 holo-card-studio 二次开发，保留上游署名</span>
+    </div>
+  </div>
+  <div class="foot-legal">
+    <span class="copy">© 2026 HoloLab Studio · <span data-i18n="footer_author">作者 Elijah Lin</span></span>
+    <span class="mit" data-i18n="footer_license">MIT License · 开源许可</span>
+    <a href="https://github.com/Elijah-Lin-Dancer/Holo-Card-Studio" target="_blank" rel="noopener">github.com/Elijah-Lin-Dancer/Holo-Card-Studio</a>
+  </div>
 </footer>
 
 <script src="./i18n.js"></script>
@@ -237,6 +285,10 @@ python3 generator/scripts/one_shot_card.py "<span id="cmdq">…</span>"</div>
   var I18N = window.HoloLabI18n;
   var THEME = window.HoloLabTheme;
   var idea = document.getElementById('idea');
+  var detail = document.getElementById('detail');
+  var descBox = document.getElementById('desc-box');
+  var genDesc = document.getElementById('gen-desc');
+  var regen = document.getElementById('regen');
   var go = document.getElementById('go');
   var ex = document.getElementById('example');
   var preview = document.getElementById('preview');
@@ -250,22 +302,117 @@ python3 generator/scripts/one_shot_card.py "<span id="cmdq">…</span>"</div>
 
   var samples = {
     zh: [
-      '给一只在月球上钓鱼的橘猫设计一张全息收藏卡',
-      '给中国航天员设计一张全息收藏卡，星辰远征主题',
-      '给孙悟空设计一张全息收藏卡，齐天大圣主题',
-      '给梅西设计一张全息收藏卡，足球主题',
-      '给一座漂浮在云海里的未来城市设计一张全息收藏卡'
+      '我想要一张凤凰',
+      '我想要一张赛博朋克风格的中国航天员卡',
+      '我想要一张水墨风的孙悟空',
+      '我想要一张在月球上钓鱼的橘猫',
+      '我想要一张云海中的未来城市'
     ],
     en: [
-      'A holographic card of an orange cat fishing on the moon',
-      'A holographic card of a Chinese astronaut, Stellar Expedition theme',
-      'A holographic card of Sun Wukong, the Great Sage',
-      'A holographic card of Messi, football theme',
-      'A holographic card of a floating future city above the clouds'
+      'I want a phoenix card',
+      'I want a cyberpunk astronaut card',
+      'I want an ink-wash Sun Wukong card',
+      'I want an orange cat fishing on the moon',
+      'I want a future city above the clouds'
     ]
   };
 
   function t(k){ return I18N.t(k); }
+
+  /* ===== 本地扩写引擎（纯前端，无 API、无额度） ===== */
+  var STYLES = { zh:['赛博朋克','水墨','国风','科幻','卡通','梦幻','暗黑','复古','像素','油画','漫画'], en:['cyberpunk','ink-wash','oriental','sci-fi','cartoon','dreamy','dark','retro','pixel','oil-painting','comic'] };
+  var SCENES = { zh:['月球','云海','星空','城市','森林','火焰','深海','宇宙','雪地','沙漠','花海','火山','银河','夜空','龙宫','草原','竹海','冰川'], en:['moon','sea of clouds','starry sky','city','forest','flame','deep sea','cosmos','snowfield','desert','flower sea','volcano','galaxy','night sky','dragon palace','prairie','bamboo sea','glacier'] };
+  var SUFFIX = { zh:['涅槃','远征','物语','传奇','纪行','赞歌','狂想','幻境','传说','之章'], en:['Reborn','Expedition','Chronicle','Legend','Journey','Anthem','Rhapsody','Mirage','Myth','Chapter'] };
+  var CARDCLASS = { zh:['典藏','传世','臻品'], en:['Collector','Heritage','Premium'] };
+
+  function cleanStr(s){ return s.replace(/[。！!？?，,.、：:\s]+/g,' ').trim(); }
+
+  function parseIdea(text, lang){
+    var t = cleanStr(text);
+    if(lang==='zh'){
+      t = t.replace(/我想要一张|我想要|我想做一张|我想做|给我一张|帮我生成一张|给我生成一张|来一张|生成一张|做一张|帮我|给我|想做|想要/g,'');
+      t = t.replace(/全息收藏卡|收藏卡|全息卡|卡片/g,'');
+      t = t.replace(/设计|生成|做/g,'');
+    } else {
+      t = t.replace(/i want (a|an|the) /gi,'').replace(/i would like (a|an|the) /gi,'').replace(/a holographic card (of|for) /gi,'').replace(/holographic card/g,'').replace(/card (of|for) /gi,'').replace(/make (me|a|an|the) /gi,'').replace(/generate (a|an|the) /gi,'').replace(/design (a|an|the) /gi,'').replace(/create (a|an|the) /gi,'');
+      t = t.replace(/\bcard\b/gi,'');
+      t = t.replace(/\b(on|in|above|at|with|from|for|over|under|near|among|beside)\s+(the|a|an)?\s*$/gi,'');
+      t = t.replace(/\b(the|a|an)\s*$/i,'');
+    }
+    var style = null, scene = null;
+    for(var i=0;i<STYLES[lang].length;i++){
+      if(t.indexOf(STYLES[lang][i])>-1){
+        style = STYLES[lang][i];
+        t = t.split(STYLES[lang][i]).join('');
+        if(lang==='zh') t = t.replace(/风格/,'').replace(/^风/,'');
+        break;
+      }
+    }
+    // 中文方位场景优先：在X上/里/中/旁 → 整块提取
+    if(lang==='zh'){
+      var loc = t.match(/在[^\s，。、]{1,6}(?:上|里|中|旁|边)/);
+      if(loc){ scene = loc[0].replace(/^在/,'').replace(/(上|里|中|旁|边)$/,''); t = t.replace(loc[0],''); }
+    }
+    for(var j=0;j<SCENES[lang].length;j++){
+      if(scene===null && t.indexOf(SCENES[lang][j])>-1){ scene = SCENES[lang][j]; t = t.split(SCENES[lang][j]).join(''); break; }
+    }
+    if(lang==='zh') t = t.replace(/^(一只|一张|一座|一个|一条|一位|一群|只|张|座|个|条|位)/,'');
+    else t = t.replace(/^(a|an|the) /i,'');
+    var subject = cleanStr(t);
+    // 中文清残留方位/助词尾巴
+    if(lang==='zh') subject = subject.replace(/^在[上中里内]/,'').replace(/^中的|^的/,'').replace(/(的|中|里|上)$/,'');
+    // 英文再清一次尾部介词残留（场景/风格删除后可能出现 "on the" 尾巴）
+    subject = subject
+      .replace(/\b(on|in|above|at|with|from|for|over|under|near|among|beside|by)\s+(the|a|an)?\s*$/gi, '')
+      .replace(/\b(the|a|an)\s*$/i, '');
+    if(!subject) subject = lang==='zh' ? '神秘造物' : 'Mystery Subject';
+    return { subject: subject, style: style, scene: scene };
+  }
+
+  function buildDesc(text, lang){
+    var p = parseIdea(text, lang);
+    var sfx = SUFFIX[lang][Math.floor(Math.random()*SUFFIX[lang].length)];
+    var cardName = lang==='zh' ? p.subject + sfx : sfx + ' ' + p.subject;
+    var sub = (p.style || CARDCLASS[lang][0]) + ' · ' + (p.scene || CARDCLASS[lang][1]);
+    var pal;
+    if(lang==='zh'){
+      pal = p.style==='赛博朋克' ? '霓虹紫青高对比' : p.style==='水墨' ? '青灰留白水墨' :
+            p.style==='国风' ? '朱砂金箔东方色' : p.style==='科幻' ? '冷冽金属蓝白' :
+            p.style==='卡通' ? '明快糖果色' : p.style==='暗黑' ? '暗金幽蓝' : '鎏金暖调';
+      return [
+        '主体层：' + p.subject + (p.style ? '，' + p.style + '风格' : '') + '，居中构图约占画面 65%，四周留白，细节丰富，轮廓清晰。',
+        '背景层：' + (p.scene || '深邃星夜') + '，纵深感拉开，画面下方 40% 区域保持留空用于排版，不出现其他人物。',
+        '色调：' + pal + '，鎏金镭射渐变主色调，高光与暗部层次分明。',
+        '线稿层：沿主体轮廓提取发光描边，线宽均匀，白色背景黑色线条，发光沿描边外扩。',
+        '文字层：标题「' + cardName + '」，副标题「' + sub + '」，系列编号与稀有度徽章，金色描边字体。'
+      ].join('\n');
+    } else {
+      pal = p.style==='cyberpunk' ? 'neon violet-cyan high contrast' : p.style==='ink-wash' ? 'ink-gray negative space' :
+            p.style==='oriental' ? 'cinnabar-and-gold oriental' : p.style==='sci-fi' ? 'cool metallic blue-white' :
+            p.style==='cartoon' ? 'bright candy colors' : p.style==='dark' ? 'dark gold and deep blue' : 'gilded warm tone';
+      return [
+        'Subject layer: ' + p.subject + (p.style ? ' in ' + p.style + ' style' : '') + ', centered, about 65% of the canvas, breathing space on all sides, rich detail, crisp silhouette.',
+        'Background layer: ' + (p.scene || 'deep starry night') + ', strong depth; the lower 40% stays empty for typography; no other figures.',
+        'Palette: ' + pal + ' with rainbow-foil gradient accents, clear highlights and shadow separation.',
+        'Line art layer: glowing contour traced along the subject, even stroke width, black lines on white, glow spreading outward.',
+        'Typography layer: title "' + cardName + '", subtitle "' + sub + '", series number and rarity badge, gold outlined type.'
+      ].join('\n');
+    }
+  }
+
+  function runExpand(){
+    var text = idea.value.trim();
+    if(!text){ idea.focus(); return; }
+    var lang = I18N.get();
+    detail.value = buildDesc(text, lang);
+    descBox.hidden = false;
+  }
+  genDesc.addEventListener('click', runExpand);
+  regen.addEventListener('click', function(){
+    var text = idea.value.trim();
+    if(!text){ idea.focus(); return; }
+    detail.value = buildDesc(text, I18N.get());
+  });
 
   /* 语言 / 主题切换器 */
   var langBtn = document.getElementById('lang-btn');
@@ -301,7 +448,7 @@ python3 generator/scripts/one_shot_card.py "<span id="cmdq">…</span>"</div>
   }
 
   go.addEventListener('click', function(){
-    var text = idea.value.trim();
+    var text = (detail.value || idea.value).trim();
     if(!text){ idea.focus(); return; }
     if(running) return;
     running = true;
@@ -357,7 +504,7 @@ python3 generator/scripts/one_shot_card.py "<span id="cmdq">…</span>"</div>
   });
 
   copy.addEventListener('click', function(){
-    var text = 'git clone https://github.com/xin-hao2003/Holo-Card-Studio.git\ncd Holo-Card-Studio\npython3 generator/scripts/one_shot_card.py "' + esc(cmdq.textContent) + '"';
+    var text = 'git clone https://github.com/Elijah-Lin-Dancer/Holo-Card-Studio.git\ncd Holo-Card-Studio\npython3 generator/scripts/one_shot_card.py "' + esc(cmdq.textContent) + '"';
     function done(){ copy.textContent = t('cmd_copied'); setTimeout(function(){ copy.textContent = t('cmd_copy'); }, 1600); }
     function fallback(){
       var ta = document.createElement('textarea');

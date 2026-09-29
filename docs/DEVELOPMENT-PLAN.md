@@ -12,7 +12,7 @@
 | 问题 B 空 web/ 目录 | ✅ | 已删除 |
 | 问题 C git 零提交 | ✅ | 已 commit（2e2eb1c、0b3bfe1）并推送 |
 | 问题 D _card_id 写回 | ✅ | 归档 config 已带标记 |
-| GitHub Pages 上线 | ✅ | https://xin-hao2003.github.io/Holo-Card-Studio/ |
+| GitHub Pages 上线 | ✅ | https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/ |
 
 ---
 
@@ -124,4 +124,4 @@ P1（主视觉+信息图）→ P2（第二张卡，含验证 E）→ P3（动态
 - 文字模型：Doubao-Seed-2.0-mini-260428（2.1-lite 长文本请求服务端断连，实测后降级到 2.0-mini，长文本正常且更便宜 0.0002-0.0008 元/千tokens）
 - 图片模型适配：CANVAS 1920×2880 → 1728×2592（flash 模型面积上限 4,624,220 px，1920×2880 超限 400）
 - 成果：第三张卡「星辰远征」由一句话全自动生成并上线（三卡展厅，含 hover preview.webm 427KB）
-- 线上：https://xin-hao2003.github.io/Holo-Card-Studio/
+- 线上：https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/
