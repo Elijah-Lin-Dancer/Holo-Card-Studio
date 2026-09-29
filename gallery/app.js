@@ -26,6 +26,7 @@ function render() {
     card.innerHTML = `
       <div class="thumb-wrap">
         <img src="${c.thumb}" alt="${c.title}" loading="lazy">
+        ${c.preview ? `<video class="card-video" src="${c.preview}" muted playsinline loop preload="none"></video>` : ''}
         <span class="rarity">${c.collection || '典藏'}</span>
       </div>
       <div class="meta">
@@ -35,6 +36,11 @@ function render() {
         <p class="desc">${c.description || ''}</p>
         <div class="ed">${c.edition || ''} · ${c.date || ''}</div>
       </div>`;
+    const vid = card.querySelector('.card-video');
+    if (vid) {
+      card.addEventListener('mouseenter', () => { vid.currentTime = 0; vid.play().catch(() => {}); });
+      card.addEventListener('mouseleave', () => { vid.pause(); });
+    }
     grid.appendChild(card);
   }
 }

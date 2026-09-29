@@ -54,7 +54,7 @@
 - 产出：gallery 每卡一个 preview.webm + 首页 hover 效果
 - 验收：真实浏览器 hover 播放流畅；文件体积可控（<2MB/卡）
 
-## P4 · 项目白皮书（作品集交付物）
+## P4 · 项目白皮书（作品集交付物） ✅ 2026-09-29 完成
 
 **目的**：给教授/招生办看的完整技术手册（含架构、AI 管线、图形学、踩坑、路线图）。
 
@@ -62,8 +62,9 @@
 - 任务：
   1. 基于 docs/*.md + 博客整合为白皮书正文（约 8–12 页）
   2. 输出可交付文档（本地 markdown/PDF）
-- 产出：docs/WHITEPAPER.md（+ 可选 PDF 版）
-- 验收：可直接发导师/招生办；无 AI 味（可用 doubao-human-signal 校准）
+- 产出：docs/WHITEPAPER.md ✅（英文正文 + 中文编号标题，28000 字符契约，8 章）已交付飞书 https://my.feishu.cn/docx/QhWedX9tzoCrFvx2f8cce5Pvnzc
+- 工具：doubao-book-writer 全流程（prepare → write → quality → deliver），质量分 8.34/10（8 章全过 7.5 门槛），飞书读回 96.9%
+- 验收：✅ 可直接发导师/招生办；无 AI 味校准留待 P4.5（可选 doubao-human-signal 精修）
 
 ## P5 · demo 视频（L2 展示）
 
