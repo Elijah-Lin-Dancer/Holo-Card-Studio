@@ -8,8 +8,9 @@ HoloLab Studio · publish_card.py
   2. 用 renders/hero.png 生成瀑布流缩略图 thumb.jpg
   3. 复制 web/ → gallery/cards/<id>/（剔除 node_modules / server / package）
   4. 压缩四层贴图 PNG → WebP（保留透明通道，前端零改动；幂等）
-  5. 改写 index.html 的 importmap 指向展厅共享 vendor（避免每卡重复打包 three）
-  6. 从 card-config.json 更新 gallery/cards.json 清单
+  5. 渲染预览动画 preview.webm（96 帧 → ffmpeg 合成 → 更新清单；幂等，--skip-preview 可跳过）
+  6. 改写 index.html 的 importmap 指向展厅共享 vendor（避免每卡重复打包 three）
+  7. 从 card-config.json 更新 gallery/cards.json 清单
 首次发布自动初始化 gallery/vendor/three（共享 three.js 依赖）。
 
 用法：
@@ -20,6 +21,7 @@ from __future__ import annotations
 import argparse
 import json
 import shutil
+import subprocess
 from pathlib import Path
 
 import numpy as np
@@ -29,6 +31,22 @@ ROOT = Path(__file__).resolve().parents[2]          # holo-lab/
 GALLERY = ROOT / "gallery"
 VENDOR_THREE = GALLERY / "vendor" / "three"
 EXCLUDE = {"node_modules", "server.mjs", "package.json", "package-lock.json", "README.md"}
+PREVIEW_FRAMES = 96          # 预览动画帧数（与 card.blend 时间线一致）
+PREVIEW_FPS = 24
+PREVIEW_CRF = 42
+
+
+def find_blender(override: str | None = None) -> str | None:
+    """定位 Blender 可执行文件：--blender 参数 > 系统 PATH > 已有项目便携版。"""
+    if override and Path(override).is_file():
+        return str(Path(override).resolve())
+    system = shutil.which("blender")
+    if system:
+        return system
+    for cand in (ROOT / "generator" / "projects").glob("*/tools/blender*/blender"):
+        if cand.is_file():
+            return str(cand.resolve())
+    return None
 
 
 def ensure_vendor() -> None:
@@ -127,6 +145,55 @@ def compress_assets(card_dir: Path) -> None:
         print(f"  [compress] 四层贴图已转 WebP：{', '.join(str(p) for p in assets_dir.glob('*.webp'))}")
 
 
+def render_preview(project: Path, card_dir: Path, blender: str | None = None) -> bool:
+    """渲染卡片预览动画（96 帧 → preview.webm）并更新清单 preview 字段。
+
+    幂等：preview.webm 已存在则跳过，可重复发布。渲染自动分段
+    （每段 40 帧），避免长任务中断导致全部重来；已渲染帧保留复用。
+    返回是否执行了渲染。
+    """
+    webm = card_dir / "preview.webm"
+    if webm.exists():
+        return False
+    blender_exe = find_blender(blender)
+    if not blender_exe:
+        print("  [preview] 跳过：未找到 Blender（可用 --blender 指定）")
+        return False
+    if not shutil.which("ffmpeg"):
+        print("  [preview] 跳过：未找到 ffmpeg（预览动画需要）")
+        return False
+    frames_dir = project / "work" / "preview-frames"
+    frames_dir.mkdir(parents=True, exist_ok=True)
+    script = Path(__file__).resolve().parent / "render_preview.py"
+    BATCH = 40
+    for start in range(1, PREVIEW_FRAMES + 1, BATCH):
+        end = min(start + BATCH - 1, PREVIEW_FRAMES)
+        missing = [f for f in range(start, end + 1)
+                   if not (frames_dir / f"frame_{f:04d}.png").exists()]
+        if not missing:
+            continue  # 该段已渲染（中断续跑）
+        cmd = [blender_exe, "--background", "--python", str(script), "--",
+               str(project.resolve()), str(frames_dir.resolve()),
+               str(missing[0]), str(missing[-1])]
+        subprocess.run(cmd, check=True, timeout=900)
+    ffmpeg = ["ffmpeg", "-y", "-framerate", str(PREVIEW_FPS), "-i",
+              str(frames_dir / "frame_%04d.png"),
+              "-c:v", "libvpx-vp9", "-crf", str(PREVIEW_CRF), "-b:v", "0",
+              "-an", "-pix_fmt", "yuv420p", str(webm)]
+    subprocess.run(ffmpeg, check=True, timeout=300)
+    shutil.rmtree(frames_dir)
+    # 更新清单 preview 字段
+    manifest = GALLERY / "cards.json"
+    data = json.loads(manifest.read_text(encoding="utf-8"))
+    for card in data["cards"]:
+        if card["id"] == card_dir.name:
+            card["preview"] = f"cards/{card_dir.name}/preview.webm"
+    manifest.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    size_kb = webm.stat().st_size // 1024
+    print(f"  [preview] preview.webm 生成（{size_kb}KB），cards.json 已更新")
+    return True
+
+
 def rewrite_importmap(index_html: Path) -> None:
     """把本地 node_modules importmap 改成展厅共享 vendor 的相对路径。"""
     text = index_html.read_text(encoding="utf-8")
@@ -166,6 +233,7 @@ def update_cards_json(meta: dict, thumb: Path, card_url: str, date: str) -> None
     data = {"cards": []}
     if manifest.exists():
         data = json.loads(manifest.read_text(encoding="utf-8"))
+    old = next((c for c in data.get("cards", []) if c.get("id") == meta["id"]), {})
     data["cards"] = [c for c in data.get("cards", []) if c.get("id") != meta["id"]]
     entry = {
         **meta,
@@ -173,6 +241,9 @@ def update_cards_json(meta: dict, thumb: Path, card_url: str, date: str) -> None
         "thumb": str(thumb),
         "date": date,
     }
+    # 保留已有的 preview 字段（预览动画独立于配置生成）
+    if old.get("preview"):
+        entry["preview"] = old["preview"]
     # 新发布的排前面
     data["cards"] = [entry] + data["cards"]
     manifest.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -185,6 +256,8 @@ def main(argv=None) -> int:
     p.add_argument("--id", help="展厅卡片 ID（默认取项目目录名）")
     p.add_argument("--tags", default="", help="逗号分隔的风格标签，如：足球,传奇")
     p.add_argument("--date", help="发布日期，默认今天")
+    p.add_argument("--blender", help="Blender 可执行文件路径（默认自动查找）")
+    p.add_argument("--skip-preview", action="store_true", help="跳过预览动画渲染（preview.webm）")
     args = p.parse_args(argv)
 
     project = Path(args.project).resolve()
@@ -205,6 +278,11 @@ def main(argv=None) -> int:
     ensure_vendor()
 
     print(f"[2/5] 复制 web/ → gallery/cards/{card_id}/（剔除依赖与运行文件）…")
+    # 保留已渲染的 preview.webm（避免重跑 publish 时重复渲染 96 帧）
+    preserved_webm = None
+    if (dest / "preview.webm").exists():
+        preserved_webm = GALLERY / f".preview-{card_id}.tmp"
+        (dest / "preview.webm").replace(preserved_webm)
     # 先清空旧归档，防止残留被排除的文件（必须在生成缩略图之前）
     for old in dest.iterdir():
         if old.is_dir():
@@ -221,14 +299,22 @@ def main(argv=None) -> int:
             shutil.copytree(item, target)
         else:
             shutil.copy2(item, target)
+    if preserved_webm is not None and preserved_webm.exists():
+        preserved_webm.replace(dest / "preview.webm")
 
-    print(f"[3/5] 生成缩略图 thumb.jpg（复用 renders/hero.png）…")
+    print(f"[3/6] 生成缩略图 thumb.jpg（复用 renders/hero.png）…")
     make_thumb(project, dest)
 
-    print(f"[4/6] 压缩四层贴图 PNG → WebP（保留透明通道）…")
+    print(f"[4/7] 压缩四层贴图 PNG → WebP（保留透明通道）…")
     compress_assets(dest)
 
-    print(f"[5/6] 改写 importmap → 共享 vendor…")
+    if args.skip_preview:
+        print(f"[5/7] 跳过预览动画渲染（--skip-preview）…")
+    else:
+        print(f"[5/7] 渲染预览动画 96 帧 → preview.webm…")
+        render_preview(project, dest, args.blender)
+
+    print(f"[6/7] 改写 importmap → 共享 vendor…")
     rewrite_importmap(dest / "index.html")
 
     cfg = json.loads((web / "card-config.json").read_text(encoding="utf-8-sig"))
@@ -239,7 +325,7 @@ def main(argv=None) -> int:
     saved["_card_id"] = card_id
     dest_cfg.write_text(json.dumps(saved, ensure_ascii=False, indent=2), encoding="utf-8")
     meta = load_card_meta(cfg, tags)
-    print(f"[6/6] 更新 cards.json…")
+    print(f"[7/7] 更新 cards.json…")
     update_cards_json(meta, Path(f"cards/{card_id}/thumb.jpg"), f"cards/{card_id}/", date)
 
     print(f"\n发布完成：{dest.relative_to(ROOT)}")
