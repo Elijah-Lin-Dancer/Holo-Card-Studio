@@ -219,13 +219,13 @@ body::after{
 /* ---- 页脚 ---- */
 footer{
   position:relative;z-index:5;border-top:1px solid var(--line-soft);
-  padding:32px 6vw 20px;font-size:12.5px;color:var(--dim);
+  padding:36px 6vw 22px;font-size:12.5px;color:var(--dim);
 }
 footer a{color:var(--accent);text-decoration:none}
 footer a:hover{text-decoration:underline}
 .foot-main{
-  display:flex;justify-content:space-between;align-items:center;gap:22px;flex-wrap:wrap;
-  padding-bottom:20px;max-width:1200px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:center;gap:26px;flex-wrap:wrap;
+  padding-bottom:22px;max-width:1200px;margin:0 auto;
 }
 .foot-brand{display:flex;align-items:center;gap:10px}
 .foot-brand .seal{
@@ -235,10 +235,32 @@ footer a:hover{text-decoration:underline}
 .foot-brand div{display:flex;flex-direction:column;gap:2px}
 .foot-brand b{font-size:14px;color:var(--text);letter-spacing:.5px}
 .foot-links{display:flex;gap:18px;align-items:center;font-size:13px}
-.foot-credit{display:flex;flex-direction:column;gap:3px;text-align:right;font-size:12px;max-width:340px}
+/* 关注区（三平台二维码） */
+.foot-follow{display:flex;flex-direction:column;gap:10px;align-items:flex-end}
+.follow-title{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-dim)}
+.qr-row{display:flex;gap:12px}
+.qr-card{
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  width:92px;padding:9px 8px 8px;border:1px solid var(--line-soft);border-radius:12px;
+  background:var(--panel2);transition:transform .22s cubic-bezier(.22,1,.36,1),border-color .22s ease,box-shadow .22s ease;
+}
+.qr-card:hover{transform:translateY(-3px);border-color:var(--gold-dim);box-shadow:0 12px 26px -16px rgba(0,0,0,.5);text-decoration:none}
+.qr-placeholder{
+  width:74px;height:74px;border-radius:8px;background:var(--panel);
+  display:flex;align-items:center;justify-content:center;
+  font-size:10.5px;color:var(--dim);letter-spacing:.04em;border:1px dashed var(--line);
+}
+.qr-card img{width:74px;height:74px;border-radius:8px;display:block;object-fit:cover}
+.qr-name{font-size:11px;color:var(--text);font-weight:600}
+/* 致谢带独立成行 */
+.foot-credit{
+  display:flex;justify-content:center;flex-wrap:wrap;gap:4px 12px;text-align:center;
+  border-top:1px solid var(--line-soft);padding:16px 0 0;
+  max-width:1200px;margin:0 auto;font-size:12px;
+}
 .foot-legal{
   display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
-  border-top:1px dashed var(--line-soft);padding-top:14px;font-size:12px;max-width:1200px;margin:0 auto;
+  padding-top:14px;font-size:12px;max-width:1200px;margin:0 auto;
 }
 .foot-legal .copy{color:var(--gold-dim)}
 .foot-legal .mit{color:var(--dim)}
@@ -260,6 +282,10 @@ footer a:hover{text-decoration:underline}
   .card .desc{display:none}
   .filters{padding:8px 12px}
   footer{justify-content:center;text-align:center}
+  .foot-main{justify-content:center;text-align:center}
+  .foot-follow{align-items:center}
+  .qr-row{justify-content:center}
+  .foot-links{justify-content:center}
 }
 
 /* ============================================================

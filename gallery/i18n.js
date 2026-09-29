@@ -39,6 +39,10 @@
     footer_credit:   { zh: '基于 MIT 开源项目 holo-card-studio 二次开发，保留上游署名', en: 'Re-engineered from the MIT-licensed holo-card-studio; upstream credit preserved.' },
     footer_author:   { zh: '作者 Elijah Lin', en: 'by Elijah Lin' },
     footer_license:  { zh: 'MIT License · 开源许可', en: 'MIT License' },
+    footer_follow:   { zh: '关注我 · FOLLOW', en: 'FOLLOW ME' },
+    qr_douyin:       { zh: '抖音', en: 'Douyin' },
+    qr_xhs:          { zh: '小红书', en: 'Xiaohongshu' },
+    qr_wx:           { zh: '微信公众号', en: 'WeChat' },
 
     // 创造页
     cr_eyebrow:      { zh: 'HOLOLAB CREATE · 创作工坊', en: 'HOLOLAB CREATE · Studio' },
