@@ -1,6 +1,20 @@
 {
   "cards": [
     {
+      "id": "great-sage-sun-wukong",
+      "title": "齐天大圣",
+      "subtitle": "花果山 · 傲世苍穹",
+      "technique": "腾云驾雾",
+      "tagline": "一棒破九霄，大圣镇乾坤",
+      "edition": "004 / 004",
+      "collection": "HoloLab 典藏 · 西游系列",
+      "description": "本卡收录齐天大圣孙悟空经典形象，还原桀骜气质，极具收藏价值。",
+      "style_tags": [],
+      "url": "cards/great-sage-sun-wukong/",
+      "thumb": "cards/great-sage-sun-wukong/thumb.jpg",
+      "date": "2026-09-29"
+    },
+    {
       "id": "taikonaut-stellar-expedition",
       "title": "星辰远征",
       "subtitle": "taikonaut · 逐梦星海",

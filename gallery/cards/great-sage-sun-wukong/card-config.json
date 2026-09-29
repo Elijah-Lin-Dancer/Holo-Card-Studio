@@ -1,0 +1,36 @@
+{
+  "slug": "great-sage-sun-wukong",
+  "title": "齐天大圣",
+  "subtitle": "花果山 · 傲世苍穹",
+  "technique": "腾云驾雾",
+  "tagline": "一棒破九霄，大圣镇乾坤",
+  "collection": "HoloLab 典藏 · 西游系列",
+  "description": "本卡收录齐天大圣孙悟空经典形象，还原桀骜气质，极具收藏价值。",
+  "style": "日式浮世绘与水墨动漫勾勒的收藏卡插画，矿物颜料质感，笔触清晰，搭配星空云海元素",
+  "prompt": "画面主体是齐天大圣孙悟空立于云端，手持金箍棒，身披锁子黄金甲",
+  "subject_desc": "主体是齐天大圣孙悟空，头戴凤翅紫金冠，身穿锁子黄金甲，脚蹬藕丝步云履，双手持金箍棒，立于云端，表情桀骜威严",
+  "background_desc": "背景是浩瀚云海与璀璨星空，霞光万丈，云雾缭绕，画面中下部留出安静空间，不出现人物",
+  "mode": "holographic",
+  "edition": "004 / 004",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.4,
+    "backgroundDepth": -0.25,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.12,
+    "offset": [
+      -0.06,
+      -0.085
+    ]
+  },
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "great-sage-sun-wukong"
+}
