@@ -42,6 +42,8 @@ SYSTEM_PROMPT = """你是 HoloLab Studio 的全息收藏卡创意总监。用户
 - "tagline": 一句口号，不超过 16 个字
 - "collection": 合集名，格式 "HoloLab 典藏 · XXX系列"
 - "description": 两句介绍，不超过 60 个字
+- "identity": 身份锚点，供用户核对主体是谁：真实人物写"姓名 · 时代/领域 · 2-4 个标志性视觉特征（如一字连眉、花卉头饰）· 一句话客观简介"；虚构/主题物写"形象构成 · 标志性特征 · 一句话设定"，不超过 60 个字，只写客观事实不编造
+- "back_story": 卡背故事，1-2 句小传/设定 + 一句收藏说明（像球星卡背面），不超过 60 个字
 - "style": 视觉风格，沿用 "日式浮世绘与水墨动漫勾勒的收藏卡插画，矿物颜料质感，笔触清晰" 并可按主题微调（如加"星空、夜景"）
 - "prompt": 一句话概括主体画面（给生图模型看，主谓宾清楚）
 - "subject_desc": 主体细节描述：主体是谁、姿态、服饰、表情、位置（用于生成透明主体层，需可单独成图）
@@ -60,6 +62,8 @@ Output must be valid JSON with all fields below:
 - "tagline": a short motto, up to 12 words
 - "collection": collection name, format "HoloLab Archive · XXX Series"
 - "description": two sentences, up to 60 words
+- "identity": identity anchor so the user can verify who/what the subject is: for real people write "name · era/field · 2-4 iconic visual traits (e.g. unibrow, floral headdress) · one objective sentence"; for fictional subjects write "appearance blueprint · iconic traits · one-sentence premise", up to 60 words, facts only
+- "back_story": card-back story, 1-2 sentences of bio/premise plus one collector's note (like the back of a sports card), up to 60 words
 - "style": visual style, keep "Japanese ukiyo-e and ink-wash anime collectible-card illustration, mineral pigment texture, crisp brushwork" and fine-tune per theme (e.g. add "starry night, night scene")
 - "prompt": one sentence summarizing the subject scene (for the image model; clear subject-verb-object)
 - "subject_desc": subject detail: who/what, pose, outfit, expression, position (for a transparent subject layer, must stand alone as an image)
@@ -70,7 +74,8 @@ Quality: be accurate, do not exaggerate facts; for real people only state object
 
 REQUIRED_KEYS = [
     "slug", "title", "subtitle", "technique", "tagline",
-    "collection", "description", "style", "prompt", "subject_desc", "background_desc",
+    "collection", "description", "identity", "back_story",
+    "style", "prompt", "subject_desc", "background_desc",
 ]
 
 
@@ -152,6 +157,8 @@ def validate(cfg: dict, lang: str = "zh") -> list[str]:
             problems.append(f"tagline 过长：{val!r}")
         if key == "description" and len(val) > 160:
             problems.append(f"description 过长：{val!r}")
+        if key in ("identity", "back_story") and len(val) > 160:
+            problems.append(f"{key} 过长：{val!r}（上限 60 字）")
         if key == "background_desc":
             marker = "不出现人物" if lang == "zh" else "no people"
             if marker.lower() not in val.lower():

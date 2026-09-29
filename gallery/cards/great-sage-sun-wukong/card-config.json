@@ -32,5 +32,7 @@
     "lineart": "./assets/lineart.webp",
     "model": "./assets/card.glb"
   },
-  "_card_id": "great-sage-sun-wukong"
+  "_card_id": "great-sage-sun-wukong",
+  "identity": "齐天大圣 · 中国神话英雄；金箍 · 虎皮裙 · 火眼金睛 · 如意金箍棒；大闹天宫、护送取经。",
+  "back_story": "五行山下压不住的金睛，取经路上定得住的神通。齐天大圣的传说传唱千年。HoloLab 神话系列第 004 号，献礼大圣。"
 }

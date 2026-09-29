@@ -324,6 +324,52 @@ python3 generator/scripts/one_shot_card.py "<span id="cmdq">…</span>"</div>
   var SCENES = { zh:['月球','云海','星空','城市','森林','火焰','深海','宇宙','雪地','沙漠','花海','火山','银河','夜空','龙宫','草原','竹海','冰川'], en:['moon','sea of clouds','starry sky','city','forest','flame','deep sea','cosmos','snowfield','desert','flower sea','volcano','galaxy','night sky','dragon palace','prairie','bamboo sea','glacier'] };
   var SUFFIX = { zh:['涅槃','远征','物语','传奇','纪行','赞歌','狂想','幻境','传说','之章'], en:['Reborn','Expedition','Chronicle','Legend','Journey','Anthem','Rhapsody','Mirage','Myth','Chapter'] };
   var CARDCLASS = { zh:['典藏','传世','臻品'], en:['Collector','Heritage','Premium'] };
+  /* 身份锚点小词典：命中输出供用户核对主体是否正确；未命中给出本地 LLM 提示 */
+  var ANCHORS = [
+    { zh:'弗里达', en:'frida',
+      zhDesc:'弗里达·卡罗 · 墨西哥现代主义画家；一字连眉 · Tehuana 传统裙装 · 花卉头饰 · 直视镜头；以自画像与痛苦和生命力的表达闻名。',
+      enDesc:'Frida Kahlo · Mexican modernist painter; unibrow · Tehuana dress · floral headdress · direct gaze; famed for self-portraits expressing pain and vitality.' },
+    { zh:'梅西', en:'messi',
+      zhDesc:'梅西 · 阿根廷足球传奇（十号）；标志性短髭 · 蓝白阿根廷/条纹球衣 · 左足盘带姿态；以过人、进球与国家队圆梦闻名。',
+      enDesc:'Lionel Messi · Argentine football legend (No.10); signature stubble · Argentina stripes jersey · left-foot dribbling pose; famed for dribbling, goals and World Cup glory.' },
+    { zh:'迈克尔·杰克逊|杰克逊', en:'jackson',
+      zhDesc:'迈克尔·杰克逊 · 流行音乐之王；标志性礼帽 · 白袜黑皮鞋 · 太空步 · 舞台西装/军装风；以月球漫步与传奇现场闻名。',
+      enDesc:'Michael Jackson · King of Pop; signature fedora · white socks & black loafers · moonwalk · stage suit/military style; famed for the moonwalk and legendary shows.' },
+    { zh:'孙悟空|齐天大圣', en:'wukong|monkey king|great sage',
+      zhDesc:'齐天大圣 · 中国神话英雄；金箍 · 虎皮裙 · 火眼金睛 · 如意金箍棒；大闹天宫、护送取经的传奇。',
+      enDesc:'Sun Wukong · Chinese mythic hero; golden circlet · tiger-skin kilt · piercing fiery eyes · Ruyi Staff; famed for the Havoc in Heaven and the pilgrimage.' },
+    { zh:'宇航员|航天员', en:'astronaut|taikonaut|cosmonaut',
+      zhDesc:'宇航员 · 人类航天探索者；白色舱外服 · 玻璃头盔面罩 · 失重姿态；以探索星辰大海的征途为使命。',
+      enDesc:'Astronaut · human space explorer; white EVA suit · glass helmet visor · weightless pose; on a mission across the sea of stars.' },
+    { zh:'凤凰', en:'phoenix',
+      zhDesc:'凤凰 · 东方神话瑞鸟；五彩羽翼 · 烈焰尾羽 · 昂首展翅；浴火重生、祥瑞之兆。',
+      enDesc:'Phoenix · mythical auspicious bird; iridescent wings · flaming tail feathers · soaring head high; reborn from fire, a sign of fortune.' },
+    { zh:'龙', en:'dragon',
+      zhDesc:'东方神龙 · 神话至尊；龙角 · 鳞甲 · 云雾环绕 · 腾云之姿；呼风唤雨、气吞山河。',
+      enDesc:'Eastern dragon · mythic sovereign; antlers · scaled armor · wreathed in clouds · soaring stance; commanding wind and rain.' },
+    { zh:'雪豹', en:'snow leopard',
+      zhDesc:'雪豹 · 高原雪域之王；灰白厚毛 · 黑色环斑 · 蓬松长尾 · 雪原/极光之巅的蛰伏姿态。',
+      enDesc:'Snow leopard · king of highland snowfields; thick grey-white fur · black rosettes · long bushy tail · crouched on an icy ridge under auroras.' },
+    { zh:'鲸', en:'whale',
+      zhDesc:'巨鲸 · 海洋巨灵；庞大身躯 · 水柱喷息 · 深海游弋；承载星辰与梦境的远古存在。',
+      enDesc:'Whale · ocean leviathan; colossal body · spouting blow · gliding through the deep; an ancient being bearing stars and dreams.' },
+    { zh:'武士|剑客', en:'samurai|swordsman|warrior',
+      zhDesc:'武士 · 东方武道象征；甲胄 · 太刀/长剑 · 沉着凝视 · 蓄势待发；以忠义与剑道闻名。',
+      enDesc:'Samurai · emblem of Eastern martial path; armor · katana/sword · calm gaze · poised to strike; famed for honor and the way of the sword.' }
+  ];
+
+  function anchorFor(subject, lang){
+    var s = subject.toLowerCase();
+    for(var i=0;i<ANCHORS.length;i++){
+      var keys = ANCHORS[i][lang==='zh'?'zh':'en'].split('|');
+      for(var k=0;k<keys.length;k++){
+        if(keys[k] && s.indexOf(keys[k].toLowerCase())>-1) return lang==='zh'?ANCHORS[i].zhDesc:ANCHORS[i].enDesc;
+      }
+    }
+    return lang==='zh'
+      ? subject + ' · 请核对主体（本地 LLM 扩写可获得更准确的人物锚点与视觉特征）'
+      : subject + ' · verify the subject (run the local LLM expander for a more accurate identity anchor)';
+  }
 
   function cleanStr(s){ return s.replace(/[。！!？?，,.、：:\s]+/g,' ').trim(); }
 
@@ -364,7 +410,8 @@ python3 generator/scripts/one_shot_card.py "<span id="cmdq">…</span>"</div>
     // 英文再清一次尾部介词残留（场景/风格删除后可能出现 "on the" 尾巴）
     subject = subject
       .replace(/\b(on|in|above|at|with|from|for|over|under|near|among|beside|by)\s+(the|a|an)?\s*$/gi, '')
-      .replace(/\b(the|a|an)\s*$/i, '');
+      .replace(/\b(the|a|an)\s*$/i, '')
+      .replace(/^(of|for|with|in|on|at)\s+/i, '');
     if(!subject) subject = lang==='zh' ? '神秘造物' : 'Mystery Subject';
     return { subject: subject, style: style, scene: scene };
   }
@@ -380,6 +427,8 @@ python3 generator/scripts/one_shot_card.py "<span id="cmdq">…</span>"</div>
             p.style==='国风' ? '朱砂金箔东方色' : p.style==='科幻' ? '冷冽金属蓝白' :
             p.style==='卡通' ? '明快糖果色' : p.style==='暗黑' ? '暗金幽蓝' : '鎏金暖调';
       return [
+        '【身份锚点】' + anchorFor(p.subject, lang),
+        '【设计描述】',
         '主体层：' + p.subject + (p.style ? '，' + p.style + '风格' : '') + '，居中构图约占画面 65%，四周留白，细节丰富，轮廓清晰。',
         '背景层：' + (p.scene || '深邃星夜') + '，纵深感拉开，画面下方 40% 区域保持留空用于排版，不出现其他人物。',
         '色调：' + pal + '，鎏金镭射渐变主色调，高光与暗部层次分明。',
@@ -391,6 +440,8 @@ python3 generator/scripts/one_shot_card.py "<span id="cmdq">…</span>"</div>
             p.style==='oriental' ? 'cinnabar-and-gold oriental' : p.style==='sci-fi' ? 'cool metallic blue-white' :
             p.style==='cartoon' ? 'bright candy colors' : p.style==='dark' ? 'dark gold and deep blue' : 'gilded warm tone';
       return [
+        '[IDENTITY] ' + anchorFor(p.subject, lang),
+        '[DESIGN]',
         'Subject layer: ' + p.subject + (p.style ? ' in ' + p.style + ' style' : '') + ', centered, about 65% of the canvas, breathing space on all sides, rich detail, crisp silhouette.',
         'Background layer: ' + (p.scene || 'deep starry night') + ', strong depth; the lower 40% stays empty for typography; no other figures.',
         'Palette: ' + pal + ' with rainbow-foil gradient accents, clear highlights and shadow separation.',

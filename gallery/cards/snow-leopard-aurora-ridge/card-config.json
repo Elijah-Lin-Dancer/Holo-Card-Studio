@@ -32,5 +32,7 @@
     "lineart": "./assets/lineart.webp",
     "model": "./assets/card.glb"
   },
-  "_card_id": "snow-leopard-aurora-ridge"
+  "_card_id": "snow-leopard-aurora-ridge",
+  "identity": "Snow leopard · apex predator of the high Himalayas; thick grey-white fur with black rosettes · long bushy tail · low crouched posture; a master of camouflage on frozen ridges.",
+  "back_story": "A snow leopard rests on an aurora-lit ridge, its rosettes fading into frost. HoloLab's Frosted Wild Series celebrates species that thrive where few dare to follow. — Collector No. 005"
 }
