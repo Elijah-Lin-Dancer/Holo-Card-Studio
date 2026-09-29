@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#f6f4ee">
   <title>HOLO CARD STUDIO</title>
   <link rel="stylesheet" href="./style.css">
   <script type="importmap">{"imports":{"three":"../../vendor/three/build/three.module.js","three/addons/":"../../vendor/three/examples/jsm/"}}</script>
 </head>
 <body>
   <header class="topbar">
-    <a class="wordmark" href="./" aria-label="Holo Card Studio">HOLO CARD STUDIO</a>
+    <a class="wordmark" href="../../index.html" aria-label="HoloLab Studio gallery">HOLOLAB STUDIO</a>
     <span id="edition" class="edition">001 / 001</span>
   </header>
 
@@ -18,12 +18,19 @@
     <section class="identity" aria-labelledby="card-title">
       <p id="subtitle" class="kicker">COLLECTIBLE CARD</p>
       <h1 id="card-title">CARD TITLE</h1>
+      <dl class="meta" id="meta">
+        <div><dt>Collection</dt><dd id="meta-collection">—</dd></div>
+        <div><dt>Technique</dt><dd id="meta-technique">—</dd></div>
+        <div><dt>Released</dt><dd id="meta-date">—</dd></div>
+      </dl>
+      <p id="desc" class="desc">…</p>
       <div class="actions" aria-label="Card actions">
         <button id="auto" type="button" aria-pressed="false">AUTO</button>
         <button id="flip" type="button">FLIP</button>
         <button id="reset" type="button">RESET</button>
         <button id="save" type="button">SAVE</button>
       </div>
+      <p class="hint">Drag to rotate · scroll to zoom · <b>FLIP</b> for the story side</p>
     </section>
 
     <section class="display" aria-label="Interactive holographic card">
@@ -52,6 +59,17 @@
       <input id="bg-depth" type="range" min="-0.65" max="0" step="0.01" value="-0.25">
     </label>
   </section>
+
+  <section class="more" aria-labelledby="more-title">
+    <h2 id="more-title">More cards in the collection</h2>
+    <div class="more-grid" id="more-grid"></div>
+  </section>
+
+  <footer class="foot">
+    <span>HoloLab Studio © 2026 · built by Elijah Lin</span>
+    <span class="foot-links"><a href="../../index.html">Gallery</a> · <a href="../../create.html">Create</a> · <a href="https://github.com/Elijah-Lin-Dancer/Holo-Card-Studio" target="_blank" rel="noopener">GitHub</a></span>
+    <span class="foot-note">AI × 3D holographic cards · MIT License · based on holo-card-studio</span>
+  </footer>
 
   <script type="module" src="./app.js"></script>
 </body>

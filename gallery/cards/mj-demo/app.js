@@ -108,11 +108,41 @@ function wrapTextSmart(ctx,text,x,y,maxWidth,lineHeight,maxLines){
  }
  if(line&&row<maxLines)ctx.fillText(line,x,y+row*lineHeight);
 }
+function escHtml(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+async function renderMore(){
+ const grid=$('more-grid');if(!grid)return;
+ try{
+  const all=await fetch('../../cards.json').then(r=>{if(!r.ok)throw Error();return r.json();}).then(d=>d.cards||[]);
+  const cur=config._card_id||config.slug;
+  const selfCard=all.find(c=>c.id===cur);
+  const dateEl=$('meta-date');
+  if(dateEl&&selfCard?.date){dateEl.textContent=String(selfCard.date);dateEl.closest('div')?.removeAttribute('hidden');}
+  const others=all.filter(c=>c.id!==cur);
+  const same=others.filter(c=>c.collection===config.collection);
+  const rest=others.filter(c=>c.collection!==config.collection);
+  const pick=[...same,...rest].slice(0,4);
+  if(!pick.length)return;
+  grid.innerHTML=pick.map(c=>`<a class="more-card" href="../../${escHtml(c.url)}">
+    <img src="../../${escHtml(c.thumb)}" alt="${escHtml(c.title)}" loading="lazy">
+    <span class="more-title">${escHtml(c.title)}</span>
+    <span class="more-sub">${escHtml(c.edition||c.collection||'')}</span>
+  </a>`).join('');
+ }catch(e){grid.innerHTML='<p class="more-empty">More cards live in the <a href="../../index.html">gallery</a>.</p>';}
+}
 async function init(){
  config=await fetch('./card-config.json').then(r=>{if(!r.ok)throw Error('Card configuration was not found.');return r.json();});
  document.title=(config.title||'CARD TITLE')+' — HOLO CARD STUDIO';
  for(const [id,key]of Object.entries({'card-title':'title','subtitle':'subtitle','edition':'edition'}))if(config[key]&&$(id))$(id).textContent=config[key];
- renderer=new THREE.WebGLRenderer({antialias:true,alpha:false,preserveDrawingBuffer:true,powerPreference:'high-performance'});renderer.setClearColor(0xffffff,1);renderer.setPixelRatio(Math.min(devicePixelRatio,1.75));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.NoToneMapping;renderer.toneMappingExposure=1;stage.append(renderer.domElement);
+ for(const [id,key]of Object.entries({'meta-collection':'collection','meta-technique':'technique','meta-date':'date'})){
+  const v=config[key];const el=$(id);
+  if(el&&v){el.textContent=String(v);el.closest('div')?.removeAttribute('hidden');}
+ }
+ const descEl=$('desc');
+ if(descEl&&config.description){
+  const d=String(config.description).trim();descEl.textContent=d.length>260?d.slice(0,257)+'…':d;
+ }
+ renderMore();
+ renderer=new THREE.WebGLRenderer({antialias:true,alpha:false,preserveDrawingBuffer:true,powerPreference:'high-performance'});renderer.setClearColor(0xf6f4ee,1);renderer.setPixelRatio(Math.min(devicePixelRatio,1.75));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.NoToneMapping;renderer.toneMappingExposure=1;stage.append(renderer.domElement);
  composer=new EffectComposer(renderer);composer.addPass(new RenderPass(scene,camera));composer.addPass(new UnrealBloomPass(new THREE.Vector2(720,1000),.18,.35,1.0));composer.addPass(new OutputPass());
  const loader=new THREE.TextureLoader();const names=['subject','background','text','lineart'];const textures=await Promise.all(names.map(name=>loader.loadAsync(config.assets[name])));textures.forEach(t=>{t.colorSpace=THREE.NoColorSpace;t.anisotropy=Math.min(renderer.capabilities.getMaxAnisotropy(),8);});
  const prm=config.parameters||{};uniforms={tSubject:{value:textures[0]},tBackground:{value:textures[1]},tText:{value:textures[2]},tLine:{value:textures[3]},tBack:{value:backTexture()},uTime:{value:0},uView:{value:new THREE.Vector3(0,0,1)},uFoil:{value:prm.foil??.65},uScale:{value:prm.subjectScale??1.25},uDepth:{value:prm.subjectDepth??.4},uBgDepth:{value:prm.backgroundDepth??-.25},uSafeScale:{value:config.safeArea?.scale??1.12},uSafeOffset:{value:new THREE.Vector2(...(config.safeArea?.offset??[-.06,-.085]))}};
