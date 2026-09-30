@@ -2,7 +2,26 @@
 from pathlib import Path
 import argparse,hashlib,platform,re,shutil,subprocess,tarfile,urllib.request,zipfile
 BASE='https://download.blender.org/release/Blender4.5/'
-def find_blender(project,override=None):
+MIRRORS=[
+    'https://download.blender.org/release/Blender4.5/',
+    'https://ftp.halifax.rwth-aachen.de/blender/release/Blender4.5/',
+    'https://mirror.clarkson.edu/blender/release/Blender4.5/',
+]
+UA={'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) Holo-Card-Studio/1.0'}
+def pick_mirror():
+    """返回 (base_url, listing_html)：按顺序尝试官方与镜像，首个 200 即用。"""
+    for base in MIRRORS:
+        try:
+            req=urllib.request.Request(base,headers=UA)
+            with urllib.request.urlopen(req,timeout=25) as response:
+                if response.status==200:
+                    return base,response.read().decode('utf8')
+        except Exception:
+            continue
+    raise RuntimeError('All Blender mirrors unreachable (403/network).')
+def fetch(url,target):
+    req=urllib.request.Request(url,headers=UA)
+    with urllib.request.urlopen(req,timeout=120) as response,target.open('wb') as out:shutil.copyfileobj(response,out)
     candidates=[]
     if override:candidates.append(Path(override))
     system=shutil.which('blender')
@@ -17,10 +36,6 @@ def find_blender(project,override=None):
         if p.is_file():return p.resolve()
     return None
 
-def fetch(url,target):
-    req=urllib.request.Request(url,headers={'User-Agent':'Holo-Card-Studio/1.0'})
-    with urllib.request.urlopen(req,timeout=90) as response,target.open('wb') as out:shutil.copyfileobj(response,out)
-
 def ensure_blender(project,override=None):
     project=Path(project).resolve();existing=find_blender(project,override)
     if existing:return existing
@@ -32,12 +47,12 @@ def ensure_blender(project,override=None):
         suffix='linux-x64.tar.xz'
     elif system=='Darwin':suffix='macos-arm64.dmg' if 'arm' in machine else 'macos-x64.dmg'
     else:raise RuntimeError('Unsupported platform: '+system)
-    listing=urllib.request.urlopen(BASE,timeout=30).read().decode('utf8')
+    base,listing=pick_mirror()
     found=set(re.findall(r'blender-(4\.5\.\d+)-'+re.escape(suffix),listing))
     if not found:raise RuntimeError('No matching official Blender package for '+suffix)
     version=max(found,key=lambda v:tuple(map(int,v.split('.'))));name='blender-'+version+'-'+suffix
     tools=project/'tools';tools.mkdir(parents=True,exist_ok=True);package=tools/name
-    checksum=tools/('blender-'+version+'.sha256');fetch(BASE+checksum.name,checksum)
+    checksum=tools/('blender-'+version+'.sha256');fetch(base+checksum.name,checksum)
     entries=[l.split() for l in checksum.read_text().splitlines()]
     hashes=[row[0].lower() for row in entries if len(row)>1 and row[-1].lstrip('*')==name]
     if len(hashes)!=1:raise RuntimeError('Official checksum entry missing or ambiguous')
@@ -48,7 +63,7 @@ def ensure_blender(project,override=None):
             for part in iter(lambda:data.read(1024*1024),b''):h.update(part)
         return h.hexdigest()
     if not package.exists() or digest(package)!=expected:
-        partial=package.with_suffix(package.suffix+'.part');fetch(BASE+name,partial)
+        partial=package.with_suffix(package.suffix+'.part');fetch(base+name,partial)
         if digest(partial)!=expected:raise RuntimeError('Official Blender SHA-256 mismatch; package not executed')
         partial.replace(package)
     if package.suffix=='.zip':

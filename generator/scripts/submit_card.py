@@ -199,7 +199,9 @@ def main(argv=None) -> int:
         if blender:
             print(f"[2/5] Blender: {blender}")
         else:
-            print("[2/5] Blender 不可用，跳过 3D 渲染（将只产出平面卡）")
+            out["error"] = "Blender 下载失败（官方/镜像均不可达）。公开卡必须经 3D 正式渲染，请稍后重试。"
+            print(json.dumps(out, ensure_ascii=False))
+            return 1
 
         # ④ AI 生成 4 层图
         ai_cmd = [sys.executable, str(HERE / "ai_generate.py"), "--project", str(project)]
