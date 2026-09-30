@@ -110,6 +110,10 @@ python3 -m http.server 4191
 
 **Requirements:** Blender 4.5 (portable build auto-downloads) · Node.js 18+ · Python 3.10+.
 
+```bash
+pip install -r generator/requirements.txt
+```
+
 **.env** (gitignored — never commit it):
 ```bash
 ARK_API_KEY=your_doubao_ark_key
@@ -137,6 +141,21 @@ git add -A && git commit -m "add card <slug>" && git push
 
 🎛️ **Model defaults (locked):** image `doubao-seedream-5-0-flash-260915` · text `doubao-seed-2-0-mini-260428` · video `doubao-seedance-2-0-fast` (account not yet enabled).
 
+## 📤 Submit your card to the public gallery
+
+One sentence → your card goes live in the **public exhibition hall**, fully automated:
+
+1. Open **Create studio** in the live gallery → type one sentence → generate the detailed description.
+2. Tap **Save to my cards** (private, browser-only), then **Request publish**.
+3. A prefilled **GitHub Issue** opens — add your name, hit *Submit new issue*.
+4. The curation pipeline (GitHub Actions) runs automatically:
+   - **Review** — length limits (idea ≤ 200 chars · design ≤ 4000) · language whitelist (中文 / English / Deutsch) · blocklist scan.
+   - **Production render** — Seedream layered art (4 layers) → Blender 3D parallax → GLB → preview.webm → compressed assets.
+   - **Ship** — the card is committed, deployed to Pages and the issue is closed with the live link.
+5. Approved cards live in the public gallery **forever**, credited to you.
+
+> No server, no database, no API keys in the browser — the pipeline runs entirely in GitHub Actions.
+
 ## 📁 Repository layout
 
 ```
@@ -153,7 +172,8 @@ Holo-Card-Studio/
 │       ├── one_shot_card.py  # text model → card config (zh/de/en)
 │       ├── ai_generate.py    # Seedream layered art + cutout + line-art
 │       ├── run_pipeline.py   # Blender scene → GLB → preview
-│       └── publish_card.py   # compress · thumb · preview.webm · registry
+│       ├── publish_card.py   # compress · thumb · preview.webm · registry
+│       └── submit_card.py    # public submission: review · config · full pipeline
 ├── tools/blender-4.5.0/      # portable Blender (gitignored)
 ├── docs/                     # architecture, AI pipeline, graphics, whitepaper
 └── README.md
