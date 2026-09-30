@@ -324,6 +324,10 @@ def main(argv=None) -> int:
     print(f"[6/7] 改写 importmap → 共享 vendor…")
     rewrite_importmap(dest / "index.html")
 
+    print(f"[6.5/7] 注入 OG 元信息（社交分享预览）…")
+    from inject_og import inject   # 幂等：已注入则跳过
+    inject(dest / "index.html")
+
     cfg = json.loads((web / "card-config.json").read_text(encoding="utf-8-sig"))
     cfg["_card_id"] = card_id
     cfg.setdefault("author", "HoloLab Studio")
