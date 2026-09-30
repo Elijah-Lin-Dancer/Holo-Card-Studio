@@ -82,17 +82,17 @@ def _trim_vendor() -> None:
         keep = {"three.module.js", "three.core.js", "three.webgpu.js"}
         for f in build.iterdir():
             if f.name not in keep:
-                shutil.rmtree(f) if f.is_dir() else f.unlink()
+                shutil.rmtree(f, ignore_errors=True) if f.is_dir() else f.unlink(missing_ok=True)
     # examples 只保留 jsm（addons）
     examples = VENDOR_THREE / "examples"
     if examples.exists():
         for item in examples.iterdir():
             if item.name != "jsm":
-                shutil.rmtree(item) if item.is_dir() else item.unlink()
+                shutil.rmtree(item, ignore_errors=True) if item.is_dir() else item.unlink(missing_ok=True)
     # 顶层只保留必要项
     for item in VENDOR_THREE.iterdir():
         if item.name not in ("build", "examples", "LICENSE", "package.json", "README.md"):
-            shutil.rmtree(item) if item.is_dir() else item.unlink()
+            shutil.rmtree(item, ignore_errors=True) if item.is_dir() else item.unlink(missing_ok=True)
 
 
 def make_thumb(project: Path, dest_dir: Path) -> Path:

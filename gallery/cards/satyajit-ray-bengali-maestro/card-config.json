@@ -1,0 +1,49 @@
+{
+  "slug": "satyajit-ray-bengali-maestro",
+  "title": "সত্যজিৎ রায়",
+  "subtitle": "চলচ্চিত্রের রূপকার",
+  "technique": "Gilded Holography",
+  "tagline": "SATYAJIT RAY · 1921–1992",
+  "collection": "HoloLab Archive · Legend Series",
+  "description": "A holographic tribute to Satyajit Ray, the Bengali master of world cinema — filmmaker, composer, illustrator and writer, whose Apu Trilogy changed the language of film.",
+  "identity": "Satyajit Ray · legendary Indian filmmaker, composer, illustrator and writer · slim build, deep-set thoughtful eyes, dark suit with white shirt, hand resting on chin in contemplation",
+  "back_story": "Satyajit Ray (1921–1992) was one of the greatest filmmakers of the 20th century. Born in Kolkata, he built the celebrated Apu Trilogy — Pather Panchali, Aparajito and Apur Sansar — and won the Venice Golden Lion, Cannes acclaim, the Bharat Ratna, and an honorary Academy Award. Beyond cinema he composed music, designed posters and wrote beloved children's mysteries. This card belongs to the HoloLab Legend Series.",
+  "style": "鎏金暖调镭射渐变收藏卡插画，沿主体轮廓金色发光描边，印度电影黄金时代复古质感，孟加拉乡野星夜背景，纵深感强，画面下方四成区域留空用于排版，细节丰富，不出现其他人物",
+  "prompt": "Satyajit Ray, the legendary Bengali film master, in a contemplative portrait.",
+  "subject_desc": "中年印度电影大师萨蒂亚吉特·雷伊半身肖像，清瘦面容，目光深邃而温和，左手托腮作沉思状，身穿深色西装外套内搭白衬衫，神态沉静睿智，细节丰富轮廓清晰",
+  "background_desc": "孟加拉乡野星夜，一束放映机暖光光束斜穿画面，胶片齿孔光晕点缀星空，纵深感强，画面下方约四成区域留空用于排版，不出现其他人物，鎏金暖调镭射渐变",
+  "mode": "holographic",
+  "edition": "003 / 003",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.4,
+    "backgroundDepth": -0.25,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.12,
+    "offset": [
+      -0.06,
+      -0.085
+    ]
+  },
+  "stats": "Apu Trilogy · Venice Golden Lion 1957 · Cannes 1956 · Honorary Oscar 1992 · Bharat Ratna 1992",
+  "honors": [
+    "Pather Panchali — Cannes Best Human Document (1956)",
+    "Aparajito — Venice Golden Lion (1957)",
+    "Honorary Academy Award (1992)",
+    "Bharat Ratna (1992)"
+  ],
+  "quote": "I am interested in human beings.",
+  "font": "/usr/share/fonts/truetype/noto/NotoSerifBengali-Regular.ttf",
+  "font_latin": "/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf",
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "satyajit-ray-bengali-maestro",
+  "author": "HoloLab Studio"
+}

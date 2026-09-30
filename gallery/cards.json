@@ -1,6 +1,44 @@
 {
   "cards": [
     {
+      "id": "neeltje-friesian-kalundborg",
+      "title": "Neeltje Jacoba Van Swichum",
+      "subtitle": "EN FRIESER PÅ 22 ÅR",
+      "technique": "Moonlit Holography",
+      "tagline": "En sort perle fra Holland",
+      "edition": "001 / 001",
+      "collection": "Made for a Friend · Isabella Nicoline Andersen",
+      "description": "A holographic tribute to Neeltje, a 22-year-old pure-black Friesian mare — a loyal companion in Kalundborg, Denmark, for Isabella and little Sophina.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "挚友",
+        "马",
+        "丹麦"
+      ],
+      "url": "cards/neeltje-friesian-kalundborg/",
+      "thumb": "cards/neeltje-friesian-kalundborg/thumb.jpg",
+      "date": "2026-09-30"
+    },
+    {
+      "id": "satyajit-ray-bengali-maestro",
+      "title": "সত্যজিৎ রায়",
+      "subtitle": "চলচ্চিত্রের রূপকার",
+      "technique": "Gilded Holography",
+      "tagline": "SATYAJIT RAY · 1921–1992",
+      "edition": "003 / 003",
+      "collection": "HoloLab Archive · Legend Series",
+      "description": "A holographic tribute to Satyajit Ray, the Bengali master of world cinema — filmmaker, composer, illustrator and writer, whose Apu Trilogy changed the language of film.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "传奇",
+        "电影",
+        "孟加拉"
+      ],
+      "url": "cards/satyajit-ray-bengali-maestro/",
+      "thumb": "cards/satyajit-ray-bengali-maestro/thumb.jpg",
+      "date": "2026-09-30"
+    },
+    {
       "id": "card-elijah-lin-d",
       "title": "Luminous Blue Whale",
       "subtitle": "Public Submission · 公众投稿",

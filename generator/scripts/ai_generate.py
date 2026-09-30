@@ -67,12 +67,12 @@ def generate_image(
     prompt: str,
     api_key: str,
     model: str = DEFAULT_MODEL,
-    reference: Path | None = None,
+    reference: str | None = None,
     size: tuple[int, int] = CANVAS,
     out_path: Path | None = None,
     retries: int = 2,
 ) -> Path:
-    """调用豆包 Seedream 生成一张图，返回本地路径。reference 传入时走以图生图。"""
+    """调用豆包 Seedream 生成一张图，返回本地路径。reference 传入公网图 URL 时走以图生图。"""
     payload: dict = {
         "model": model,
         "prompt": prompt,
@@ -80,11 +80,10 @@ def generate_image(
         "response_format": "url",
         "watermark": False,
     }
-    import base64
 
     if reference is not None:
-        raw = reference.read_bytes()
-        payload["image"] = base64.b64encode(raw).decode("ascii")
+        # 该模型 image 字段仅接受公网 URL（base64 会报 InvalidParameter）
+        payload["image"] = reference
 
     body = json.dumps(payload).encode("utf-8")
     req = urllib.request.Request(
@@ -244,9 +243,9 @@ def main(argv=None) -> int:
         cfg["prompt"] = args.prompt
 
     api_key = load_env(root)
-    ref = Path(args.reference).resolve() if args.reference else None
-    if ref and not ref.is_file():
-        raise FileNotFoundError(f"参考图不存在：{ref}")
+    ref = args.reference if args.reference else None
+    if ref and not (ref.startswith("http://") or ref.startswith("https://")):
+        raise ValueError("--reference 需为公网图片 URL（该模型 image 字段仅接受 URL，不支持本地文件）")
 
     subject_prompt, background_prompt = build_prompts(cfg, ref)
 

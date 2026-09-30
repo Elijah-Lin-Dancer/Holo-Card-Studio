@@ -1,0 +1,45 @@
+{
+  "slug": "neeltje-friesian-kalundborg",
+  "title": "Neeltje Jacoba Van Swichum",
+  "subtitle": "EN FRIESER PÅ 22 ÅR",
+  "technique": "Moonlit Holography",
+  "tagline": "En sort perle fra Holland",
+  "collection": "Made for a Friend · Isabella Nicoline Andersen",
+  "description": "A holographic tribute to Neeltje, a 22-year-old pure-black Friesian mare — a loyal companion in Kalundborg, Denmark, for Isabella and little Sophina.",
+  "identity": "A majestic pure-black Friesian mare named Neeltje, 22 years old, elegant and tall with flowing mane and tail, gentle wise eyes, silk-like sheen in moonlight",
+  "back_story": "En sort perle fra Holland – med den vilde manke og de milde øjne. 22 års trofast følgesvend for Isabella – og nu også for lille Sophina – ved Kalundborg. A black pearl from Holland with a wild mane and gentle eyes — 22 years of faithful companionship for Isabella, and now also for little Sophina, by Kalundborg.",
+  "style": "鎏金暖调镭射渐变收藏卡插画，沿主体轮廓金色发光描边，月光与晨曦交织的丝缎光泽，丹麦海湾背景，纵深感强，画面下方四成区域留空用于排版，细节丰富",
+  "prompt": "A majestic pure-black Friesian mare under moonlight, her flowing mane in the wind.",
+  "subject_desc": "一匹纯黑弗里斯兰母马半侧身像，高大优雅，昂首凝望，浓密长鬃与长尾随风飞扬，月光与晨光下泛丝缎光泽，眼神温柔而睿智，细节丰富轮廓清晰",
+  "background_desc": "卡伦堡海湾月夜与晨光渐变，星尘点缀，风拂过草坡的弧线，纵深感强，画面下方约四成区域留空用于排版，不出现其他动物或人物，鎏金暖调镭射渐变",
+  "mode": "holographic",
+  "edition": "001 / 001",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.4,
+    "backgroundDepth": -0.25,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.12,
+    "offset": [
+      -0.06,
+      -0.085
+    ]
+  },
+  "stats": "Friesian · Holland · Born 2004 · Kalundborg, Danmark",
+  "honors": [
+    "22 års trofast følgesvend · 22 years of faithful companionship",
+    "Med Isabella & Sophina · With Isabella & Sophina"
+  ],
+  "quote": "En sort perle fra Holland.",
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "neeltje-friesian-kalundborg",
+  "author": "HoloLab Studio"
+}
