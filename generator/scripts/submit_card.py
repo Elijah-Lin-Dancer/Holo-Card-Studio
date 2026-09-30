@@ -36,25 +36,58 @@ ROOT = HERE.parent.parent
 GALLERY = ROOT / "gallery"
 
 # --------------------------------------------------------------------------
-# 审核：黑名单（保守类别：暴力/色情/毒品/违禁品制造/极端主义）
+# 审核：黑名单（类别化，覆盖中/英/德；未成年人性化内容为硬性红线）
 # 只做第一道闸，豆包图片 API 自带内容审核为第二道闸。
 # --------------------------------------------------------------------------
-BLOCKED = [
-    # 暴力 / 血腥
-    "爆炸物制作", "自制炸弹", "暗杀", "人体炸弹", "blood", "gore",
-    # 色情 / 露骨
-    "色情", "裸露生殖器", "性行为", "porn", "nudity", "explicit sex",
-    # 毒品 / 违禁品
-    "冰毒", "海洛因", "可卡因", "制毒", "meth", "heroin", "cocaine",
-    # 武器制造 / 攻击手段
-    "枪支改造", "3d打印枪", "gun printing", "weapon blueprint",
-    # 极端主义 / 煽动
-    "极端组织招募", "恐怖袭击教程", "jihad manual", "terror instructions",
-]
-
+BLOCKED_CATEGORIES: dict[str, list[str]] = {
+    "暴力/血腥": [
+        "爆炸物制作", "自制炸弹", "暗杀", "人体炸弹", "屠杀教程", "blood", "gore",
+        "torture tutorial", "massacre guide",
+    ],
+    "色情/露骨": [
+        "色情", "裸露生殖器", "性行为", "porn", "nudity", "explicit sex",
+        "hardcore", "sexual content",
+    ],
+    "毒品/违禁品": [
+        "冰毒", "海洛因", "可卡因", "制毒", "毒品交易", "meth", "heroin", "cocaine",
+        "drug dealing", "synthetische drogen",
+    ],
+    "武器制造/攻击手段": [
+        "枪支改造", "3d打印枪", "gun printing", "weapon blueprint",
+        "bomb making", "explosive device",
+    ],
+    "极端主义/恐怖": [
+        "极端组织招募", "恐怖袭击教程", "jihad manual", "terror instructions",
+        "bombing guide",
+    ],
+    "仇恨言论/歧视": [
+        "种族仇恨", "白人至上", "纳粹宣传", "歧视黑人", "hate speech",
+        "white supremacy", "nazi propaganda", "racial slur", "rassismus",
+        "judenhass",
+    ],
+    "宗教仇恨": [
+        "宗教仇恨", "圣战宣传", "宗教迫害煽动", "holy war propaganda",
+        "religious hate", "glaubenshass",
+    ],
+    "自杀/自残引导": [
+        "自杀教程", "自残引导", "自杀方法", "self-harm tutorial",
+        "suicide method", "selbstmord",
+    ],
+    "诈骗/赌博": [
+        "诈骗教程", "钓鱼链接", "洗钱", "scam tutorial", "phishing",
+        "money laundering", "betting fraud",
+    ],
+    "未成年人性化（硬性红线）": [
+        "儿童色情", "未成年裸露", "儿童性内容", "child porn", "cp content",
+        "minor nudity", "kindersex",
+    ],
+}
+# 展平用于快速检查
+BLOCKED = [w for words in BLOCKED_CATEGORIES.values() for w in words]
 MAX_IDEA = 200      # 一句话 ≤ 200 字符
 MAX_DESIGN = 4000   # 详细描述 ≤ 4000 字符
 ALLOWED_LANGS = {"zh", "en", "de"}
+DAILY_LIMIT = 3     # 同一作者 24h 内最多上线卡数
 
 
 def parse_body(body: str) -> dict:
@@ -93,11 +126,53 @@ def audit(idea: str, design: str, lang: str) -> list[str]:
     if lang not in ALLOWED_LANGS:
         issues.append(f"语言不受支持（{lang}），仅支持中文/英文/德文")
     text = (idea + "\n" + design).lower()
-    for word in BLOCKED:
-        if word in text:
-            issues.append(f"包含受限内容（匹配敏感词）")
-            break
+    for category, words in BLOCKED_CATEGORIES.items():
+        if any(w in text for w in words):
+            issues.append(f"包含受限内容（类别：{category}）")
     return issues
+
+
+def rate_limit(author: str) -> list[str]:
+    """限频：统计 cards.json 中该作者当天已上线（edition 前缀 PUB-）的卡数。"""
+    issues = []
+    today = time.strftime("%Y%m%d")
+    try:
+        manifest = json.loads((GALLERY / "cards.json").read_text(encoding="utf-8"))
+        today_count = sum(
+            1 for c in manifest.get("cards", [])
+            if c.get("author", "").lower() == author.lower()
+            and str(c.get("edition", "")).startswith("PUB-" + today)
+        )
+        if today_count >= DAILY_LIMIT:
+            issues.append(f"频率限制：{author} 今天已上线 {today_count} 张，24 小时内最多 {DAILY_LIMIT} 张，请明天再试。")
+    except Exception:
+        pass  # 清单不可读时不阻断提交（避免误伤）
+    return issues
+
+
+def remove_card(card_id: str, requester: str) -> dict:
+    """下架指令：[Remove] <card_id>，仅卡片作者本人可操作。返回结果 dict。"""
+    manifest_path = GALLERY / "cards.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    cards = manifest.get("cards", [])
+    card = next((c for c in cards if c.get("id") == card_id), None)
+    if card is None:
+        return {"ok": False, "error": f"未找到卡片 {card_id}"}
+    if str(card.get("author", "")).lower() != requester.lower():
+        return {"ok": False, "error": f"只有卡片作者 @{card.get('author')} 才能下架，你无法操作。"}
+    # 从清单移除 + 删除卡片目录
+    manifest["cards"] = [c for c in cards if c.get("id") != card_id]
+    manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
+    card_dir = GALLERY / "cards" / card_id
+    if card_dir.exists():
+        shutil.rmtree(card_dir)
+    return {
+        "ok": True,
+        "card_id": card_id,
+        "title": card.get("title", ""),
+        "author": requester,
+        "url": "已从展厅移除",
+    }
 
 
 def extract_section(design: str, keys: list[str]) -> str:
@@ -161,9 +236,17 @@ def main(argv=None) -> int:
     p.add_argument("--author", required=True, help="提交者 GitHub 用户名")
     p.add_argument("--outdir", default=str(ROOT / "generator" / "projects"), help="项目输出目录")
     p.add_argument("--skip-ai", action="store_true", help="跳过 AI 生成（仅测试管线，用占位图）")
+    p.add_argument("--remove", default="", help="[Remove] 下架指令：卡片 id（仅作者本人可操作）")
+    p.add_argument("--open-issues", type=int, default=0, help="该作者当前挂起的 [Submission] issue 数（workflow 统计传入）")
     args = p.parse_args(argv)
 
     out = {"ok": False, "error": ""}
+    # [Remove] 分支：只做下架，不走渲染管线
+    if args.remove:
+        result = remove_card(args.remove.strip(), args.author)
+        print(json.dumps(result, ensure_ascii=False))
+        return 0 if result.get("ok") else 1
+
     try:
         raw = Path(args.body).read_text(encoding="utf-8")
         parsed = parse_body(raw)
@@ -175,6 +258,15 @@ def main(argv=None) -> int:
         problems = audit(idea, design, lang)
         if problems:
             out["error"] = "审核未通过：\n- " + "\n- ".join(problems)
+            print(json.dumps(out, ensure_ascii=False))
+            return 1
+
+        # ①.5 限频（当日上线数 + 挂起投稿数）
+        problems = rate_limit(args.author)
+        if args.open_issues >= 2:
+            problems.append(f"频率限制：你已有 {args.open_issues} 个投稿正在排队审核，请等它们完成后再提交新创意。")
+        if problems:
+            out["error"] = "\n- ".join(problems)
             print(json.dumps(out, ensure_ascii=False))
             return 1
 

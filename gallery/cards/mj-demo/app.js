@@ -89,6 +89,7 @@ function backTexture(){
   ctx.fillStyle='#1c1c1c';ctx.font='500 30px Arial, sans-serif';
   wrapTextSmart(ctx,String(config.back_story||'This card is a HoloLab original.'),86,580,850,46,12);
  }
+ ctx.fillStyle='#696969';ctx.font='600 21px Arial, sans-serif';ctx.fillText('CREATED BY · '+String(config.author||'HoloLab Community'),86,1382);
  ctx.fillStyle='#696969';ctx.font='600 21px Arial, sans-serif';ctx.fillText('EDITION '+String(config.edition||'001'),86,1418);
  const tex=new THREE.CanvasTexture(c);tex.colorSpace=THREE.NoColorSpace;return tex;
 }

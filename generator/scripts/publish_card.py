@@ -224,6 +224,7 @@ def load_card_meta(cfg: dict, tags: list[str]) -> dict:
         "edition": cfg.get("edition", ""),
         "collection": cfg.get("collection", ""),
         "description": cfg.get("description", ""),
+        "author": cfg.get("author") or "HoloLab Studio",
         "style_tags": tags,
     }
 
@@ -319,10 +320,12 @@ def main(argv=None) -> int:
 
     cfg = json.loads((web / "card-config.json").read_text(encoding="utf-8-sig"))
     cfg["_card_id"] = card_id
+    cfg.setdefault("author", "HoloLab Studio")
     # 把 _card_id 写回归档副本，保持清单与归档一致
     dest_cfg = dest / "card-config.json"
     saved = json.loads(dest_cfg.read_text(encoding="utf-8-sig"))
     saved["_card_id"] = card_id
+    saved.setdefault("author", "HoloLab Studio")
     dest_cfg.write_text(json.dumps(saved, ensure_ascii=False, indent=2), encoding="utf-8")
     meta = load_card_meta(cfg, tags)
     print(f"[7/7] 更新 cards.json…")

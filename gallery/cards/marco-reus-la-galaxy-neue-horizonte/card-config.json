@@ -42,5 +42,6 @@
     "lineart": "./assets/lineart.webp",
     "model": "./assets/card.glb"
   },
-  "_card_id": "marco-reus-la-galaxy-neue-horizonte"
+  "_card_id": "marco-reus-la-galaxy-neue-horizonte",
+  "author": "HoloLab Studio"
 }

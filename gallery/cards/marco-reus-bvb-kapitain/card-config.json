@@ -42,5 +42,6 @@
     "lineart": "./assets/lineart.webp",
     "model": "./assets/card.glb"
   },
-  "_card_id": "marco-reus-bvb-kapitain"
+  "_card_id": "marco-reus-bvb-kapitain",
+  "author": "HoloLab Studio"
 }

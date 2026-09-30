@@ -35,6 +35,9 @@ jobs:
           gh issue view "${{ github.event.issue.number }}" --json body -q .body > /tmp/issue-body.txt
           echo "author=${{ github.event.issue.user.login }}" >> "$GITHUB_OUTPUT"
           echo "issue=${{ github.event.issue.number }}" >> "$GITHUB_OUTPUT"
+          # 限频：该作者当前挂起的 [Submission] issue 数（防排队堆积）
+          COUNT=$(gh api "repos/${{ github.repository }}/issues?state=open&creator=${{ github.event.issue.user.login }}&per_page=100" --jq '[.[] | select(.title | startswith("[Submission]"))] | length')
+          echo "open_issues=$COUNT" >> "$GITHUB_OUTPUT"
 
       - name: Run submission pipeline
         id: pipeline
@@ -44,6 +47,7 @@ jobs:
           python generator/scripts/submit_card.py \
             --body /tmp/issue-body.txt \
             --author "${{ steps.payload.outputs.author }}" \
+            --open-issues "${{ steps.payload.outputs.open_issues }}" \
             > /tmp/pipeline-result.json 2>/tmp/pipeline-log.txt || true
           cat /tmp/pipeline-result.json
           echo "result=$(cat /tmp/pipeline-result.json | tr '\n' ' ')" >> "$GITHUB_OUTPUT"
@@ -94,6 +98,74 @@ jobs:
               err = os.environ.get('LOG', '')[:600] or '管线内部错误，请查看 Actions 日志。'
           open('/tmp/comment.md', 'w').write(
               "❌ **审核/渲染未通过**\n\n" + err + "\n\n请修改后新建 Issue 重新提交。"
+          )
+          EOF
+          gh issue comment "${{ github.event.issue.number }}" --body-file /tmp/comment.md
+  remove:
+    if: startsWith(github.event.issue.title, '[Remove]')
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    concurrency:
+      group: auto-render
+      cancel-in-progress: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch removal payload
+        id: payload
+        run: |
+          gh issue view "${{ github.event.issue.number }}" --json body -q .body > /tmp/issue-body.txt
+          CARD_ID="${{ github.event.issue.title }}"
+          echo "card_id=${CARD_ID#*] }" >> "$GITHUB_OUTPUT"
+          echo "author=${{ github.event.issue.user.login }}" >> "$GITHUB_OUTPUT"
+
+      - name: Run removal
+        id: pipeline
+        run: |
+          python generator/scripts/submit_card.py \
+            --body /tmp/issue-body.txt \
+            --author "${{ steps.payload.outputs.author }}" \
+            --remove "${{ steps.payload.outputs.card_id }}" \
+            > /tmp/pipeline-result.json 2>/tmp/pipeline-log.txt || true
+          cat /tmp/pipeline-result.json
+          echo "result=$(cat /tmp/pipeline-result.json | tr '\n' ' ')" >> "$GITHUB_OUTPUT"
+
+      - name: Reply success & close & push
+        if: "contains(steps.pipeline.outputs.result, '\"ok\": true')"
+        run: |
+          python - <<'EOF'
+          import json
+          r = json.load(open('/tmp/pipeline-result.json'))
+          comment = (
+              "🗑️ **卡片已下架**\n\n"
+              f"- 卡名：**{r['title']}**\n"
+              f"- 编号：`{r['card_id']}`\n\n"
+              "已从展厅移除并同步部署。"
+          )
+          open('/tmp/comment.md', 'w').write(comment)
+          EOF
+          gh issue comment "${{ github.event.issue.number }}" --body-file /tmp/comment.md
+          gh issue close "${{ github.event.issue.number }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -m "chore(community): remove card ${{ steps.payload.outputs.card_id }} (auto)" --no-verify || echo "nothing to commit"
+          git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git" HEAD:main
+
+      - name: Reply failure
+        if: "failure() || !contains(steps.pipeline.outputs.result, '\"ok\": true')"
+        run: |
+          python - <<'EOF'
+          import json, os
+          try:
+              r = json.load(open('/tmp/pipeline-result.json'))
+              err = r.get('error', '未知错误')
+          except Exception:
+              err = os.environ.get('LOG', '')[:600] or '内部错误，请查看 Actions 日志。'
+          open('/tmp/comment.md', 'w').write(
+              "❌ **下架失败**\n\n" + err + "\n\n请核对卡 id 后重新提交。"
           )
           EOF
           gh issue comment "${{ github.event.issue.number }}" --body-file /tmp/comment.md

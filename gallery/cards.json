@@ -12,7 +12,8 @@
       "style_tags": [],
       "url": "cards/card-elijah-lin-d/",
       "thumb": "cards/card-elijah-lin-d/thumb.jpg",
-      "date": "2026-09-30"
+      "date": "2026-09-30",
+      "author": "Elijah-Lin-Dancer"
     },
     {
       "id": "marco-reus-la-galaxy-neue-horizonte",
@@ -35,7 +36,8 @@
       "lenticular": {
         "L": "cards/marco-reus-la-galaxy-neue-horizonte/lent-L.jpg",
         "R": "cards/marco-reus-la-galaxy-neue-horizonte/lent-R.jpg"
-      }
+      },
+      "author": "HoloLab Studio"
     },
     {
       "id": "marco-reus-wm-2014-verpasst",
@@ -58,7 +60,8 @@
       "lenticular": {
         "L": "cards/marco-reus-wm-2014-verpasst/lent-L.jpg",
         "R": "cards/marco-reus-wm-2014-verpasst/lent-R.jpg"
-      }
+      },
+      "author": "HoloLab Studio"
     },
     {
       "id": "marco-reus-bvb-kapitain",
@@ -82,7 +85,8 @@
       "lenticular": {
         "L": "cards/marco-reus-bvb-kapitain/lent-L.jpg",
         "R": "cards/marco-reus-bvb-kapitain/lent-R.jpg"
-      }
+      },
+      "author": "HoloLab Studio"
     },
     {
       "id": "frida-kahlo-mexican-painter",
@@ -105,7 +109,8 @@
         "L": "cards/frida-kahlo-mexican-painter/lent-L.jpg",
         "R": "cards/frida-kahlo-mexican-painter/lent-R.jpg"
       },
-      "preview": "cards/frida-kahlo-mexican-painter/preview.webm"
+      "preview": "cards/frida-kahlo-mexican-painter/preview.webm",
+      "author": "HoloLab Studio"
     },
     {
       "id": "snow-leopard-aurora-ridge",
@@ -129,7 +134,8 @@
         "L": "cards/snow-leopard-aurora-ridge/lent-L.jpg",
         "R": "cards/snow-leopard-aurora-ridge/lent-R.jpg"
       },
-      "preview": "cards/snow-leopard-aurora-ridge/preview.webm"
+      "preview": "cards/snow-leopard-aurora-ridge/preview.webm",
+      "author": "HoloLab Studio"
     },
     {
       "id": "great-sage-sun-wukong",
@@ -151,7 +157,8 @@
       "lenticular": {
         "L": "cards/great-sage-sun-wukong/lent-L.jpg",
         "R": "cards/great-sage-sun-wukong/lent-R.jpg"
-      }
+      },
+      "author": "HoloLab Studio"
     },
     {
       "id": "taikonaut-stellar-expedition",
@@ -174,7 +181,8 @@
       "lenticular": {
         "L": "cards/taikonaut-stellar-expedition/lent-L.jpg",
         "R": "cards/taikonaut-stellar-expedition/lent-R.jpg"
-      }
+      },
+      "author": "HoloLab Studio"
     },
     {
       "id": "mj-demo",
@@ -197,7 +205,8 @@
       "lenticular": {
         "L": "cards/mj-demo/lent-L.jpg",
         "R": "cards/mj-demo/lent-R.jpg"
-      }
+      },
+      "author": "HoloLab Studio"
     },
     {
       "id": "messi-demo",
@@ -220,7 +229,8 @@
       "lenticular": {
         "L": "cards/messi-demo/lent-L.jpg",
         "R": "cards/messi-demo/lent-R.jpg"
-      }
+      },
+      "author": "HoloLab Studio"
     }
   ]
 }

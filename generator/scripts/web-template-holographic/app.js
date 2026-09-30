@@ -89,6 +89,7 @@ function backTexture(){
   ctx.fillStyle='#1c1c1c';ctx.font='500 30px Arial, sans-serif';
   wrapTextSmart(ctx,String(config.back_story||'This card is a HoloLab original.'),86,580,850,46,12);
  }
+ ctx.fillStyle='#696969';ctx.font='600 21px Arial, sans-serif';ctx.fillText('CREATED BY · '+String(config.author||'HoloLab Community'),86,1382);
  ctx.fillStyle='#696969';ctx.font='600 21px Arial, sans-serif';ctx.fillText('EDITION '+String(config.edition||'001'),86,1418);
  const tex=new THREE.CanvasTexture(c);tex.colorSpace=THREE.NoColorSpace;return tex;
 }
@@ -131,7 +132,7 @@ async function renderMore(){
 }
 async function init(){
  config=await fetch('./card-config.json').then(r=>{if(!r.ok)throw Error('Card configuration was not found.');return r.json();});
- document.title=(config.title||'CARD TITLE')+' — HOLO CARD STUDIO';
+ document.title=(config.title||'CARD TITLE')+' — HoloLab Studio';
  for(const [id,key]of Object.entries({'card-title':'title','subtitle':'subtitle','edition':'edition'}))if(config[key]&&$(id))$(id).textContent=config[key];
  for(const [id,key]of Object.entries({'meta-collection':'collection','meta-technique':'technique','meta-date':'date'})){
   const v=config[key];const el=$(id);
@@ -142,7 +143,7 @@ async function init(){
   const d=String(config.description).trim();descEl.textContent=d.length>260?d.slice(0,257)+'…':d;
  }
  renderMore();
- renderer=new THREE.WebGLRenderer({antialias:true,alpha:false,preserveDrawingBuffer:true,powerPreference:'high-performance'});renderer.setClearColor(0xf6f4ee,1);renderer.setPixelRatio(Math.min(devicePixelRatio,1.75));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.NoToneMapping;renderer.toneMappingExposure=1;stage.append(renderer.domElement);
+ renderer=new THREE.WebGLRenderer({antialias:true,alpha:false,preserveDrawingBuffer:true,powerPreference:'high-performance'});renderer.setClearColor((window.HoloLabTheme&&HoloLabTheme.get()==='dark')?0x12100d:0xf6f4ee,1);if(window.HoloLabTheme){var _th=window.__hololabOnTheme||function(){};window.__hololabOnTheme=function(t){if(renderer)renderer.setClearColor(t==='dark'?0x12100d:0xf6f4ee,1);_th(t);};}renderer.setPixelRatio(Math.min(devicePixelRatio,1.75));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.NoToneMapping;renderer.toneMappingExposure=1;stage.append(renderer.domElement);
  composer=new EffectComposer(renderer);composer.addPass(new RenderPass(scene,camera));composer.addPass(new UnrealBloomPass(new THREE.Vector2(720,1000),.18,.35,1.0));composer.addPass(new OutputPass());
  const loader=new THREE.TextureLoader();const names=['subject','background','text','lineart'];const textures=await Promise.all(names.map(name=>loader.loadAsync(config.assets[name])));textures.forEach(t=>{t.colorSpace=THREE.NoColorSpace;t.anisotropy=Math.min(renderer.capabilities.getMaxAnisotropy(),8);});
  const prm=config.parameters||{};uniforms={tSubject:{value:textures[0]},tBackground:{value:textures[1]},tText:{value:textures[2]},tLine:{value:textures[3]},tBack:{value:backTexture()},uTime:{value:0},uView:{value:new THREE.Vector3(0,0,1)},uFoil:{value:prm.foil??.65},uScale:{value:prm.subjectScale??1.25},uDepth:{value:prm.subjectDepth??.4},uBgDepth:{value:prm.backgroundDepth??-.25},uSafeScale:{value:config.safeArea?.scale??1.12},uSafeOffset:{value:new THREE.Vector2(...(config.safeArea?.offset??[-.06,-.085]))}};
@@ -170,4 +171,4 @@ function setupControls(){
 function animate(now){const dt=Math.min((now-lastTime)/1000,.1)||0;lastTime=now;if(!document.hidden)elapsed+=dt;if(auto){targetY=Math.sin(elapsed*.65)*.38;targetX=Math.sin(elapsed*.85)*.12;}
  const ease=reduced?1:1-Math.exp(-dt*8);rotationX+=(targetX-rotationX)*ease;rotationY+=(targetY-rotationY)*ease;root.rotation.set(rotationX,rotationY,0);root.updateMatrixWorld(true);
  uniforms.uView.value.copy(camera.position).applyMatrix4(new THREE.Matrix4().copy(root.matrixWorld).invert()).normalize();uniforms.uTime.value=reduced&&!auto?0:elapsed;composer.render();}
-init().catch(error=>{console.error(error);loading.textContent='CARD UNAVAILABLE\n'+error.message;loading.setAttribute('role','alert');window.__holo={ready:false,error:error.message};});
+init().catch(error=>{console.error(error);loading.textContent='CARD UNAVAILABLE · 卡片暂不可用\n'+error.message;loading.setAttribute('role','alert');window.__holo={ready:false,error:error.message};});
