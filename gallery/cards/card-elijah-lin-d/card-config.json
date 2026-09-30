@@ -32,5 +32,10 @@
     "lineart": "./assets/lineart.webp",
     "model": "./assets/card.glb"
   },
-  "_card_id": "card-elijah-lin-d"
+  "_card_id": "card-elijah-lin-d",
+  "stats": "Public Submission · 公众投稿",
+  "honors": [
+    "[IDENTITY] Luminous Blue Whale · leviathan of the starry sea\n[DESIGN]\nSubject la"
+  ],
+  "back_story": "[IDENTITY] Luminous Blue Whale · leviathan of the starry sea\n[DESIGN]\nSubject layer: a luminous blue whale soaring through clouds, bioluminescent cyan glow, centered, about 65% of canvas, crisp silhouette, rich detail.\nB"
 }

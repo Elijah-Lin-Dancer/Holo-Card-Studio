@@ -37,10 +37,11 @@ def test_slug_matches_dirname():
 
 def test_edition_format():
     import re
-    pat = re.compile(r"^\d{3} / \d{3}$")
+    # 手工系列 NNN/NNN；公众投稿卡（auto-render）使用 PUB- 编号
+    pat = re.compile(r"^(\d{3} / \d{3}|PUB-[\w-]+)$")
     for name, cfg in all_configs():
         ed = cfg.get("edition", "")
-        assert pat.match(ed), f"{name}: edition 格式应为 NNN / NNN，实际 {ed!r}"
+        assert pat.match(ed), f"{name}: edition 格式应为 NNN / NNN 或 PUB-xxx，实际 {ed!r}"
 
 
 def test_honors_is_list():

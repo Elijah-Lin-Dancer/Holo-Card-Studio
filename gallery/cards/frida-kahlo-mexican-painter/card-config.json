@@ -35,5 +35,9 @@
     "model": "./assets/card.glb"
   },
   "_card_id": "frida-kahlo-mexican-painter",
-  "author": "HoloLab Studio"
+  "author": "HoloLab Studio",
+  "stats": "HoloLab · Frida",
+  "honors": [
+    "This holographic card honors Frida Kahlo, the iconic Mexican artist. It brings h"
+  ]
 }

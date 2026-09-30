@@ -34,5 +34,10 @@
   "_card_id": "messi-demo",
   "identity": "梅西 · 阿根廷足球传奇（十号）；标志性短髭 · 蓝白球衣 · 左足盘带姿态；以过人、进球与世界杯圆梦闻名。",
   "back_story": "从罗萨里奥的街巷到世界之巅，十号以一记绝杀圆梦大力神杯。HoloLab 传奇系列第 001 号，镭射流光致敬永恒球王。",
-  "author": "HoloLab Studio"
+  "author": "HoloLab Studio",
+  "slug": "messi-demo",
+  "stats": "球王 · 阿根廷十号",
+  "honors": [
+    "球王梅西的传奇全息收藏卡：蓝白间条、金色纸屑与夜空的镭射流光。"
+  ]
 }
