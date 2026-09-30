@@ -1,0 +1,50 @@
+{
+  "slug": "messi-fc-barcelona",
+  "title": "Lionel Messi",
+  "subtitle": "La Pulga · Rey de la Noche",
+  "technique": "Gilded Holography",
+  "tagline": "FC BARCELONA · 2004–2021",
+  "collection": "HoloLab Archive · FC Barcelona Legacy",
+  "description": "El genio que convirtió el Camp Nou en su escenario durante 17 temporadas. Un homenaje holográfico a Lionel Messi y a la era dorada del Barça.",
+  "identity": "Lionel Messi · Argentine football genius · FC Barcelona home kit red-blue vertical stripes, number 10, beard, slightly long dark hair, focused eyes, holding a football under one arm, centered portrait",
+  "back_story": "Lionel Messi llegó a La Masía con 13 años y salió al Camp Nou como un adolescente de 17. Durante diecisiete temporadas vistió la camiseta azulgrana: 778 partidos, 672 goles, 10 Ligas, 7 Copas del Rey, 4 Champions y 6 Balones de Oro. Bajo el cielo nocturno de Barcelona, su fútbol fue la mayor obra de arte que haya conocido el Camp Nou.",
+  "style": "鎏金蓝红镭射渐变收藏卡插画，沿主体轮廓金色发光描边，诺坎普夜色足球圣殿质感，纵深感强，画面下方四成区域留空用于排版，细节丰富，不出现其他人",
+  "prompt": "Lionel Messi in FC Barcelona home kit, iconic portrait, holding a football.",
+  "subject_desc": "梅西半身肖像，巴萨主场红蓝竖条纹 10 号球衣，短发蓄须，目光专注深邃，右手托球于腰侧，暖色聚光灯从侧上方打下，细节丰富轮廓清晰",
+  "background_desc": "诺坎普之夜，蓝红两色灯光海洋，看台星光点点，球场顶棚灯光汇聚成穹顶光晕，纵深拉远，画面下方约四成区域留空用于排版，不出现其他人物，鎏金蓝红镭射渐变",
+  "mode": "holographic",
+  "edition": "001 / 006",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.4,
+    "backgroundDepth": -0.25,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.12,
+    "offset": [
+      -0.06,
+      -0.085
+    ]
+  },
+  "stats": "778 partidos · 672 goles · 10 La Liga · 7 Copa del Rey · 4 Champions League · 6 Balón de Oro · 3 Mundial de Clubes",
+  "honors": [
+    "10 La Liga (2004–2021)",
+    "4 UEFA Champions League (2006, 2009, 2011, 2015)",
+    "6 Balón de Oro",
+    "Récord: 91 goles en un año natural (2012)",
+    "Máximo goleador histórico del Barça"
+  ],
+  "quote": "«Hay que luchar para alcanzar tus sueños.» — Lionel Messi",
+  "font": "/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf",
+  "font_latin": "/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf",
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "messi-fc-barcelona",
+  "author": "HoloLab Studio"
+}

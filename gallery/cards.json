@@ -1,6 +1,47 @@
 {
   "cards": [
     {
+      "id": "johan-cruyff-el-arquitecto",
+      "title": "Johan Cruijff",
+      "subtitle": "El Arquitecto",
+      "technique": "Gilded Holography",
+      "tagline": "FÚTBOL TOTAL · 1947–2016",
+      "edition": "005 / 006",
+      "collection": "HoloLab Archive · FC Barcelona Legacy",
+      "description": "El hombre que inventó el fútbol moderno. Cruijff dio al Barça su identidad: total, valiente, técnico. Un homenaje holográfico al arquitecto del fútbol total.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "足球",
+        "巴萨",
+        "荷兰",
+        "传奇"
+      ],
+      "url": "cards/johan-cruyff-el-arquitecto/",
+      "thumb": "cards/johan-cruyff-el-arquitecto/thumb.jpg",
+      "date": "2026-09-30"
+    },
+    {
+      "id": "messi-fc-barcelona",
+      "title": "Lionel Messi",
+      "subtitle": "La Pulga · Rey de la Noche",
+      "technique": "Gilded Holography",
+      "tagline": "FC BARCELONA · 2004–2021",
+      "edition": "001 / 006",
+      "collection": "HoloLab Archive · FC Barcelona Legacy",
+      "description": "El genio que convirtió el Camp Nou en su escenario durante 17 temporadas. Un homenaje holográfico a Lionel Messi y a la era dorada del Barça.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "足球",
+        "巴萨",
+        "西班牙",
+        "阿根廷",
+        "传奇"
+      ],
+      "url": "cards/messi-fc-barcelona/",
+      "thumb": "cards/messi-fc-barcelona/thumb.jpg",
+      "date": "2026-09-30"
+    },
+    {
       "id": "neeltje-friesian-kalundborg",
       "title": "Neeltje Jacoba Van Swichum",
       "subtitle": "EN FRIESER PÅ 22 ÅR",

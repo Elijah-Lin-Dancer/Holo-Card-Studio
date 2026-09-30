@@ -1,0 +1,50 @@
+{
+  "slug": "johan-cruyff-el-arquitecto",
+  "title": "Johan Cruijff",
+  "subtitle": "El Arquitecto",
+  "technique": "Gilded Holography",
+  "tagline": "FÚTBOL TOTAL · 1947–2016",
+  "collection": "HoloLab Archive · FC Barcelona Legacy",
+  "description": "El hombre que inventó el fútbol moderno. Cruijff dio al Barça su identidad: total, valiente, técnico. Un homenaje holográfico al arquitecto del fútbol total.",
+  "identity": "Johan Cruijff · Dutch football legend · FC Barcelona 1974 jersey red-blue vertical stripes with captain armband, iconic side-on dribbling stance, determined gaze, retro golden-age look",
+  "back_story": "Hendrik Johannes Cruijff, nacido en Ámsterdam, fue el profeta del fútbol total: tres Balones de Oro, subcampeón del mundo en 1974 y el creador del giro que lleva su nombre. En 1988 devolvió al Barça su identidad y levantó la Copa de Europa de 1992 con el Dream Team. Su filosofía sigue viva en La Masía: juega con la cabeza, controla el juego, hazlo simple.",
+  "style": "鎏金蓝红镭射渐变收藏卡插画，沿主体轮廓金色发光描边，1970 年代足球黄金年代复古质感，纵深感强，画面下方四成区域留空用于排版，细节丰富，不出现其他人",
+  "prompt": "Johan Cruijff in FC Barcelona 1974 kit, iconic dribbling portrait.",
+  "subject_desc": "克鲁伊夫半身肖像，1974 年巴萨红蓝竖条纹球衣配队长袖标，标志性侧身运球姿态，眼神坚毅，短发，复古质感，暖色聚光灯，细节丰富轮廓清晰",
+  "background_desc": "巴塞罗那夜空，橙色与蓝红双色镭射渐晕，全攻全守的几何阵型弧线与菱形点缀天空，纵深拉远，画面下方约四成区域留空用于排版，不出现其他人物，鎏金蓝红镭射渐变",
+  "mode": "holographic",
+  "edition": "005 / 006",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.4,
+    "backgroundDepth": -0.25,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.12,
+    "offset": [
+      -0.06,
+      -0.085
+    ]
+  },
+  "stats": "3 Balón de Oro · Final Mundial 1974 · 4 La Liga (entrenador) · Copa de Europa 1992 · 1 Recopa 1989",
+  "honors": [
+    "3 Balón de Oro (1971, 1973, 1974)",
+    "Subcampeón del Mundo (1974)",
+    "4 La Liga como entrenador del Barça (1991–1994)",
+    "Copa de Europa 1992 — el Dream Team",
+    "Fundador de la filosofía de La Masía"
+  ],
+  "quote": "«El fútbol es un juego que se juega con la cabeza.» — Johan Cruijff",
+  "font": "/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf",
+  "font_latin": "/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf",
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "johan-cruyff-el-arquitecto",
+  "author": "HoloLab Studio"
+}
