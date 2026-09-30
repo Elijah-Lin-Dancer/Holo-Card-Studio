@@ -17,5 +17,20 @@
     "backgroundDepth": -0.3,
     "foil": 1.0
   },
-  "safeArea": {"scale": 1.1, "offset": [-0.03, -0.05]}
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.03,
+      -0.05
+    ]
+  },
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "kenji-kishimoto",
+  "author": "HoloLab Studio"
 }

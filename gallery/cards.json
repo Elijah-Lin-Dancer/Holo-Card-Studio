@@ -1,6 +1,27 @@
 {
   "cards": [
     {
+      "id": "kenji-kishimoto",
+      "title": "Kenji Kishimoto",
+      "subtitle": "\"I do it every day.\"",
+      "technique": "Energy-Dispersal Holography",
+      "tagline": "Who says you can't be cute and kick ass at the same time?",
+      "edition": "001 / 001",
+      "collection": "Shatter Me · Resistance Chronicles",
+      "description": "Kenji Troy Kishimoto — the invisible heart of Omega Point. Japanese-American resistance fighter with the ability to vanish by absorbing and redirecting ambient energy. The comic relief who became the war's most essential narrator. ID #45B-67999.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "小说",
+        "反乌托邦",
+        "隐身",
+        "日裔",
+        "Omega Point"
+      ],
+      "url": "cards/kenji-kishimoto/",
+      "thumb": "cards/kenji-kishimoto/thumb.jpg",
+      "date": "2026-09-30"
+    },
+    {
       "id": "eletrico-28-lisboa",
       "title": "Elétrico 28",
       "subtitle": "A Vitória de Lisboa",
