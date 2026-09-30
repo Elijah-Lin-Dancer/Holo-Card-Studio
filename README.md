@@ -11,12 +11,12 @@
 </p>
 
 <p align="center">
-  <a href="https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/"><img src="https://img.shields.io/badge/🌐_Live_Gallery-Online-7fd4ff?style=for-the-badge" alt="Live Gallery"></a>
-  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/📜_License-MIT-yellow?style=for-the-badge" alt="MIT License"></a>
-  <a href="#"><img src="https://img.shields.io/badge/⚡_100%_Static-Zero_Server-b98ae6?style=for-the-badge" alt="100% Static"></a>
-  <a href="https://www.blender.org/"><img src="https://img.shields.io/badge/🧊_Blender-4.5-e08ac0?style=for-the-badge" alt="Blender 4.5"></a>
-  <a href="https://threejs.org/"><img src="https://img.shields.io/badge/🌀_Three.js-GLSL-8a7446?style=for-the-badge" alt="Three.js"></a>
-  <a href="#"><img src="https://img.shields.io/badge/🃏_9_Cards-Permanent_URLs-c9a86a?style=for-the-badge" alt="9 Cards"></a>
+  <a href="https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_Live_Gallery-Online-7fd4ff?style=for-the-badge" alt="Live Gallery"></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/%F0%9F%93%9C_License-MIT-yellow?style=for-the-badge" alt="MIT License"></a>
+  <a href="https://github.com/Elijah-Lin-Dancer/Holo-Card-Studio"><img src="https://img.shields.io/badge/%E2%9A%A1_100%25_Static-Zero_Server-b98ae6?style=for-the-badge" alt="100% Static"></a>
+  <a href="https://www.blender.org/"><img src="https://img.shields.io/badge/%F0%9F%A7%8A_Blender-4.5-e08ac0?style=for-the-badge" alt="Blender 4.5"></a>
+  <a href="https://threejs.org/"><img src="https://img.shields.io/badge/%F0%9F%8C%80_Three.js-GLSL-8a7446?style=for-the-badge" alt="Three.js"></a>
+  <a href="https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/"><img src="https://img.shields.io/badge/%F0%9F%83%8F_9_Cards-Permanent_URLs-c9a86a?style=for-the-badge" alt="9 Cards"></a>
 </p>
 
 **English · [中文版](README.zh-CN.md)**

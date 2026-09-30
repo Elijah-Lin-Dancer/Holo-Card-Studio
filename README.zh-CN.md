@@ -11,12 +11,12 @@
 </p>
 
 <p align="center">
-  <a href="https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/"><img src="https://img.shields.io/badge/🌐_在线展厅-立即体验-7fd4ff?style=for-the-badge" alt="在线展厅"></a>
-  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/📜_许可-MIT-yellow?style=for-the-badge" alt="MIT License"></a>
-  <a href="#"><img src="https://img.shields.io/badge/⚡_100%_静态-零服务器-b98ae6?style=for-the-badge" alt="100% Static"></a>
-  <a href="https://www.blender.org/"><img src="https://img.shields.io/badge/🧊_Blender-4.5-e08ac0?style=for-the-badge" alt="Blender 4.5"></a>
-  <a href="https://threejs.org/"><img src="https://img.shields.io/badge/🌀_Three.js-GLSL-8a7446?style=for-the-badge" alt="Three.js"></a>
-  <a href="#"><img src="https://img.shields.io/badge/🃏_9_张卡-永久链接-c9a86a?style=for-the-badge" alt="9 Cards"></a>
+  <a href="https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_%E5%9C%A8%E7%BA%BF%E5%B1%95%E5%8E%85-%E7%AB%8B%E5%8D%B3%E4%BD%93%E9%AA%8C-7fd4ff?style=for-the-badge" alt="在线展厅"></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/%F0%9F%93%9C_%E8%AE%B8%E5%8F%AF-MIT-yellow?style=for-the-badge" alt="MIT License"></a>
+  <a href="https://github.com/Elijah-Lin-Dancer/Holo-Card-Studio"><img src="https://img.shields.io/badge/%E2%9A%A1_100%25_%E9%9D%99%E6%80%81-%E9%9B%B6%E6%9C%8D%E5%8A%A1%E5%99%A8-b98ae6?style=for-the-badge" alt="100% Static"></a>
+  <a href="https://www.blender.org/"><img src="https://img.shields.io/badge/%F0%9F%A7%8A_Blender-4.5-e08ac0?style=for-the-badge" alt="Blender 4.5"></a>
+  <a href="https://threejs.org/"><img src="https://img.shields.io/badge/%F0%9F%8C%80_Three.js-GLSL-8a7446?style=for-the-badge" alt="Three.js"></a>
+  <a href="https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/"><img src="https://img.shields.io/badge/%F0%9F%83%8F_9_%E5%BC%A0%E5%8D%A1-%E6%B0%B8%E4%B9%85%E9%93%BE%E6%8E%A5-c9a86a?style=for-the-badge" alt="9 Cards"></a>
 </p>
 
 **中文 · [English](README.md)**

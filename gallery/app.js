@@ -5,6 +5,12 @@ const I18N = window.HoloLabI18n;
 const THEME = window.HoloLabTheme;
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+/* HTML 转义：cards.json 为可公开投稿数据源，展示前必须转义防存储型 XSS */
+function escHtml(s) {
+  return String(s == null ? '' : s)
+    .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;').replaceAll("'", '&#39;');
+}
 
 /* ============ 1. 语言 / 主题切换器 ============ */
 const langBtn = document.getElementById('lang-btn');
@@ -186,18 +192,18 @@ function makeCard(c, i) {
   card.style.setProperty('--d', ((i % 8) * 70) + 'ms');
   card.innerHTML =
     '<div class="thumb-wrap">' +
-    '<img src="' + c.thumb + '" alt="' + c.title + '" loading="lazy">' +
+    '<img src="' + escHtml(c.thumb) + '" alt="' + escHtml(c.title) + '" loading="lazy">' +
     (c.lenticular
       ? '<canvas class="lent" width="720" height="1000" aria-hidden="true"></canvas>'
-      : (c.preview ? '<video class="card-video" src="' + c.preview + '" muted playsinline loop preload="none"></video>' : '')) +
-    '<span class="rarity">' + (c.collection || '典藏') + '</span>' +
+      : (c.preview ? '<video class="card-video" src="' + escHtml(c.preview) + '" muted playsinline loop preload="none"></video>' : '')) +
+    '<span class="rarity">' + escHtml(c.collection || '典藏') + '</span>' +
     '</div>' +
     '<div class="meta">' +
-    '<div class="tags">' + (c.style_tags || []).map(t => '<span class="tag">' + t + '</span>').join('') + '</div>' +
-    '<h3>' + c.title + '</h3>' +
-    '<div class="sub">' + (c.subtitle || '') + '</div>' +
-    '<p class="desc">' + (c.description || '') + '</p>' +
-    '<div class="ed">' + (c.edition || '') + ' · ' + (c.date || '') + '</div>' +
+    '<div class="tags">' + (c.style_tags || []).map(t => '<span class="tag">' + escHtml(t) + '</span>').join('') + '</div>' +
+    '<h3>' + escHtml(c.title) + '</h3>' +
+    '<div class="sub">' + escHtml(c.subtitle || '') + '</div>' +
+    '<p class="desc">' + escHtml(c.description || '') + '</p>' +
+    '<div class="ed">' + escHtml(c.edition || '') + ' · ' + escHtml(c.date || '') + '</div>' +
     '</div>';
   const vid = card.querySelector('.card-video');
   if (vid) {
