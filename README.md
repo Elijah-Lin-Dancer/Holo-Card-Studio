@@ -16,7 +16,8 @@
   <a href="https://github.com/Elijah-Lin-Dancer/Holo-Card-Studio"><img src="https://img.shields.io/badge/%E2%9A%A1_100%25_Static-Zero_Server-b98ae6?style=for-the-badge" alt="100% Static"></a>
   <a href="https://www.blender.org/"><img src="https://img.shields.io/badge/%F0%9F%A7%8A_Blender-4.5-e08ac0?style=for-the-badge" alt="Blender 4.5"></a>
   <a href="https://threejs.org/"><img src="https://img.shields.io/badge/%F0%9F%8C%80_Three.js-GLSL-8a7446?style=for-the-badge" alt="Three.js"></a>
-  <a href="https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/"><img src="https://img.shields.io/badge/%F0%9F%83%8F_9_Cards-Permanent_URLs-c9a86a?style=for-the-badge" alt="9 Cards"></a>
+  <a href="https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/"><img src="https://img.shields.io/badge/%F0%9F%83%8F_18_Cards-6_Languages-c9a86a?style=for-the-badge" alt="18 Cards · 6 Languages"></a>
+  <a href="https://github.com/Elijah-Lin-Dancer/Holo-Card-Studio/actions"><img src="https://img.shields.io/github/actions/workflow/status/Elijah-Lin-Dancer/Holo-Card-Studio/gallery-check.yml?style=for-the-badge&label=CI%20Passing" alt="CI Passing"></a>
 </p>
 
 **English · [中文版](README.zh-CN.md)**
@@ -54,9 +55,21 @@ That's a **real turntable render** from the Blender pipeline (96 frames), not a 
 
 ## 🗂️ The whole collection
 
-![HoloLab card wall — 9 cards](docs/screenshots/card-wall.jpg)
+![HoloLab card wall](docs/screenshots/card-wall.jpg)
 
-Messi · Michael Jackson · Marco Reus (×3) · Frida Kahlo · Snow Leopard · Sun Wukong · Taikonaut — each card is a **permanent URL** in the gallery, openable and shareable by anyone.
+**18 cards · 6 languages · every card a permanent URL**, openable and shareable by anyone:
+
+- 🇦🇷 **Messi** series (4) — Barcelona · PSG · Inter Miami · World Cup 2022, plus the original *Messi, King* (梅西称王)
+- 💙❤️ **FC Barcelona Legacy series** — Cruyff *El Arquitecto* · Guardiola *Tiki-Taka* (Spanish card faces)
+- 🎤 **King of Pop** — Michael Jackson (English)
+- 🖤💛 **Marco Reus** (3) — Dortmund *Gelbwand* · DFB *Unbeugsamer* · LA Galaxy *Neue Horizonte* (German card faces)
+- 🎨 **Frida Kahlo** — Mexican painter (Spanish accents)
+- 🎬 **Satyajit Ray** — Bengali maestro (Bengali card face)
+- 🐎 **Neeltje** — a Friesian mare in Kalundborg, Denmark (Danish card face, **🔒 password-locked**)
+- 🐋 **Blue Whale** — first community-submitted card via the auto-render pipeline
+- 🚀 **Taikonaut** · 🐵 **Sun Wukong** · 🐆 **Snow Leopard** — one-sentence pipeline cards
+
+Each card flips: a **structured back** with career stats · honors · quote, written in the card's own language.
 
 ## 💡 Why it's worth your time
 
@@ -69,14 +82,18 @@ This is not "tune an image model and output a picture" — it is a complete engi
 | ⚙️ **Systems engineering** | Python pipeline (generate → validate → render → export → publish); static site generation; one-command publish; CI-ready layout |
 | 🎨 **Product design** | Masonry gallery, per-card permanent URLs, style filters, mobile adaptation, share-and-play |
 
-## 🧩 Front-end showcase (v3)
+## 🧩 Front-end showcase (latest)
 
-The latest pass turned the static pages into a **dynamic interaction layer**:
+The static pages are now a **dynamic interaction layer**:
 
-- 🏠 **Homepage** — GSAP ScrollTrigger hero parallax (scrub), gold **shine sweep** across the split title (re-syncs on language switch), card **cursor-spotlight** + holographic **scan sweep** on hover, blur→sharp card entrance, **magnetic CTA buttons**
-- 🛠️ **Create studio** — stardust + aurora backdrop matching the gallery, focus glow on the input panel, preview reveal animation
+- 🏠 **Homepage** — GSAP ScrollTrigger hero parallax (scrub), gold **shine sweep** across the split title (re-syncs on language switch), card **cursor-spotlight** + holographic **scan sweep** on hover, blur→sharp card entrance, **magnetic CTA buttons**, dual-theme stardust + aurora backdrop
+- 🎥 **Auto Tour v2 — "Light Walk"** ✨ the gallery's signature experience: a **traveling golden beam** glides card-to-card (GSAP, power2.inOut), the focused card **comes alive** — title shine sweep, lenticular ripple, preview video auto-plays — a bottom **HUD** shows "N / total · card name", cards **wake up** staggered on start and the beam **curtains out** on finish; whole gallery breathes (4.5s); skips locked cards; disabled in curated view & reduced-motion
+- 🗓️ **Curated timeline view** — every card has a bilingual creation note; the hall switches between masonry grid and an exhibition timeline
+- 🔒 **Password-locked cards** — a locked card stays hidden in the hall until the right password unlocks it (SHA-256 hash in registry, no plaintext in source)
+- 🛠️ **Create studio** — stardust + aurora backdrop matching the gallery, focus glow on the input panel, preview reveal animation; one-sentence → detailed design → save privately → request publish
 - 🃏 **Card pages** — faint holographic halo + card rise-in animation, **dual theme** (dark stage / light cabinet) that follows your homepage theme
-- 🌓 **Dual themes & bilingual UI** (EN / 中文), stardust particles, aurora, cursor glow, per-letter title reveal, staggered card entrance with tilt — all vanilla JS + GSAP, zero frameworks, zero backend
+- 🌓 **Dual themes & fully bilingual UI** (EN / 中文) — including filter chips, lock prompts and tour controls; card faces keep their own language by design
+- 📮 **Public submission** — community cards flow in via GitHub Issues → auto-render pipeline (review · 4-layer art · Blender GLB · preview.webm) → deployed to the hall, credited to the author
 - ♿ Every effect respects `prefers-reduced-motion`; desktop-only interactions gated on fine-pointer
 
 ## ⚙️ Pipeline at a glance
@@ -161,19 +178,27 @@ One sentence → your card goes live in the **public exhibition hall**, fully au
 ```
 Holo-Card-Studio/
 ├── gallery/                  # pure-static site (what gets deployed)
-│   ├── index.html            # the exhibition hall 🖼️
-│   ├── create.html           # one-sentence create studio ✏️
+│   ├── index.html            # the exhibition hall 🖼️ (grid + curated timeline)
+│   ├── create.html           # one-sentence create studio ✏️ (public submission entry)
 │   ├── cards.json            # card registry (source of truth)
+│   ├── curation.json         # bilingual creation notes (curated timeline, C1)
+│   ├── i18n.js               # EN / 中文 UI dictionary (incl. filter chips & tour)
 │   ├── cards/<id>/           # per-card: app.js · style.css · assets/ · card.glb · preview.webm · lent-L/R
 │   └── vendor/               # three.js + GSAP, vendored locally — zero CDN dependency
 ├── generator/
 │   ├── projects/<slug>/      # one folder per card: config, work/, web/, renders/
+│   ├── tests/                # pytest suite (18 tests, C2)
 │   └── scripts/
-│       ├── one_shot_card.py  # text model → card config (zh/de/en)
+│       ├── one_shot_card.py  # text model → card config (zh/de/en/da/bn/es)
 │       ├── ai_generate.py    # Seedream layered art + cutout + line-art
 │       ├── run_pipeline.py   # Blender scene → GLB → preview
 │       ├── publish_card.py   # compress · thumb · preview.webm · registry
-│       └── submit_card.py    # public submission: review · config · full pipeline
+│       ├── submit_card.py    # public submission: review · config · full pipeline
+│       ├── inject_og.py      # per-card OG meta injection (C3)
+│       └── verify_gallery.py # gallery health check (used by CI)
+├── .github/workflows/
+│   ├── deploy-pages.yml      # Pages deployment
+│   └── gallery-check.yml     # CI: 18 pytest tests + gallery verify (C2)
 ├── tools/blender-4.5.0/      # portable Blender (gitignored)
 ├── docs/                     # architecture, AI pipeline, graphics, whitepaper
 └── README.md
@@ -187,22 +212,34 @@ Holo-Card-Studio/
 - 🏆 **Unbeugsamer** (未竟之约) — Marco Reus · DFB · WM 2014
 - 🌌 **Neue Horizonte** (银河新章) — Marco Reus · LA Galaxy · MLS Cup champion
 - 🎨 **Frida Kahlo** — Mexican painter · Archive series
+- 🎬 **Satyajit Ray** (সত্যজিত রায়) — Bengali maestro · Bengali card face
+- 🐎 **Neeltje** (hun Friese merrie) — Kalundborg, Denmark · Danish card face · 🔒 locked
+- 🐋 **Blue Whale** — first community-submitted card (auto-render pipeline)
+- 💙❤️ **Barcelona Legacy series** (6) — Messi ×4 eras · Cruyff · Guardiola · Spanish card faces
 - 🚀 **Stellar Expedition** (星辰远征) — taikonaut · one-sentence pipeline
-- 🐵 **Great Sage** (齐天大圣) — Sun Wukong · Journey to the West series · one-sentence pipeline
+- 🐵 **Great Sage** (齐天大圣) — Sun Wukong · one-sentence pipeline
 - 🐆 **Aurora Ridge** (雪原极光) — snow leopard · Frosted Wild series
 
 ## 🗺️ Roadmap
 
-- [x] ✅ Seedream layered generation + cutout + line-art extraction
-- [x] ✅ Blender holographic pipeline + Three.js viewer
-- [x] ✅ One-sentence card pipeline (zh) + bilingual gallery
-- [x] ✅ German card faces (auto language detection)
-- [x] ✅ Structured card backs (career stats · honors · quote)
-- [x] ✅ Front-end interaction layer v3 (parallax · shine · glow · magnetic CTA)
-- [x] ✅ Dual-theme detail pages + social QR footer
-- [x] ✅ Repository slimming (git gc 996M → 124M)
-- [ ] 🚧 Visitor public-submission channel (design drafted, awaiting implementation)
-- [ ] 📝 Application-season research addendum (P6)
+**Done ✅**
+- [x] Seedream layered generation + cutout + line-art extraction
+- [x] Blender holographic pipeline + Three.js viewer
+- [x] One-sentence card pipeline + bilingual gallery + multilingual card faces (zh · en · de · da · bn · es)
+- [x] Structured card backs (career stats · honors · quote)
+- [x] Front-end interaction layer (parallax · shine · glow · magnetic CTA · dual themes)
+- [x] **Public submission channel** — GitHub Issue → auto-render pipeline → live gallery (fully automated)
+- [x] **C1 Curated timeline** — bilingual creation notes, exhibition view
+- [x] **C2 CI** — 18 pytest tests + gallery health check, every push
+- [x] **C3 OG meta** — per-card social preview injection
+- [x] **Password-locked cards** — SHA-256 lock, unlock-in-hall UX
+- [x] **Auto Tour v2 "Light Walk"** — traveling beam · card activation · HUD · intro/outro staging
+- [x] Repository slimming (git gc 996M → 124M)
+
+**Next 🚧**
+- [ ] P5 demo video (Seedance 2.0 fast — account enablement pending on Volcano Ark)
+- [ ] P6 Application-season research addendum (industry / product / paper evidence)
+- [ ] P4.5 Whitepaper AI-flavor polish (optional)
 
 ## 📚 Docs
 

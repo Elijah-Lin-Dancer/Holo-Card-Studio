@@ -16,7 +16,8 @@
   <a href="https://github.com/Elijah-Lin-Dancer/Holo-Card-Studio"><img src="https://img.shields.io/badge/%E2%9A%A1_100%25_%E9%9D%99%E6%80%81-%E9%9B%B6%E6%9C%8D%E5%8A%A1%E5%99%A8-b98ae6?style=for-the-badge" alt="100% Static"></a>
   <a href="https://www.blender.org/"><img src="https://img.shields.io/badge/%F0%9F%A7%8A_Blender-4.5-e08ac0?style=for-the-badge" alt="Blender 4.5"></a>
   <a href="https://threejs.org/"><img src="https://img.shields.io/badge/%F0%9F%8C%80_Three.js-GLSL-8a7446?style=for-the-badge" alt="Three.js"></a>
-  <a href="https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/"><img src="https://img.shields.io/badge/%F0%9F%83%8F_9_%E5%BC%A0%E5%8D%A1-%E6%B0%B8%E4%B9%85%E9%93%BE%E6%8E%A5-c9a86a?style=for-the-badge" alt="9 Cards"></a>
+  <a href="https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/"><img src="https://img.shields.io/badge/%F0%9F%83%8F_18_%E5%BC%A0%E5%8D%A1-6_%E8%AF%AD%E8%A8%80-c9a86a?style=for-the-badge" alt="18 Cards · 6 Languages"></a>
+  <a href="https://github.com/Elijah-Lin-Dancer/Holo-Card-Studio/actions"><img src="https://img.shields.io/github/actions/workflow/status/Elijah-Lin-Dancer/Holo-Card-Studio/gallery-check.yml?style=for-the-badge&label=CI%20Passing" alt="CI Passing"></a>
 </p>
 
 **中文 · [English](README.md)**
@@ -54,9 +55,21 @@
 
 ## 🗂️ 完整收藏
 
-![HoloLab 卡片墙 — 9 张](docs/screenshots/card-wall.jpg)
+![HoloLab 卡片墙](docs/screenshots/card-wall.jpg)
 
-梅西 · 迈克尔·杰克逊 · 马尔科·罗伊斯（×3）· 弗里达·卡罗 · 雪豹 · 孙悟空 · 宇航员——每一张卡都是展厅里的一个**永久链接**，任何人都能打开、分享。
+**18 张卡 · 6 种语言 · 每张卡都是一个永久链接**，任何人都能打开、分享：
+
+- 🇦🇷 **梅西系列**（4 张）— 巴萨 · PSG · 迈阿密国际 · 2022 世界杯，另有最初的《梅西称王》
+- 💙❤️ **巴萨传承系列** — 克鲁伊夫《建筑大师》· 瓜迪奥拉《Tiki-Taka》（西语卡面）
+- 🎤 **流行之王** — 迈克尔·杰克逊（英语）
+- 🖤💛 **马尔科·罗伊斯**（3 张）— 多特《黄黑之魂》· 德国队《未竟之约》· 洛杉矶银河《银河新章》（德语卡面）
+- 🎨 **弗里达·卡罗** — 墨西哥画家（西语点缀）
+- 🎬 **萨蒂亚吉特·雷伊** — 孟加拉电影大师（孟加拉语卡面）
+- 🐎 **Neeltje** — 丹麦卡伦堡的一匹弗里斯兰母马（丹麦语卡面，**🔒 密码锁定**）
+- 🐋 **蓝鲸** — 第一张社区投稿卡（自动渲染管线）
+- 🚀 **星辰远征** · 🐵 **齐天大圣** · 🐆 **雪原极光** — 一句话管线出卡
+
+每张卡都能翻转：**结构化卡背**——生涯数据 · 荣誉 · 引语，用卡片自己的语言书写。
 
 ## 💡 为什么值得你看
 
@@ -69,14 +82,18 @@
 | ⚙️ **系统工程** | Python 管线（生成 → 校验 → 渲染 → 导出 → 发布）；静态站点生成；一条命令发布；CI 就绪布局 |
 | 🎨 **产品设计** | 瀑布流展厅、每卡永久 URL、风格筛选、移动端适配、即玩即分享 |
 
-## 🧩 前端展示（v3）
+## 🧩 前端展示（最新）
 
-最近一轮把静态页面升级成了**动态交互层**：
+静态页面已升级成**动态交互层**：
 
-- 🏠 **首页** — GSAP ScrollTrigger 滚动视差（scrub），标题金色**流光扫字**（切换语言自动重扫），卡片悬停**光斑跟随** + 全息**镭射扫过**，blur→清晰卡片入场，CTA **磁吸按钮**
-- 🛠️ **创造工坊** — 与展厅统一的星尘 + 极光背景，输入面板聚焦光晕，预演区浮现动画
+- 🏠 **首页** — GSAP ScrollTrigger 滚动视差（scrub），标题金色**流光扫字**（切换语言自动重扫），卡片悬停**光斑跟随** + 全息**镭射扫过**，blur→清晰卡片入场，CTA **磁吸按钮**，双主题星尘 + 极光背景
+- 🎥 **自动导览 v2「光影导览」** ✨ 展厅招牌体验：**金色光束**在卡片间**平滑滑行**（GSAP, power2.inOut），聚焦卡**被激活**——标题流光、lenticular 光栅脉动、预览视频自动播放；底部 **HUD** 显示"第 N/总数 · 卡名"；启动时卡片错落**苏醒**、收尾时光束**谢幕**；整片画廊 4.5s 呼吸；跳过锁卡；策展视图与 reduced-motion 下禁用
+- 🗓️ **策展时间线视图** — 每张卡都有双语创作手记，展厅可在瀑布流与展览时间线间切换
+- 🔒 **密码锁定卡** — 未解锁的卡在展厅保持隐藏，输入正确密码才可查看（仓库只存 SHA-256 哈希，源码无明文）
+- 🛠️ **创造工坊** — 与展厅统一的星尘 + 极光背景，输入面板聚焦光晕，预演区浮现动画；一句话 → 详细设计 → 私藏 → 申请公开
 - 🃏 **卡片详情页** — 极淡全息光晕 + 卡片浮起入场动画，**双主题**（暗色舞台 / 浅色展柜）跟随首页主题
-- 🌓 **双主题 & 双语界面**（中文 / EN）、星尘粒子、极光、光标光晕、逐字标题入场、卡片倾斜 stagger——全部原生 JS + GSAP，零框架、零后端
+- 🌓 **双主题 & 全界面双语**（中文 / EN）— 含筛选标签、锁定提示、导览按钮；卡面文字按设计保持原语言
+- 📮 **公众投稿** — 社区卡经 GitHub Issue → 自动渲染管线（审核 · 4 层素材 · Blender GLB · preview.webm）→ 上线展厅，署名作者
 - ♿ 所有动效尊重 `prefers-reduced-motion`；桌面专属交互按精细指针门控
 
 ## ⚙️ 管线一览
@@ -142,18 +159,27 @@ git add -A && git commit -m "add card <slug>" && git push
 ```
 Holo-Card-Studio/
 ├── gallery/                  # 纯静态站点（线上部署的就是它）
-│   ├── index.html            # 展厅首页 🖼️
-│   ├── create.html           # 一句话创造工坊 ✏️
+│   ├── index.html            # 展厅首页 🖼️（瀑布流 + 策展时间线）
+│   ├── create.html           # 一句话创造工坊 ✏️（公众投稿入口）
 │   ├── cards.json            # 卡片清单（唯一事实源）
+│   ├── curation.json         # 双语创作手记（策展时间线，C1）
+│   ├── i18n.js               # 中英 UI 词典（含筛选标签与导览）
 │   ├── cards/<id>/           # 每卡：app.js · style.css · assets/ · card.glb · preview.webm · lent-L/R
 │   └── vendor/               # three.js + GSAP 本地化，零 CDN 依赖
 ├── generator/
 │   ├── projects/<slug>/      # 每卡一个目录：config, work/, web/, renders/
+│   ├── tests/                # pytest 套件（18 测试，C2）
 │   └── scripts/
-│       ├── one_shot_card.py  # 文字模型 → 卡面配置（zh/de/en）
+│       ├── one_shot_card.py  # 文字模型 → 卡面配置（zh/de/en/da/bn/es）
 │       ├── ai_generate.py    # Seedream 分层素材 + 抠图 + 线稿
 │       ├── run_pipeline.py   # Blender 场景 → GLB → 预览
-│       └── publish_card.py   # 压缩 · 缩略图 · 预览动画 · 登记
+│       ├── publish_card.py   # 压缩 · 缩略图 · 预览动画 · 登记
+│       ├── submit_card.py    # 公众投稿：审核 · 配置 · 全管线
+│       ├── inject_og.py      # 每卡 OG 元信息注入（C3）
+│       └── verify_gallery.py # 展厅健康检查（CI 使用）
+├── .github/workflows/
+│   ├── deploy-pages.yml      # Pages 部署
+│   └── gallery-check.yml     # CI：18 pytest + 展厅体检（C2）
 ├── tools/blender-4.5.0/      # 便携版 Blender（gitignored）
 ├── docs/                     # 架构、AI 管线、图形学、白皮书
 └── README.md
@@ -167,22 +193,34 @@ Holo-Card-Studio/
 - 🏆 **未竟之约** — 马尔科·罗伊斯 · 德国国家队 · 2014 世界杯
 - 🌌 **银河新章** — 马尔科·罗伊斯 · 洛杉矶银河 · MLS 杯冠军
 - 🎨 **弗里达·卡罗** — 墨西哥画家 · 典藏系列
+- 🎬 **萨蒂亚吉特·雷伊**（সত্যজিত রায়）— 孟加拉电影大师 · 孟加拉语卡面
+- 🐎 **Neeltje**（hun Friese merrie）— 丹麦卡伦堡 · 丹麦语卡面 · 🔒 锁定
+- 🐋 **蓝鲸** — 第一张社区投稿卡（自动渲染管线）
+- 💙❤️ **巴萨传承系列**（6 张）— 梅西 ×4 时代 · 克鲁伊夫 · 瓜迪奥拉 · 西语卡面
 - 🚀 **星辰远征** — 宇航员 · 一句话管线生成
-- 🐵 **齐天大圣** — 孙悟空 · 西游系列 · 一句话管线生成
+- 🐵 **齐天大圣** — 孙悟空 · 一句话管线生成
 - 🐆 **雪原极光** — 雪豹 · 霜原野生系列
 
 ## 🗺️ 路线图
 
-- [x] ✅ Seedream 分层生成 + 抠图 + 线稿提取
-- [x] ✅ Blender 全息管线 + Three.js 查看器
-- [x] ✅ 一句话出卡（中文）+ 双语展厅
-- [x] ✅ 德语卡面（自动语言识别）
-- [x] ✅ 结构化卡背（生涯数据 · 荣誉 · 引语）
-- [x] ✅ 前端交互层 v3（视差 · 流光 · 光斑 · 磁吸）
-- [x] ✅ 详情页双主题 + 社交二维码页脚
-- [x] ✅ 仓库瘦身（git gc 996M → 124M）
-- [ ] 🚧 访客公开投稿通道（方案已出，待落地）
-- [ ] 📝 申请季研究综述（P6）
+**已完成 ✅**
+- [x] Seedream 分层生成 + 抠图 + 线稿提取
+- [x] Blender 全息管线 + Three.js 查看器
+- [x] 一句话出卡 + 双语展厅 + 多语言卡面（中 · 英 · 德 · 丹 · 孟加拉 · 西）
+- [x] 结构化卡背（生涯数据 · 荣誉 · 引语）
+- [x] 前端交互层（视差 · 流光 · 光斑 · 磁吸 · 双主题）
+- [x] **访客公开投稿通道** — GitHub Issue → 自动渲染管线 → 上线展厅（全自动）
+- [x] **C1 策展时间线** — 双语创作手记、展览视图
+- [x] **C2 CI 校验** — 18 pytest + 展厅健康检查，每次推送
+- [x] **C3 OG 元信息** — 每卡社交预览注入
+- [x] **密码锁定卡** — SHA-256 锁定、展厅内解锁体验
+- [x] **自动导览 v2「光影导览」** — 光束滑行 · 卡面激活 · HUD · 开场/收尾编排
+- [x] 仓库瘦身（git gc 996M → 124M）
+
+**待办 🚧**
+- [ ] P5 demo 视频（Seedance 2.0 fast — 火山方舟账号开通中）
+- [ ] P6 申请季研究综述（行业 / 产品 / 论文佐证）
+- [ ] P4.5 白皮书去 AI 味精修（可选）
 
 ## 📚 文档
 
