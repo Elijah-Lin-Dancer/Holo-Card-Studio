@@ -12,6 +12,8 @@ jobs:
   render:
     if: startsWith(github.event.issue.title, '[Submission]')
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
     concurrency:
       group: auto-render
       cancel-in-progress: false
