@@ -1,6 +1,26 @@
 {
   "cards": [
     {
+      "id": "eletrico-28-lisboa",
+      "title": "Elétrico 28",
+      "subtitle": "A Vitória de Lisboa",
+      "technique": "Selective-Color Holography",
+      "tagline": "O elétrico mais famoso de Lisboa",
+      "edition": "001 / 001",
+      "collection": "Série Cidade da Luz · Lisboa",
+      "description": "A holographic tribute to Lisbon's iconic yellow Tram 28 — selective color: the vintage carriage glows in gold while the old city fades to monochrome. Dedicated to Dr.ª Vitória, for the inspiration.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "葡萄牙",
+        "电车",
+        "里斯本",
+        "欧陆风情"
+      ],
+      "url": "cards/eletrico-28-lisboa/",
+      "thumb": "cards/eletrico-28-lisboa/thumb.jpg",
+      "date": "2026-09-30"
+    },
+    {
       "id": "pep-guardiola-tiki-taka",
       "title": "Pep Guardiola",
       "subtitle": "El Maestro",

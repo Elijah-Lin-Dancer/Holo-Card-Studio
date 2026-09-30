@@ -1,0 +1,45 @@
+{
+  "slug": "eletrico-28-lisboa",
+  "title": "Elétrico 28",
+  "subtitle": "A Vitória de Lisboa",
+  "technique": "Selective-Color Holography",
+  "tagline": "O elétrico mais famoso de Lisboa",
+  "collection": "Série Cidade da Luz · Lisboa",
+  "description": "A holographic tribute to Lisbon's iconic yellow Tram 28 — selective color: the vintage carriage glows in gold while the old city fades to monochrome. Dedicated to Dr.ª Vitória, for the inspiration.",
+  "identity": "A vintage yellow tram number 28 of Lisbon's Carris, rounded retro carriage with a golden-yellow livery, route number sign '28' on the front, old wooden-style trims, running on cobblestone streets under overhead wires",
+  "back_story": "O Elétrico 28 é o símbolo ambulante de Lisboa. Desde 1872 que a Carris liga as colinas da cidade, e esta linha amarela serpenteia entre Alfama, Baixa e Graça, sobre pedras de calçada e ladeiras íngremes. Mais do que um meio de transporte, é uma lenda que conquista o coração de todos os que visitam a cidade. Dedicado à Dr.ª Vitória — obrigado pela inspiração. (The Tram 28 is Lisbon's moving symbol. Since 1872 Carris has linked the city's hills, and this yellow line winds between Alfama, Baixa and Graça, over cobblestones and steep slopes. More than transport, it is a legend that wins the heart of everyone who visits. Dedicated to Dr.ª Vitória — thank you for the inspiration.)",
+  "style": "选择性着色收藏卡插画：主体黄色复古电车保持全彩鎏金质感，背景里斯本老城街道黑白化处理，鹅卵石路面与欧式建筑、空中电车线，纵深感强，画面下方约四成区域留空用于排版，细节丰富轮廓清晰",
+  "prompt": "A vintage yellow Lisbon tram 28 in selective color on a black-and-white old city street.",
+  "subject_desc": "一辆黄色复古有轨电车正侧面，圆弧形车头，金黄色车身涂装，车头标着数字 28，木质质感装饰，行驶在鹅卵石街道上，主体全彩、周围黑白化，细节丰富轮廓清晰",
+  "background_desc": "黑白化的里斯本老城街道空镜，欧式建筑立面、鹅卵石路面、空中交织的电车架空线，纵深感强，画面下方约四成区域留空用于排版，不出现其他人物车辆，选择性着色风格",
+  "mode": "holographic",
+  "edition": "001 / 001",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.4,
+    "backgroundDepth": -0.25,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.12,
+    "offset": [
+      -0.06,
+      -0.085
+    ]
+  },
+  "stats": "Carris · Lisboa · Desde 1872 · Elétrico 28",
+  "honors": [
+    "O símbolo ambulante de Lisboa · The moving symbol of Lisbon",
+    "Entre Alfama, Baixa e Graça · Through the old-city hills"
+  ],
+  "quote": "A Vitória de Lisboa.",
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "eletrico-28-lisboa",
+  "author": "HoloLab Studio"
+}
