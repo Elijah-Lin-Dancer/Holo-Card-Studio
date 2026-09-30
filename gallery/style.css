@@ -483,3 +483,50 @@ footer a:hover{text-decoration:underline}
 .card.tour-focus .sub,.card.tour-focus .desc{opacity:1}
 .grid.touring .card{cursor:default}
 @media (max-width:720px){.tour-btn span{display:none}.tour-btn{padding:0 12px}}
+
+/* ============ 9. 自动导览 v2：光束 + HUD + 卡面激活 ============ */
+/* 金色光束：在卡片间滑行（GSAP 控制 x/y，fixed 跟随视口） */
+.tour-beam{
+  position:fixed;left:0;top:0;width:420px;height:420px;border-radius:50%;
+  background:radial-gradient(circle,rgba(222,186,116,.55) 0%,rgba(201,168,106,.18) 42%,rgba(201,168,106,.05) 62%,transparent 72%);
+  mix-blend-mode:screen;pointer-events:none;z-index:4;opacity:0;
+  filter:blur(2px);will-change:transform,opacity;
+}
+.tour-beam::after{
+  content:"";position:absolute;inset:-70px;
+  background:radial-gradient(circle,transparent 55%,rgba(201,168,106,.10) 78%,transparent 88%);
+}
+
+/* 导览 HUD：当前第几张 + 卡名 */
+.tour-hud{
+  position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(12px);
+  display:flex;align-items:center;gap:10px;padding:9px 18px;border-radius:999px;
+  background:rgba(8,12,20,.72);border:1px solid rgba(201,168,106,.4);
+  backdrop-filter:blur(10px);opacity:0;pointer-events:none;z-index:6;
+  transition:opacity .35s,transform .35s;white-space:nowrap;
+}
+.tour-hud.on{opacity:1;transform:translateX(-50%) translateY(0)}
+.tour-hud .th-count{font-size:11.5px;letter-spacing:1.6px;color:var(--gold);font-weight:700}
+.tour-hud .th-name{font-size:13px;color:var(--cream);letter-spacing:.6px}
+
+/* 聚焦卡：景深提升 + 标题金色流光扫过 */
+.card.tour-focus{transform-style:preserve-3d;z-index:5}
+.card.tour-focus h3.shine-on{
+  background:linear-gradient(110deg,var(--text) 35%,var(--gold) 48%,var(--cream) 52%,var(--text) 68%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:title-sweep 1.1s cubic-bezier(.22,1,.36,1);
+}
+@keyframes title-sweep{0%{background-position:120% 0}100%{background-position:-60% 0}}
+.card.tour-focus h3{background-size:250% 100%}
+/* lenticular 光栅：聚焦时脉动，让卡面"活" */
+.card.tour-focus canvas.lent{animation:lent-pulse 1.5s ease-in-out infinite}
+@keyframes lent-pulse{0%,100%{transform:scale(1) skewX(0)}50%{transform:scale(1.025) skewX(.5deg)}}
+/* 预览视频：聚焦播放 */
+.card.tour-focus .card-video{opacity:1}
+
+/* 镜头呼吸：导览期间整片画廊轻微起伏 */
+.grid.touring{animation:gallery-breathe 4.5s ease-in-out infinite}
+@keyframes gallery-breathe{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+
+/* 卡片 3D 透视：聚焦卡的 rotateX 需要父级透视才立体 */
+.grid{perspective:1200px}

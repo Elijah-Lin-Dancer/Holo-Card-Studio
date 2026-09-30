@@ -526,8 +526,12 @@ load().catch(err => {
   empty.textContent = '加载失败：' + err.message;
 });
 
-/* ============ 8. 自动导览（Auto Tour） ============ */
+/* ============ 8. 自动导览 v2（Auto Tour：光束流动 + 卡面激活 + HUD） ============ */
 const tourBtn = document.getElementById('tour-btn');
+const tourBeam = document.querySelector('.tour-beam');
+const tourHud = document.querySelector('.tour-hud');
+const hudCount = tourHud ? tourHud.querySelector('.th-count') : null;
+const hudName = tourHud ? tourHud.querySelector('.th-name') : null;
 let tourOn = false, tourOrder = [], tourIdx = 0, tourEls = [], tourTimer = null;
 
 function tourElsNow() {
@@ -545,14 +549,77 @@ function paintTourBtn() {
   tourBtn.title = I18N.t('tour_hint');
 }
 
+function cardCenter(el) {
+  const r = el.getBoundingClientRect();
+  return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+}
+
+function beamReset(firstEl) {
+  if (!tourBeam || !window.gsap) return;
+  if (firstEl) {
+    const c = cardCenter(firstEl);
+    gsap.set(tourBeam, { xPercent: -50, yPercent: -50, x: c.x, y: c.y, opacity: 0, scale: .7 });
+  } else {
+    gsap.set(tourBeam, { xPercent: -50, yPercent: -50, opacity: 0, scale: .7 });
+  }
+}
+
+/* 聚焦当前卡：卡面被"激活" */
+function applyFocus(el) {
+  if (!tourOn) return;
+  el.classList.add('tour-focus');
+  if (window.gsap) {
+    gsap.to(el, {
+      scale: 1.06, y: -7, rotateX: 2.5, filter: 'brightness(1.08)', opacity: 1,
+      duration: .5, ease: 'power2.out', overwrite: 'auto'
+    });
+    const sub = el.querySelector('.sub');
+    if (sub) gsap.fromTo(sub, { opacity: .2, y: 5 }, { opacity: 1, y: 0, duration: .45, ease: 'power1.out' });
+  }
+  /* 标题金色流光扫过 */
+  const h3 = el.querySelector('h3');
+  if (h3) { h3.classList.remove('shine-on'); void h3.offsetWidth; h3.classList.add('shine-on'); }
+  /* 预览视频：聚焦播放 1.4s */
+  const vid = el.querySelector('.card-video');
+  if (vid) { vid.currentTime = 0; vid.play().catch(() => { }); if (window.gsap) gsap.delayedCall(1.4, () => { if (!vid.paused) vid.pause(); }); }
+  /* HUD：第 N 张 + 卡名 */
+  if (hudCount && hudName) {
+    hudCount.textContent = (tourIdx + 1) + ' / ' + tourEls.length;
+    hudName.textContent = (h3 ? h3.textContent : '');
+    if (tourHud) tourHud.classList.add('on');
+  }
+}
+
+/* 压暗其余卡 */
+function dimOthers(el) {
+  if (window.gsap) {
+    tourEls.forEach(e => {
+      if (e === el) return;
+      e.classList.remove('tour-focus');
+      gsap.to(e, {
+        scale: 1, y: 0, rotateX: 0, filter: 'brightness(.82)', opacity: .88,
+        duration: .5, ease: 'power1.out', overwrite: 'auto'
+      });
+    });
+  } else {
+    tourEls.forEach(e => { if (e !== el) e.classList.remove('tour-focus'); });
+  }
+}
+
 function stopTour(restore) {
   tourOn = false;
   if (tourTimer) { clearTimeout(tourTimer); tourTimer = null; }
+  if (tourBeam && window.gsap) {
+    gsap.to(tourBeam, { opacity: 0, scale: .55, duration: .5, ease: 'power1.out' });   /* 光束谢幕 */
+  }
+  if (tourHud) tourHud.classList.remove('on');
   if (restore !== false && currentEls.length) {
     currentEls.forEach(el => {
       el.classList.remove('tour-focus');
+      const h3 = el.querySelector('h3'); if (h3) h3.classList.remove('shine-on');
+      const vid = el.querySelector('.card-video'); if (vid) vid.pause();
       if (window.gsap) {
-        gsap.to(el, { scale: 1, y: 0, filter: 'brightness(1)', opacity: 1, duration: .45, ease: 'power1.out', overwrite: 'auto' });
+        gsap.to(el, { scale: 1, y: 0, rotateX: 0, filter: 'brightness(1)', opacity: 1, duration: .45, ease: 'power1.out', overwrite: 'auto' });
       } else {
         el.style.transform = ''; el.style.filter = ''; el.style.opacity = '';
       }
@@ -572,27 +639,32 @@ function stepTour() {
   if (r.top < 40 || r.bottom > vh * 0.86) {
     window.scrollTo({ top: Math.max(0, scrollY + r.top - vh * 0.36), behavior: 'smooth' });
   }
-  if (window.gsap) {
-    tourEls.forEach(e => {
-      const isCur = e === el;
-      gsap.to(e, {
-        scale: isCur ? 1.045 : 1, y: isCur ? -7 : 0,
-        filter: isCur ? 'brightness(1.05)' : 'brightness(.84)',
-        opacity: isCur ? 1 : .9,
-        duration: .7, ease: 'power2.out', overwrite: 'auto', delay: isCur ? .25 : 0
+  dimOthers(el);
+  if (tourBeam && window.gsap) {
+    if (tourIdx === 0) {
+      /* 第一张：光束原地"生长"点亮，不做长距离飞行 */
+      gsap.fromTo(tourBeam, { opacity: 0, scale: .7 }, {
+        opacity: 1, scale: 1, duration: .55, ease: 'power1.out',
+        onComplete: () => applyFocus(el)
       });
-      e.classList.toggle('tour-focus', isCur);
-    });
+    } else {
+      const c = cardCenter(el);
+      /* 光束从上一张的位置滑过来，到位瞬间点亮卡面 */
+      gsap.to(tourBeam, {
+        x: c.x, y: c.y, opacity: 1, scale: 1, duration: .75, ease: 'power2.inOut',
+        onComplete: () => applyFocus(el)
+      });
+    }
   } else {
-    el.classList.add('tour-focus');
+    applyFocus(el);
   }
   tourIdx++;
   if (tourIdx >= tourOrder.length) {
-    /* 一圈走完：最后一张多驻留一会再停下 */
-    tourTimer = setTimeout(() => stopTour(), 2600);
+    /* 一圈走完：最后一张多驻留一会再谢幕 */
+    tourTimer = setTimeout(() => stopTour(), 2800);
     return;
   }
-  tourTimer = setTimeout(stepTour, 2400);
+  tourTimer = setTimeout(stepTour, 2500);
 }
 
 function startTour() {
@@ -608,8 +680,17 @@ function startTour() {
   tourEls = els; tourOrder = order; tourIdx = 0;
   tourOn = true;
   grid.classList.add('touring');
+  beamReset(els[order[0]]);   /* 光束预置到首张卡中心，第一段原地亮起 */
   paintTourBtn();
-  stepTour();
+  /* 开场编排：卡片错落苏醒后，光束开始第一段行程 */
+  if (window.gsap) {
+    gsap.fromTo(els, { opacity: .5, y: 16 }, {
+      opacity: 1, y: 0, stagger: .05, duration: .55, ease: 'power2.out', overwrite: 'auto',
+      onComplete: () => { if (tourOn) stepTour(); }
+    });
+  } else {
+    stepTour();
+  }
 }
 
 if (tourBtn) {
