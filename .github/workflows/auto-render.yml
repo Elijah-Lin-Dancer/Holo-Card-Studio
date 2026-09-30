@@ -27,7 +27,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install --quiet Pillow numpy
+        run: pip install --quiet Pillow numpy opencv-python-headless
 
       - name: Fetch issue payload
         id: payload

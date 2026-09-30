@@ -1,3 +1,4 @@
 # HoloLab Studio · 生成管线 Python 依赖（Python 3.10+）
 Pillow>=10.0
 numpy>=1.26
+opencv-python-headless>=4.9

@@ -189,12 +189,14 @@ def main(argv=None) -> int:
             json.dumps(cfg, ensure_ascii=False, indent=2), encoding="utf-8")
         print(f"[1/5] 项目 {slug} 已创建，审核通过")
 
-        # ③ Blender（自动下载便携版，Actions runner 可自给自足）
+        # ③ Blender（自动下载便携版到 gitignored 的 <ROOT>/tools/，Actions runner 可自给自足）
         blender = ""
-        rc, _ = run([sys.executable, str(HERE / "ensure_blender.py"), "--root", str(ROOT)])
-        blender_exe = ROOT / "tools" / "blender" / "blender"
-        if rc == 0 and blender_exe.exists():
-            blender = str(blender_exe)
+        rc, out = run([sys.executable, str(HERE / "ensure_blender.py"), str(ROOT)])
+        if rc == 0 and out:
+            lines = [l.strip() for l in out.splitlines() if l.strip() and not l.startswith("  $")]
+            if lines and Path(lines[-1]).is_file():
+                blender = lines[-1]
+        if blender:
             print(f"[2/5] Blender: {blender}")
         else:
             print("[2/5] Blender 不可用，跳过 3D 渲染（将只产出平面卡）")
