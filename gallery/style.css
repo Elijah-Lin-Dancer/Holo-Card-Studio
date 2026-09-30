@@ -345,16 +345,37 @@ footer a:hover{text-decoration:underline}
 }
 
 /* ============ 隐藏解锁（locked card） ============ */
-.thumb-wrap.locked img.locked-img{filter:blur(9px) saturate(.45) brightness(.72);transform:scale(1.08)}
+.thumb-wrap.locked{background:linear-gradient(160deg,#232b4a 0%,#0d1226 55%,#0a0f1e 100%)}
+.thumb-wrap.locked img.locked-img{opacity:0}
+.card.is-locked .rarity{display:none}
 .card.is-locked .lock-overlay{
-  position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
-  background:radial-gradient(120% 90% at 50% 40%,rgba(10,15,30,.30) 0%,rgba(6,8,14,.68) 100%);
-  color:var(--cream);backdrop-filter:blur(2px);
+  position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+  background:radial-gradient(120% 90% at 50% 40%,rgba(38,50,92,.35) 0%,rgba(8,12,20,.72) 100%);
+  color:var(--cream);
 }
 .card.is-locked .lock-overlay svg{filter:drop-shadow(0 0 12px rgba(201,168,106,.55));animation:lock-pulse 2.4s ease-in-out infinite}
 .card.is-locked .lock-overlay span{font-size:12px;letter-spacing:1.6px;color:var(--gold);border:1px solid rgba(201,168,106,.4);border-radius:20px;padding:5px 14px;background:rgba(8,12,20,.5)}
 @keyframes lock-pulse{0%,100%{opacity:.75;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
 .card.is-locked:hover .lock-overlay{background:radial-gradient(120% 90% at 50% 40%,rgba(10,15,30,.18) 0%,rgba(6,8,14,.55) 100%)}
+/* 锁定卡 meta 区（标题/描述/日期）一并遮蔽：模糊 + 暗遮罩，不可读 */
+.card.is-locked .meta{position:relative;overflow:hidden}
+.card.is-locked .meta::before{
+  content:"";position:absolute;inset:0;z-index:2;
+  background:linear-gradient(180deg,rgba(8,12,20,.42),rgba(8,12,20,.66));
+  backdrop-filter:blur(7px);
+}
+.card.is-locked .meta>*{filter:blur(6px) saturate(.35) brightness(.8);user-select:none;pointer-events:none}
+.card.is-locked .meta::after{
+  content:"";position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;
+}
+.card.is-locked .meta .lock-meta-tip{
+  position:absolute;inset:0;z-index:4;display:flex;align-items:center;justify-content:center;
+  font-size:11px;letter-spacing:1.8px;color:var(--gold);text-transform:uppercase;
+}
+@media (prefers-reduced-motion:reduce){
+  .card.is-locked .lock-overlay svg{animation:none}
+  .lock-modal,.lock-box{transition:none}
+}
 
 /* 密码弹窗 */
 .lock-modal{position:fixed;inset:0;z-index:120;display:flex;align-items:center;justify-content:center;padding:20px;

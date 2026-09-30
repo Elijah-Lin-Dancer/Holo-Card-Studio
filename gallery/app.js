@@ -254,12 +254,13 @@ function makeCard(c, i) {
         : (c.preview ? '<video class="card-video" src="' + escHtml(c.preview) + '" muted playsinline loop preload="none"></video>' : ''))) +
     '<span class="rarity">' + escHtml(c.collection || '典藏') + '</span>' +
     '</div>' +
-    '<div class="meta">' +
+    '<div class="meta' + (locked ? ' locked-meta' : '') + '">' +
     '<div class="tags">' + (c.style_tags || []).map(t => '<span class="tag">' + escHtml(t) + '</span>').join('') + '</div>' +
     '<h3>' + escHtml(c.title) + '</h3>' +
     '<div class="sub">' + escHtml(c.subtitle || '') + '</div>' +
     '<p class="desc">' + escHtml(c.description || '') + '</p>' +
     '<div class="ed">' + escHtml(c.edition || '') + ' · ' + escHtml(c.date || '') + '</div>' +
+    (locked ? '<div class="lock-meta-tip">PRIVATE · 私藏</div>' : '') +
     '</div>';
   const vid = card.querySelector('.card-video');
   if (vid) {
