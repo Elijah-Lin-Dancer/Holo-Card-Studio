@@ -26,6 +26,7 @@ function setLang(l) {
   /* 语言切换：重渲染动态生成的 UI（分类 chips、锁定卡徽标、私藏提示等） */
   renderChips();
   render();
+  paintTourBtn();   /* 导览按钮文案跟随语言 */
 }
 langBtn.addEventListener('click', () => setLang(I18N.get() === 'zh' ? 'en' : 'zh'));
 themeBtn.addEventListener('click', () => THEME.toggle());
@@ -165,6 +166,8 @@ function setView(v) {
   });
   grid.hidden = v !== 'grid';
   if (curationSec) curationSec.hidden = v !== 'curated';
+  if (v !== 'grid') stopTour();   /* 切到策展视图时中止导览 */
+  if (tourBtn) tourBtn.disabled = (v !== 'grid' || reduceMotion);   /* 导览仅作用于网格视图 */
   render();
 }
 if (viewSwitch) {
@@ -358,6 +361,7 @@ function render() {
 }
 
 function renderGrid(list) {
+  stopTour();   /* 重渲染前中止导览（DOM 重建会使游走引用失效） */
   grid.querySelectorAll('.card').forEach(el => el.remove());
   currentEls = [];
   empty.hidden = list.length > 0;
@@ -444,6 +448,7 @@ function bindTilt(els) {
   els.forEach(el => {
     let raf = null;
     el.addEventListener('mousemove', e => {
+      if (grid.classList.contains('touring')) return;   /* 导览期间禁用 tilt，避免与聚光动画抢 transform */
       const r = el.getBoundingClientRect();
       el.style.setProperty('--mx', (((e.clientX - r.left) / r.width) * 100).toFixed(1) + '%');
       el.style.setProperty('--my', (((e.clientY - r.top) / r.height) * 100).toFixed(1) + '%');
@@ -455,7 +460,7 @@ function bindTilt(els) {
         raf = null;
       });
     });
-    el.addEventListener('mouseleave', () => { el.style.transform = ''; });
+    el.addEventListener('mouseleave', () => { if (!grid.classList.contains('touring')) el.style.transform = ''; });
   });
 }
 
@@ -520,3 +525,94 @@ load().catch(err => {
   empty.hidden = false;
   empty.textContent = '加载失败：' + err.message;
 });
+
+/* ============ 8. 自动导览（Auto Tour） ============ */
+const tourBtn = document.getElementById('tour-btn');
+let tourOn = false, tourOrder = [], tourIdx = 0, tourEls = [], tourTimer = null;
+
+function tourElsNow() {
+  /* 网格视图 + 当前可见 + 非锁卡 */
+  return currentEls.filter(el => !el.classList.contains('is-locked'));
+}
+
+function paintTourBtn() {
+  if (!tourBtn) return;
+  const k = tourOn ? 'tour_stop' : 'tour_play';
+  const span = tourBtn.querySelector('span');
+  if (span) span.textContent = I18N.t(k);
+  tourBtn.setAttribute('aria-pressed', tourOn ? 'true' : 'false');
+  tourBtn.setAttribute('aria-label', I18N.t(k));
+  tourBtn.title = I18N.t('tour_hint');
+}
+
+function stopTour(restore) {
+  tourOn = false;
+  if (tourTimer) { clearTimeout(tourTimer); tourTimer = null; }
+  if (restore !== false && currentEls.length) {
+    currentEls.forEach(el => {
+      el.classList.remove('tour-focus');
+      if (window.gsap) {
+        gsap.to(el, { scale: 1, y: 0, filter: 'brightness(1)', opacity: 1, duration: .45, ease: 'power1.out', overwrite: 'auto' });
+      } else {
+        el.style.transform = ''; el.style.filter = ''; el.style.opacity = '';
+      }
+    });
+  }
+  grid.classList.remove('touring');
+  paintTourBtn();
+}
+
+function stepTour() {
+  if (!tourOn) return;
+  const el = tourEls[tourOrder[tourIdx]];
+  if (!el) { stopTour(); return; }
+  /* 下一张不在视口：先平滑滚过去 */
+  const r = el.getBoundingClientRect();
+  const vh = innerHeight;
+  if (r.top < 40 || r.bottom > vh * 0.86) {
+    window.scrollTo({ top: Math.max(0, scrollY + r.top - vh * 0.36), behavior: 'smooth' });
+  }
+  if (window.gsap) {
+    tourEls.forEach(e => {
+      const isCur = e === el;
+      gsap.to(e, {
+        scale: isCur ? 1.045 : 1, y: isCur ? -7 : 0,
+        filter: isCur ? 'brightness(1.05)' : 'brightness(.84)',
+        opacity: isCur ? 1 : .9,
+        duration: .7, ease: 'power2.out', overwrite: 'auto', delay: isCur ? .25 : 0
+      });
+      e.classList.toggle('tour-focus', isCur);
+    });
+  } else {
+    el.classList.add('tour-focus');
+  }
+  tourIdx++;
+  if (tourIdx >= tourOrder.length) {
+    /* 一圈走完：最后一张多驻留一会再停下 */
+    tourTimer = setTimeout(() => stopTour(), 2600);
+    return;
+  }
+  tourTimer = setTimeout(stepTour, 2400);
+}
+
+function startTour() {
+  if (reduceMotion || viewState !== 'grid' || grid.hidden) return;
+  stopTour();
+  const els = tourElsNow();
+  if (els.length < 2) return;   /* 单张或空列表没有巡展意义 */
+  const order = els.map((_, i) => i);
+  for (let i = order.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const t = order[i]; order[i] = order[j]; order[j] = t;
+  }
+  tourEls = els; tourOrder = order; tourIdx = 0;
+  tourOn = true;
+  grid.classList.add('touring');
+  paintTourBtn();
+  stepTour();
+}
+
+if (tourBtn) {
+  tourBtn.addEventListener('click', () => (tourOn ? stopTour() : startTour()));
+  if (reduceMotion) tourBtn.disabled = true;
+}

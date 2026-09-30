@@ -449,3 +449,37 @@ footer a:hover{text-decoration:underline}
 @media (prefers-reduced-motion:reduce){
   .tl-item{opacity:1;transform:none;transition:none}
 }
+
+/* ============ 8. 自动导览（Auto Tour） ============ */
+.tour-btn{
+  display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 14px;
+  font-size:12.5px;letter-spacing:1.2px;color:var(--dim);
+  background:transparent;border:1px solid var(--line-soft);border-radius:999px;
+  cursor:pointer;transition:color .25s,border-color .25s,box-shadow .25s,background .25s;
+  white-space:nowrap;
+}
+.tour-btn:hover{color:var(--gold);border-color:var(--gold-dim);box-shadow:0 0 18px rgba(201,168,106,.25)}
+.tour-btn .tour-ico{transition:transform .3s cubic-bezier(.22,1,.36,1)}
+.tour-btn:hover .tour-ico{transform:translateX(2px)}
+.tour-btn[aria-pressed="true"]{
+  color:#101018;background:linear-gradient(100deg,var(--gold),var(--cream));
+  border-color:transparent;font-weight:700;
+  box-shadow:0 0 22px rgba(201,168,106,.45);
+}
+.tour-btn[aria-pressed="true"] .tour-ico{transform:scale(1.15)}
+.tour-btn[disabled]{opacity:.4;cursor:not-allowed;box-shadow:none}
+
+/* 聚焦卡：舞台聚光 */
+.card.tour-focus{
+  border-color:rgba(201,168,106,.85)!important;
+  box-shadow:0 26px 64px rgba(0,0,0,.5),0 0 0 1px rgba(201,168,106,.6),0 0 44px rgba(201,168,106,.5)!important;
+  z-index:5;
+}
+.card.tour-focus .thumb-wrap::after{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
+  background:radial-gradient(90% 70% at 50% 30%,rgba(201,168,106,.16),transparent 70%);
+}
+.card.tour-focus h3{color:var(--gold)}
+.card.tour-focus .sub,.card.tour-focus .desc{opacity:1}
+.grid.touring .card{cursor:default}
+@media (max-width:720px){.tour-btn span{display:none}.tour-btn{padding:0 12px}}

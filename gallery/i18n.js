@@ -33,6 +33,11 @@
     curation_title:  { zh: '策展时间线 · 创作手记', en: 'Curated timeline · Creator notes' },
     curation_hint:   { zh: '从第一张卡到巴萨传承系列——每一张卡诞生的理由。', en: 'From the first card to the Barça Legacy series — why each card exists.' },
 
+    // 自动导览（Auto Tour）
+    tour_play:       { zh: '自动导览', en: 'Auto Tour' },
+    tour_stop:       { zh: '停止导览', en: 'Stop Tour' },
+    tour_hint:       { zh: '自动在卡片间巡展，聚光灯逐卡流动', en: 'Auto-walk the gallery — a spotlight flows card to card' },
+
     // 展厅分类标签（style_tags 词典：键=中文 tag，en 为英文显示；未收录回退原文）
     '挚友':   { zh: '挚友', en: 'For a Friend' },
     '马':     { zh: '马', en: 'Horses' },
