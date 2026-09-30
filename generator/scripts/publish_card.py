@@ -215,7 +215,7 @@ def rewrite_importmap(index_html: Path) -> None:
 
 def load_card_meta(cfg: dict, tags: list[str]) -> dict:
     """从 card-config.json 抽取展厅清单字段。"""
-    return {
+    meta = {
         "id": cfg.get("_card_id", ""),
         "title": cfg.get("title", ""),
         "subtitle": cfg.get("subtitle", ""),
@@ -227,6 +227,12 @@ def load_card_meta(cfg: dict, tags: list[str]) -> dict:
         "author": cfg.get("author") or "HoloLab Studio",
         "style_tags": tags,
     }
+    # 隐藏解锁：locked=true 时透传锁定标记与密码哈希（前端 SHA-256 比对，不存明文）
+    if cfg.get("locked"):
+        meta["locked"] = True
+        if cfg.get("lockHash"):
+            meta["lockHash"] = cfg["lockHash"]
+    return meta
 
 
 def update_cards_json(meta: dict, thumb: Path, card_url: str, date: str) -> None:

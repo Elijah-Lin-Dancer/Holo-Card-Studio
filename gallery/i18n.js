@@ -28,6 +28,19 @@
     // 筛选
     filters_all:     { zh: '全部',      en: 'All' },
 
+    // 隐藏解锁（locked card）
+    locked_badge:    { zh: '已锁定 · 密码解锁', en: 'Locked · Password' },
+    unlocked_badge:  { zh: '已解锁',     en: 'Unlocked' },
+    lock_title:      { zh: '这是一张私藏卡', en: 'This card is private' },
+    lock_hint:       { zh: '输入密码以解锁查看', en: 'Enter the password to view' },
+    lock_input_ph:   { zh: '请输入解锁密码', en: 'Unlock password' },
+    lock_btn:        { zh: '解锁',      en: 'Unlock' },
+    lock_cancel:     { zh: '取消',      en: 'Cancel' },
+    lock_wrong:      { zh: '密码不正确，请重试', en: 'Wrong password, try again' },
+    lock_ok:         { zh: '已解锁 ✨',  en: 'Unlocked ✨' },
+    lock_reset:      { zh: '重置解锁',   en: 'Reset unlocks' },
+    lock_no_thanks:  { zh: '不解锁',     en: 'Not now' },
+
     // 画廊
     empty:           { zh: '暂无卡片，稍后再来看看。', en: 'No cards yet — check back soon.' },
 

@@ -38,6 +38,19 @@
     <section class="display" aria-label="Interactive holographic card">
       <div id="stage" tabindex="0" role="img" aria-label="Drag to rotate the card. Scroll to zoom. Press F to flip and R to reset.">
         <div id="loading" role="status">LOADING</div>
+      <div id="lock-screen" class="lock-screen" hidden>
+        <div class="lock-panel" role="dialog" aria-modal="true" aria-labelledby="lock-title">
+          <svg class="lock-icon" viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><circle cx="12" cy="15.5" r="1.4" fill="currentColor" stroke="none"/>
+          </svg>
+          <h2 id="lock-title">这张卡为朋友定制，已上锁<br><span lang="en">This card is a gift, locked</span></h2>
+          <p id="lock-hint" class="lock-hint">输入密码以解锁查看 · Enter the password to view</p>
+          <input id="lock-input" class="lock-input" type="password" placeholder="Unlock password · 解锁密码" autocomplete="off" autocapitalize="off" spellcheck="false">
+          <p id="lock-err" class="lock-err" role="alert" hidden></p>
+          <button id="lock-yes" class="lock-yes" type="button">解锁 · Unlock</button>
+          <p id="lock-egg" class="lock-egg" hidden></p>
+        </div>
+      </div>
       </div>
       <output id="view-label" class="view-label">FRONT</output>
     </section>

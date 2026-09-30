@@ -110,6 +110,28 @@ function wrapTextSmart(ctx,text,x,y,maxWidth,lineHeight,maxLines){
  if(line&&row<maxLines)ctx.fillText(line,x,y+row*lineHeight);
 }
 function escHtml(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+/* 隐藏解锁：显示锁屏视图，SHA-256 比对后彩蛋并重载进入卡片 */
+async function showLockScreen(cid,lockHash){
+ const screen=$('lock-screen');const input=$('lock-input'),err=$('lock-err'),egg=$('lock-egg'),btn=$('lock-yes');
+ const UNLOCK_KEY='hololab_unlocked';let st={};
+ try{st=JSON.parse(localStorage.getItem(UNLOCK_KEY)||'{}');}catch(e){}
+ const sha256=async s=>{const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');};
+ const loading=$('loading');if(loading)loading.remove();
+ window.__holo={ready:false,locked:true};
+ screen.hidden=false;document.title='Locked card — HoloLab Studio';
+ const unlock=async()=>{
+  const pw=input.value.trim();if(!pw||!lockHash)return;
+  const h=await sha256(pw);
+  if(h===lockHash){
+   st[cid]=true;try{localStorage.setItem(UNLOCK_KEY,JSON.stringify(st));}catch(e){}
+   egg.hidden=false;egg.textContent='Velkommen tilbage, Isabella & Sophina ✨';
+   input.value='';err.hidden=true;btn.disabled=true;
+   setTimeout(()=>location.reload(),1800);
+  }else{err.textContent='密码不正确 · Wrong password';err.hidden=false;input.select();}
+ };
+ btn.onclick=unlock;input.addEventListener('keydown',e=>{if(e.key==='Enter')unlock();});
+ input.focus();
+}
 async function renderMore(){
  const grid=$('more-grid');if(!grid)return;
  try{
@@ -118,7 +140,9 @@ async function renderMore(){
   const selfCard=all.find(c=>c.id===cur);
   const dateEl=$('meta-date');
   if(dateEl&&selfCard?.date){dateEl.textContent=String(selfCard.date);dateEl.closest('div')?.removeAttribute('hidden');}
-  const others=all.filter(c=>c.id!==cur);
+  /* 未解锁的锁定卡不进推荐区，避免缩略图二次泄露 */
+  let st2={};try{st2=JSON.parse(localStorage.getItem('hololab_unlocked')||'{}');}catch(e){}
+  const others=all.filter(c=>c.id!==cur&&!(c.locked&&!st2[c.id]));
   const same=others.filter(c=>c.collection===config.collection);
   const rest=others.filter(c=>c.collection!==config.collection);
   const pick=[...same,...rest].slice(0,4);
@@ -132,6 +156,13 @@ async function renderMore(){
 }
 async function init(){
  config=await fetch('./card-config.json').then(r=>{if(!r.ok)throw Error('Card configuration was not found.');return r.json();});
+ /* 隐藏解锁：locked 且未解锁 → 锁屏，不初始化 WebGL */
+ if(config.locked){
+  const UNLOCK_KEY='hololab_unlocked';let st={};
+  try{st=JSON.parse(localStorage.getItem(UNLOCK_KEY)||'{}');}catch(e){}
+  const cid=config._card_id||config.slug;
+  if(!st[cid]){await showLockScreen(cid,config.lockHash);return;}
+ }
  document.title=(config.title||'CARD TITLE')+' — HoloLab Studio';
  for(const [id,key]of Object.entries({'card-title':'title','subtitle':'subtitle','edition':'edition'}))if(config[key]&&$(id))$(id).textContent=config[key];
  for(const [id,key]of Object.entries({'meta-collection':'collection','meta-technique':'technique','meta-date':'date'})){

@@ -184,18 +184,74 @@ function animateCount(el, target) {
   requestAnimationFrame(tick);
 }
 
+/* ============ 5b. 隐藏解锁（locked card） ============ */
+const UNLOCK_KEY = 'hololab_unlocked';
+let unlockState = {};
+try { unlockState = JSON.parse(localStorage.getItem(UNLOCK_KEY) || '{}'); } catch (e) { /* 损坏则重置 */ }
+function isUnlocked(id) { return !!unlockState[id]; }
+function saveUnlock(id) { unlockState[id] = true; try { localStorage.setItem(UNLOCK_KEY, JSON.stringify(unlockState)); } catch (e) { /* 隐私模式忽略 */ } }
+async function sha256Hex(s) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+let lockModalCtx = null;
+function ensureLockModal() {
+  if (lockModalCtx) return lockModalCtx;
+  const L = k => (typeof window.HoloLabI18n !== 'undefined' ? window.HoloLabI18n.t(k) : k);
+  const m = document.createElement('div');
+  m.className = 'lock-modal';
+  m.innerHTML =
+    '<div class="lock-box" role="dialog" aria-modal="true" aria-label="' + L('lock_title') + '">' +
+    '<button class="lock-close" aria-label="' + L('lock_cancel') + '">×</button>' +
+    '<h3>' + L('lock_title') + '</h3>' +
+    '<p class="lock-hint">' + L('lock_hint') + '</p>' +
+    '<input class="lock-input" type="password" placeholder="' + L('lock_input_ph') + '" autocomplete="off" autocapitalize="off" spellcheck="false">' +
+    '<p class="lock-err" hidden></p>' +
+    '<div class="lock-actions">' +
+    '<button class="lock-no">' + L('lock_no_thanks') + '</button>' +
+    '<button class="lock-yes">' + L('lock_btn') + '</button>' +
+    '</div></div>';
+  document.body.appendChild(m);
+  const input = m.querySelector('.lock-input'), err = m.querySelector('.lock-err');
+  let card = null;
+  const close = () => { m.classList.remove('open'); err.hidden = true; input.value = ''; };
+  m.querySelector('.lock-close').onclick = close;
+  m.querySelector('.lock-no').onclick = close;
+  m.addEventListener('click', e => { if (e.target === m) close(); });
+  m.querySelector('.lock-yes').onclick = async () => {
+    const pw = input.value.trim();
+    if (!pw || !card || !card.lockHash) return;
+    const h = await sha256Hex(pw);
+    if (h === card.lockHash) {
+      saveUnlock(card.id);
+      input.value = ''; close(); render();
+      if (card.url) window.location.href = card.url;
+    } else {
+      err.textContent = L('lock_wrong'); err.hidden = false; input.select();
+    }
+  };
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') m.querySelector('.lock-yes').click(); });
+  lockModalCtx = { open: c => { card = c; m.classList.add('open'); setTimeout(() => input.focus(), 60); } };
+  return lockModalCtx;
+}
+function promptUnlock(c) { ensureLockModal().open(c); }
+
 function makeCard(c, i) {
   const card = document.createElement('a');
   card.className = 'card';
   card.href = c.url;
   card.setAttribute('aria-label', c.title);
   card.style.setProperty('--d', ((i % 8) * 70) + 'ms');
+  const locked = !!(c.locked) && !isUnlocked(c.id);
+  const L = k => (typeof window.HoloLabI18n !== 'undefined' ? window.HoloLabI18n.t(k) : k);
   card.innerHTML =
-    '<div class="thumb-wrap">' +
-    '<img src="' + escHtml(c.thumb) + '" alt="' + escHtml(c.title) + '" loading="lazy">' +
-    (c.lenticular
-      ? '<canvas class="lent" width="720" height="1000" aria-hidden="true"></canvas>'
-      : (c.preview ? '<video class="card-video" src="' + escHtml(c.preview) + '" muted playsinline loop preload="none"></video>' : '')) +
+    '<div class="thumb-wrap' + (locked ? ' locked' : '') + '">' +
+    '<img class="' + (locked ? 'locked-img ' : '') + '" src="' + escHtml(c.thumb) + '" alt="' + escHtml(c.title) + '" loading="lazy">' +
+    (locked
+      ? '<div class="lock-overlay"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><circle cx="12" cy="15.5" r="1.4" fill="currentColor" stroke="none"/></svg><span>' + escHtml(L('locked_badge')) + '</span></div>'
+      : (c.lenticular
+        ? '<canvas class="lent" width="720" height="1000" aria-hidden="true"></canvas>'
+        : (c.preview ? '<video class="card-video" src="' + escHtml(c.preview) + '" muted playsinline loop preload="none"></video>' : ''))) +
     '<span class="rarity">' + escHtml(c.collection || '典藏') + '</span>' +
     '</div>' +
     '<div class="meta">' +
@@ -209,6 +265,11 @@ function makeCard(c, i) {
   if (vid) {
     card.addEventListener('mouseenter', () => { vid.currentTime = 0; vid.play().catch(() => { }); });
     card.addEventListener('mouseleave', () => { vid.pause(); });
+  }
+  /* 锁卡：点击弹密码框，不直接跳详情页 */
+  if (locked) {
+    card.addEventListener('click', e => { e.preventDefault(); promptUnlock(c); });
+    card.classList.add('is-locked');
   }
   /* lenticular 光栅：双视角帧按鼠标位置条纹混合（桌面精细指针） */
   const lent = card.querySelector('canvas.lent');

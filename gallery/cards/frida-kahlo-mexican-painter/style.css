@@ -121,3 +121,25 @@ body::before{
 .display{animation:card-rise .9s cubic-bezier(.22,1,.36,1) .15s both}
 @keyframes card-rise{from{opacity:0;transform:translateY(26px) scale(.985)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;opacity:1!important;transform:none!important}}
+/* ---- 隐藏解锁锁屏 ---- */
+.lock-screen{position:absolute;inset:0;display:none;align-items:center;justify-content:center;background:
+  radial-gradient(90% 80% at 50% 30%,var(--halo1),transparent 70%),var(--paper);z-index:5}
+.lock-panel{max-width:400px;width:86%;text-align:center;padding:44px 30px 36px;border:1px solid var(--line);
+  border-radius:18px;background:var(--btn-bg);box-shadow:0 24px 70px rgba(0,0,0,.18),0 0 0 1px rgba(201,168,106,.16)}
+.lock-icon{color:var(--ink-soft);opacity:.9;margin-bottom:14px;filter:drop-shadow(0 0 14px rgba(201,168,106,.5))}
+.lock-panel h2{font-size:17px;line-height:1.55;letter-spacing:.4px;margin:0 0 6px}
+.lock-panel h2 span{font-size:13px;font-weight:600;color:var(--ink-soft);letter-spacing:.2px}
+.lock-hint{font-size:12.5px;color:var(--ink-soft);margin:10px 0 18px;line-height:1.6}
+.lock-input{width:100%;box-sizing:border-box;padding:12px 14px;font-size:14px;color:var(--ink);
+  background:var(--paper);border:1px solid var(--line);border-radius:9px;outline:none;text-align:center;transition:border-color .2s,box-shadow .2s}
+.lock-input:focus{border-color:#bfa26b;box-shadow:0 0 0 3px rgba(191,162,107,.2)}
+.lock-err{color:#c05050;font-size:12.5px;margin:12px 0 0}
+.lock-egg{color:#b3903f;font-size:13.5px;margin:16px 0 0;letter-spacing:.4px;animation:egg-in .6s cubic-bezier(.22,1,.36,1) both}
+@keyframes egg-in{from{opacity:0;transform:translateY(8px) scale(.96)}to{opacity:1;transform:none}}
+.lock-yes{width:100%;margin-top:16px;padding:12px;font-size:13px;font-weight:800;letter-spacing:.1em;cursor:pointer;
+  border:1px solid var(--ink);background:var(--btn-bg);color:var(--ink);border-radius:9px;transition:all .16s}
+.lock-yes:hover{background:var(--ink);color:var(--paper)}
+.lock-yes:disabled{opacity:.55;cursor:default}
+@media(prefers-reduced-motion:reduce){.lock-egg{animation:none}}
+
+.lock-screen[hidden]{display:none}

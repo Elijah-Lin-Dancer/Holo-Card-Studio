@@ -41,5 +41,7 @@
     "model": "./assets/card.glb"
   },
   "_card_id": "neeltje-friesian-kalundborg",
-  "author": "HoloLab Studio"
+  "author": "HoloLab Studio",
+  "locked": true,
+  "lockHash": "c90fdbf1d5f4532fd9163bc9120cdd6946ddcc0c1d40f77bd761080152ec6ae8"
 }
