@@ -601,9 +601,19 @@ python3 generator/scripts/one_shot_card.py "<span id="cmdq">…</span>"</div>
     document.body.appendChild(a); a.click(); a.remove();
     URL.revokeObjectURL(a.href);
   }
+  function buildIssueUrl(card, nick){
+    var idea = card.idea || '';
+    var lang = card.lang || 'en';
+    var design = card.design || '';
+    var ttl = '[Submission] ' + (idea.length > 60 ? idea.slice(0, 60) : idea);
+    var body = '## IDEA\n' + idea + '\n\n## LANG\n' + lang + '\n\n## AUTHOR\n' + nick + '\n\n## DESIGN\n' + design;
+    return 'https://github.com/Elijah-Lin-Dancer/Holo-Card-Studio/issues/new?title=' +
+      encodeURIComponent(ttl) + '&body=' + encodeURIComponent(body);
+  }
   function requestPublish(card){
-    exportPackage(card);
-    alert(t('cr_pub_done'));
+    var nick = (window.prompt(t('cr_pub_nick_ph'), '') || '').trim() || 'anonymous';
+    window.open(buildIssueUrl(card, nick), '_blank');
+    alert(t('cr_pub_hint'));
   }
   saveBtn.addEventListener('click', function(){
     var pkg = buildPackage();

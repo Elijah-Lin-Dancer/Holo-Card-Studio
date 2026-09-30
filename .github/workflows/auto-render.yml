@@ -1,0 +1,97 @@
+name: Auto Render Submission
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  render:
+    if: startsWith(github.event.issue.title, '[Submission]')
+    runs-on: ubuntu-latest
+    concurrency:
+      group: auto-render
+      cancel-in-progress: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install --quiet Pillow numpy
+
+      - name: Fetch issue payload
+        id: payload
+        run: |
+          gh issue view "${{ github.event.issue.number }}" --json body -q .body > /tmp/issue-body.txt
+          echo "author=${{ github.event.issue.user.login }}" >> "$GITHUB_OUTPUT"
+          echo "issue=${{ github.event.issue.number }}" >> "$GITHUB_OUTPUT"
+
+      - name: Run submission pipeline
+        id: pipeline
+        env:
+          ARK_API_KEY: ${{ secrets.ARK_API_KEY }}
+        run: |
+          python generator/scripts/submit_card.py \
+            --body /tmp/issue-body.txt \
+            --author "${{ steps.payload.outputs.author }}" \
+            > /tmp/pipeline-result.json 2>/tmp/pipeline-log.txt || true
+          cat /tmp/pipeline-result.json
+          echo "result=$(cat /tmp/pipeline-result.json | tr '\n' ' ')" >> "$GITHUB_OUTPUT"
+          echo "log=$(tail -c 800 /tmp/pipeline-log.txt | tr '\n' ' ')" >> "$GITHUB_OUTPUT"
+
+      - name: Reply success & close
+        if: "contains(steps.pipeline.outputs.result, '\"ok\": true')"
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'EOF'
+          import json
+          r = json.load(open('/tmp/pipeline-result.json'))
+          comment = (
+              "✅ **卡片已上线！**\n\n"
+              f"- 🃏 **{r['title']}**\n"
+              f"- 系列：{r['collection']}\n"
+              f"- 编号：`{r['edition']}`\n"
+              f"- 作者：@{r['author']}\n"
+              f"- 🔗 {r['url']}\n\n"
+              "由 HoloLab 策展管线自动渲染。感谢投稿！🎉"
+          )
+          open('/tmp/comment.md', 'w').write(comment)
+          EOF
+          gh issue comment "${{ github.event.issue.number }}" --body-file /tmp/comment.md
+          gh issue close "${{ github.event.issue.number }}"
+
+      - name: Commit & push rendered card
+        if: "contains(steps.pipeline.outputs.result, '\"ok\": true')"
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -m "feat(community): auto-render submission ${{ github.event.issue.number }} [skip ci]" --no-verify || echo "nothing to commit"
+          git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git" HEAD:main
+
+      - name: Reply failure
+        if: "failure() || !contains(steps.pipeline.outputs.result, '\"ok\": true')"
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'EOF'
+          import json, os
+          try:
+              r = json.load(open('/tmp/pipeline-result.json'))
+              err = r.get('error', '未知错误')
+          except Exception:
+              err = os.environ.get('LOG', '')[:600] or '管线内部错误，请查看 Actions 日志。'
+          open('/tmp/comment.md', 'w').write(
+              "❌ **审核/渲染未通过**\n\n" + err + "\n\n请修改后新建 Issue 重新提交。"
+          )
+          EOF
+          gh issue comment "${{ github.event.issue.number }}" --body-file /tmp/comment.md
