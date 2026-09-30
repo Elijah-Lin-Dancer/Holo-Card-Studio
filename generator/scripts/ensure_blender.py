@@ -22,6 +22,8 @@ def pick_mirror():
 def fetch(url,target):
     req=urllib.request.Request(url,headers=UA)
     with urllib.request.urlopen(req,timeout=120) as response,target.open('wb') as out:shutil.copyfileobj(response,out)
+
+def find_blender(project,override=None):
     candidates=[]
     if override:candidates.append(Path(override))
     system=shutil.which('blender')
