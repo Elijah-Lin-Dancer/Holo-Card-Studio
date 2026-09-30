@@ -19,7 +19,14 @@ const themeBtn = document.getElementById('theme-btn');
 function paintLangBtn() {
   langBtn.textContent = I18N.get() === 'zh' ? 'EN' : '中文';
 }
-function setLang(l) { I18N.setLang(l); paintLangBtn(); reSplitTitle(); }
+function setLang(l) {
+  I18N.setLang(l);
+  paintLangBtn();
+  reSplitTitle();
+  /* 语言切换：重渲染动态生成的 UI（分类 chips、锁定卡徽标、私藏提示等） */
+  renderChips();
+  render();
+}
 langBtn.addEventListener('click', () => setLang(I18N.get() === 'zh' ? 'en' : 'zh'));
 themeBtn.addEventListener('click', () => THEME.toggle());
 window.__hololabOnTheme = () => { /* 粒子颜色随主题更新由 starfield 内部处理 */ };
@@ -156,7 +163,7 @@ function renderChips() {
     frag.appendChild(b);
   };
   mk('all', (typeof window.HoloLabI18n !== 'undefined' ? window.HoloLabI18n.t('filters_all') : 'All'));
-  set.forEach(tag => mk(tag, tag));
+  set.forEach(tag => mk(tag, (typeof window.HoloLabI18n !== 'undefined' ? window.HoloLabI18n.t(tag) : tag)));
   filtersBox.innerHTML = '';
   filtersBox.appendChild(frag);
 }
@@ -260,7 +267,7 @@ function makeCard(c, i) {
     '<div class="sub">' + escHtml(c.subtitle || '') + '</div>' +
     '<p class="desc">' + escHtml(c.description || '') + '</p>' +
     '<div class="ed">' + escHtml(c.edition || '') + ' · ' + escHtml(c.date || '') + '</div>' +
-    (locked ? '<div class="lock-meta-tip">PRIVATE · 私藏</div>' : '') +
+    (locked ? '<div class="lock-meta-tip">' + escHtml(L('lock_private')) + '</div>' : '') +
     '</div>';
   const vid = card.querySelector('.card-video');
   if (vid) {
