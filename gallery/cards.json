@@ -1,6 +1,90 @@
 {
   "cards": [
     {
+      "id": "pep-guardiola-tiki-taka",
+      "title": "Pep Guardiola",
+      "subtitle": "El Maestro",
+      "technique": "Gilded Holography",
+      "tagline": "TIKI-TAKA · 2008–2012",
+      "edition": "006 / 006",
+      "collection": "HoloLab Archive · FC Barcelona Legacy",
+      "description": "El heredero de Cruijff que convirtió el fútbol en una sinfonía. Un homenaje holográfico a Pep Guardiola, el maestro del tiki-taka y del sextete de 2009.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "足球",
+        "巴萨",
+        "西班牙",
+        "教练",
+        "战术",
+        "传奇"
+      ],
+      "url": "cards/pep-guardiola-tiki-taka/",
+      "thumb": "cards/pep-guardiola-tiki-taka/thumb.jpg",
+      "date": "2026-09-30"
+    },
+    {
+      "id": "messi-world-cup-2022",
+      "title": "Lionel Messi",
+      "subtitle": "La Tercera Estrella",
+      "technique": "Gilded Holography",
+      "tagline": "QATAR 2022 · CAMPEONES DEL MUNDO",
+      "edition": "004 / 006",
+      "collection": "HoloLab Archive · FC Barcelona Legacy",
+      "description": "La noche de Doha: Messi alzó la Copa del Mundo y coronó la leyenda. Un homenaje holográfico al momento que cambió para siempre su historia.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "足球",
+        "世界杯",
+        "阿根廷",
+        "传奇"
+      ],
+      "url": "cards/messi-world-cup-2022/",
+      "thumb": "cards/messi-world-cup-2022/thumb.jpg",
+      "date": "2026-09-30"
+    },
+    {
+      "id": "messi-inter-miami",
+      "title": "Lionel Messi",
+      "subtitle": "La Nueva Leyenda",
+      "technique": "Gilded Holography",
+      "tagline": "INTER MIAMI CF · 2023–",
+      "edition": "003 / 006",
+      "collection": "HoloLab Archive · FC Barcelona Legacy",
+      "description": "De Europa al Nuevo Mundo: Messi pintó de rosa el fútbol americano. Un homenaje holográfico a la etapa de Miami, donde una leyenda encontró un nuevo escenario.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "足球",
+        "美职联",
+        "迈阿密",
+        "阿根廷",
+        "传奇"
+      ],
+      "url": "cards/messi-inter-miami/",
+      "thumb": "cards/messi-inter-miami/thumb.jpg",
+      "date": "2026-09-30"
+    },
+    {
+      "id": "messi-psg-paris",
+      "title": "Lionel Messi",
+      "subtitle": "La Ciudad de la Luz",
+      "technique": "Gilded Holography",
+      "tagline": "PARIS SAINT-GERMAIN · 2021–2023",
+      "edition": "002 / 006",
+      "collection": "HoloLab Archive · FC Barcelona Legacy",
+      "description": "El viaje a París: dos años en la ciudad de la luz, dos Ligas francesas y un séptimo Balón de Oro. Un homenaje holográfico a la etapa parisina de Messi.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "足球",
+        "法甲",
+        "巴黎",
+        "阿根廷",
+        "传奇"
+      ],
+      "url": "cards/messi-psg-paris/",
+      "thumb": "cards/messi-psg-paris/thumb.jpg",
+      "date": "2026-09-30"
+    },
+    {
       "id": "johan-cruyff-el-arquitecto",
       "title": "Johan Cruijff",
       "subtitle": "El Arquitecto",

@@ -1,0 +1,50 @@
+{
+  "slug": "messi-world-cup-2022",
+  "title": "Lionel Messi",
+  "subtitle": "La Tercera Estrella",
+  "technique": "Gilded Holography",
+  "tagline": "QATAR 2022 · CAMPEONES DEL MUNDO",
+  "collection": "HoloLab Archive · FC Barcelona Legacy",
+  "description": "La noche de Doha: Messi alzó la Copa del Mundo y coronó la leyenda. Un homenaje holográfico al momento que cambió para siempre su historia.",
+  "identity": "Lionel Messi · Argentine football genius · Argentina national team blue-white striped jersey number 10, kissing the golden World Cup trophy, joyful tears, one hand on trophy, centered portrait",
+  "back_story": "El 18 de diciembre de 2022, en el estadio de Lusail, Messi besó la Copa del Mundo. Argentina venció a Francia en la final más memorable de la historia, y la tercera estrella bordada en el pecho celeste y blanco se hizo eterna. Siete goles en el torneo, el Balón de Oro de la Copa, y el cierre perfecto para un reinado que el fútbol nunca olvidará: el GOAT había alzado por fin el único trofeo que le faltaba.",
+  "style": "鎏金白蓝镭射渐变收藏卡插画，沿主体轮廓金色发光描边，卡塔尔夜空金色烟火与卢赛尔球场光晕，阿根廷蓝白星条氛围，纵深感强，画面下方四成区域留空用于排版，细节丰富，不出现其他人",
+  "prompt": "Lionel Messi kissing the FIFA World Cup trophy, Argentina kit, iconic moment.",
+  "subject_desc": "梅西半身肖像，阿根廷国家队蓝白条纹 10 号球衣，双手捧起金色大力神杯低头亲吻，神情激动含泪，金色奖杯光芒映照面容，细节丰富轮廓清晰",
+  "background_desc": "卡塔尔卢赛尔之夜，金色烟火绽放在夜空，球场顶棚光晕与金色纸屑雨，蓝白双色镭射渐晕，纵深感强，画面下方约四成区域留空用于排版，不出现其他人物，鎏金白蓝镭射渐变",
+  "mode": "holographic",
+  "edition": "004 / 006",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.4,
+    "backgroundDepth": -0.25,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.12,
+    "offset": [
+      -0.06,
+      -0.085
+    ]
+  },
+  "stats": "1 Copa del Mundo · 7 goles en Qatar 2022 · Balón de Oro de la Copa · Final 2014 · 3.ª estrella para Argentina",
+  "honors": [
+    "Campeón del Mundo (Qatar 2022)",
+    "Balón de Oro de la Copa del Mundo (2022)",
+    "7 goles en el torneo",
+    "Subcampeón del Mundo (Brasil 2014)",
+    "Tercera estrella para Argentina"
+  ],
+  "quote": "«Hay que luchar para alcanzar tus sueños.» — Lionel Messi",
+  "font": "/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf",
+  "font_latin": "/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf",
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "messi-world-cup-2022",
+  "author": "HoloLab Studio"
+}

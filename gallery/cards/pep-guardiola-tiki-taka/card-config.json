@@ -1,0 +1,50 @@
+{
+  "slug": "pep-guardiola-tiki-taka",
+  "title": "Pep Guardiola",
+  "subtitle": "El Maestro",
+  "technique": "Gilded Holography",
+  "tagline": "TIKI-TAKA · 2008–2012",
+  "collection": "HoloLab Archive · FC Barcelona Legacy",
+  "description": "El heredero de Cruijff que convirtió el fútbol en una sinfonía. Un homenaje holográfico a Pep Guardiola, el maestro del tiki-taka y del sextete de 2009.",
+  "identity": "Pep Guardiola · Spanish football manager · bald, light beard, elegant dark suit with white shirt and tie, gesturing with one open hand on the touchline, focused expression, centered portrait",
+  "back_story": "Josep Guardiola fue el hijo futbolístico de Cruijff. En 2008 tomó el Barça y lo convirtió en la sinfonía más perfecta del fútbol: el tiki-taka, la presión alta y una cantera que tocaba de memoria. En 2009 ganó el sextete —seis títulos en un año, algo jamás visto— y en cuatro temporadas firmó catorce trofeos. Bajo su batuta, Messi alcanzó la cima del fútbol mundial. Su legado sigue vivo en cada equipo que toca la pelota y no la persigue.",
+  "style": "鎏金蓝红镭射渐变收藏卡插画，沿主体轮廓金色发光描边，战术板几何线条与足球场光晕交织，瓜迪奥拉执教巴萨黄金年代质感，纵深感强，画面下方四成区域留空用于排版，细节丰富，不出现其他人",
+  "prompt": "Pep Guardiola as FC Barcelona manager, elegant suit, touchline gesture, iconic portrait.",
+  "subject_desc": "瓜迪奥拉半身肖像，光头蓄须，深色西装内搭白衬衫系领带，右手单手伸出作指挥手势，神情专注沉静，场边聚光灯，细节丰富轮廓清晰",
+  "background_desc": "诺坎普之夜球场光晕，战术板几何阵型线条与足球轨迹交织成星空轨迹，蓝红双色镭射渐晕，纵深感强，画面下方约四成区域留空用于排版，不出现其他人物，鎏金蓝红镭射渐变",
+  "mode": "holographic",
+  "edition": "006 / 006",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.4,
+    "backgroundDepth": -0.25,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.12,
+    "offset": [
+      -0.06,
+      -0.085
+    ]
+  },
+  "stats": "14 títulos en 4 temporadas · Sextete 2009 · 3 La Liga · 2 Champions League · 1 Copa del Rey",
+  "honors": [
+    "Sextete 2009 — histórico e irrepetible",
+    "3 La Liga (2009, 2010, 2011)",
+    "2 UEFA Champions League (2009, 2011)",
+    "14 títulos en cuatro temporadas (2008–2012)",
+    "Referente mundial del tiki-taka"
+  ],
+  "quote": "«Prefiero perder jugando bien a ganar jugando mal.» — Pep Guardiola",
+  "font": "/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf",
+  "font_latin": "/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf",
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "pep-guardiola-tiki-taka",
+  "author": "HoloLab Studio"
+}

@@ -1,0 +1,49 @@
+{
+  "slug": "messi-inter-miami",
+  "title": "Lionel Messi",
+  "subtitle": "La Nueva Leyenda",
+  "technique": "Gilded Holography",
+  "tagline": "INTER MIAMI CF · 2023–",
+  "collection": "HoloLab Archive · FC Barcelona Legacy",
+  "description": "De Europa al Nuevo Mundo: Messi pintó de rosa el fútbol americano. Un homenaje holográfico a la etapa de Miami, donde una leyenda encontró un nuevo escenario.",
+  "identity": "Lionel Messi · Argentine football genius · Inter Miami home jersey pink with black accents, number 10, beard, tattooed arms crossed, calm confident expression, centered portrait",
+  "back_story": "En el verano de 2023, Messi eligió Miami. La camiseta rosa del Inter Miami se convirtió en el nuevo lienzo de su leyenda: la Leagues Cup de 2023, primer título del club, llegó en semanas; luego el Supporters' Shield y el MVP de la MLS. En el jardín de Florida, el fútbol estadounidense descubrió lo que el mundo ya sabía: nadie juega como él.",
+  "style": "鎏金粉红镭射渐变收藏卡插画，沿主体轮廓金色发光描边，迈阿密棕榈与海岸线日落氛围，粉黑撞色潮流质感，纵深感强，画面下方四成区域留空用于排版，细节丰富，不出现其他人",
+  "prompt": "Lionel Messi in Inter Miami pink kit, number 10, iconic portrait.",
+  "subject_desc": "梅西半身肖像，迈阿密国际粉色主场球衣，10 号，蓄须，双臂交叉抱胸，手臂纹身可见，神情沉稳从容，暖色侧光，细节丰富轮廓清晰",
+  "background_desc": "迈阿密海岸日落，棕榈树剪影与海平线，粉黑双色镭射渐晕，霓虹点缀夜色，纵深感强，画面下方约四成区域留空用于排版，不出现其他人物，鎏金粉红镭射渐变",
+  "mode": "holographic",
+  "edition": "003 / 006",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.4,
+    "backgroundDepth": -0.25,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.12,
+    "offset": [
+      -0.06,
+      -0.085
+    ]
+  },
+  "stats": "1 Leagues Cup · 1 Supporters' Shield · MVP de la MLS 2024 · Bota de Oro MLS 2024",
+  "honors": [
+    "Leagues Cup 2023 — primer título del club",
+    "Supporters' Shield 2024",
+    "MVP de la MLS (2024)",
+    "Bota de Oro de la MLS (2024)"
+  ],
+  "quote": "«Hay que luchar para alcanzar tus sueños.» — Lionel Messi",
+  "font": "/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf",
+  "font_latin": "/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf",
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "messi-inter-miami",
+  "author": "HoloLab Studio"
+}

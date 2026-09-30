@@ -1,0 +1,49 @@
+{
+  "slug": "messi-psg-paris",
+  "title": "Lionel Messi",
+  "subtitle": "La Ciudad de la Luz",
+  "technique": "Gilded Holography",
+  "tagline": "PARIS SAINT-GERMAIN · 2021–2023",
+  "collection": "HoloLab Archive · FC Barcelona Legacy",
+  "description": "El viaje a París: dos años en la ciudad de la luz, dos Ligas francesas y un séptimo Balón de Oro. Un homenaje holográfico a la etapa parisina de Messi.",
+  "identity": "Lionel Messi · Argentine football genius · PSG home jersey deep navy with red-white collar and cuffs, number 30, beard, focused eyes, centered portrait, holding a football",
+  "back_story": "En el verano de 2021, tras veintiún años en Barcelona, Messi aterrizó en París. Durante dos temporadas vistió la camiseta del Paris Saint-Germain con el 30 a la espalda: 75 partidos, 32 goles, dos Ligas 1 y una Supercopa. Fue también en París donde levantó su séptimo Balón de Oro. La torre Eiffel brilló para él, y la ciudad de la luz lo recibió como lo que siempre fue: el último genio del fútbol.",
+  "style": "鎏金蓝红镭射渐变收藏卡插画，沿主体轮廓金色发光描边，巴黎夜色浪漫质感，埃菲尔铁塔剪影与法式蓝调氛围，纵深感强，画面下方四成区域留空用于排版，细节丰富，不出现其他人",
+  "prompt": "Lionel Messi in Paris Saint-Germain navy kit, number 30, iconic portrait.",
+  "subject_desc": "梅西半身肖像，巴黎圣日耳曼深蓝主场球衣配红白领口袖口，10 号改 30 号，蓄须短发，目光坚定，侧上方暖色聚光灯，细节丰富轮廓清晰",
+  "background_desc": "巴黎之夜，埃菲尔铁塔金色剪影，塞纳河灯光倒影，蓝红双色镭射渐晕，纵深感强，画面下方约四成区域留空用于排版，不出现其他人物，鎏金蓝红镭射渐变",
+  "mode": "holographic",
+  "edition": "002 / 006",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.4,
+    "backgroundDepth": -0.25,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.12,
+    "offset": [
+      -0.06,
+      -0.085
+    ]
+  },
+  "stats": "75 partidos · 32 goles · 2 Ligue 1 · 1 Supercopa de Francia · 7.º Balón de Oro",
+  "honors": [
+    "2 Ligue 1 (2022, 2023)",
+    "1 Supercopa de Francia (2022)",
+    "7.º Balón de Oro (2021)",
+    "32 goles en 75 partidos con el PSG"
+  ],
+  "quote": "«Hay que luchar para alcanzar tus sueños.» — Lionel Messi",
+  "font": "/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf",
+  "font_latin": "/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf",
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "messi-psg-paris",
+  "author": "HoloLab Studio"
+}
