@@ -143,13 +143,13 @@ def build_config(idea: str, design: str, lang: str, author: str, slug: str) -> d
 
 
 def run(cmd: list[str], cwd: Path | None = None, timeout: int = 1800) -> tuple[int, str]:
-    print("  $", " ".join(str(c) for c in cmd)[:160])
+    print("  $", " ".join(str(c) for c in cmd)[:160], file=sys.stderr)
     p = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True, timeout=timeout)
     if p.stdout:
         tail = "\n".join(p.stdout.strip().splitlines()[-4:])
-        print("    out:", tail[:300])
+        print("    out:", tail[:300], file=sys.stderr)
     if p.returncode != 0 and p.stderr:
-        print("    err:", p.stderr.strip()[-400:])
+        print("    err:", p.stderr.strip()[-400:], file=sys.stderr)
     return p.returncode, p.stdout
 
 
@@ -187,17 +187,17 @@ def main(argv=None) -> int:
         cfg = build_config(args.idea, design, args.lang, args.author, slug)
         (project / "card-config.json").write_text(
             json.dumps(cfg, ensure_ascii=False, indent=2), encoding="utf-8")
-        print(f"[1/5] 项目 {slug} 已创建，审核通过")
+        print(f"[1/5] 项目 {slug} 已创建，审核通过", file=sys.stderr)
 
         # ③ Blender（自动下载便携版到 gitignored 的 <ROOT>/tools/，Actions runner 可自给自足）
         blender = ""
-        rc, out = run([sys.executable, str(HERE / "ensure_blender.py"), str(ROOT)])
-        if rc == 0 and out:
-            lines = [l.strip() for l in out.splitlines() if l.strip() and not l.startswith("  $")]
+        rc, b_out = run([sys.executable, str(HERE / "ensure_blender.py"), str(ROOT)])
+        if rc == 0 and b_out:
+            lines = [l.strip() for l in b_out.splitlines() if l.strip() and not l.startswith("  $")]
             if lines and Path(lines[-1]).is_file():
                 blender = lines[-1]
         if blender:
-            print(f"[2/5] Blender: {blender}")
+            print(f"[2/5] Blender: {blender}", file=sys.stderr)
         else:
             out["error"] = "Blender 下载失败（官方/镜像均不可达）。公开卡必须经 3D 正式渲染，请稍后重试。"
             print(json.dumps(out, ensure_ascii=False))
@@ -212,8 +212,8 @@ def main(argv=None) -> int:
                 print(json.dumps(out, ensure_ascii=False))
                 return 1
         else:
-            print("[3/5] --skip-ai：跳过图片生成（测试模式）")
-        print("[3/5] 4 层图就绪")
+            print("[3/5] --skip-ai：跳过图片生成（测试模式）", file=sys.stderr)
+        print("[3/5] 4 层图就绪", file=sys.stderr)
 
         # ⑤ 3D 管线 + 发布（压缩、preview.webm、更新 cards.json）
         if blender:
