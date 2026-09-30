@@ -131,7 +131,7 @@ async function renderMore(){
 }
 async function init(){
  config=await fetch('./card-config.json').then(r=>{if(!r.ok)throw Error('Card configuration was not found.');return r.json();});
- document.title=(config.title||'CARD TITLE')+' — HOLO CARD STUDIO';
+ document.title=(config.title||'CARD TITLE')+' — HoloLab Studio';
  for(const [id,key]of Object.entries({'card-title':'title','subtitle':'subtitle','edition':'edition'}))if(config[key]&&$(id))$(id).textContent=config[key];
  for(const [id,key]of Object.entries({'meta-collection':'collection','meta-technique':'technique','meta-date':'date'})){
   const v=config[key];const el=$(id);
