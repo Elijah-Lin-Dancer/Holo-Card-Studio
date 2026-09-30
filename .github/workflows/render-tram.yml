@@ -1,0 +1,55 @@
+name: Render Tram Card (one-shot)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install --quiet Pillow numpy opencv-python-headless rembg onnxruntime
+
+      - name: Run Blender pipeline (auto-download Blender)
+        run: |
+          cd generator
+          python scripts/run_pipeline.py --project ../.github/render-tram
+
+      - name: Publish card (override id, skip preview to save time)
+        run: |
+          cd generator
+          python scripts/publish_card.py \
+            --project ../.github/render-tram \
+            --id eletrico-28-lisboa \
+            --tags "葡萄牙,电车,里斯本,欧陆风情" \
+            --skip-preview
+
+      - name: Render preview.webm (96 frames)
+        run: |
+          cd generator
+          python scripts/publish_card.py \
+            --project ../.github/render-tram \
+            --id eletrico-28-lisboa \
+            --tags "葡萄牙,电车,里斯本,欧陆风情"
+
+      - name: Cleanup temp dir
+        run: rm -rf .github/render-tram .github/workflows/render-tram.yml
+
+      - name: Commit & push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "feat: re-render Elétrico 28 card (low-angle + Alfama copperplate) (cloud render)" --no-verify || echo "nothing to commit"
+          git push
