@@ -136,15 +136,43 @@ const empty = grid.querySelector('.empty');
 let activeFilter = 'all';
 let cards = [];
 let currentEls = [];
+let curated = {};   /* curation.json：id → {zh,en} 创作手记 */
+let viewState = 'grid';   /* 'grid' | 'curated' */
 
 async function load() {
-  const res = await fetch('./cards.json');
+  const [res, cur] = await Promise.all([
+    fetch('./cards.json'),
+    fetch('./curation.json').then(r => r.ok ? r.json() : {}).catch(() => ({}))
+  ]);
   const data = await res.json();
   cards = data.cards || [];
+  curated = cur || {};
   const stat = document.getElementById('stat-cards');
   if (stat) animateCount(stat, cards.length);
   renderChips();
   render();
+}
+
+/* ============ 5a. 视图切换：网格 / 策展时间线 ============ */
+const curationSec = document.getElementById('curation');
+const viewSwitch = document.querySelector('.view-switch');
+function setView(v) {
+  viewState = v;
+  document.querySelectorAll('.view-btn').forEach(b => {
+    const on = b.dataset.view === v;
+    b.classList.toggle('active', on);
+    b.setAttribute('aria-pressed', on ? 'true' : 'false');
+  });
+  grid.hidden = v !== 'grid';
+  if (curationSec) curationSec.hidden = v !== 'curated';
+  render();
+}
+if (viewSwitch) {
+  viewSwitch.addEventListener('click', e => {
+    const b = e.target.closest('.view-btn');
+    if (!b) return;
+    setView(b.dataset.view);
+  });
 }
 
 /* 自动分类：chips 从 cards.json 的 style_tags 动态生成（去重），加新卡自动出新筛选项 */
@@ -317,10 +345,19 @@ function makeCard(c, i) {
   return card;
 }
 
-function render() {
-  const list = activeFilter === 'all'
+function filtered() {
+  return activeFilter === 'all'
     ? cards
     : cards.filter(c => (c.style_tags || []).includes(activeFilter));
+}
+
+function render() {
+  const list = filtered();
+  if (viewState === 'curated') { renderCurated(list); return; }
+  renderGrid(list);
+}
+
+function renderGrid(list) {
   grid.querySelectorAll('.card').forEach(el => el.remove());
   currentEls = [];
   empty.hidden = list.length > 0;
@@ -340,6 +377,65 @@ function render() {
   }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
   currentEls.forEach(el => io.observe(el));
   bindTilt(currentEls);
+}
+
+/* ============ 5c. 策展时间线 ============ */
+const timeline = document.getElementById('timeline');
+function editionNum(c) { const n = parseInt(c.edition, 10); return isNaN(n) ? 0 : n; }
+function makeTimelineItem(c, i) {
+  const el = document.createElement('div');
+  el.className = 'tl-item';
+  el.style.setProperty('--d', ((i % 8) * 70) + 'ms');
+  const locked = !!(c.locked) && !isUnlocked(c.id);
+  const L = k => (typeof window.HoloLabI18n !== 'undefined' ? window.HoloLabI18n.t(k) : k);
+  const note = (curated[c.id] || {})[I18N.get()] || (curated[c.id] || {}).zh || '';
+  const tags = (c.style_tags || []).map(t => '<span class="tag">' + escHtml(t) + '</span>').join('');
+  el.innerHTML =
+    '<div class="tl-date"><span class="tl-d">' + escHtml(String(c.date || '').replace(/^(\d{4})-(\d{2})-(\d{2})$/, '$2.$3')) + '</span></div>' +
+    '<div class="tl-axis"><span class="tl-dot"></span></div>' +
+    '<div class="tl-body">' +
+    '<a class="tl-thumb' + (locked ? ' is-locked' : '') + '" href="' + escHtml(c.url) + '" aria-label="' + escHtml(c.title) + '">' +
+    '<img class="' + (locked ? 'locked-img ' : '') + '" src="' + escHtml(c.thumb) + '" alt="' + escHtml(c.title) + '" loading="lazy">' +
+    (locked ? '<div class="lock-overlay"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><circle cx="12" cy="15.5" r="1.4" fill="currentColor" stroke="none"/></svg><span>' + escHtml(L('locked_badge')) + '</span></div>' : '') +
+    '</a>' +
+    '<div class="tl-info">' +
+    '<div class="tags">' + tags + '</div>' +
+    '<h3>' + escHtml(c.title) + '</h3>' +
+    '<p class="sub">' + escHtml(c.subtitle || '') + '</p>' +
+    '<p class="tl-note">' + escHtml(note || '') + '</p>' +
+    '<div class="tl-meta">' + escHtml(c.edition || '') + (c.date ? ' · ' + escHtml(c.date) : '') + '</div>' +
+    '</div></div>';
+  if (locked) {
+    const a = el.querySelector('.tl-thumb');
+    a.addEventListener('click', e => { e.preventDefault(); promptUnlock(c); });
+  }
+  return el;
+}
+
+function renderCurated(list) {
+  if (!timeline) return;
+  const sorted = list.slice().sort((a, b) => {
+    const d = String(a.date || '').localeCompare(String(b.date || ''));
+    if (d !== 0) return d;
+    return editionNum(a) - editionNum(b);
+  });
+  timeline.querySelectorAll('.tl-item').forEach(el => el.remove());
+  currentEls = [];
+  empty.hidden = sorted.length > 0;
+  if (!sorted.length) return;
+  const frag = document.createDocumentFragment();
+  sorted.forEach((c, i) => { const el = makeTimelineItem(c, i); frag.appendChild(el); currentEls.push(el); });
+  timeline.appendChild(frag);
+  if (reduceMotion) {
+    currentEls.forEach(el => el.classList.add('in'));
+    return;
+  }
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+  currentEls.forEach(el => io.observe(el));
 }
 
 /* 3D tilt（桌面）+ 光标光斑跟随 */

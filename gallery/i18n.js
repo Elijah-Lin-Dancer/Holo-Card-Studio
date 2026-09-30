@@ -27,6 +27,11 @@
 
     // 筛选
     filters_all:     { zh: '全部',      en: 'All' },
+    // 视图切换
+    view_grid:       { zh: '网格',      en: 'Grid' },
+    view_curated:    { zh: '策展',      en: 'Curated' },
+    curation_title:  { zh: '策展时间线 · 创作手记', en: 'Curated timeline · Creator notes' },
+    curation_hint:   { zh: '从第一张卡到巴萨传承系列——每一张卡诞生的理由。', en: 'From the first card to the Barça Legacy series — why each card exists.' },
 
     // 展厅分类标签（style_tags 词典：键=中文 tag，en 为英文显示；未收录回退原文）
     '挚友':   { zh: '挚友', en: 'For a Friend' },

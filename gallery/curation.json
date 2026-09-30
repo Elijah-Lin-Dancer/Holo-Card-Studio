@@ -1,0 +1,74 @@
+{
+  "messi-demo": {
+    "zh": "第一张卡。验证「一句话 → 四层素材 → Blender → 实时 3D」全链路跑通。",
+    "en": "The very first card. It proved the full pipeline: one sentence → 4 layers → Blender → live 3D."
+  },
+  "mj-demo": {
+    "zh": "舞台光效与音乐主题的尝试——镭射质感第一次大改版。",
+    "en": "A first pass at stage lighting and music themes — and the first big foil-effect upgrade."
+  },
+  "frida-kahlo-mexican-painter": {
+    "zh": "公开投稿画廊的第一张永久卡，也是展厅的第 6 张收藏。",
+    "en": "The first permanent card from the public-submission gallery — and the 6th in the hall."
+  },
+  "snow-leopard-aurora-ridge": {
+    "zh": "雪原与极光，野生动物在极光下的静谧瞬间。",
+    "en": "A snow leopard under the northern lights — wildlife in a frozen, glowing moment."
+  },
+  "great-sage-sun-wukong": {
+    "zh": "东方神话走进画廊：齐天大圣，傲世苍穹。",
+    "en": "Eastern myth joins the hall: the Great Sage, defying heaven."
+  },
+  "taikonaut-stellar-expedition": {
+    "zh": "航天主题，星辰大海的远征。",
+    "en": "A space expedition — dreams among the stars."
+  },
+  "marco-reus-bvb-kapitain": {
+    "zh": "德国球星系列开篇：多特蒙德队长，德语卡背。",
+    "en": "First German card — the BVB captain, with a German back story."
+  },
+  "marco-reus-wm-2014-verpasst": {
+    "zh": "国家队篇章：2014 年那个错过的大力神杯之夜。",
+    "en": "The national-team chapter — the 2014 night the trophy slipped away."
+  },
+  "marco-reus-la-galaxy-neue-horizonte": {
+    "zh": "罗伊斯远赴美职联的新章节。",
+    "en": "Reus' new chapter across the Atlantic."
+  },
+  "satyajit-ray-bengali-maestro": {
+    "zh": "孟加拉语文字层与西孟加拉字体验证——致敬电影大师。",
+    "en": "Bengali text layer and font rendering verified — a tribute to the film maestro."
+  },
+  "neeltje-friesian-kalundborg": {
+    "zh": "朋友的马：密码解锁的私藏卡，卡背是一段丹麦语故事。",
+    "en": "A friend's horse — a passcode-locked private card with a Danish story."
+  },
+  "card-elijah-lin-d": {
+    "zh": "第一张真实公众投稿——自动审核 + 自动渲染管线正式上线。",
+    "en": "The first real public submission — the auto-review & auto-render pipeline went live."
+  },
+  "messi-fc-barcelona": {
+    "zh": "「巴萨传承」001：诺坎普之夜，红蓝十年。",
+    "en": "FC Barcelona Legacy 001 — a night at Camp Nou."
+  },
+  "johan-cruyff-el-arquitecto": {
+    "zh": "传承 005：现代足球的建筑师，克圣。",
+    "en": "Legacy 005 — the architect of modern football."
+  },
+  "messi-psg-paris": {
+    "zh": "传承 002：光之城，巴黎之夜。",
+    "en": "Legacy 002 — the City of Light."
+  },
+  "messi-inter-miami": {
+    "zh": "传承 003：新大陆的传奇，迈阿密之夏。",
+    "en": "Legacy 003 — a legend in the New World."
+  },
+  "messi-world-cup-2022": {
+    "zh": "传承 004：第三颗星，卡塔尔之夜。",
+    "en": "Legacy 004 — the third star, the Doha night."
+  },
+  "pep-guardiola-tiki-taka": {
+    "zh": "传承 006：系列收官——战术大师瓜迪奥拉。",
+    "en": "Legacy 006 — the maestro closes the series."
+  }
+}

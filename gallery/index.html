@@ -53,10 +53,24 @@
     <div class="scroll-hint" data-i18n="scroll_hint">向下滚动，进入展厅</div>
   </section>
 
+  <div class="view-switch" role="group" aria-label="视图切换">
+    <button class="view-btn active" data-view="grid" data-i18n="view_grid">网格</button>
+    <button class="view-btn" data-view="curated" data-i18n="view_curated">策展</button>
+  </div>
+
   <section class="filters" id="filters" aria-label="筛选"></section>
 
   <section class="grid" id="gallery" aria-label="卡片瀑布流">
     <p class="empty" data-i18n="empty" hidden>暂无卡片，稍后再来看看。</p>
+  </section>
+
+  <section class="curation" id="curation" aria-label="策展时间线" hidden>
+    <header class="curation-head">
+      <p class="eyebrow" data-i18n="view_curated">策展</p>
+      <h2 data-i18n="curation_title">策展时间线 · 创作手记</h2>
+      <p class="sub" data-i18n="curation_hint">从第一张卡到巴萨传承系列——每一张卡诞生的理由。</p>
+    </header>
+    <div class="timeline" id="timeline"></div>
   </section>
 
   <section class="stat-band" aria-label="项目数据">
