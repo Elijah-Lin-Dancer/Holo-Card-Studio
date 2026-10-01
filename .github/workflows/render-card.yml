@@ -1,0 +1,129 @@
+name: Render Card (通用)
+
+# 通用卡片渲染 workflow：接受 card_id 参数，从 generator/projects/<card_id>/ 读取素材和配置，
+# 一次性完成 Blender 构建 + GLB 导出 + 发布 + preview 渲染 + 校验 + commit。
+# 优化：Blender/pip/u2net 三级缓存，避免每次重新下载。
+
+on:
+  workflow_dispatch:
+    inputs:
+      card_id:
+        description: '卡片 ID（对应 generator/projects/<card_id>/ 目录）'
+        required: true
+        type: string
+      tags:
+        description: '风格标签，逗号分隔（如：足球,传奇）'
+        required: false
+        type: string
+        default: ''
+      date:
+        description: '发布日期（YYYY-MM-DD，默认今天）'
+        required: false
+        type: string
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: generator/requirements.txt
+
+      # ── 缓存 ①：Blender 便携版（190MB，最大头）──
+      - name: Cache Blender
+        id: cache-blender
+        uses: actions/cache@v4
+        with:
+          path: tools/
+          key: blender-4.5.0-linux-x64-v1
+          restore-keys: |
+            blender-4.5.0-linux-x64-
+
+      # ── 缓存 ②：u2net 模型（rembg 抠图用，~50MB）──
+      - name: Cache u2net model
+        id: cache-u2net
+        uses: actions/cache@v4
+        with:
+          path: ~/.u2net/
+          key: u2net-onnx-v1
+
+      - name: Install system deps (ffmpeg)
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+
+      - name: Install Python deps
+        run: pip install -r generator/requirements.txt
+
+      - name: Verify project exists
+        run: |
+          PROJECT="generator/projects/${{ inputs.card_id }}"
+          if [ ! -d "$PROJECT" ]; then
+            echo "❌ 项目目录不存在: $PROJECT"
+            echo "可用的项目目录："
+            ls -1 generator/projects/ 2>/dev/null || echo "(无)"
+            exit 1
+          fi
+          if [ ! -f "$PROJECT/card-config.json" ]; then
+            echo "❌ 缺少 card-config.json: $PROJECT/card-config.json"
+            exit 1
+          fi
+          if [ ! -d "$PROJECT/assets" ]; then
+            echo "❌ 缺少 assets/ 目录: $PROJECT/assets"
+            exit 1
+          fi
+          echo "✅ 项目校验通过: $PROJECT"
+          ls -la "$PROJECT/assets/"
+
+      - name: Run pipeline (Blender build + GLB export)
+        run: |
+          PROJECT="generator/projects/${{ inputs.card_id }}"
+          python3 generator/scripts/run_pipeline.py --project "$PROJECT" --skip-npm
+        env:
+          BLENDER_USER_CONFIG: generator/projects/${{ inputs.card_id }}/tools/blender-config
+
+      - name: Publish card (单次：发布 + preview 渲染)
+        run: |
+          PROJECT="generator/projects/${{ inputs.card_id }}"
+          ARGS="--project $PROJECT"
+          if [ -n "${{ inputs.tags }}" ]; then
+            ARGS="$ARGS --tags ${{ inputs.tags }}"
+          fi
+          if [ -n "${{ inputs.date }}" ]; then
+            ARGS="$ARGS --date ${{ inputs.date }}"
+          fi
+          python3 generator/scripts/publish_card.py $ARGS
+
+      - name: Run gallery-check tests
+        run: |
+          cd generator
+          pip install pytest -q
+          python3 -m pytest tests/ -v --tb=short
+
+      - name: Commit and push
+        run: |
+          git config user.name "HoloLab Bot"
+          git config user.email "hololab-bot@users.noreply.github.com"
+          CARD_ID="${{ inputs.card_id }}"
+          git add "gallery/cards/$CARD_ID/"
+          git add gallery/cards.json
+          git add "generator/projects/$CARD_ID/assets/"
+          git add "generator/projects/$CARD_ID/card-config.json"
+          git status --short
+          if git diff --cached --quiet; then
+            echo "⚠️ 没有变更需要提交"
+          else
+            git commit -m "feat(card): render $CARD_ID via generic workflow [skip ci]"
+            git push
+            echo "✅ 已提交并推送"
+          fi

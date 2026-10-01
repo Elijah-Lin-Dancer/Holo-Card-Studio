@@ -23,11 +23,28 @@ def fetch(url,target):
     req=urllib.request.Request(url,headers=UA)
     with urllib.request.urlopen(req,timeout=120) as response,target.open('wb') as out:shutil.copyfileobj(response,out)
 
+def find_repo_root(project):
+    """向上查找包含 .git 的目录作为仓库根；找不到则返回 project 父级的父级（generator/ 的上一级）。"""
+    p = Path(project).resolve()
+    for parent in [p] + list(p.parents):
+        if (parent / '.git').exists():
+            return parent
+    # 兜底：project 通常在 <root>/generator/projects/<id>/，往上两级是 <root>
+    return p.parents[2] if len(p.parents) > 2 else p
+
 def find_blender(project,override=None):
     candidates=[]
     if override:candidates.append(Path(override))
     system=shutil.which('blender')
     if system:candidates.append(Path(system))
+    # 仓库根 tools/（优先，全局共享，便于 CI 缓存）
+    repo_root=find_repo_root(project)
+    root_tools=repo_root/'tools'
+    if root_tools.exists():
+        candidates.extend(root_tools.glob('blender*/blender.exe'))
+        candidates.extend(root_tools.glob('blender*/blender'))
+        candidates.extend(root_tools.glob('Blender.app/Contents/MacOS/Blender'))
+    # 项目级 tools/（兜底）
     tools=Path(project)/'tools'
     if tools.exists():
         candidates.extend(tools.glob('blender*/blender.exe'))
@@ -53,7 +70,16 @@ def ensure_blender(project,override=None):
     found=set(re.findall(r'blender-(4\.5\.\d+)-'+re.escape(suffix),listing))
     if not found:raise RuntimeError('No matching official Blender package for '+suffix)
     version=max(found,key=lambda v:tuple(map(int,v.split('.'))));name='blender-'+version+'-'+suffix
-    tools=project/'tools';tools.mkdir(parents=True,exist_ok=True);package=tools/name
+    # 优先下载到仓库根 tools/（全局共享，便于 CI 缓存）；不可写则回退到项目级 tools/
+    repo_root=find_repo_root(project)
+    tools=repo_root/'tools'
+    try:
+        tools.mkdir(parents=True,exist_ok=True)
+        # 测试可写性
+        test_file=tools/'.write_test'; test_file.write_text('ok'); test_file.unlink()
+    except Exception:
+        tools=project/'tools';tools.mkdir(parents=True,exist_ok=True)
+    package=tools/name
     checksum=tools/('blender-'+version+'.sha256');fetch(base+checksum.name,checksum)
     entries=[l.split() for l in checksum.read_text().splitlines()]
     hashes=[row[0].lower() for row in entries if len(row)>1 and row[-1].lstrip('*')==name]

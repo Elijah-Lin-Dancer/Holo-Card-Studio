@@ -1,0 +1,38 @@
+{
+  "mode": "holographic",
+  "slug": "kenji-kishimoto",
+  "title": "Kenji Kishimoto",
+  "subtitle": "\"I do it every day.\"",
+  "technique": "Energy-Dispersal Holography",
+  "tagline": "Who says you can't be cute and kick ass at the same time?",
+  "edition": "001 / 001",
+  "collection": "Shatter Me · Resistance Chronicles",
+  "description": "Kenji Troy Kishimoto — the invisible heart of Omega Point. Japanese-American resistance fighter with the ability to vanish by absorbing and redirecting ambient energy. The comic relief who became the war's most essential narrator. ID #45B-67999.",
+  "style": "全息收藏卡插画，反乌托邦科幻风格，暗金与冷蓝紫配色，铜版画蚀刻质感混合赛博朋克光效，戏剧化光影，人物半隐身能量粒子消散效果，细节丰富轮廓清晰，适合收藏卡牌",
+  "prompt": "Kenji Kishimoto from Shatter Me, Japanese-American young man, 22 years old, short dark hair, signature smirk, dog tags necklace, half-invisible energy particle dissipation effect",
+  "subject_desc": "日裔美国青年男性，22岁，黑色短发，嘴角挂着标志性的坏笑，眼神温暖但藏着战士的锋芒，脖子上戴着军牌（dog tags）项链，牌面上微刻 ID #45B-67999，穿着深色战术夹克内搭简单T恤。人物右侧从肩部开始化为能量粒子消散效果（像光被吸收扭曲的蓝紫色波纹粒子），左手保持实体，右手已经半透明，直观表现在看得见与看不见之间的隐身状态。略微仰视构图，人物占画面约60%，有虽然在笑但你知道他能打的气场，细节丰富轮廓清晰，四周留有呼吸空间",
+  "background_desc": "反乌托邦 Sector 45 废墟城市天际线，灰暗残破建筑，远处有烟雾，天空中有能量扭曲波纹（隐身能力的视觉化，像热浪但更科幻的蓝紫色光场扭曲），铜版画蚀刻质感混合赛博朋克光效，暗金与冷蓝紫配色，戏剧化光影，画面下方约40%区域留出安静空间用于排版，画面中绝对不出现任何人物、车辆或其他可识别物体，纯废墟城市景观空镜",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.4,
+    "backgroundDepth": -0.3,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.03,
+      -0.05
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Shatter Me · Resistance Chronicles · 001/001 · ID #45B-67999",
+  "honors": [
+    "Half-invisible energy dissipation effect (left hand solid, right hand fading)",
+    "Dog tags with ID #45B-67999 engraved",
+    "Signature smirk — \"cute and kick ass at the same time\"",
+    "Sector 45 ruins with blue-purple energy distortion field background",
+    "Primary narrator of Imagine Me · star of novella Shadow Me"
+  ],
+  "back_story": "Kenji Troy Kishimoto is the beating heart of Omega Point — the soldier who laughs loudest in the darkest rooms. Undercover in Warner's Sector 45 army, he learned to survive by being unseen: first as a ghost in the ranks, then as a man who can literally vanish by absorbing and redirecting ambient energy. By Imagine Me, Kenji becomes the novel's primary narrator, the lens through which readers see the war's final days. He challenges Warner's isolation, protects James like a little brother, and stands as Juliette's first and most loyal friend. His invisibility is both gift and metaphor — a boy who learned to make himself small to survive, who now chooses to be seen. His signature line: \"Who says you can't be cute and kick ass at the same time? I do it every day.\""
+}

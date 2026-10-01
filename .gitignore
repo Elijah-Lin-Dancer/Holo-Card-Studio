@@ -13,8 +13,14 @@ node_modules/
 # 本地工具与中间产物（不入库）
 generator/tools/
 
-# 本地卡片生成区（卡资产以 gallery/cards/ 形式入库，配置模板见 generator/config.example.json）
-generator/projects/
+# 本地卡片生成区（仅入库四层素材+配置，排除中间产物）
+generator/projects/*/work/
+generator/projects/*/tools/
+generator/projects/*/web/
+generator/projects/*/card.blend
+generator/projects/*/renders/
+generator/projects/*/ai_gen.log
+# 保留 generator/projects/*/assets/ 和 card-config.json 入库
 
 # 系统
 .DS_Store
