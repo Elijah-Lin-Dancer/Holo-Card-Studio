@@ -1,6 +1,26 @@
 {
   "cards": [
     {
+      "id": "haaland-chongqing-metro",
+      "title": "吃重庆轻轨·哈兰德",
+      "subtitle": "重庆必吃榜第一名：穿楼轻轨",
+      "technique": "Selective-Color Holography",
+      "tagline": "Quando a cidade vira um prato de Haaland",
+      "edition": "011 / 010",
+      "collection": "Haaland Multiverse · Meme Series",
+      "description": "网友玩'重庆必吃榜'梗，哈兰德真拍视频张嘴'吞'穿楼轻轨。李子坝名场面，全网欢乐。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "吃重庆轻轨",
+        "梗卡",
+        "足球"
+      ],
+      "url": "cards/haaland-chongqing-metro/",
+      "thumb": "cards/haaland-chongqing-metro/thumb.jpg",
+      "date": "2026-10-01",
+      "preview": "cards/haaland-chongqing-metro/preview.webm"
+    },
+    {
       "id": "haaland-tom-cat",
       "title": "Tom Cat Haaland",
       "subtitle": "Jerry, meet your new nightmare",
