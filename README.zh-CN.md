@@ -17,7 +17,7 @@
   <a href="https://www.blender.org/"><img src="https://img.shields.io/badge/%F0%9F%A7%8A_Blender-4.5-e08ac0?style=for-the-badge" alt="Blender 4.5"></a>
   <a href="https://threejs.org/"><img src="https://img.shields.io/badge/%F0%9F%8C%80_Three.js-GLSL-8a7446?style=for-the-badge" alt="Three.js"></a>
   <a href="https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2FElijah-Lin-Dancer.github.io%2FHolo-Card-Studio%2Fcards.json&query=%24.cards.length&label=%F0%9F%83%8F%20%E5%8D%A1%E7%89%87&color=c9a86a&style=for-the-badge" alt="Cards (auto)"></a>
-  <a href="https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_6_%E8%AF%AD%E8%A8%80-7fd4ff?style=for-the-badge" alt="6 Languages"></a>
+  <a href="https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_8_%E8%AF%AD%E8%A8%80-7fd4ff?style=for-the-badge" alt="8 Languages"></a>
   <a href="https://github.com/Elijah-Lin-Dancer/Holo-Card-Studio/actions"><img src="https://img.shields.io/github/actions/workflow/status/Elijah-Lin-Dancer/Holo-Card-Studio/gallery-check.yml?style=for-the-badge&label=CI%20Passing" alt="CI Passing"></a>
 </p>
 
@@ -29,8 +29,6 @@
 
 > ### 🌐 **<https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/>**
 > 拖动卡片、翻转、看镭射彩虹随角度流转——无需安装、无需账号、无需服务器。
->
-> 🎨 **创造工坊** → **<https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/create.html>** — 输入一句话，当场预览概念卡。
 
 ## ✨ 这是什么？
 
@@ -58,16 +56,20 @@
 
 ![HoloLab 卡片墙](docs/screenshots/card-wall.jpg)
 
-**20 张卡 · 6 种语言 · 每张卡都是一个永久链接**，任何人都能打开、分享：
+**26 张卡 · 8 种语言 · 每张卡都是一个永久链接**，任何人都能打开、分享：
 
-- 🇦🇷 **梅西系列**（4 张）— 巴萨 · PSG · 迈阿密国际 · 2022 世界杯，另有最初的《梅西称王》
-- 💙❤️ **巴萨传承系列** — 克鲁伊夫《建筑大师》· 瓜迪奥拉《Tiki-Taka》（西语卡面）
+- 🇦🇷 **梅西系列**（5 张）— 最初的《梅西称王》+ 巴萨 · PSG · 迈阿密国际 · 2022 世界杯
+- 💙❤️ **巴萨传承系列**（6 张）— 克鲁伊夫《建筑大师》· 瓜迪奥拉《Tiki-Taka》· 梅西 ×4 时代（西语卡面）
 - 🎤 **流行之王** — 迈克尔·杰克逊（英语）
 - 🖤💛 **马尔科·罗伊斯**（3 张）— 多特《黄黑之魂》· 德国队《未竟之约》· 洛杉矶银河《银河新章》（德语卡面）
 - 🎨 **弗里达·卡罗** — 墨西哥画家（西语点缀）
 - 🎬 **萨蒂亚吉特·雷伊** — 孟加拉电影大师（孟加拉语卡面）
 - 🐎 **Neeltje** — 丹麦卡伦堡的一匹弗里斯兰母马（丹麦语卡面，**🔒 密码锁定**）
 - 🐋 **蓝鲸** — 第一张社区投稿卡（自动渲染管线）
+- 🤖 **哈兰德多重宇宙**（5 张）— 梗卡：进球机器 · 打坐冥想 · 魔人布欧 · 迪斯科神曲 · 维京战士（英/中/挪语卡面）
+- 📚 **岸本健二** —《破碎的我》人气角色（英语卡面）
+- 🚋 **Elétrico 28** — 致敬里斯本黄色电车（葡萄牙语卡面）
+- 🦘🐱 **Pouch Invader** — Lay 的社区投稿卡「The Laytenant」（英语卡面）
 - 🚀 **星辰远征** · 🐵 **齐天大圣** · 🐆 **雪原极光** — 一句话管线出卡
 
 每张卡都能翻转：**结构化卡背**——生涯数据 · 荣誉 · 引语，用卡片自己的语言书写。
@@ -169,9 +171,9 @@ Holo-Card-Studio/
 │   └── vendor/               # three.js + GSAP 本地化，零 CDN 依赖
 ├── generator/
 │   ├── projects/<slug>/      # 每卡一个目录：config, work/, web/, renders/
-│   ├── tests/                # pytest 套件（18 测试，C2）
+│   ├── tests/                # pytest 套件（20 测试，C2）
 │   └── scripts/
-│       ├── one_shot_card.py  # 文字模型 → 卡面配置（zh/de/en/da/bn/es）
+│       ├── one_shot_card.py  # 文字模型 → 卡面配置（zh/en/de/es/bn/da/pt/no）
 │       ├── ai_generate.py    # Seedream 分层素材 + 抠图 + 线稿
 │       ├── run_pipeline.py   # Blender 场景 → GLB → 预览
 │       ├── publish_card.py   # 压缩 · 缩略图 · 预览动画 · 登记
@@ -179,8 +181,10 @@ Holo-Card-Studio/
 │       ├── inject_og.py      # 每卡 OG 元信息注入（C3）
 │       └── verify_gallery.py # 展厅健康检查（CI 使用）
 ├── .github/workflows/
-│   ├── deploy-pages.yml      # Pages 部署
-│   └── gallery-check.yml     # CI：18 pytest + 展厅体检（C2）
+│   ├── deploy.yml            # Pages 部署
+│   ├── gallery-check.yml     # CI：20 pytest + 展厅体检（C2）
+│   ├── render-card.yml       # 出卡渲染：分层素材 → Blender → 发布（push 重试 ×3）
+│   └── auto-render.yml       # 社区投稿：issue → 审核 → 出卡 → 部署
 ├── tools/blender-4.5.0/      # 便携版 Blender（gitignored）
 ├── docs/                     # 架构、AI 管线、图形学、白皮书
 └── README.md
@@ -198,6 +202,10 @@ Holo-Card-Studio/
 - 🐎 **Neeltje**（hun Friese merrie）— 丹麦卡伦堡 · 丹麦语卡面 · 🔒 锁定
 - 🐋 **蓝鲸** — 第一张社区投稿卡（自动渲染管线）
 - 💙❤️ **巴萨传承系列**（6 张）— 梅西 ×4 时代 · 克鲁伊夫 · 瓜迪奥拉 · 西语卡面
+- 🤖 **哈兰德多重宇宙**（5 张）— 魔人布欧撞脸 · 进球机器 2.0 · 打坐 · 迪斯科神曲 · 维京战士（英/中/挪）
+- 📚 **岸本健二** —《破碎的我》人气角色 · 英语卡面
+- 🚋 **Elétrico 28**（A Vitória de Lisboa）— 里斯本黄色电车 · 葡萄牙语卡面
+- 🦘🐱 **Pouch Invader**（THE LAYTENANT）— Lay 社区投稿 · 英语卡面
 - 🚀 **星辰远征** — 宇航员 · 一句话管线生成
 - 🐵 **齐天大圣** — 孙悟空 · 一句话管线生成
 - 🐆 **雪原极光** — 雪豹 · 霜原野生系列
@@ -207,21 +215,22 @@ Holo-Card-Studio/
 **已完成 ✅**
 - [x] Seedream 分层生成 + 抠图 + 线稿提取
 - [x] Blender 全息管线 + Three.js 查看器
-- [x] 一句话出卡 + 双语展厅 + 多语言卡面（中 · 英 · 德 · 丹 · 孟加拉 · 西）
+- [x] 一句话出卡 + 双语展厅 + 多语言卡面（中 · 英 · 德 · 丹 · 孟加拉 · 西 · 葡 · 挪）
 - [x] 结构化卡背（生涯数据 · 荣誉 · 引语）
 - [x] 前端交互层（视差 · 流光 · 光斑 · 磁吸 · 双主题）
 - [x] **访客公开投稿通道** — GitHub Issue → 自动渲染管线 → 上线展厅（全自动）
 - [x] **C1 策展时间线** — 双语创作手记、展览视图
-- [x] **C2 CI 校验** — 18 pytest + 展厅健康检查，每次推送
+- [x] **C2 CI 校验** — 20 pytest + 展厅健康检查，每次推送
 - [x] **C3 OG 元信息** — 每卡社交预览注入
 - [x] **密码锁定卡** — SHA-256 锁定、展厅内解锁体验
 - [x] **自动导览 v2「光影导览」** — 光束滑行 · 卡面激活 · HUD · 开场/收尾编排
+- [x] 实时卡数徽章（直读 cards.json，永不落后）
+- [x] 渲染工作流加固 — push 重试 ×3 + 自动部署（并发不再丢卡）
+- [x] CI i18n 覆盖 — 每个 style tag 必须命中中英词典
 - [x] 仓库瘦身（git gc 996M → 124M）
 
 **待办 🚧**
-- [ ] P5 demo 视频（Seedance 2.0 fast — 火山方舟账号开通中）
-- [ ] P6 申请季研究综述（行业 / 产品 / 论文佐证）
-- [ ] P4.5 白皮书去 AI 味精修（可选）
+- 持续加卡——展厅是活的成长型作品集；公众投稿管线让任何人的一句话都能成为永久卡片。
 
 ## 📚 文档
 

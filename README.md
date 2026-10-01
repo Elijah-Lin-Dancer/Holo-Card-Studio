@@ -17,7 +17,7 @@
   <a href="https://www.blender.org/"><img src="https://img.shields.io/badge/%F0%9F%A7%8A_Blender-4.5-e08ac0?style=for-the-badge" alt="Blender 4.5"></a>
   <a href="https://threejs.org/"><img src="https://img.shields.io/badge/%F0%9F%8C%80_Three.js-GLSL-8a7446?style=for-the-badge" alt="Three.js"></a>
   <a href="https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2FElijah-Lin-Dancer.github.io%2FHolo-Card-Studio%2Fcards.json&query=%24.cards.length&label=%F0%9F%83%8F%20Cards&color=c9a86a&style=for-the-badge" alt="Cards (auto)"></a>
-  <a href="https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_6_Languages-7fd4ff?style=for-the-badge" alt="6 Languages"></a>
+  <a href="https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_8_Languages-7fd4ff?style=for-the-badge" alt="8 Languages"></a>
   <a href="https://github.com/Elijah-Lin-Dancer/Holo-Card-Studio/actions"><img src="https://img.shields.io/github/actions/workflow/status/Elijah-Lin-Dancer/Holo-Card-Studio/gallery-check.yml?style=for-the-badge&label=CI%20Passing" alt="CI Passing"></a>
 </p>
 
@@ -29,8 +29,6 @@
 
 > ### 🌐 **<https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/>**
 > Drag the cards, flip them, watch the rainbow foil shift with the angle — no install, no account, no server.
->
-> 🎨 **Create Studio** → **<https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/create.html>** — type one sentence and preview a card concept on the spot.
 
 ## ✨ What is this?
 
@@ -58,16 +56,20 @@ That's a **real turntable render** from the Blender pipeline (96 frames), not a 
 
 ![HoloLab card wall](docs/screenshots/card-wall.jpg)
 
-**20 cards · 6 languages · every card a permanent URL**, openable and shareable by anyone:
+**26 cards · 8 languages · every card a permanent URL**, openable and shareable by anyone:
 
-- 🇦🇷 **Messi** series (4) — Barcelona · PSG · Inter Miami · World Cup 2022, plus the original *Messi, King* (梅西称王)
-- 💙❤️ **FC Barcelona Legacy series** — Cruyff *El Arquitecto* · Guardiola *Tiki-Taka* (Spanish card faces)
+- 🇦🇷 **Messi** series (5) — the original *Messi, King* (梅西称王) + Barcelona · PSG · Inter Miami · World Cup 2022
+- 💙❤️ **FC Barcelona Legacy series** (6) — Cruyff *El Arquitecto* · Guardiola *Tiki-Taka* · Messi ×4 eras (Spanish card faces)
 - 🎤 **King of Pop** — Michael Jackson (English)
 - 🖤💛 **Marco Reus** (3) — Dortmund *Gelbwand* · DFB *Unbeugsamer* · LA Galaxy *Neue Horizonte* (German card faces)
 - 🎨 **Frida Kahlo** — Mexican painter (Spanish accents)
 - 🎬 **Satyajit Ray** — Bengali maestro (Bengali card face)
 - 🐎 **Neeltje** — a Friesian mare in Kalundborg, Denmark (Danish card face, **🔒 password-locked**)
 - 🐋 **Blue Whale** — first community-submitted card via the auto-render pipeline
+- 🤖 **Haaland Multiverse** (5) — meme cards: goal machine · meditation · Majin Buu · disco anthem · Viking (EN / ZH / NO card faces)
+- 📚 **Kenji Kishimoto** — the fan-favourite rebel from *Shatter Me* (English card face)
+- 🚋 **Elétrico 28** — a tribute to Lisbon's yellow tram (Portuguese card face)
+- 🦘🐱 **Pouch Invader** — community card from Lay: "The Laytenant" (English card face)
 - 🚀 **Taikonaut** · 🐵 **Sun Wukong** · 🐆 **Snow Leopard** — one-sentence pipeline cards
 
 Each card flips: a **structured back** with career stats · honors · quote, written in the card's own language.
@@ -188,9 +190,9 @@ Holo-Card-Studio/
 │   └── vendor/               # three.js + GSAP, vendored locally — zero CDN dependency
 ├── generator/
 │   ├── projects/<slug>/      # one folder per card: config, work/, web/, renders/
-│   ├── tests/                # pytest suite (18 tests, C2)
+│   ├── tests/                # pytest suite (20 tests, C2)
 │   └── scripts/
-│       ├── one_shot_card.py  # text model → card config (zh/de/en/da/bn/es)
+│       ├── one_shot_card.py  # text model → card config (zh/en/de/es/bn/da/pt/no)
 │       ├── ai_generate.py    # Seedream layered art + cutout + line-art
 │       ├── run_pipeline.py   # Blender scene → GLB → preview
 │       ├── publish_card.py   # compress · thumb · preview.webm · registry
@@ -198,8 +200,10 @@ Holo-Card-Studio/
 │       ├── inject_og.py      # per-card OG meta injection (C3)
 │       └── verify_gallery.py # gallery health check (used by CI)
 ├── .github/workflows/
-│   ├── deploy-pages.yml      # Pages deployment
-│   └── gallery-check.yml     # CI: 18 pytest tests + gallery verify (C2)
+│   ├── deploy.yml            # Pages deployment
+│   ├── gallery-check.yml     # CI: 20 pytest tests + gallery verify (C2)
+│   ├── render-card.yml       # card rendering: layered art → Blender → publish (push-retry ×3)
+│   └── auto-render.yml       # community submissions: issue → review → card → deploy
 ├── tools/blender-4.5.0/      # portable Blender (gitignored)
 ├── docs/                     # architecture, AI pipeline, graphics, whitepaper
 └── README.md
@@ -217,6 +221,10 @@ Holo-Card-Studio/
 - 🐎 **Neeltje** (hun Friese merrie) — Kalundborg, Denmark · Danish card face · 🔒 locked
 - 🐋 **Blue Whale** — first community-submitted card (auto-render pipeline)
 - 💙❤️ **Barcelona Legacy series** (6) — Messi ×4 eras · Cruyff · Guardiola · Spanish card faces
+- 🤖 **Haaland Multiverse** (5) — Majin Buu lookalike · goal machine 2.0 · meditation · disco anthem · Viking (EN / ZH / NO)
+- 📚 **Kenji Kishimoto** — rebel from *Shatter Me* (English card face)
+- 🚋 **Elétrico 28** (A Vitória de Lisboa) — Lisbon yellow tram · Portuguese card face
+- 🦘🐱 **Pouch Invader** (THE LAYTENANT) — community card from Lay · English card face
 - 🚀 **Stellar Expedition** (星辰远征) — taikonaut · one-sentence pipeline
 - 🐵 **Great Sage** (齐天大圣) — Sun Wukong · one-sentence pipeline
 - 🐆 **Aurora Ridge** (雪原极光) — snow leopard · Frosted Wild series
@@ -226,21 +234,22 @@ Holo-Card-Studio/
 **Done ✅**
 - [x] Seedream layered generation + cutout + line-art extraction
 - [x] Blender holographic pipeline + Three.js viewer
-- [x] One-sentence card pipeline + bilingual gallery + multilingual card faces (zh · en · de · da · bn · es)
+- [x] One-sentence card pipeline + bilingual gallery + multilingual card faces (zh · en · de · da · bn · es · pt · no)
 - [x] Structured card backs (career stats · honors · quote)
 - [x] Front-end interaction layer (parallax · shine · glow · magnetic CTA · dual themes)
 - [x] **Public submission channel** — GitHub Issue → auto-render pipeline → live gallery (fully automated)
 - [x] **C1 Curated timeline** — bilingual creation notes, exhibition view
-- [x] **C2 CI** — 18 pytest tests + gallery health check, every push
+- [x] **C2 CI** — 20 pytest tests + gallery health check, every push
 - [x] **C3 OG meta** — per-card social preview injection
 - [x] **Password-locked cards** — SHA-256 lock, unlock-in-hall UX
 - [x] **Auto Tour v2 "Light Walk"** — traveling beam · card activation · HUD · intro/outro staging
+- [x] Live card-count badge (reads cards.json — never stale)
+- [x] Render workflow hardening — push retry ×3 + auto-deploy dispatch (no more lost cards under concurrency)
+- [x] CI i18n coverage — every style tag must resolve in the EN/中文 dictionary
 - [x] Repository slimming (git gc 996M → 124M)
 
 **Next 🚧**
-- [ ] P5 demo video (Seedance 2.0 fast — account enablement pending on Volcano Ark)
-- [ ] P6 Application-season research addendum (industry / product / paper evidence)
-- [ ] P4.5 Whitepaper AI-flavor polish (optional)
+- Keep shipping cards — the collection is a living portfolio; the public submission pipeline makes anyone's idea a permanent card.
 
 ## 📚 Docs
 
