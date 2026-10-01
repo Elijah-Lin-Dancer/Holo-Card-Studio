@@ -1,6 +1,26 @@
 {
   "cards": [
     {
+      "id": "haaland-scallion",
+      "title": "大葱塑·哈兰德",
+      "subtitle": "全网热转：大葱也有哈兰德之魂",
+      "technique": "Selective-Color Holography",
+      "tagline": "O seu fã mais esquisito é uma cebolinha",
+      "edition": "011 / 010",
+      "collection": "Haaland Multiverse · Meme Series",
+      "description": "网民拿大葱根茎复刻哈兰德金发前倾体态，他本人主动转发。中国田间最魔性的球迷应援。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "大葱塑",
+        "梗卡",
+        "足球"
+      ],
+      "url": "cards/haaland-scallion/",
+      "thumb": "cards/haaland-scallion/thumb.jpg",
+      "date": "2026-10-01",
+      "preview": "cards/haaland-scallion/preview.webm"
+    },
+    {
       "id": "haaland-shark-grin",
       "title": "Shark Grin",
       "subtitle": "The smile that terrified defenders",

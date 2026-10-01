@@ -1,0 +1,48 @@
+{
+  "mode": "holographic",
+  "slug": "haaland-scallion",
+  "title": "大葱塑·哈兰德",
+  "subtitle": "全网热转：大葱也有哈兰德之魂",
+  "technique": "Selective-Color Holography",
+  "tagline": "O seu fã mais esquisito é uma cebolinha",
+  "edition": "011 / 010",
+  "collection": "Haaland Multiverse · Meme Series",
+  "description": "网民拿大葱根茎复刻哈兰德金发前倾体态，他本人主动转发。中国田间最魔性的球迷应援。",
+  "style": "中国田园谐趣漫画混搭 Q 版卡通，绿色葱田背景，金色菜篮质感，呆萌搞笑",
+  "prompt": "Q版卡通哈兰德从一根巨大青葱里探出半个身子，金发如葱叶倒垂，双手握拳做出进球庆祝前倾姿态，表情得意搞笑，菜市场/葱田谐趣风",
+  "subject_desc": "Q 版卡通哈兰德：金发丸子头、宽脸高颧骨，身体是一根挺拔的大青葱（葱白+绿叶），葱叶自然垂落像他的金发，双手握拳举起做进球庆祝动作，咧嘴大笑，占画面约 65%，四周留白（",
+  "background_desc": "乡村葱田背景：成排绿油油的青葱在金色阳光下，远处菜篮子与农舍剪影，纯图案无任何文字，画面下方 40% 区域保持干净留空用于排版，暖色田园光晕",
+  "parameters": {
+    "subjectScale": 1.3,
+    "subjectDepth": 0.45,
+    "backgroundDepth": -0.3,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.04,
+      -0.06
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Haaland Multiverse · Meme Series · haaland-scallion",
+  "honors": [
+    "中国网民以葱根茎复刻金发前倾体态的神作，本人亲自转发",
+    "绿色葱田与金色阳光的田园谐趣",
+    "菜篮子与农舍剪影的纯净背景"
+  ],
+  "back_story": "中国网民把哈兰德的金发前倾庆祝姿势，用一根大葱根茎复刻得惟妙惟肖——发丝、体态、俯冲角度全部到位，这条神作火遍全网，连哈兰德本人都主动转发点赞。这张卡把'中国式应援'定格成一张全息卡：金发是葱叶，球衣是葱白，进球是田园里最响亮的一声欢呼。",
+  "curation": {
+    "zh": "中国网民拿大葱根茎复刻哈兰德金发前倾庆祝体态，他本人主动转发。大葱即本人，田园即球场。",
+    "en": "Chinese fans recreated Haaland's celebration with a scallion — and he reposted it himself. The scallion IS the striker."
+  },
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "haaland-scallion"
+}
