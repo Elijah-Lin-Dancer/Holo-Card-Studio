@@ -1,6 +1,26 @@
 {
   "cards": [
     {
+      "id": "haaland-bun-haartie",
+      "title": "丸子头",
+      "subtitle": "90 分钟不散 · 同款头绳已售 3 万+",
+      "technique": "Fashion-Statement Holography",
+      "tagline": "男人扎丸子头，也能成为时尚单品。",
+      "edition": "008 / 010",
+      "collection": "Haaland Multiverse · Meme Series",
+      "description": "哈兰德的金发丸子头 90 分钟比赛不散，同款发绳在淘宝爆火（超 3 万人搜索）。时尚单品海报风 + 呆萌反差。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "梗卡",
+        "足球",
+        "丸子头"
+      ],
+      "url": "cards/haaland-bun-haartie/",
+      "thumb": "cards/haaland-bun-haartie/thumb.jpg",
+      "date": "2026-10-01",
+      "preview": "cards/haaland-bun-haartie/preview.webm"
+    },
+    {
       "id": "haaland-wanglaoji",
       "title": "王老吉·哈兰德",
       "subtitle": "怕上火，喝王老吉",
