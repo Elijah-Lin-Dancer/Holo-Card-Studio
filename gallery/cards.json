@@ -1,6 +1,26 @@
 {
   "cards": [
     {
+      "id": "haaland-tom-cat",
+      "title": "Tom Cat Haaland",
+      "subtitle": "Jerry, meet your new nightmare",
+      "technique": "Selective-Color Holography",
+      "tagline": "O gato que marcou 111 gols",
+      "edition": "011 / 010",
+      "collection": "Haaland Multiverse · Meme Series",
+      "description": "The internet noticed Haaland looks exactly like Tom from Tom & Jerry — blonde hair, blue-and-white kit, and that expression. 111 goals in 111 games, meow.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "Tom猫",
+        "梗卡",
+        "足球"
+      ],
+      "url": "cards/haaland-tom-cat/",
+      "thumb": "cards/haaland-tom-cat/thumb.jpg",
+      "date": "2026-10-01",
+      "preview": "cards/haaland-tom-cat/preview.webm"
+    },
+    {
       "id": "haaland-goalie-water",
       "title": "Goalie Water Heist",
       "subtitle": "Caught in 4K: the great bottle theft",
