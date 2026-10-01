@@ -45,9 +45,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: tools/
-          key: blender-4.5.0-linux-x64-v1
+          key: blender-4.5-linux-tools-v1
           restore-keys: |
-            blender-4.5.0-linux-x64-
+            blender-4.5-linux-tools-
 
       # ── 缓存 ②：u2net 模型（rembg 抠图用，~50MB）──
       - name: Cache u2net model
