@@ -223,7 +223,9 @@
       "edition": "PUB-20260930-CARD-E",
       "collection": "HoloLab 公众系列 · Public Series",
       "description": "[IDENTITY] Luminous Blue Whale · leviathan of the starry sea\n[DESIGN]\nSubject layer: a luminous blue whale soaring through clouds, bioluminescent cyan glow, centered, about 65% of canvas, crisp silhouette, rich detail.\nBackground layer: midnight ocean below with mirrored stars, strong depth, lower 40% stays empty for typography, no other figures.\nPalette: deep sapphire and bioluminescent cyan, gilded warm accents, rainbow-foil gradient highlights, clear highlight and shadow separation.\nLine art layer: glowing contour traced along the whale, even stroke width, black lines on white, glow spreading outward.\nTypography layer: title \"Leviathan of the Starlight Sea\", subtitle \"Mythic · Public Series\", series number and rarity badge, gold outlined type.",
-      "style_tags": [],
+      "style_tags": [
+        "海洋"
+      ],
       "url": "cards/card-elijah-lin-d/",
       "thumb": "cards/card-elijah-lin-d/thumb.jpg",
       "date": "2026-09-30",
