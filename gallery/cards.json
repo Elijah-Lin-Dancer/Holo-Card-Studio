@@ -1,6 +1,26 @@
 {
   "cards": [
     {
+      "id": "haaland-goalie-water",
+      "title": "Goalie Water Heist",
+      "subtitle": "Caught in 4K: the great bottle theft",
+      "technique": "Selective-Color Holography",
+      "tagline": "Ninguém rouba água como ele",
+      "edition": "011 / 010",
+      "collection": "Haaland Multiverse · Meme Series",
+      "description": "Haaland's famous sideline heist — stealing the opponent goalkeeper's water bottle mid-match, caught on camera with a sheepish grin.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "偷喝门将水",
+        "梗卡",
+        "足球"
+      ],
+      "url": "cards/haaland-goalie-water/",
+      "thumb": "cards/haaland-goalie-water/thumb.jpg",
+      "date": "2026-10-01",
+      "preview": "cards/haaland-goalie-water/preview.webm"
+    },
+    {
       "id": "haaland-scallion",
       "title": "大葱塑·哈兰德",
       "subtitle": "全网热转：大葱也有哈兰德之魂",
