@@ -64,7 +64,13 @@ jobs:
           sudo apt-get install -y -qq ffmpeg
 
       - name: Install Python deps
-        run: pip install -r generator/requirements.txt
+        # 锁文件为构建真源（精确版本，可复现）；requirements.txt 仅保留宽泛约束供人类阅读
+        run: |
+          if [ -f generator/requirements.lock.txt ]; then
+            pip install -r generator/requirements.lock.txt
+          else
+            pip install -r generator/requirements.txt
+          fi
 
       - name: Verify project exists
         run: |

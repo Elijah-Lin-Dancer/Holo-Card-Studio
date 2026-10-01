@@ -152,6 +152,18 @@ python3 generator/scripts/run_pipeline.py --project projects/<slug>
 python3 generator/scripts/publish_card.py --project projects/<slug> --tags "主题,标签"
 ```
 
+⚡ **Preflight & recovery (dispatch 前必跑，避免云端白跑一轮):**
+```bash
+# 10 秒本地预检：config 必填字段 / slug / edition / honors / 四层素材
+python3 generator/scripts/preflight_card.py --project projects/<slug> --check-assets
+
+# AI 生成单层失败时，只重跑失败层（成功层自动复用，无需整卡重跑）
+python3 generator/scripts/ai_generate.py --project projects/<slug> --layer subject   # 或 --layer background
+
+# 素材已齐全时纯本地复用（抠图/线稿/文字层），无需 API key
+python3 generator/scripts/ai_generate.py --project projects/<slug> --skip-ai
+```
+
 3️⃣ **Ship it** — GitHub Actions deploys Pages automatically:
 ```bash
 git add -A && git commit -m "add card <slug>" && git push
