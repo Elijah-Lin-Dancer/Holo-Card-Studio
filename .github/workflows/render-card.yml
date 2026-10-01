@@ -105,6 +105,10 @@ jobs:
           fi
           python3 generator/scripts/publish_card.py $ARGS
 
+      # 新 style_tags 自动补 i18n.js 词条（A#1 钩子）：先补词条，再跑测试，CI 不再因漏词条拦截
+      - name: Sync i18n entries (auto-backfill)
+        run: python3 generator/scripts/sync_i18n.py
+
       - name: Run gallery-check tests
         run: |
           cd generator

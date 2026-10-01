@@ -228,6 +228,9 @@ def main(argv=None) -> int:
     p.add_argument("--model", default=DEFAULT_MODEL)
     p.add_argument("--skip-ai", action="store_true", help="跳过 AI 生成，仅从 work/ 已有图抠图/线稿")
     p.add_argument("--force-ai", action="store_true", help="即使已有生成结果也重新调用 AI")
+    p.add_argument("--layer", choices=("all", "subject", "background"), default="all",
+                   help="只处理指定层：subject（主体生成+抠图+线稿）或 background（背景生成+后处理）；"
+                        "失败恢复时用，其余层自动复用已有结果")
     args = p.parse_args(argv)
 
     root = Path(args.project).resolve()
@@ -243,7 +246,16 @@ def main(argv=None) -> int:
     if args.prompt:
         cfg["prompt"] = args.prompt
 
-    api_key = load_env(root)
+    # 仅当某层"将要实际调用 AI 生成"时才需要 API key：
+    # 该层在本次范围内 且（--force-ai 或原图缺失）→ 会生成 → 需要 key；
+    # --skip-ai + 原图齐全 = 纯本地复用，无需 key（无 key 环境也能跑抠图/线稿）。
+    def will_call_ai(layer: str) -> bool:
+        target = work / f"{layer}_ai.png"
+        in_scope = args.layer in ("all", layer)
+        return in_scope and (args.force_ai or not target.exists())
+
+    needs_ai = will_call_ai("subject") or will_call_ai("background")
+    api_key = load_env(root) if needs_ai else ""
     ref = args.reference if args.reference else None
     if ref and not (ref.startswith("http://") or ref.startswith("https://")):
         raise ValueError("--reference 需为公网图片 URL（该模型 image 字段仅接受 URL，不支持本地文件）")
@@ -254,23 +266,35 @@ def main(argv=None) -> int:
     subject_ai = work / "subject_ai.png"
     bg_ai = work / "background_ai.png"
 
+    errors: dict[str, Exception] = {}
+
     def gen_subject():
-        if subject_ai.exists() and not args.force_ai:
-            print("[1/4] 复用已有主体图（--force-ai 可重新生成）")
-        else:
-            print("[1/4] 生成主体图（豆包 Seedream）…")
-            print("      prompt:", subject_prompt[:90], "…")
-            gen = generate_image(subject_prompt, api_key, args.model, reference=ref, out_path=subject_ai)
-            print("      →", gen)
+        if args.layer not in ("all", "subject"):
+            return
+        try:
+            if subject_ai.exists() and not args.force_ai:
+                print("[1/4] 复用已有主体图（--force-ai 可重新生成）")
+            else:
+                print("[1/4] 生成主体图（豆包 Seedream）…")
+                print("      prompt:", subject_prompt[:90], "…")
+                gen = generate_image(subject_prompt, api_key, args.model, reference=ref, out_path=subject_ai)
+                print("      →", gen)
+        except Exception as e:  # noqa: BLE001 — 线程内捕获，join 后统一报错
+            errors["subject"] = e
 
     def gen_background():
-        if bg_ai.exists() and not args.force_ai:
-            print("[3/4] 复用已有背景图（--force-ai 可重新生成）")
-        else:
-            print("[3/4] 生成背景环境空镜（并行）…")
-            print("      prompt:", background_prompt[:90], "…")
-            gen = generate_image(background_prompt, api_key, args.model, out_path=bg_ai)
-            print("      →", gen)
+        if args.layer not in ("all", "background"):
+            return
+        try:
+            if bg_ai.exists() and not args.force_ai:
+                print("[3/4] 复用已有背景图（--force-ai 可重新生成）")
+            else:
+                print("[3/4] 生成背景环境空镜（并行）…")
+                print("      prompt:", background_prompt[:90], "…")
+                gen = generate_image(background_prompt, api_key, args.model, out_path=bg_ai)
+                print("      →", gen)
+        except Exception as e:  # noqa: BLE001
+            errors["background"] = e
 
     t_subject = threading.Thread(target=gen_subject, name="ai-subject")
     t_background = threading.Thread(target=gen_background, name="ai-background")
@@ -279,18 +303,35 @@ def main(argv=None) -> int:
     t_subject.join()
     t_background.join()
 
-    # 2) 抠图（依赖主体图生成完成）
-    print("[2/4] 抠出透明主体…")
-    make_subject(subject_ai, assets / "subject.png", work)
+    if errors:
+        raise RuntimeError(
+            "AI 生成失败（用 --layer subject|background 只重跑失败层，成功层自动复用，无需整卡重跑）:\n"
+            + "\n".join(f"  - {k}: {v}" for k, v in errors.items())
+        )
 
-    # 背景后处理（依赖背景图生成完成）
-    bg = Image.open(bg_ai).convert("RGB")
-    bg = _normalize_size(bg.convert("RGBA")).convert("RGB")
-    bg.save(assets / "background.png")
+    if args.layer in ("all", "subject"):
+        if not subject_ai.exists():
+            raise RuntimeError(
+                f"缺少主体层原图 {subject_ai.relative_to(root)}：请先生成主体图"
+                "（运行 ai_generate.py --project ... --layer subject），或检查 work/ 是否被清理"
+            )
+        # 2) 抠图（依赖主体图生成完成）
+        print("[2/4] 抠出透明主体…")
+        make_subject(subject_ai, assets / "subject.png", work)
+        # 3) 线稿层（从透明主体程序化提取，保证注册）
+        print("[4/4] 生成线稿层（OpenCV 轮廓提取）…")
+        make_lineart(assets / "subject.png", assets / "lineart.png")
 
-    # 3) 线稿层（从透明主体程序化提取，保证注册）
-    print("[4/4] 生成线稿层（OpenCV 轮廓提取）…")
-    make_lineart(assets / "subject.png", assets / "lineart.png")
+    if args.layer in ("all", "background"):
+        if not bg_ai.exists():
+            raise RuntimeError(
+                f"缺少背景层原图 {bg_ai.relative_to(root)}：请先生成背景图"
+                "（运行 ai_generate.py --project ... --layer background），或检查 work/ 是否被清理"
+            )
+        # 背景后处理（依赖背景图生成完成）
+        bg = Image.open(bg_ai).convert("RGB")
+        bg = _normalize_size(bg.convert("RGBA")).convert("RGB")
+        bg.save(assets / "background.png")
 
     # 4) 文字层（精确字体排版）
     text_script = Path(__file__).resolve().parent / "generate_typography.py"
