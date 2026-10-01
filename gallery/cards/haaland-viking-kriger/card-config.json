@@ -1,0 +1,46 @@
+{
+  "mode": "holographic",
+  "slug": "haaland-viking-kriger",
+  "title": "Vikingkrigeren",
+  "subtitle": "Fra Norge, med kjærlighet",
+  "technique": "Norse-Cartoon Holography",
+  "tagline": "Fra fjordene, til verden",
+  "edition": "001 / 001",
+  "collection": "Haaland Multiverse · Meme Series",
+  "description": "En hyllest til Norges viking — med lyst hår, rustning og en robåt-åre. Google søkte til og med 'Erling Haaland' og fikk vikinger som rodde. (致敬挪威维京人——金发、盔甲和一把划船桨。连 Google 搜索他名字都会出现维京划船彩蛋。)",
+  "style": "北欧神话卡通史诗 × 憨憨反差，峡湾极光，粗线条漫画质感，温暖幽默",
+  "prompt": "哈兰德维京战士：金发丸子头、年轻宽脸无胡须、挪威红9号球衣+皮甲披风、肩扛船桨",
+  "subject_desc": "年轻的挪威足球运动员哈兰德化身为维京战士：标志性金发丸子头（头顶扎起金色发髻，发髻套在牛角维京头盔下清晰可见），年轻宽脸、高颧骨、淡到几乎隐形的眉毛、面容清爽无胡须，穿着挪威红色 9 号球衣外披毛皮披风与铆钉皮甲，右肩扛一把大型木质划船桨，左手握一把雷神之锤，露出憨厚自信的笑容，壮硕年轻体格，卡通北欧神话风，粗线条漫画质感，人物居中占画面 65%，四周均匀留白，画面中绝对不出现任何文字、字母、数字（球衣 9 除外）、标志、铭牌、水印，绝对不出现其他人物，绝对不出现胡须、络腮胡、白发、老人形象，温暖幽默",
+  "background_desc": "挪威峡湾与风暴海，一艘维京长船在浪中，天空有绿色紫色北极光与穿透云层的阳光，画面下方 40% 区域保持简洁的水面波纹，背景中绝对不出现任何人物、文字、字母、标志、水印，纯挪威风景空镜",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.4,
+    "backgroundDepth": -0.3,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.03,
+      -0.05
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Haaland Multiverse · Meme Series · 005/005",
+  "honors": [
+    "Norwegian heritage + blond hair + giant frame = Viking confirmed",
+    "Google easter egg: search 'Erling Haaland' → vikings rowing (Viking Row)",
+    "Norway's Viking-themed national team photoshoot",
+    "The Viking Row celebration became Norway's World Cup symbol",
+    "A proper Norwegian-language card (Norsk)"
+  ],
+  "back_story": "挪威血统、金发、一米九五的壮硕体格——哈兰德生来就像从北欧神话里走出来的维京战士。2026 世界杯，挪威队拍了维京主题出征照，球迷们开始用'划船'（Viking Row）庆祝动作刷屏。连 Google 都下场玩梗：搜索'Erling Haaland'会出现一群小维京人划船的动画彩蛋。这张卡用挪威语写就——Fra Norge, med kjærlighet（来自挪威，带着爱）。",
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "haaland-viking-kriger"
+}

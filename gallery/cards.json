@@ -1,6 +1,25 @@
 {
   "cards": [
     {
+      "id": "haaland-viking-kriger",
+      "title": "Vikingkrigeren",
+      "subtitle": "Fra Norge, med kjærlighet",
+      "technique": "Norse-Cartoon Holography",
+      "tagline": "Fra fjordene, til verden",
+      "edition": "001 / 001",
+      "collection": "Haaland Multiverse · Meme Series",
+      "description": "En hyllest til Norges viking — med lyst hår, rustning og en robåt-åre. Google søkte til og med 'Erling Haaland' og fikk vikinger som rodde. (致敬挪威维京人——金发、盔甲和一把划船桨。连 Google 搜索他名字都会出现维京划船彩蛋。)",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "梗卡",
+        "足球",
+        "维京"
+      ],
+      "url": "cards/haaland-viking-kriger/",
+      "thumb": "cards/haaland-viking-kriger/thumb.jpg",
+      "date": "2026-10-01"
+    },
+    {
       "id": "haaland-moskau-anthem",
       "title": "哈哈哈兰德",
       "subtitle": "哈兰哈兰，哈哈哈哈",
