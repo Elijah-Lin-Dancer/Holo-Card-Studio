@@ -1,0 +1,38 @@
+{
+  "mode": "holographic",
+  "slug": "haaland-meditation",
+  "title": "入定",
+  "subtitle": "进球后，先让我静一静",
+  "technique": "Zen-Contrast Holography",
+  "tagline": "别人呐喊，我冥想",
+  "edition": "001 / 001",
+  "collection": "Haaland Multiverse · Meme Series",
+  "description": "致敬哈兰德标志性的打坐庆祝——全世界在狂欢，他独自在草坪上入定。世界杯首球也是这么坐的。",
+  "style": "轻松搞笑漫画风，绿茵场与夸张放射星光，温暖明快，线条干净，幽默收藏卡插画",
+  "prompt": "哈兰德盘腿打坐，头顶飘着云朵气泡，闭目安详，背后人群疯狂庆祝",
+  "subject_desc": "哈兰德盘腿打坐：金发丸子头，挪威红色 9 号球衣，盘腿坐在绿茵场上，双手轻放膝上，双眼紧闭，一脸安详平静，头顶飘着一个白色云朵形对话气泡（留空不写字），夸张搞笑漫画风，人物居中占画面 65%，四周均匀留白，画面中绝对不出现任何文字、字母、数字（球衣 9 除外）、标志、铭牌、水印，绝对不出现其他人物，轻松漫画插画风",
+  "background_desc": "绿茵足球场，远处看台与队友球迷在疯狂庆祝（夸张的放射状星光、彩带、烟花光效），与主体打坐形成强烈反差，画面下方 40% 区域保持简洁的草地纹理，背景中绝对不出现任何人物特写、文字、字母、标志、水印，纯氛围空镜",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.4,
+    "backgroundDepth": -0.3,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.03,
+      -0.05
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Haaland Multiverse · Meme Series · 002/005",
+  "honors": [
+    "Signature lotus-pose celebration since his Dortmund days (2020)",
+    "First World Cup goal of his career — also celebrated by sitting down",
+    "Zen contrast: the world screams, he meditates",
+    "Fans joke he's a machine 'shutting down after scoring'",
+    "China fans' beloved 'Ha Bao' (哈宝) energy"
+  ],
+  "back_story": "进球之后，别人狂奔怒吼，他走到草坪中间，盘腿坐下，闭目冥想。这个动作从 2020 年多特蒙德时期就开始了——他说进球后的打坐是'和自己内心对话'的方式，靠静坐沉淀实力。2026 世界杯首球，他照样打坐，把'机器人'的调侃坐实成了艺术。网友说这是'关机静坐'，他大概觉得：行，你们说得对。"
+}

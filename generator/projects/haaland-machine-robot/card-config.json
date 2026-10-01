@@ -1,0 +1,38 @@
+{
+  "mode": "holographic",
+  "slug": "haaland-machine-robot",
+  "title": "HAALAND 2.0",
+  "subtitle": "111 GOALS. NO FEELINGS.",
+  "technique": "Retro-Cartoon Holography",
+  "tagline": "Officially not human. (He doesn't disagree.)",
+  "edition": "001 / 001",
+  "collection": "Haaland Multiverse · Meme Series",
+  "description": "A tribute to the internet's favourite Terminator — the robot Haaland who scored 111 Premier League goals in 111 games, with a system UI that says FEELINGS: 0. Cute, not cool.",
+  "style": "呆萌卡通机器人质感，曼城浅蓝色金属装甲，复古漫画描边，轻松幽默的收藏卡插画，柔和棚拍光，细节清晰",
+  "prompt": "哈兰德半机器人：金发丸子头、宽脸高颧骨、曼城浅蓝装甲、怀抱足球",
+  "subject_desc": "哈兰德本尊半机器人化：标志性金发丸子头保留（机器人头部，金色发丝清晰可见），宽脸高颧骨、淡到几乎隐形的眉毛、面无表情，上半身穿着曼城浅蓝色机械装甲（胸口白色数字 9），下半身是银色机械腿，双手怀抱一颗黑白足球，卡通 3D 渲染质感，人物居中占画面 65%，四周均匀留白，柔和棚拍光，画面中绝对不出现任何文字、字母、数字（胸前 9 除外）、标志、铭牌、水印，绝对不出现其他人物，呆萌机器人卡通风",
+  "background_desc": "未来工厂传送带车间，浅蓝与白色调，传送带上一颗颗足球滚过，背景有巨大的圆形系统屏幕（只显示图案光效，不显示任何文字），画面下方 40% 区域保持简洁的浅色车间地面，背景中绝对不出现任何人物、文字、字母、标志、水印，纯环境空镜",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.4,
+    "backgroundDepth": -0.3,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.03,
+      -0.05
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Haaland Multiverse · Meme Series · 001/005",
+  "honors": [
+    "111 Premier League goals in 111 games — the record-breaking Terminator",
+    "Robot antenna instead of the iconic golden bun",
+    "System UI easter egg: FEELINGS: 0",
+    "Meditation celebration = machine shutdown mode",
+    "Fans: 'Haaland is not human' — and he never denied it"
+  ],
+  "back_story": "They called him the Terminator. The numbers back it up — 111 Premier League goals in his first 111 games, breaking Alan Shearer's record in record time. The celebrations never showed much emotion: no sprinting, no roaring, just a quiet lotus-pose sit on the grass like a machine shutting down after a job well done. The internet ran with it: 'Haaland is not human', 'He was sent back from 2077 to rewrite football history'. And the best part? He never argued. Cute, not cool — that's the whole joke."
+}

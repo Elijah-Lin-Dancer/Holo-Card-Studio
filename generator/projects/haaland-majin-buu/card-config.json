@@ -1,0 +1,38 @@
+{
+  "mode": "holographic",
+  "slug": "haaland-majin-buu",
+  "title": "魔人布欧·哈兰德",
+  "subtitle": "我不否认。",
+  "technique": "Dragon-Ball Holography",
+  "tagline": "I don't disagree.",
+  "edition": "001 / 001",
+  "collection": "Haaland Multiverse · Meme Series",
+  "description": "撞脸《龙珠》魔人布欧的实锤现场——本人回应：'我不否认。' 中外网友都玩疯的世纪梗。",
+  "style": "龙珠漫画风，粉色调爆炸网格背景，Q 版夸张搞笑，粗黑描边，能量感十足",
+  "prompt": "Q版魔人布欧化哈兰德，粉色皮肤金发丸子头，手持粉色能量球，龙珠风",
+  "subject_desc": "魔人布欧版哈兰德 Q 版：粉色皮肤，金发丸子头，头顶布欧式小触角，宽脸高颧骨，大嘴露齿夸张笑容，穿白色布欧长裤，壮硕矮胖身材，双手托举一颗粉色能量球，龙珠漫画风，粗黑描边，居中占画面 65%，四周均匀留白，画面中绝对不出现任何文字、字母、数字、标志、铭牌、水印，绝对不出现其他人物，Q 版搞笑漫画",
+  "background_desc": "龙珠风爆炸网格背景，粉紫色调，放射状冲击线条，碎片飞溅光效，画面下方 40% 区域保持简洁的粉色渐变背景，背景中绝对不出现任何人物、文字、字母、标志、水印，纯漫画特效空镜",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.4,
+    "backgroundDepth": -0.3,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.03,
+      -0.05
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Haaland Multiverse · Meme Series · 003/005",
+  "honors": [
+    "The Majin Buu face-match that conquered both CN and EN internet",
+    "His actual response to the meme: 'I don't disagree'",
+    "Broad build + rounded face + pale complexion = Buu confirmed",
+    "Dragon Ball energy ball as the signature pose",
+    "Chinese fans: '北欧限定魔人布欧'"
+  ],
+  "back_story": "宽脸、高颧骨、淡到几乎隐形的眉毛、壮硕的身材——网友把哈兰德和《龙珠》里的魔人布欧摆在一起，相似度惊人。这个梗从中文足球论坛火到全网，再反向输出到海外。当事人怎么回应？记者问他像不像布欧，他轻描淡写：'我不否认。' 一句话给全网玩梗的人发了通行证——从此魔人布欧·哈兰德，中外通用。"
+}
