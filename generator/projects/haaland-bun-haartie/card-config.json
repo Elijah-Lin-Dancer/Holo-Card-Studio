@@ -1,0 +1,42 @@
+{
+  "mode": "holographic",
+  "slug": "haaland-bun-haartie",
+  "title": "丸子头",
+  "subtitle": "90 分钟不散 · 同款头绳已售 3 万+",
+  "technique": "Fashion-Statement Holography",
+  "tagline": "男人扎丸子头，也能成为时尚单品。",
+  "edition": "008 / 010",
+  "collection": "Haaland Multiverse · Meme Series",
+  "description": "哈兰德的金发丸子头 90 分钟比赛不散，同款发绳在淘宝爆火（超 3 万人搜索）。时尚单品海报风 + 呆萌反差。",
+  "style": "时尚杂志单品海报风混搭 Q 版漫画，浅色背景，精致可爱，夸张搞笑，发光头绳 C 位",
+  "prompt": "Q版卡通哈兰德头顶扎着高高的金色丸子头，捏着粉色发光发圈展示，时尚海报风搞笑图",
+  "subject_desc": "Q 版卡通哈兰德头像大特写：头顶正中央扎着一个高高、圆滚滚的金色丸子头（发型焦点，占画面顶部醒目位置，金色发丝整齐盘成球状），宽脸高颧骨、得意眯眼微笑，一手捏着一根同款粉色发光发圈举在脸颊旁展示（像美妆博主安利单品），另一手托着下巴，曼城浅蓝球衣领口可见，美式卡通粗黑描边，高饱和明快配色，居中占画面 65%，四周均匀留白，画面中绝对不出现任何文字、字母、数字、标志、铭牌、水印，Q 版搞笑漫画",
+  "background_desc": "浅粉白渐变时尚海报背景，点缀星星、爱心、发圈飘带等可爱装饰元素，柔和光斑，画面下方 40% 区域保持干净浅粉渐变，背景中绝对不出现任何人物、文字、字母、标志、水印，纯时尚海报空镜",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.4,
+    "backgroundDepth": -0.3,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.03,
+      -0.05
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Haaland Multiverse · Meme Series · 008/010",
+  "honors": [
+    "The bun that survives 90 minutes of top-flight football",
+    "His exact hair tie became a Taobao bestseller (30k+ searches)",
+    "Chinese fans call it 哈宝同款发圈",
+    "Even published a 'how to tie the bun' tutorial",
+    "Fashion-poster style: the meme as a luxury item"
+  ],
+  "back_story": "别的球星靠绝技出圈，哈兰德靠发型出圈——那颗金发丸子头，90 分钟高强度比赛纹丝不动，成了全欧最坚挺的时尚单品。\\n\\n中国球迷发现'哈兰德同款发圈'后，淘宝搜索量一夜破 3 万，商家连夜上架，标题清一色'哈宝同款·扎了不掉'。哈兰德本人还真的录过扎丸子头教程，2 米壮汉对着镜头认真教学，反差萌拉满。\\n\\n这张卡把梗做成了时尚单品海报：Q 版哈兰德举着同款发圈，像美妆博主安利爆款——男人扎丸子头怎么了？扎好了就是国际时尚单品。",
+  "curation": {
+    "zh": "90 分钟不散的丸子头 + 淘宝 3 万搜索同款发圈，时尚单品海报梗卡。",
+    "en": "The 90-minute-proof bun and his 30k-search hair tie, styled as a fashion-poster meme."
+  }
+}

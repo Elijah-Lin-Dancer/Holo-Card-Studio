@@ -1,0 +1,42 @@
+{
+  "mode": "holographic",
+  "slug": "haaland-wanglaoji",
+  "title": "王老吉·哈兰德",
+  "subtitle": "怕上火，喝王老吉",
+  "technique": "Spicy-Advert Holography",
+  "tagline": "蹩脚中文魔性广告，阅读量 7.5 亿。",
+  "edition": "010 / 010",
+  "collection": "Haaland Multiverse · Meme Series",
+  "description": "哈兰德给王老吉拍的蹩脚中文魔性广告'怕上火，喝王老吉'，全网 7.5 亿阅读。凉茶 + 火焰吐息，中国特供梗。",
+  "style": "中国风广告大片混搭 Q 版漫画，红金配色，喜庆夸张，呆萌搞笑",
+  "prompt": "Q版卡通哈兰德穿着中国风红色唐装，举着一罐红罐凉茶，嘴里喷出一小团卡通火焰，喜庆搞笑广告风",
+  "subject_desc": "Q 版卡通哈兰德：金发丸子头、宽脸高颧骨，穿着一件喜庆的中国红唐装（金色盘扣），咧嘴大笑，双手捧着一罐红罐凉茶（罐身留白不写字），嘴里喷出一小团可爱卡通火焰（'上火'梗），头顶几颗小红辣椒装饰，美式卡通粗黑描边，红金高饱和配色，居中占画面 65%，四周均匀留白，画面中绝对不出现任何文字、字母、数字、标志、铭牌、水印，Q 版搞笑漫画",
+  "background_desc": "喜庆中国风背景：红金渐变底色，装饰元素全部为纯图案（金色祥云纹样、红灯笼、鞭炮、金元宝、烟花图案，均无任何文字），暖色光斑，画面下方 40% 区域保持干净红色渐变，背景中绝对不出现任何人物、任何文字、任何汉字、任何字母、任何数字、任何标志、任何水印，绝对不出现'福'字，纯中国风图案空镜",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.4,
+    "backgroundDepth": -0.3,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.03,
+      -0.05
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Haaland Multiverse · Meme Series · 010/010",
+  "honors": [
+    "The one ad that broke 750 million reads in China",
+    "His earnest Chinese pronunciation: '怕上火，喝王老吉'",
+    "Chinese fans: 哈兰德中文十级",
+    "Spicy-food connection: the fire-breathing '上火' joke",
+    "Red-gold festive style for maximum meme power"
+  ],
+  "back_story": "一个两米高的挪威前锋，用蹩脚但无比认真的中文，对着镜头说'怕上火，喝王老吉'——这条广告在中国全网刷出 7.5 亿阅读量，哈兰德直接封神'中文十级选手'。\\n\\n中国球迷笑疯：'他连凉茶都代言了，下一步是不是该代言火锅？'、'这中文比我英语还好'。哈兰德本人对这类中国特供梗来者不拒，广告拍得越认真，网友笑得越欢。\\n\\n这张卡把'上火'梗具象化：喜庆唐装、红罐凉茶、嘴里喷出小火苗——中国球迷专属的哈兰德快乐源泉，红金配色拉满节日气氛。怕上火？看这张卡就下火。",
+  "curation": {
+    "zh": "7.5 亿阅读的蹩脚中文王老吉广告，红金喜庆梗卡。",
+    "en": "The 750M-reads Wanglaoji ad with his earnest Chinese — festive fire-breathing meme."
+  }
+}

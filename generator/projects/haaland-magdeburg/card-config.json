@@ -1,0 +1,42 @@
+{
+  "mode": "holographic",
+  "slug": "haaland-magdeburg",
+  "title": "马德堡半球实验",
+  "subtitle": "人类高质量物理实验",
+  "technique": "Impact Physics Holography",
+  "tagline": "1654 年马德堡，2026 年哈兰德。",
+  "edition": "007 / 010",
+  "collection": "Haaland Multiverse · Meme Series",
+  "description": "哈兰德爆射把球砸在防守球员脸上、球牢牢贴在脸上——网友封为'人类高质量马德堡半球实验'（经典大气压实验梗）。物理课本风 + 呆萌化。",
+  "style": "物理课本插图风混搭 Q 版漫画，米白底色科学插画感，夸张搞笑，公式感装饰元素",
+  "prompt": "Q版卡通哈兰德大力爆射，足球贴在一个防守球员脸上被压扁，物理实验风格搞笑图",
+  "subject_desc": "Q 版卡通哈兰德：金发丸子头、宽脸高颧骨、曼城浅蓝 9 号球衣，左脚摆出大力爆射姿势、表情用力夸张（瞪眼鼓腮），足球正牢牢贴在一个倒霉的 Q 版防守球员脸上被压成扁平状，防守球员双手张开、表情懵圈，科学实验感的小星星和冲击波装饰，美式卡通粗黑描边，居中占画面 65%，四周均匀留白，画面中绝对不出现任何文字、字母、数字、标志、铭牌、水印，Q 版搞笑漫画",
+  "background_desc": "物理课本米白底色背景，浅米色，四周点缀手绘风科学装饰：烧杯、弹簧、刻度尺、气压计、实验报告虚线格等淡色简笔画，画面下方 40% 区域保持干净米白渐变，背景中绝对不出现任何人物、文字、字母、标志、水印，纯科学插图风空镜",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.4,
+    "backgroundDepth": -0.3,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.03,
+      -0.05
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Haaland Multiverse · Meme Series · 007/010",
+  "honors": [
+    "1654 Magdeburg hemispheres meet 2026 Haaland's right boot",
+    "The ball-on-face shot that birthed 'human-grade physics experiment'",
+    "Chinese fans: 人类高质量马德堡半球实验",
+    "Textbook-illustration style for maximum nerd humor",
+    "The striker's shot so hard the ball stayed glued"
+  ],
+  "back_story": "1654 年，马德堡市长用两个半球抽成真空，让十六匹马都拉不开——证明了大气压的存在。2026 年，哈兰德用一脚爆射，把足球砸在防守球员脸上，球竟然'啪'地贴在脸上没掉下来。网友一拍大腿：这不就是人类高质量马德堡半球实验吗？\\n\\n这张卡把物理课本的严肃感搬上卡面：米白底色、烧杯、刻度尺、实验报告——配上哈兰德用力过猛的表情和防守球员的满脸懵圈，一本正经地搞笑。\\n\\n科学史上最著名的实验，绿茵场上最离谱的复刻——物理老师看了都要点赞。",
+  "curation": {
+    "zh": "爆射贴脸被封「人类高质量马德堡半球实验」，物理课本风梗卡。",
+    "en": "The shot so hard the ball stayed glued to a defender's face — textbook-illustration meme."
+  }
+}

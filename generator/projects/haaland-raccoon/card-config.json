@@ -1,0 +1,42 @@
+{
+  "mode": "holographic",
+  "slug": "haaland-raccoon",
+  "title": "RACCOON HAALAND",
+  "subtitle": "Souvenirs from Qatar.",
+  "technique": "Airport-Paparazzi Holography",
+  "tagline": "Brought back a raccoon, a whisky, and zero regrets.",
+  "edition": "009 / 010",
+  "collection": "Haaland Multiverse · Meme Series",
+  "description": "世界杯后哈兰德带着一只浣熊标本和一瓶威士忌走下飞机——狗仔镜头里的硬汉反差萌，挪威梗王实锤。",
+  "style": "机场狗仔街拍风混搭 Q 版漫画，浅灰蓝机场色调，冷幽默，夸张搞笑",
+  "prompt": "Q版卡通哈兰德墨镜大摇大摆走下飞机，肩上扛一只呆萌浣熊标本，另一只手拎威士忌酒瓶，狗仔街拍风搞笑图",
+  "subject_desc": "Q 版卡通哈兰德：金发丸子头、宽脸高颧骨、黑色墨镜、曼城浅蓝 9 号球衣外套黑色皮夹克，大摇大摆走下飞机舷梯，一只呆萌 Q 版小浣熊（标本模样但眼神无辜）被扛在肩上，另一只手拎着一瓶威士忌（标签留白不写字），嘴角得意上扬，美式卡通粗黑描边，高饱和明快配色，居中占画面 65%，四周均匀留白，画面中绝对不出现任何文字、字母、数字、标志、铭牌、水印，Q 版搞笑漫画",
+  "background_desc": "机场停机坪浅灰蓝背景，简化版飞机尾翼一角、跑道线、登机桥剪影，几颗闪光灯星芒点缀（狗仔拍照氛围），画面下方 40% 区域保持干净浅灰蓝渐变，背景中绝对不出现任何人物、文字、字母、标志、水印，纯机场空镜",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.4,
+    "backgroundDepth": -0.3,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.03,
+      -0.05
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Haaland Multiverse · Meme Series · 009/010",
+  "honors": [
+    "Post-World Cup arrival: raccoon + whisky + no explanation",
+    "Norwegian hard-man energy meets airport paparazzi chaos",
+    "The raccoon stared into the camera; so did he",
+    "Fans: 'normal things Haaland does'",
+    "English meme, English card — obviously"
+  ],
+  "back_story": "2026 世界杯结束，各国球星忙着秀奖牌、谈转会——哈兰德走下了飞机，肩上扛着一只浣熊标本，手里拎着一瓶威士忌。没有解释，没有故事，就这么走了。狗仔镜头里的这个画面，成了当周全球足球论坛的头条：挪威硬汉的机场穿搭。\\n\\n网友疯狂二创：'哈兰德正常的一天'、'去卡塔尔进货了'、'浣熊：我是自愿的'。而他本人一如既往地不解释，任由梗发酵。\\n\\n这张卡记录的就是这个名场面——墨镜、皮夹克、浣熊标本、威士忌，两米高的挪威男人带着他的'战利品'，走出机场，深藏功与名。",
+  "curation": {
+    "zh": "世界杯后扛浣熊标本 + 威士忌下飞机，机场狗仔名场面梗卡。",
+    "en": "Post-World Cup arrival with a raccoon and a whisky — airport paparazzi gold."
+  }
+}
