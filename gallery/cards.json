@@ -1,6 +1,26 @@
 {
   "cards": [
     {
+      "id": "haaland-wanglaoji",
+      "title": "王老吉·哈兰德",
+      "subtitle": "怕上火，喝王老吉",
+      "technique": "Spicy-Advert Holography",
+      "tagline": "蹩脚中文魔性广告，阅读量 7.5 亿。",
+      "edition": "010 / 010",
+      "collection": "Haaland Multiverse · Meme Series",
+      "description": "哈兰德给王老吉拍的蹩脚中文魔性广告'怕上火，喝王老吉'，全网 7.5 亿阅读。凉茶 + 火焰吐息，中国特供梗。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "梗卡",
+        "足球",
+        "王老吉"
+      ],
+      "url": "cards/haaland-wanglaoji/",
+      "thumb": "cards/haaland-wanglaoji/thumb.jpg",
+      "date": "2026-10-01",
+      "preview": "cards/haaland-wanglaoji/preview.webm"
+    },
+    {
       "id": "haaland-raccoon",
       "title": "RACCOON HAALAND",
       "subtitle": "Souvenirs from Qatar.",
