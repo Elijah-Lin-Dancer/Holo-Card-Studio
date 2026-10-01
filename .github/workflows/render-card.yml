@@ -24,6 +24,7 @@ on:
 
 permissions:
   contents: write
+  actions: write   # 渲染完成后自动 dispatch Deploy workflow（GITHUB_TOKEN 的 push 不会触发 on:push）
 
 jobs:
   render:
@@ -117,6 +118,7 @@ jobs:
           CARD_ID="${{ inputs.card_id }}"
           git add "gallery/cards/$CARD_ID/"
           git add gallery/cards.json
+          git add gallery/curation.json
           git add "generator/projects/$CARD_ID/assets/"
           git add "generator/projects/$CARD_ID/card-config.json"
           git status --short
@@ -124,6 +126,25 @@ jobs:
             echo "⚠️ 没有变更需要提交"
           else
             git commit -m "feat(card): render $CARD_ID via generic workflow [skip ci]"
-            git push
-            echo "✅ 已提交并推送"
+            # 并发渲染时多个 run 会同时 push：fetch+rebase 自动解冲突，最多重试 3 次
+            for attempt in 1 2 3; do
+              if git push; then
+                echo "✅ 推送成功（第 ${attempt} 次尝试）"
+                break
+              fi
+              echo "⚠️ 推送冲突，fetch+rebase 后重试（第 ${attempt} 次）…"
+              git pull --rebase --autostash || { echo "❌ rebase 失败"; exit 1; }
+              if [ "$attempt" = "3" ]; then echo "❌ 重试 3 次仍失败"; exit 1; fi
+            done
           fi
+
+      # 渲染产物 push 后自动部署 GitHub Pages（GITHUB_TOKEN 的 push 不触发 on:push，须显式 dispatch）
+      - name: Deploy gallery to Pages
+        run: |
+          curl -s -X POST \
+            -H "Authorization: Bearer ${{ github.token }}" \
+            -H "Accept: application/vnd.github+json" \
+            -H "Content-Type: application/json" \
+            -d '{"ref":"main"}' \
+            https://api.github.com/repos/Elijah-Lin-Dancer/Holo-Card-Studio/actions/workflows/deploy.yml/dispatches
+          echo "✅ 已自动触发 Deploy workflow（GitHub Pages 更新）"
