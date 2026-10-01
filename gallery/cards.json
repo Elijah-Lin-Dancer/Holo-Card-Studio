@@ -1,6 +1,26 @@
 {
   "cards": [
     {
+      "id": "haaland-magdeburg",
+      "title": "马德堡半球实验",
+      "subtitle": "人类高质量物理实验",
+      "technique": "Impact Physics Holography",
+      "tagline": "1654 年马德堡，2026 年哈兰德。",
+      "edition": "007 / 010",
+      "collection": "Haaland Multiverse · Meme Series",
+      "description": "哈兰德爆射把球砸在防守球员脸上、球牢牢贴在脸上——网友封为'人类高质量马德堡半球实验'（经典大气压实验梗）。物理课本风 + 呆萌化。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "梗卡",
+        "足球",
+        "物理"
+      ],
+      "url": "cards/haaland-magdeburg/",
+      "thumb": "cards/haaland-magdeburg/thumb.jpg",
+      "date": "2026-10-01",
+      "preview": "cards/haaland-magdeburg/preview.webm"
+    },
+    {
       "id": "pouch-invader",
       "title": "POUCH INVADER",
       "subtitle": "THE LAYTENANT",
