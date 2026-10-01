@@ -16,7 +16,7 @@
   <a href="https://github.com/Elijah-Lin-Dancer/Holo-Card-Studio"><img src="https://img.shields.io/badge/%E2%9A%A1_100%25_Static-Zero_Server-b98ae6?style=for-the-badge" alt="100% Static"></a>
   <a href="https://www.blender.org/"><img src="https://img.shields.io/badge/%F0%9F%A7%8A_Blender-4.5-e08ac0?style=for-the-badge" alt="Blender 4.5"></a>
   <a href="https://threejs.org/"><img src="https://img.shields.io/badge/%F0%9F%8C%80_Three.js-GLSL-8a7446?style=for-the-badge" alt="Three.js"></a>
-  <a href="https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/"><img src="https://img.shields.io/badge/%F0%9F%83%8F_18_Cards-6_Languages-c9a86a?style=for-the-badge" alt="18 Cards · 6 Languages"></a>
+  <a href="https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/"><img src="https://img.shields.io/badge/%F0%9F%83%8F_20_Cards-6_Languages-c9a86a?style=for-the-badge" alt="20 Cards · 6 Languages"></a>
   <a href="https://github.com/Elijah-Lin-Dancer/Holo-Card-Studio/actions"><img src="https://img.shields.io/github/actions/workflow/status/Elijah-Lin-Dancer/Holo-Card-Studio/gallery-check.yml?style=for-the-badge&label=CI%20Passing" alt="CI Passing"></a>
 </p>
 
@@ -57,7 +57,7 @@ That's a **real turntable render** from the Blender pipeline (96 frames), not a 
 
 ![HoloLab card wall](docs/screenshots/card-wall.jpg)
 
-**18 cards · 6 languages · every card a permanent URL**, openable and shareable by anyone:
+**20 cards · 6 languages · every card a permanent URL**, openable and shareable by anyone:
 
 - 🇦🇷 **Messi** series (4) — Barcelona · PSG · Inter Miami · World Cup 2022, plus the original *Messi, King* (梅西称王)
 - 💙❤️ **FC Barcelona Legacy series** — Cruyff *El Arquitecto* · Guardiola *Tiki-Taka* (Spanish card faces)

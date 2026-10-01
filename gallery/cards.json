@@ -61,7 +61,8 @@
       ],
       "url": "cards/pep-guardiola-tiki-taka/",
       "thumb": "cards/pep-guardiola-tiki-taka/thumb.jpg",
-      "date": "2026-09-30"
+      "date": "2026-09-30",
+      "preview": "cards/pep-guardiola-tiki-taka/preview.webm"
     },
     {
       "id": "messi-world-cup-2022",
@@ -81,7 +82,8 @@
       ],
       "url": "cards/messi-world-cup-2022/",
       "thumb": "cards/messi-world-cup-2022/thumb.jpg",
-      "date": "2026-09-30"
+      "date": "2026-09-30",
+      "preview": "cards/messi-world-cup-2022/preview.webm"
     },
     {
       "id": "messi-inter-miami",
@@ -102,7 +104,8 @@
       ],
       "url": "cards/messi-inter-miami/",
       "thumb": "cards/messi-inter-miami/thumb.jpg",
-      "date": "2026-09-30"
+      "date": "2026-09-30",
+      "preview": "cards/messi-inter-miami/preview.webm"
     },
     {
       "id": "messi-psg-paris",
@@ -123,7 +126,8 @@
       ],
       "url": "cards/messi-psg-paris/",
       "thumb": "cards/messi-psg-paris/thumb.jpg",
-      "date": "2026-09-30"
+      "date": "2026-09-30",
+      "preview": "cards/messi-psg-paris/preview.webm"
     },
     {
       "id": "johan-cruyff-el-arquitecto",
@@ -143,7 +147,8 @@
       ],
       "url": "cards/johan-cruyff-el-arquitecto/",
       "thumb": "cards/johan-cruyff-el-arquitecto/thumb.jpg",
-      "date": "2026-09-30"
+      "date": "2026-09-30",
+      "preview": "cards/johan-cruyff-el-arquitecto/preview.webm"
     },
     {
       "id": "messi-fc-barcelona",
@@ -164,7 +169,8 @@
       ],
       "url": "cards/messi-fc-barcelona/",
       "thumb": "cards/messi-fc-barcelona/thumb.jpg",
-      "date": "2026-09-30"
+      "date": "2026-09-30",
+      "preview": "cards/messi-fc-barcelona/preview.webm"
     },
     {
       "id": "neeltje-friesian-kalundborg",
@@ -185,7 +191,8 @@
       "thumb": "cards/neeltje-friesian-kalundborg/thumb.jpg",
       "date": "2026-09-30",
       "locked": true,
-      "lockHash": "c90fdbf1d5f4532fd9163bc9120cdd6946ddcc0c1d40f77bd761080152ec6ae8"
+      "lockHash": "c90fdbf1d5f4532fd9163bc9120cdd6946ddcc0c1d40f77bd761080152ec6ae8",
+      "preview": "cards/neeltje-friesian-kalundborg/preview.webm"
     },
     {
       "id": "satyajit-ray-bengali-maestro",
@@ -204,7 +211,8 @@
       ],
       "url": "cards/satyajit-ray-bengali-maestro/",
       "thumb": "cards/satyajit-ray-bengali-maestro/thumb.jpg",
-      "date": "2026-09-30"
+      "date": "2026-09-30",
+      "preview": "cards/satyajit-ray-bengali-maestro/preview.webm"
     },
     {
       "id": "card-elijah-lin-d",
