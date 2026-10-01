@@ -1,6 +1,25 @@
 {
   "cards": [
     {
+      "id": "haaland-majin-buu",
+      "title": "魔人布欧·哈兰德",
+      "subtitle": "我不否认。",
+      "technique": "Dragon-Ball Holography",
+      "tagline": "I don't disagree.",
+      "edition": "001 / 001",
+      "collection": "Haaland Multiverse · Meme Series",
+      "description": "撞脸《龙珠》魔人布欧的实锤现场——本人回应：'我不否认。' 中外网友都玩疯的世纪梗。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "梗卡",
+        "足球",
+        "龙珠"
+      ],
+      "url": "cards/haaland-majin-buu/",
+      "thumb": "cards/haaland-majin-buu/thumb.jpg",
+      "date": "2026-10-01"
+    },
+    {
       "id": "haaland-machine-robot",
       "title": "HAALAND 2.0",
       "subtitle": "111 GOALS. NO FEELINGS.",
