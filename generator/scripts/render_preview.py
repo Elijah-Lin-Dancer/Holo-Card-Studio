@@ -8,7 +8,7 @@ from pathlib import Path
 args = sys.argv[sys.argv.index("--") + 1:]
 project, outdir = Path(args[0]), Path(args[1])
 start = int(args[2]) if len(args) > 2 else 1
-end = int(args[3]) if len(args) > 3 else 96
+end = int(args[3]) if len(args) > 3 else 64
 
 blend = project / "card.blend"
 outdir.mkdir(parents=True, exist_ok=True)
@@ -23,18 +23,18 @@ try:
     scene.cycles.use_denoising = False
 except Exception:
     pass
-scene.render.resolution_x = 360
-scene.render.resolution_y = 500
+scene.render.resolution_x = 320
+scene.render.resolution_y = 444
 scene.render.resolution_percentage = 100
 scene.render.image_settings.file_format = "PNG"
 scene.render.image_settings.color_mode = "RGBA"
 scene.render.fps = 24
 scene.frame_start = 1
-scene.frame_end = 96
+scene.frame_end = 64
 
 # 保证「转卡控制」动画就位
 pivot = bpy.data.objects.get("转卡控制 · 播放时间线预览")
-print(f"[preview] pivot={'OK' if pivot else 'MISSING'}  frames={start}..{end}  size=360x500")
+print(f"[preview] pivot={'OK' if pivot else 'MISSING'}  frames={start}..{end}  size=320x444")
 
 for f in range(start, end + 1):
     scene.frame_set(f)

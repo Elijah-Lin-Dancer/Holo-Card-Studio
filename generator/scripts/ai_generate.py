@@ -19,6 +19,7 @@ import json
 import os
 import shutil
 import sys
+import threading
 import time
 import urllib.request
 from pathlib import Path
@@ -249,28 +250,40 @@ def main(argv=None) -> int:
 
     subject_prompt, background_prompt = build_prompts(cfg, ref)
 
-    # 1) 主体层（已有生成结果则复用，支持断点续跑）
+    # 1) 主体层 + 背景层并行生成（Seedream API 调用并行，省 ~15-30 秒）
     subject_ai = work / "subject_ai.png"
-    if subject_ai.exists() and not args.force_ai:
-        print("[1/4] 复用已有主体图（--force-ai 可重新生成）")
-    else:
-        print("[1/4] 生成主体图（豆包 Seedream）…")
-        print("      prompt:", subject_prompt[:90], "…")
-        gen = generate_image(subject_prompt, api_key, args.model, reference=ref, out_path=subject_ai)
-        print("      →", gen)
+    bg_ai = work / "background_ai.png"
 
+    def gen_subject():
+        if subject_ai.exists() and not args.force_ai:
+            print("[1/4] 复用已有主体图（--force-ai 可重新生成）")
+        else:
+            print("[1/4] 生成主体图（豆包 Seedream）…")
+            print("      prompt:", subject_prompt[:90], "…")
+            gen = generate_image(subject_prompt, api_key, args.model, reference=ref, out_path=subject_ai)
+            print("      →", gen)
+
+    def gen_background():
+        if bg_ai.exists() and not args.force_ai:
+            print("[3/4] 复用已有背景图（--force-ai 可重新生成）")
+        else:
+            print("[3/4] 生成背景环境空镜（并行）…")
+            print("      prompt:", background_prompt[:90], "…")
+            gen = generate_image(background_prompt, api_key, args.model, out_path=bg_ai)
+            print("      →", gen)
+
+    t_subject = threading.Thread(target=gen_subject, name="ai-subject")
+    t_background = threading.Thread(target=gen_background, name="ai-background")
+    t_subject.start()
+    t_background.start()
+    t_subject.join()
+    t_background.join()
+
+    # 2) 抠图（依赖主体图生成完成）
     print("[2/4] 抠出透明主体…")
     make_subject(subject_ai, assets / "subject.png", work)
 
-    # 2) 背景层（已有生成结果则复用）
-    bg_ai = work / "background_ai.png"
-    if bg_ai.exists() and not args.force_ai:
-        print("[3/4] 复用已有背景图（--force-ai 可重新生成）")
-    else:
-        print("[3/4] 生成背景环境空镜…")
-        print("      prompt:", background_prompt[:90], "…")
-        gen = generate_image(background_prompt, api_key, args.model, out_path=bg_ai)
-        print("      →", gen)
+    # 背景后处理（依赖背景图生成完成）
     bg = Image.open(bg_ai).convert("RGB")
     bg = _normalize_size(bg.convert("RGBA")).convert("RGB")
     bg.save(assets / "background.png")

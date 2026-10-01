@@ -1,5 +1,5 @@
 {
-  "_comment": "HoloLab Studio 卡片配置模板 — 复制为 generator/projects/<card-id>/card-config.json 后修改。所有字段均为必填（gallery-check 校验）。",
+  "_comment": "HoloLab Studio 卡片配置模板 — 复制为 generator/projects/<card-id>/card-config.json 后修改。所有字段均为必填（gallery-check 校验）。Prompt 编写指南见 docs/PROMPT-GUIDE.md（精准 prompt 可减少 80% 重生成）。",
   "mode": "holographic",
   "slug": "<card-id>",
   "title": "<卡片主标题，如：Kenji Kishimoto>",

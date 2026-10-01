@@ -31,7 +31,7 @@ ROOT = Path(__file__).resolve().parents[2]          # holo-lab/
 GALLERY = ROOT / "gallery"
 VENDOR_THREE = GALLERY / "vendor" / "three"
 EXCLUDE = {"node_modules", "server.mjs", "package.json", "package-lock.json", "README.md"}
-PREVIEW_FRAMES = 96          # 预览动画帧数（与 card.blend 时间线一致）
+PREVIEW_FRAMES = 64          # 预览动画帧数（与 card.blend 时间线一致；64帧≈2.7秒/圈，流畅且省渲染时间）
 PREVIEW_FPS = 24
 PREVIEW_CRF = 42
 
