@@ -1,6 +1,26 @@
 {
   "cards": [
     {
+      "id": "haaland-shark-grin",
+      "title": "Shark Grin",
+      "subtitle": "The smile that terrified defenders",
+      "technique": "Selective-Color Holography",
+      "tagline": "O sorriso que aterroriza zagueiros",
+      "edition": "011 / 010",
+      "collection": "Haaland Multiverse · Meme Series",
+      "description": "Haaland's signature shark-tooth grin — the meme-worthy laugh that became his brand. Deep-sea blue, bigger and wilder than the Machine card.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "鲨鱼笑",
+        "梗卡",
+        "足球"
+      ],
+      "url": "cards/haaland-shark-grin/",
+      "thumb": "cards/haaland-shark-grin/thumb.jpg",
+      "date": "2026-10-01",
+      "preview": "cards/haaland-shark-grin/preview.webm"
+    },
+    {
       "id": "haaland-bun-haartie",
       "title": "丸子头",
       "subtitle": "90 分钟不散 · 同款头绳已售 3 万+",
