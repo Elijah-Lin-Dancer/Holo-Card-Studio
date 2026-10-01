@@ -72,9 +72,9 @@
 
 | 优化 | 缓存内容 | 节省时间 | 原理 | 状态 |
 |---|---|---|---|---|
-| ① Blender 缓存 | blender-4.5.0-linux-x64（190MB） | ~1-3 分钟/次 | `actions/cache` 按版本号缓存，首次下载后后续直接解压恢复 | ⬜ 待实施 |
-| ② pip 依赖缓存 | rembg/onnxruntime/opencv 等 | ~30-60 秒/次 | 按 requirements hash 缓存 site-packages | ⬜ 待实施 |
-| ③ u2net 模型缓存 | u2net.onnx（~50MB） | ~20 秒/次（首次） | 缓存 rembg 模型目录 | ⬜ 待实施 |
+| ① Blender 缓存 | blender-4.5-linux-tools（~840MB 含解压） | ~1-3 分钟/次 | `actions/cache` 按版本号缓存，首次下载后后续直接解压恢复 | ✅ 已实施（2026-10-01 测试通过，首次建立缓存 839MB） |
+| ② pip 依赖缓存 | rembg/onnxruntime/opencv 等 | ~30-60 秒/次 | setup-python cache: pip + requirements.txt | ✅ 已实施（2026-10-01 测试通过，缓存 236MB） |
+| ③ u2net 模型缓存 | u2net.onnx（~50MB） | ~20 秒/次（首次） | 缓存 rembg 模型目录 ~/.u2net/ | ✅ 已实施（2026-10-01 测试通过） |
 
 > 三项合计每次节省 ~2-4 分钟，产物完全一致（只是不重新下载）。
 
@@ -82,9 +82,9 @@
 
 | 优化 | 说明 | 节省时间 | 状态 |
 |---|---|---|---|
-| ④ 通用 render-card workflow | 写一个接受 `card_id` 参数的通用 workflow，不用每次写新的一次性 workflow + 手动复制素材 | ~1 分钟/次 + 减少出错 | ⬜ 待实施 |
-| ⑤ 配置模板化 | 做一个带完整字段（slug/stats/honors/back_story）的 config 模板，消除 render 后补字段步骤 | ~1 分钟/次 | ⬜ 待实施 |
-| ⑥ 合并 publish 为单次 | 目前分两次 publish（第一次 --skip-preview，第二次渲染 preview），合并成一次，省一次 Blender 启动+vendor 初始化 | ~30 秒/次 | ⬜ 待实施 |
+| ④ 通用 render-card workflow | 写一个接受 `card_id` 参数的通用 workflow，不用每次写新的一次性 workflow + 手动复制素材 | ~1 分钟/次 + 减少出错 | ✅ 已实施（.github/workflows/render-card.yml，2026-10-01 测试通过） |
+| ⑤ 配置模板化 | 做一个带完整字段（slug/stats/honors/back_story）的 config 模板，消除 render 后补字段步骤 | ~1 分钟/次 | ✅ 已实施（generator/projects/config.template.json，已回写 Kenji/电车卡配置） |
+| ⑥ 合并 publish 为单次 | 目前分两次 publish（第一次 --skip-preview，第二次渲染 preview），合并成一次，省一次 Blender 启动+vendor 初始化 | ~30 秒/次 | ✅ 已实施（render_preview 幂等：preview.webm 已存在则跳过，新卡自动渲染） |
 
 ### ⚠️ P2：preview 优化（只影响 hover 小窗预览，不影响 3D 卡本身）
 
@@ -141,7 +141,39 @@
 | 云端 publish 找不到 Blender | Blender 下到 project/tools/，publish 找 repo root/tools/ | workflow 里加链接步骤 |
 | 云端缺 ffmpeg | Ubuntu runner 默认无 ffmpeg | workflow 里加 apt-get install ffmpeg |
 | 云端缺 three vendor | vendor 路径不匹配 | workflow 里 cp 修复 |
-| 配置字段缺失 | render 后配置被覆盖成简化版 | 待 P1 配置模板化解决 |
+| 配置字段缺失 | render 后配置被覆盖成简化版 | ✅ P1 配置模板化已解决（config.template.json + 回写现有卡配置） |
+
+---
+
+## 七、实施记录
+
+### 2026-10-01：P0 + P1 全部实施完成
+
+**实施内容：**
+- P0-① Blender 缓存：actions/cache@v4，key=`blender-4.5-linux-tools-v1`，path=`tools/`
+- P0-② pip 依赖缓存：setup-python@v5 cache=pip，cache-dependency-path=generator/requirements.txt
+- P0-③ u2net 模型缓存：actions/cache@v4，key=`u2net-onnx-v1`，path=`~/.u2net/`
+- P1-④ 通用 workflow：`.github/workflows/render-card.yml`，接受 card_id/tags/date 参数
+- P1-⑤ 配置模板：`generator/projects/config.template.json`（20 个完整字段）
+- P1-⑥ 合并 publish：单次调用 publish_card.py，render_preview 幂等（已存在则跳过）
+- 配套：ensure_blender.py 统一 Blender 下载到仓库根 tools/；.gitignore 精细化（projects/ 仅入库 assets/+config）；requirements.txt 补全；Kenji + 电车卡配置回写
+
+**测试结果（2026-10-01，Kenji 卡试跑）：**
+| 指标 | 结果 |
+|---|---|
+| Workflow 总耗时 | 3 分 28 秒（含首次 Blender 下载） |
+| Run pipeline（含 Blender 下载） | 130 秒 |
+| Publish（单次，preview 幂等跳过） | 2 秒 |
+| gallery-check | 11 项全通过 |
+| Blender 缓存大小 | 839 MB（已保存，下次 cache hit） |
+| pip 缓存大小 | 236 MB（已保存，下次 cache hit） |
+| commit + push | 成功 |
+
+**预期第二次运行（缓存命中）耗时：**
+- 已有 preview 的卡：~1.5-2.5 分钟（省 Blender 下载 ~90 秒 + pip ~20 秒）
+- 新卡（需渲染 preview）：~4-6 分钟（省 Blender 下载 + pip，仍需 96 帧渲染 ~2-3 分钟）
+
+**对比优化前：** 11-23 分钟/张 → 优化后 4-6 分钟/张（新卡），节省约 60-70%。
 
 ---
 
