@@ -1,0 +1,40 @@
+{
+  "mode": "holographic",
+  "slug": "haaland-chongqing-metro",
+  "title": "吃重庆轻轨·哈兰德",
+  "subtitle": "重庆必吃榜第一名：穿楼轻轨",
+  "technique": "Selective-Color Holography",
+  "tagline": "Quando a cidade vira um prato de Haaland",
+  "edition": "011 / 010",
+  "collection": "Haaland Multiverse · Meme Series",
+  "description": "网友玩'重庆必吃榜'梗，哈兰德真拍视频张嘴'吞'穿楼轻轨。李子坝名场面，全网欢乐。",
+  "style": "重庆山城魔幻现实主义漫画混搭 Q 版卡通，吊脚楼与穿楼轨道背景，漫才式夸张",
+  "prompt": "Q版卡通哈兰德张大嘴作势'吞'一列穿楼而过的轻轨列车，列车从楼里穿出正对着他的嘴，山城李子坝视角，夸张搞笑",
+  "subject_desc": "Q 版卡通哈兰德：金发丸子头、宽脸高颧骨，张大嘴巴夸张地作势'吞'一整列轻轨列车，列车卡通化（无车窗文字），占画面约 60%，表情是'哇好大一口'的兴奋（",
+  "background_desc": "重庆山城背景：依山而建的吊脚楼、穿楼的轨道高架桥、远处江面与山影，纯建筑景观无任何文字、无人无车，画面下方 35% 区域干净留空用于排版，魔幻雾气与暖色灯光",
+  "parameters": {
+    "subjectScale": 1.3,
+    "subjectDepth": 0.45,
+    "backgroundDepth": -0.3,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.04,
+      -0.06
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Haaland Multiverse · Meme Series · haaland-chongqing-metro",
+  "honors": [
+    "重庆'必吃榜'名梗：穿楼轻轨被哈兰德真拍视频'生吞'",
+    "李子坝穿楼轨道视角的魔幻现实",
+    "吊脚楼与山城夜景的纯净背景"
+  ],
+  "back_story": "中国网友给重庆列了一份'必吃榜'，穿楼而过的轻轨赫然在列。哈兰德看到后真的拍了视频：张大嘴对着屏幕，把整列穿楼轻轨'吞'了下去——山城魔幻现实遇上世界级梗王，全网笑翻。这张卡定格了那个名场面：李子坝的楼还在，轻轨还在，只是多了一个想'吃'掉它的挪威人。",
+  "curation": {
+    "zh": "网友玩'重庆必吃榜'梗，哈兰德真拍视频张嘴吞穿楼轻轨。李子坝名场面，山城魔幻遇上梗王。",
+    "en": "\"Chongqing's must-eat list\" — fans joked the metro-through-building is a dish, and Haaland actually filmed himself eating it."
+  }
+}

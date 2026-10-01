@@ -1,0 +1,40 @@
+{
+  "mode": "holographic",
+  "slug": "haaland-shark-grin",
+  "title": "Shark Grin",
+  "subtitle": "The smile that terrified defenders",
+  "technique": "Selective-Color Holography",
+  "tagline": "O sorriso que aterroriza zagueiros",
+  "edition": "011 / 010",
+  "collection": "Haaland Multiverse · Meme Series",
+  "description": "Haaland's signature shark-tooth grin — the meme-worthy laugh that became his brand. Deep-sea blue, bigger and wilder than the Machine card.",
+  "style": "Deep-sea surreal cartoon, shark fusion, wild exaggerated grin",
+  "prompt": "Q版卡通哈兰德鲨鱼化：金色丸子头 + 宽脸高颧骨 + 一张巨型鲨鱼嘴，满口雪白利齿大笑，深海蓝色调，狂野夸张",
+  "subject_desc": "Q版卡通哈兰德鲨鱼头人形：金发丸子头、宽脸高颧骨，下半脸完全变成鲨鱼的血盆大口，满口锋利白牙、咧到耳根的大笑，占画面约 70%，深海蓝调，细节清晰（",
+  "background_desc": "深海背景：蓝色海水光束、气泡、远处小鲨鱼群剪影，纯海洋环境无任何文字，画面下方 30% 区域干净留空用于排版，深邃蓝与幽光",
+  "parameters": {
+    "subjectScale": 1.3,
+    "subjectDepth": 0.45,
+    "backgroundDepth": -0.3,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.04,
+      -0.06
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Haaland Multiverse · Meme Series · haaland-shark-grin",
+  "honors": [
+    "The signature shark-tooth grin, meme-level wild",
+    "Shark fusion design — scarier than the Machine",
+    "Deep-sea blue palette with light beams and bubbles"
+  ],
+  "back_story": "Every striker has a trademark; Haaland's is the grin. That wide, shark-toothed laugh — the one defenders see right before they get left behind — became his unofficial brand, memed across every timezone. This card goes full deep-sea: the Machine's cold stare is replaced by the Shark's open mouth, because sometimes the scariest thing on the pitch is a happy Norwegian.",
+  "curation": {
+    "zh": "哈兰德标志性鲨鱼牙大笑，全网表情包级。这次不冷峻，直接深海化。",
+    "en": "Haaland's signature shark-tooth grin, meme-wild and deep-sea blue. The Machine is cool; the Shark is happy."
+  }
+}

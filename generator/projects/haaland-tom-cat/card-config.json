@@ -1,0 +1,40 @@
+{
+  "mode": "holographic",
+  "slug": "haaland-tom-cat",
+  "title": "Tom Cat Haaland",
+  "subtitle": "Jerry, meet your new nightmare",
+  "technique": "Selective-Color Holography",
+  "tagline": "O gato que marcou 111 gols",
+  "edition": "011 / 010",
+  "collection": "Haaland Multiverse · Meme Series",
+  "description": "The internet noticed Haaland looks exactly like Tom from Tom & Jerry — blonde hair, blue-and-white kit, and that expression. 111 goals in 111 games, meow.",
+  "style": "Vintage American cartoon style, Tom & Jerry inspired, slapstick energy",
+  "prompt": "Q版卡通哈兰德变成Tom猫：蓝色卡通猫 + 金发丸子头 + 宽脸高颧骨，张牙舞爪追着一只小老鼠（Jerry）的定格，复古美式动画风",
+  "subject_desc": "Q版卡通Tom猫化哈兰德：蓝色圆脸卡通猫、金发丸子头、宽脸高颧骨、曼城蓝白配色衣领，表情凶狠可爱地扑向一只Q版小老鼠，占画面约 65%，复古手绘动画质感（",
+  "background_desc": "复古美式动画背景：米黄色卡通房间、沙发与台灯剪影、老式动画线条，纯动画环境无任何文字，画面下方 35% 区域干净留空用于排版，暖色调复古动画光",
+  "parameters": {
+    "subjectScale": 1.3,
+    "subjectDepth": 0.45,
+    "backgroundDepth": -0.3,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.04,
+      -0.06
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Haaland Multiverse · Meme Series · haaland-tom-cat",
+  "honors": [
+    "The internet's Tom & Jerry face-match — blonde, blue-and-white, unstoppable",
+    "Vintage hand-drawn cartoon energy",
+    "Slapstick chase freeze-frame with Jerry"
+  ],
+  "back_story": "The internet has a talent for face-matching, and the match of the century was Haaland and Tom from Tom & Jerry: the blonde hair, the blue-and-white palette (a Man City kit in cartoon form), and the single-minded pursuit of the thing in front of him. Jerry never stood a chance; neither did 111 consecutive defenders. Meow.",
+  "curation": {
+    "zh": "网友发现哈兰德神似《猫和老鼠》Tom：金发、蓝白配色、锲而不舍。Jerry 和 111 个后卫都跑不掉。",
+    "en": "The internet's face-match of the century: Haaland IS Tom from Tom & Jerry. Jerry never stood a chance — neither did 111 defenders."
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "mode": "holographic",
+  "slug": "haaland-goalie-water",
+  "title": "Goalie Water Heist",
+  "subtitle": "Caught in 4K: the great bottle theft",
+  "technique": "Selective-Color Holography",
+  "tagline": "Ninguém rouba água como ele",
+  "edition": "011 / 010",
+  "collection": "Haaland Multiverse · Meme Series",
+  "description": "Haaland's famous sideline heist — stealing the opponent goalkeeper's water bottle mid-match, caught on camera with a sheepish grin.",
+  "style": "Comic freeze-frame style, stadium bench POV, dramatic caught-in-the-act moment",
+  "prompt": "Q版卡通哈兰德蹲在替补席边，偷偷拿起一只水瓶仰头喝，旁边裁判/门将扭头看过来，被抓包的尴尬假笑定格瞬间",
+  "subject_desc": "Q版卡通哈兰德：金发丸子头、宽脸高颧骨、蓝白球衣，蹲在地上偷偷举起一只水瓶仰头偷喝，眼神心虚，嘴角挂着被抓包的尴尬假笑，占画面约 65%（",
+  "background_desc": "足球场边线背景：替补席、边线白漆、远处看台剪影，纯球场环境无任何文字、无其他人，画面下方 35% 区域干净留空用于排版，比赛日阳光与草坪绿调",
+  "parameters": {
+    "subjectScale": 1.3,
+    "subjectDepth": 0.45,
+    "backgroundDepth": -0.3,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.04,
+      -0.06
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Haaland Multiverse · Meme Series · haaland-goalie-water",
+  "honors": [
+    "The legendary sideline bottle heist — caught on camera",
+    "Sheepish grin freeze-frame, bench POV",
+    "Stadium sideline in clean daylight"
+  ],
+  "back_story": "It started as a meme, it became folklore: Haaland, mid-match, sneaking a sip from the opposing goalkeeper's water bottle on the sideline — and getting caught in 4K. The sheepish grin said it all: worth it. This card freezes the heist at the exact moment of shame-and-glory, because even robots get thirsty.",
+  "curation": {
+    "zh": "哈兰德场上偷喝对手门将水瓶被抓包的名场面，尴尬假笑定格。机器人也会渴。",
+    "en": "Haaland's famous sideline water-bottle heist, caught in 4K with a sheepish grin. Even robots get thirsty."
+  }
+}
