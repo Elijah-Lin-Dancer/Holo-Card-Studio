@@ -6,7 +6,7 @@ The public gallery is a pure static site: an HTML homepage, a JSON manifest, per
 
 ## 二、GitHub Pages 部署
 
-The repository hosts the gallery under a subdirectory, so Pages must deploy that subdirectory rather than the repository root. The deployment uses GitHub Actions: a workflow checks out the repository, configures Pages, uploads the gallery directory as an artifact, and runs the deploy-pages action. Pushing to the main branch triggers the workflow automatically, and the site becomes available at the public URL after roughly one to two minutes. The workflow itself is in the repository, so the deployment procedure is auditable and reproducible.
+The repository hosts the gallery under a subdirectory, so Pages must deploy that subdirectory rather than the repository root. The deployment uses GitHub Actions: a workflow checks out the repository, configures Pages, uploads the gallery directory as an artifact, and runs the Pages deploy action inside `deploy.yml`. Pushing to the main branch triggers the workflow automatically, and the site becomes available at the public URL after roughly one to two minutes. The workflow itself is in the repository, so the deployment procedure is auditable and reproducible.
 
 ## 三、幂等的发布脚本
 

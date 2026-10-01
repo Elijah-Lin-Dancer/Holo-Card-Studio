@@ -77,7 +77,7 @@
   2. 输出可交付文档（本地 markdown/PDF）
 - 产出：docs/WHITEPAPER.md ✅（英文正文 + 中文编号标题，28000 字符契约，8 章）已交付飞书 https://my.feishu.cn/docx/QhWedX9tzoCrFvx2f8cce5Pvnzc
 - 工具：doubao-book-writer 全流程（prepare → write → quality → deliver），质量分 8.34/10（8 章全过 7.5 门槛），飞书读回 96.9%
-- 验收：✅ 可直接发导师/招生办；无 AI 味校准留待 P4.5（可选 doubao-human-signal 精修）
+- 验收：✅ 可直接发导师/招生办（P4.5 精修已按用户决定取消）
 
 ## P5 · demo 视频（L2 展示）
 

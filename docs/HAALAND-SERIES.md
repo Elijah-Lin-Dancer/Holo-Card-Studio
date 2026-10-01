@@ -110,7 +110,7 @@
 2. **AI 出图**：`ai_generate.py` 主体+背景**并行生成**（P3 已生效，~1 分钟/卡，Seedream flash 0.24 元/卡）
 3. **云端渲染**：API 触发 `render-card.yml`（P0 缓存命中 + P2 64帧/320×444 preview，~6 分钟/卡）
 4. **并行批量**：5 张同时 dispatch（GitHub Actions 并发），总时长 ≈ 6-12 分钟
-5. **自动校验**：gallery-check（18 pytest + 展厅体检）→ 自动 commit + push
+5. **自动校验**：gallery-check（20 pytest + 展厅体检）→ 自动 commit + push
 6. **目检验收**：每张卡四层产物 + WebGL 效果，用户确认后定稿
 
 > 时间线：C01-C05 全部完成 ≈ 30-40 分钟素材+渲染（不含用户验收与可能的改稿）
