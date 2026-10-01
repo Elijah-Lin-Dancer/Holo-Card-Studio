@@ -1,6 +1,26 @@
 {
   "cards": [
     {
+      "id": "haaland-raccoon",
+      "title": "RACCOON HAALAND",
+      "subtitle": "Souvenirs from Qatar.",
+      "technique": "Airport-Paparazzi Holography",
+      "tagline": "Brought back a raccoon, a whisky, and zero regrets.",
+      "edition": "009 / 010",
+      "collection": "Haaland Multiverse · Meme Series",
+      "description": "世界杯后哈兰德带着一只浣熊标本和一瓶威士忌走下飞机——狗仔镜头里的硬汉反差萌，挪威梗王实锤。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "梗卡",
+        "足球",
+        "浣熊"
+      ],
+      "url": "cards/haaland-raccoon/",
+      "thumb": "cards/haaland-raccoon/thumb.jpg",
+      "date": "2026-10-01",
+      "preview": "cards/haaland-raccoon/preview.webm"
+    },
+    {
       "id": "haaland-eat-kid",
       "title": "SNACK TIME",
       "subtitle": "Lunch is served. Sorry, kids.",
