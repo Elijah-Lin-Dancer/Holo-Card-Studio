@@ -165,6 +165,17 @@ body::after{
   background:linear-gradient(120deg,var(--gold),var(--gold-dim));color:#0a0f1e;border-color:transparent;
   box-shadow:0 0 16px rgba(201,168,106,.3);font-weight:600;
 }
+/* ---- 标签栏折叠：默认只显示前 8 个，其余收进 .chip-extra ---- */
+.chip-extra{
+  display:flex;gap:10px;flex-wrap:wrap;width:100%;
+  max-height:0;opacity:0;overflow:hidden;
+  transition:max-height .4s cubic-bezier(.22,1,.36,1),opacity .3s ease;
+}
+.filters.expanded .chip-extra{
+  max-height:500px;opacity:1;margin-top:2px;
+}
+.chip-toggle::after{content:' \25BE';font-size:11px;opacity:.7}
+.filters.expanded .chip-toggle::after{content:' \25B4'}
 
 /* ---- 卡片墙（瀑布流网格）---- */
 .grid{

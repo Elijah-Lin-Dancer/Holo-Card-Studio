@@ -179,27 +179,61 @@ if (viewSwitch) {
 }
 
 /* 自动分类：chips 从 cards.json 的 style_tags 动态生成（去重），加新卡自动出新筛选项 */
+/* 默认折叠：显示"全部"+前 7 个标签，其余收进 .chip-extra，点"更多"展开 */
 const filtersBox = document.getElementById('filters');
+const FILTERS_COLLAPSE_AFTER = 7; // "全部"之外默认再显示 7 个
 function renderChips() {
   if (!filtersBox) return;
   const set = [];
   cards.forEach(c => (c.style_tags || []).forEach(t => { if (set.indexOf(t) === -1) set.push(t); }));
-  const frag = document.createDocumentFragment();
-  const mk = (f, label) => {
+  const t = (key, fb) => (typeof window.HoloLabI18n !== 'undefined' ? window.HoloLabI18n.t(key) : fb);
+  const mk = (f, label, parent) => {
     const b = document.createElement('button');
     b.className = 'chip' + (f === activeFilter ? ' active' : '');
     b.dataset.filter = f;
     b.textContent = label;
     b.setAttribute('aria-pressed', f === activeFilter ? 'true' : 'false');
-    frag.appendChild(b);
+    parent.appendChild(b);
+    return b;
   };
-  mk('all', (typeof window.HoloLabI18n !== 'undefined' ? window.HoloLabI18n.t('filters_all') : 'All'));
-  set.forEach(tag => mk(tag, (typeof window.HoloLabI18n !== 'undefined' ? window.HoloLabI18n.t(tag) : tag)));
   filtersBox.innerHTML = '';
-  filtersBox.appendChild(frag);
+  filtersBox.classList.remove('expanded');
+
+  mk('all', t('filters_all', 'All'), filtersBox);
+  const visibleTags = set.slice(0, FILTERS_COLLAPSE_AFTER);
+  const hiddenTags = set.slice(FILTERS_COLLAPSE_AFTER);
+  visibleTags.forEach(tag => mk(tag, t(tag, tag), filtersBox));
+
+  if (hiddenTags.length > 0) {
+    const toggle = document.createElement('button');
+    toggle.className = 'chip chip-toggle';
+    toggle.dataset.action = 'toggle-filters';
+    filtersBox.appendChild(toggle);
+
+    const extra = document.createElement('div');
+    extra.className = 'chip-extra';
+    hiddenTags.forEach(tag => mk(tag, t(tag, tag), extra));
+    filtersBox.appendChild(extra);
+
+    // 展开条件：用户偏好 或 当前选中的标签在隐藏区
+    const userExpanded = localStorage.getItem('hololab_filters_expanded') === '1';
+    const activeInHidden = hiddenTags.some(tag => tag === activeFilter);
+    const isExpanded = userExpanded || activeInHidden;
+    if (isExpanded) filtersBox.classList.add('expanded');
+    toggle.textContent = isExpanded ? t('filters_less', 'Less') : t('filters_more', 'More');
+  }
 }
 if (filtersBox) {
   filtersBox.addEventListener('click', e => {
+    const toggle = e.target.closest('.chip-toggle');
+    if (toggle) {
+      filtersBox.classList.toggle('expanded');
+      const expanded = filtersBox.classList.contains('expanded');
+      localStorage.setItem('hololab_filters_expanded', expanded ? '1' : '0');
+      const t = (key, fb) => (typeof window.HoloLabI18n !== 'undefined' ? window.HoloLabI18n.t(key) : fb);
+      toggle.textContent = expanded ? t('filters_less', 'Less') : t('filters_more', 'More');
+      return;
+    }
     const chip = e.target.closest('.chip');
     if (!chip) return;
     filtersBox.querySelectorAll('.chip').forEach(c => {

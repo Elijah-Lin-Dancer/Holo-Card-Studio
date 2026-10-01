@@ -27,6 +27,8 @@
 
     // 筛选
     filters_all:     { zh: '全部',      en: 'All' },
+    filters_more:    { zh: '更多',      en: 'More' },
+    filters_less:    { zh: '收起',      en: 'Less' },
     // 视图切换
     view_grid:       { zh: '网格',      en: 'Grid' },
     view_curated:    { zh: '策展',      en: 'Curated' },
