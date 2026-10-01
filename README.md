@@ -66,7 +66,7 @@ That's a **real turntable render** from the Blender pipeline (96 frames), not a 
 - 🎬 **Satyajit Ray** — Bengali maestro (Bengali card face)
 - 🐎 **Neeltje** — a Friesian mare in Kalundborg, Denmark (Danish card face, **🔒 password-locked**)
 - 🐋 **Blue Whale** — first community-submitted card via the auto-render pipeline
-- 🤖 **Haaland Multiverse** (5) — meme cards: goal machine · meditation · Majin Buu · disco anthem · Viking (EN / ZH / NO card faces)
+- 🤖 **Haaland Multiverse** (15) — meme cards: goal machine · meditation · Majin Buu · disco anthem · Viking · scallion-man · Chongqing monorail · goalie-water thief · shark grin · Tom cat (EN / ZH / NO card faces)
 - 📚 **Kenji Kishimoto** — the fan-favourite rebel from *Shatter Me* (English card face)
 - 🚋 **Elétrico 28** — a tribute to Lisbon's yellow tram (Portuguese card face)
 - 🦘🐱 **Pouch Invader** — community card from Lay: "The Laytenant" (English card face)
@@ -233,7 +233,7 @@ Holo-Card-Studio/
 - 🐎 **Neeltje** (hun Friese merrie) — Kalundborg, Denmark · Danish card face · 🔒 locked
 - 🐋 **Blue Whale** — first community-submitted card (auto-render pipeline)
 - 💙❤️ **Barcelona Legacy series** (6) — Messi ×4 eras · Cruyff · Guardiola · Spanish card faces
-- 🤖 **Haaland Multiverse** (5) — Majin Buu lookalike · goal machine 2.0 · meditation · disco anthem · Viking (EN / ZH / NO)
+- 🤖 **Haaland Multiverse** (15) — Majin Buu lookalike · goal machine 2.0 · meditation · disco anthem · Viking · scallion-man · Chongqing monorail · goalie-water thief · shark grin · Tom cat (EN / ZH / NO)
 - 📚 **Kenji Kishimoto** — rebel from *Shatter Me* (English card face)
 - 🚋 **Elétrico 28** (A Vitória de Lisboa) — Lisbon yellow tram · Portuguese card face
 - 🦘🐱 **Pouch Invader** (THE LAYTENANT) — community card from Lay · English card face

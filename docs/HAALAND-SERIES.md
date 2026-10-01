@@ -131,8 +131,13 @@
 | C08 | haaland-bun-haartie | 丸子头 | 中文 | ✅ 上线 |
 | C09 | haaland-raccoon | 浣熊下飞机 | EN | ✅ 上线 |
 | C10 | haaland-wanglaoji | 王老吉 | 中文 | ✅ 上线 |
+| C11 | haaland-scallion | 大葱塑（人=葱） | 中文 | ✅ 上线 |
+| C12 | haaland-chongqing-metro | 吃重庆轻轨 | 中文 | ✅ 上线 |
+| C13 | haaland-goalie-water | 偷喝门将水 | EN | ✅ 上线 |
+| C14 | haaland-shark-grin | 鲨鱼笑 | EN | ✅ 上线 |
+| C15 | haaland-tom-cat | Tom猫（扑鼠） | EN | ✅ 上线 |
 
-> 语言规则：海外梗走 EN、中国梗走中文，延续"卡面语言 ≠ UI 语言"传统。第二批完成后方案文档状态已同步。
+> 语言规则：海外梗走 EN、中国梗走中文，延续"卡面语言 ≠ UI 语言"传统。第三批 C11/C12 中文梗、C13-C15 海外梗；C11/C14/C15 主体用平台侧 image_gen 重做（球衣零文字铁律）。
 
 
 ---
