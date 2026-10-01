@@ -1,6 +1,25 @@
 {
   "cards": [
     {
+      "id": "haaland-meditation",
+      "title": "入定",
+      "subtitle": "进球后，先让我静一静",
+      "technique": "Zen-Contrast Holography",
+      "tagline": "别人呐喊，我冥想",
+      "edition": "001 / 001",
+      "collection": "Haaland Multiverse · Meme Series",
+      "description": "致敬哈兰德标志性的打坐庆祝——全世界在狂欢，他独自在草坪上入定。世界杯首球也是这么坐的。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "梗卡",
+        "足球",
+        "冥想"
+      ],
+      "url": "cards/haaland-meditation/",
+      "thumb": "cards/haaland-meditation/thumb.jpg",
+      "date": "2026-10-01"
+    },
+    {
       "id": "kenji-kishimoto",
       "title": "Kenji Kishimoto",
       "subtitle": "\"I do it every day.\"",
