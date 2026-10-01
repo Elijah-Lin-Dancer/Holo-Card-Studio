@@ -126,41 +126,45 @@ jobs:
             echo "⚠️ 没有变更需要提交"
           else
             git commit -m "feat(card): render $CARD_ID via generic workflow [skip ci]"
-            # 并发渲染时多个 run 会同时 push：fetch+rebase 自动解冲突，最多重试 3 次
-            for attempt in 1 2 3; do
+            # 并发渲染时多个 run 会同时 push：while 循环 + 自动解决，直到成功或 4 次尝试
+            PUSHED=0
+            attempt=0
+            while [ "$PUSHED" = "0" ] && [ "$attempt" -lt 4 ]; do
+              attempt=$((attempt+1))
               if git push; then
                 echo "✅ 推送成功（第 ${attempt} 次尝试）"
+                PUSHED=1
                 break
               fi
-              echo "⚠️ 推送冲突，fetch+rebase 后重试（第 ${attempt} 次）…"
+              echo "⚠️ 推送冲突（第 ${attempt} 次），fetch+rebase 后重试…"
               if git pull --rebase --autostash >/tmp/rebase_log.txt 2>&1; then
-                echo "✅ rebase 干净，继续"
-              else
-                echo "❌ rebase 有冲突——自动解决（重跑 publish 合并 manifest）…"
-                if grep -q "gallery/cards.json\|gallery/curation.json" /tmp/rebase_log.txt; then
-                  # cards.json / curation.json 是脚本确定性更新（去重+新卡置顶）：
-                  # abort → 重置到最新 main → 重跑 publish（把本卡与远端已上线的卡合并）→ 重新提交
-                  git rebase --abort
-                  git fetch origin main
-                  git reset --hard origin/main
-                  PROJECT="generator/projects/$CARD_ID"
-                  ARGS="--project $PROJECT"
-                  if [ -n "${{ inputs.tags }}" ]; then ARGS="$ARGS --tags ${{ inputs.tags }}"; fi
-                  if [ -n "${{ inputs.date }}" ]; then ARGS="$ARGS --date ${{ inputs.date }}"; fi
-                  python3 generator/scripts/publish_card.py $ARGS
-                  git add "gallery/cards/$CARD_ID/"
-                  git add gallery/cards.json
-                  git add gallery/curation.json
-                  git add "generator/projects/$CARD_ID/assets/"
-                  git add "generator/projects/$CARD_ID/card-config.json"
-                  git commit -m "feat(card): render $CARD_ID via generic workflow (rebase-merged) [skip ci]"
-                  continue
-                else
-                  echo "❌ rebase 冲突文件非 manifest，无法自动解决"; exit 1
-                fi
+                echo "✅ rebase 干净，继续重试 push"
+                continue
               fi
-              if [ "$attempt" = "3" ]; then echo "❌ 重试 3 次仍失败"; exit 1; fi
+              echo "❌ rebase 有冲突——自动解决（重跑 publish 合并 manifest）…"
+              if grep -q "gallery/cards.json\|gallery/curation.json" /tmp/rebase_log.txt; then
+                # cards.json / curation.json 是脚本确定性更新（去重+新卡置顶）：
+                # abort → 重置到最新 main → 重跑 publish（把本卡与远端已上线的卡合并）→ 重新提交
+                git rebase --abort
+                git fetch origin main
+                git reset --hard origin/main
+                PROJECT="generator/projects/$CARD_ID"
+                ARGS="--project $PROJECT"
+                if [ -n "${{ inputs.tags }}" ]; then ARGS="$ARGS --tags ${{ inputs.tags }}"; fi
+                if [ -n "${{ inputs.date }}" ]; then ARGS="$ARGS --date ${{ inputs.date }}"; fi
+                python3 generator/scripts/publish_card.py $ARGS
+                git add "gallery/cards/$CARD_ID/"
+                git add gallery/cards.json
+                git add gallery/curation.json
+                git add "generator/projects/$CARD_ID/assets/"
+                git add "generator/projects/$CARD_ID/card-config.json"
+                git commit -m "feat(card): render $CARD_ID via generic workflow (rebase-merged) [skip ci]"
+                # 不 continue：while 条件会再 push
+              else
+                echo "❌ rebase 冲突文件非 manifest，无法自动解决"; exit 1
+              fi
             done
+            if [ "$PUSHED" = "0" ]; then echo "❌ 重试 4 次仍未推送成功"; exit 1; fi
           fi
 
       # 渲染产物 push 后自动部署 GitHub Pages（GITHUB_TOKEN 的 push 不触发 on:push，须显式 dispatch）
