@@ -1,6 +1,25 @@
 {
   "cards": [
     {
+      "id": "haaland-machine-robot",
+      "title": "HAALAND 2.0",
+      "subtitle": "111 GOALS. NO FEELINGS.",
+      "technique": "Retro-Cartoon Holography",
+      "tagline": "Officially not human. (He doesn't disagree.)",
+      "edition": "001 / 001",
+      "collection": "Haaland Multiverse · Meme Series",
+      "description": "A tribute to the internet's favourite Terminator — the robot Haaland who scored 111 Premier League goals in 111 games, with a system UI that says FEELINGS: 0. Cute, not cool.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "梗卡",
+        "足球",
+        "机器人"
+      ],
+      "url": "cards/haaland-machine-robot/",
+      "thumb": "cards/haaland-machine-robot/thumb.jpg",
+      "date": "2026-10-01"
+    },
+    {
       "id": "haaland-meditation",
       "title": "入定",
       "subtitle": "进球后，先让我静一静",
