@@ -1,0 +1,50 @@
+{
+  "mode": "holographic",
+  "slug": "pouch-invader",
+  "title": "POUCH INVADER",
+  "subtitle": "THE LAYTENANT",
+  "technique": "Toon Comedy Holography",
+  "tagline": "Rent-free. No lease. Too late to ask questions.",
+  "edition": "001 / 001",
+  "collection": "Animal Comedy · Lay's Submission",
+  "description": "A friend's comedy submission dedicated to Lay — a cat that claims the kangaroo's pouch without a lease, and a kangaroo that never signed up for this. Cute, absurd, and rent-free.",
+  "style": "呆萌卡通漫画风，暖色调，轻松幽默的收藏卡插画，柔和黄昏光，细节清晰，搞笑表情特写",
+  "prompt": "一只灰蓝色袋鼠满脸震惊无奈，育儿袋口探出一只橘猫头，猫一脸无辜，前爪扒在袋口",
+  "subject_desc": "灰蓝色袋鼠半身像（必须特征清晰、绝对不能像驴：脸型圆润、口鼻短而宽、绝无长脸长鼻、无鬃毛）：细长尖耳高高直立，圆润头型，短宽口鼻，眉毛高挑、眼睛瞪大、嘴巴微张，一脸震惊又无奈的搞笑表情，微微低头看着自己育儿袋；育儿袋口探出一只橘色条纹猫头，猫歪着头、圆眼半眯、嘴角微微下撇，一脸「委屈又理直气壮」的丰富小表情——我住这里我没错，两只前爪扒在袋口边缘；袋鼠头部占画面约 60%，居中构图，四周均匀留白，卡通 3D 渲染质感，柔和棚拍光，画面中绝对不出现任何文字、字母、数字、标志、铭牌、水印，绝对不出现其他动物或人物，呆萌搞笑卡通风",
+  "background_desc": "澳大利亚内陆黄昏，暖橘色与淡紫色渐变天空，远处几棵桉树剪影，金色草原丘陵，画面下方 40% 区域保持简洁的草地留空用于排版，背景中绝对不出现任何人物、其他动物、文字、字母、标志、水印，纯环境空镜",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.4,
+    "backgroundDepth": -0.3,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.03,
+      -0.05
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Animal Comedy · Lay's Submission · 001/001",
+  "honors": [
+    "Dedicated to Lay — who knows a squatter when he sees one",
+    "Pouch claimed: rent-free, no lease",
+    "Kangaroo's face: 100% 'I never signed up for this'",
+    "The cat's face: 100% 'I live here now'",
+    "Subtitle double-pun: The Laytenant = lieutenant + tenant + Lay"
+  ],
+  "back_story": "For Lay — who knows a squatter when he sees one.\n\nNobody knows when the cat moved in. The kangaroo just woke up one morning, felt a little heavier... and heard a purr. Rent-free. No lease. And honestly? It's too late to ask questions.\n\nThe cat, for its part, has never acknowledged the arrangement. It doesn't pay rent, it doesn't sign contracts, and it absolutely does not move out. The kangaroo has tried everything: hopping, sighing, looking dramatically into the distance. The cat remains unbothered.\n\nSome say the pouch was always the cat's. The kangaroo was just the landlord who never got the memo.",
+  "curation": {
+    "zh": "朋友 Lay 投稿的搞笑卡——猫强占袋鼠育儿袋，副标题 The Laytenant 三合一双关（中尉/租客/Lay）。",
+    "en": "A comedy card from friend Lay — the cat claims the pouch; the kangaroo never signed up. Subtitle pun: The Laytenant = lieutenant + tenant + Lay."
+  },
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "pouch-invader"
+}

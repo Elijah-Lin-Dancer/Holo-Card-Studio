@@ -1,6 +1,26 @@
 {
   "cards": [
     {
+      "id": "pouch-invader",
+      "title": "POUCH INVADER",
+      "subtitle": "THE LAYTENANT",
+      "technique": "Toon Comedy Holography",
+      "tagline": "Rent-free. No lease. Too late to ask questions.",
+      "edition": "001 / 001",
+      "collection": "Animal Comedy · Lay's Submission",
+      "description": "A friend's comedy submission dedicated to Lay — a cat that claims the kangaroo's pouch without a lease, and a kangaroo that never signed up for this. Cute, absurd, and rent-free.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "搞笑",
+        "动物",
+        "猫咪",
+        "袋鼠"
+      ],
+      "url": "cards/pouch-invader/",
+      "thumb": "cards/pouch-invader/thumb.jpg",
+      "date": "2026-10-01"
+    },
+    {
       "id": "kenji-kishimoto",
       "title": "Kenji Kishimoto",
       "subtitle": "\"I do it every day.\"",
