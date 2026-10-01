@@ -257,6 +257,29 @@ def update_cards_json(meta: dict, thumb: Path, card_url: str, date: str) -> None
     print(f"  [manifest] cards.json 已更新（共 {len(data['cards'])} 张）")
 
 
+def update_curation_json(cfg: dict, card_id: str) -> None:
+    """自动维护 curation.json（策展手记）：config 显式 curation 字段优先，否则用 description 兜底。
+    这样每张卡发布时自动带手记，无需手动编辑 curation.json。"""
+    manifest = GALLERY / "curation.json"
+    data = {}
+    if manifest.exists():
+        try:
+            data = json.loads(manifest.read_text(encoding="utf-8"))
+        except Exception:
+            data = {}
+    note = cfg.get("curation")
+    if isinstance(note, dict) and note.get("zh") and note.get("en"):
+        data[card_id] = {"zh": note["zh"], "en": note["en"]}
+    else:
+        desc = (cfg.get("description") or "").strip()
+        if not desc:
+            return
+        # 兜底：未提供显式双语手记时，用 description 填充（单语言内容，后续可人工精修）
+        data[card_id] = {"zh": desc, "en": desc}
+    manifest.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(f"  [curation] curation.json 已更新（共 {len(data)} 条手记）")
+
+
 def main(argv=None) -> int:
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--project", required=True, help="卡片项目目录")
@@ -338,8 +361,9 @@ def main(argv=None) -> int:
     saved.setdefault("author", "HoloLab Studio")
     dest_cfg.write_text(json.dumps(saved, ensure_ascii=False, indent=2), encoding="utf-8")
     meta = load_card_meta(cfg, tags)
-    print(f"[7/7] 更新 cards.json…")
+    print(f"[7/7] 更新 cards.json + curation.json…")
     update_cards_json(meta, Path(f"cards/{card_id}/thumb.jpg"), f"cards/{card_id}/", date)
+    update_curation_json(cfg, card_id)
 
     print(f"\n发布完成：{dest.relative_to(ROOT)}")
     print(f"展厅入口：gallery/index.html（本地预览：python3 -m http.server 4174）")
