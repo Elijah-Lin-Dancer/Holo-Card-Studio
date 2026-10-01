@@ -251,6 +251,9 @@ def update_cards_json(meta: dict, thumb: Path, card_url: str, date: str) -> None
     # 保留已有的 preview 字段（预览动画独立于配置生成）
     if old.get("preview"):
         entry["preview"] = old["preview"]
+    # 新卡首次发布：render_preview 在 manifest 里匹配不到新卡，这里按文件存在补写
+    elif (GALLERY / "cards" / meta["id"] / "preview.webm").exists():
+        entry["preview"] = f"cards/{meta['id']}/preview.webm"
     # 新发布的排前面
     data["cards"] = [entry] + data["cards"]
     manifest.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
