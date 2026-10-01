@@ -1,6 +1,25 @@
 {
   "cards": [
     {
+      "id": "haaland-moskau-anthem",
+      "title": "哈哈哈兰德",
+      "subtitle": "哈兰哈兰，哈哈哈哈",
+      "technique": "Disco-Fever Holography",
+      "tagline": "一首让全网跟着哈哈的洗脑神曲",
+      "edition": "001 / 001",
+      "collection": "Haaland Multiverse · Meme Series",
+      "description": "球迷把 1979 年迪斯科金曲《Moskau》DJ 成'哈哈哈兰德'，洗脑全网。本人点赞'神曲'，还带队友在更衣室齐声高唱。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "梗卡",
+        "足球",
+        "disco"
+      ],
+      "url": "cards/haaland-moskau-anthem/",
+      "thumb": "cards/haaland-moskau-anthem/thumb.jpg",
+      "date": "2026-10-01"
+    },
+    {
       "id": "haaland-majin-buu",
       "title": "魔人布欧·哈兰德",
       "subtitle": "我不否认。",

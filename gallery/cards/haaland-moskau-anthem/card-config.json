@@ -1,0 +1,46 @@
+{
+  "mode": "holographic",
+  "slug": "haaland-moskau-anthem",
+  "title": "哈哈哈兰德",
+  "subtitle": "哈兰哈兰，哈哈哈哈",
+  "technique": "Disco-Fever Holography",
+  "tagline": "一首让全网跟着哈哈的洗脑神曲",
+  "edition": "001 / 001",
+  "collection": "Haaland Multiverse · Meme Series",
+  "description": "球迷把 1979 年迪斯科金曲《Moskau》DJ 成'哈哈哈兰德'，洗脑全网。本人点赞'神曲'，还带队友在更衣室齐声高唱。",
+  "style": "复古土味 Disco 风，霓虹灯管与发光音符，快乐搞笑，复古胶片质感，色彩饱和",
+  "prompt": "哈兰德迪斯科造型站在巨大唱片机上，复古墨镜喇叭裤，满屏音符",
+  "subject_desc": "哈兰德迪斯科造型：金发，戴复古墨镜，穿闪亮紫色金色喇叭裤套装，站在一张巨大的黑色唱片机上，双手打着节拍，咧嘴大笑，周围环绕发光音符与闪光球，复古土味迪斯科风，复古胶片质感，人物居中占画面 65%，四周均匀留白，画面中绝对不出现任何文字、字母、数字、标志、铭牌、水印，绝对不出现其他人物，快乐搞笑插画",
+  "background_desc": "复古迪斯科舞厅，霓虹灯管墙面（红紫蓝），天花板闪光灯球，地面镜面反光，画面下方 40% 区域保持简洁的舞池地面反光，背景中绝对不出现任何人物、文字、字母、标志、水印，纯舞厅环境空镜",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.4,
+    "backgroundDepth": -0.3,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.03,
+      -0.05
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Haaland Multiverse · Meme Series · 004/005",
+  "honors": [
+    "Fan remix of 1979 disco hit 'Moskau' — Haaland became '哈哈哈兰德'",
+    "The 3-second loop that lives rent-free in every brain",
+    "Haaland himself: '神曲！' and sang it with teammates in the dressing room",
+    "Went viral across CN platforms before spreading back to Europe",
+    "The unofficial anthem of the 2026 World Cup meme era"
+  ],
+  "back_story": "1979 年，德国乐队 Dschinghis Khan 唱红了《Moskau》。2026 年，中国球迷把它 DJ 化，把 Haaland 的名字做成谐音——'哈兰哈兰，哈哈哈兰德'。三秒一个循环，自带笑声，听完一遍脑子里就自动开始哈哈哈。魔音一路传回欧洲，哈兰德本人点赞称'神曲'，还在曼城更衣室带着队友齐声合唱。洗脑，但快乐——这就是这首'哈哈哈兰德之歌'。",
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "haaland-moskau-anthem"
+}
