@@ -174,7 +174,13 @@ body::after{
 .filters.expanded .chip-extra{
   max-height:500px;opacity:1;margin-top:2px;
 }
-.chip-toggle::after{content:' \25BE';font-size:11px;opacity:.7}
+.chip-toggle{
+  border-color:var(--gold-dim);color:var(--gold);font-weight:600;
+  background:rgba(201,168,106,.08);
+  box-shadow:0 0 10px rgba(201,168,106,.15);
+}
+.chip-toggle:hover{border-color:var(--gold);color:var(--gold);box-shadow:0 0 16px rgba(201,168,106,.25)}
+.chip-toggle::after{content:' \25BE';font-size:11px;opacity:.8}
 .filters.expanded .chip-toggle::after{content:' \25B4'}
 
 /* ---- 卡片墙（瀑布流网格）---- */
