@@ -1,0 +1,50 @@
+{
+  "mode": "holographic",
+  "slug": "haaland-eat-kid",
+  "title": "SNACK TIME",
+  "subtitle": "Lunch is served. Sorry, kids.",
+  "technique": "Hype-Beast Holography",
+  "tagline": "The striker who 'eats' defenders — now literally.",
+  "edition": "006 / 010",
+  "collection": "Haaland Multiverse · Meme Series",
+  "description": "世界杯广告片里'生吃小孩'的世纪名场面——Q 版化：张大嘴的哈兰德，把吓到弹开的迷你小球迷当成'午餐'。黑色幽默，但可爱化处理。",
+  "style": "Q 版搞笑漫画风，美式卡通粗描边，明快配色，呆萌夸张，绝对搞笑不吓人",
+  "prompt": "Q版卡通哈兰德双手捧着一个迷你Q版小孩作势要放进嘴里，小孩抱着足球一脸淡定，搞笑漫画风",
+  "subject_desc": "Q 版卡通哈兰德：金发丸子头、宽脸高颧骨、曼城浅蓝 9 号球衣，张大嘴、眼睛发亮，双手端端正正地捧着一个迷你 Q 版小孩（约为哈兰德身高的四分之一，穿挪威红色小球衣、紧紧抱着一个小足球、表情淡定无奈、像被举起来的小猫），正把小孩捧向嘴边作势要'吃掉'，哈兰德双手捧着小孩、两个角色有明确的肢体接触、同框互动，美式卡通粗黑描边，高饱和明快配色，整体构图占画面 65%，四周均匀留白，画面中绝对不出现任何文字、字母、数字、标志、铭牌、水印，Q 版搞笑漫画，可爱化处理绝不恐怖",
+  "background_desc": "足球场草地背景简化成明快卡通草地，天空湛蓝有云朵和几颗小星星闪烁（卡通装饰），欢快夸张的漫画放射线光效，画面下方 40% 区域保持干净的浅绿草地渐变，背景中绝对不出现任何人物、文字、字母、标志、水印，纯卡通空镜",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.4,
+    "backgroundDepth": -0.3,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.03,
+      -0.05
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Haaland Multiverse · Meme Series · 006/010",
+  "honors": [
+    "The 2026 World Cup ad where he literally 'ate' a child",
+    "British parents' threat: 'Haaland will eat you' became real",
+    "His actual on-pitch roar memeified into swallowing fans",
+    "Q-version keeps the black humor but stays adorable",
+    "English-language meme, English-language card"
+  ],
+  "back_story": "哈兰德进球后那声标志性怒吼，被全世界球迷玩成了'生吞小孩'——英国父母用'再闹哈兰德来吃你了'吓唬孩子，这个梗居然真的火成了社会级 meme。2026 世界杯期间，他本人还拍了一支广告：煞有介事地'生吃'了一个小孩，把全世界球迷笑翻。\\n\\n这张卡把黑色幽默彻底 Q 版化：没有恐怖，只有呆萌——张大嘴的哈兰德，加上一个抱着小足球、被气浪弹飞满脸惊愕的迷你球迷。'午餐时间到，抱歉啦小朋友们。'\\n\\n球场上的他是进球机器，球场下的他是全世界最配合玩梗的顶级球星——这张卡纪念的就是那个把'吃小孩'玩成国际梗的男人。",
+  "curation": {
+    "zh": "世界杯广告「生吃小孩」Q 版化，黑色幽默变呆萌。",
+    "en": "The 'eat-the-kid' World Cup ad, Q-versioned into adorable black humor."
+  },
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "haaland-eat-kid"
+}

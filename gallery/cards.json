@@ -1,6 +1,26 @@
 {
   "cards": [
     {
+      "id": "haaland-eat-kid",
+      "title": "SNACK TIME",
+      "subtitle": "Lunch is served. Sorry, kids.",
+      "technique": "Hype-Beast Holography",
+      "tagline": "The striker who 'eats' defenders — now literally.",
+      "edition": "006 / 010",
+      "collection": "Haaland Multiverse · Meme Series",
+      "description": "世界杯广告片里'生吃小孩'的世纪名场面——Q 版化：张大嘴的哈兰德，把吓到弹开的迷你小球迷当成'午餐'。黑色幽默，但可爱化处理。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "梗卡",
+        "足球",
+        "吃小孩"
+      ],
+      "url": "cards/haaland-eat-kid/",
+      "thumb": "cards/haaland-eat-kid/thumb.jpg",
+      "date": "2026-10-01",
+      "preview": "cards/haaland-eat-kid/preview.webm"
+    },
+    {
       "id": "haaland-magdeburg",
       "title": "马德堡半球实验",
       "subtitle": "人类高质量物理实验",
