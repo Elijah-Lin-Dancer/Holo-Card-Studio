@@ -7,7 +7,7 @@
   "tagline": "O elétrico mais famoso de Lisboa",
   "edition": "001 / 001",
   "collection": "Série Cidade da Luz · Lisboa",
-  "description": "Tributo holográfico ao Elétrico 28 de Lisboa — o amarelo que sobe as colinas de Alfama, com o Castelo de São Jorge ao fundo e o Tejo a brilhar. Dedicado à Dr.ª Vitória.",
+  "description": "Tributo holográfico ao Elétrico 28 de Lisboa — o amarelo que sobe as colinas de Alfama, com o Castelo de São Jorge ao fundo e o Tejo a brilhar. Dedicado a Inês.",
   "style": "全息收藏卡插画，鎏金质感与镭射光泽，主体黄色电车保持饱和全彩，背景里斯本老城做铜版画蚀刻质感（单色深褐与金调），戏剧化仰视光线，电影级氛围，细节丰富轮廓清晰，适合收藏卡牌",
   "prompt": "黄色复古28路电车，低角度仰视，正从里斯本阿尔法玛区的陡坡上驶来，倾斜构图充满冲劲与动感",
   "subject_desc": "黄色复古28路电车（carris 标志、28路编号清晰可见），低角度仰视视角，正从陡峭的鹅卵石坡道上驶来，车身微微倾斜充满动感与冲劲，鎏金质感，占据画面约65%，细节丰富轮廓清晰，四周留有呼吸空间",
@@ -25,21 +25,13 @@
       -0.06
     ]
   },
-  "assets": {
-    "subject": "./assets/subject.webp",
-    "background": "./assets/background.webp",
-    "text": "./assets/text.webp",
-    "lineart": "./assets/lineart.webp",
-    "model": "./assets/card.glb"
-  },
-  "_card_id": "eletrico-28-lisboa",
   "author": "HoloLab Studio",
   "stats": "Série Cidade da Luz · Lisboa · 001/001",
   "honors": [
     "Low-angle hero shot with climbing dynamics",
     "Alfama red-tile rooftops + Castelo de São Jorge + Rio Tejo golden reflection",
     "Copperplate etching background with gold Azulejo-style border",
-    "Dedicated to Dr.ª Vitória — \"A Vitória de Lisboa\" double meaning"
+    "Dedicated to Inês — a friend whose love for Lisbon inspired this card"
   ],
-  "back_story": "The Elétrico 28 is Lisbon's most famous tram — a yellow relic that climbs the steep hills of Alfama since 1914. This holographic card captures its dramatic ascent against the ancient skyline of Castelo de São Jorge and the golden glow of the Rio Tejo. The subtitle \"A Vitória de Lisboa\" carries a double meaning: the victory of Lisbon's enduring spirit, and a tribute to Dr.ª Vitória, whose inspiration made this card possible. Selective-color holography keeps the tram in vivid yellow while the city dissolves into copperplate etching."
+  "back_story": "The Elétrico 28 is Lisbon's most famous tram — a yellow relic that climbs the steep hills of Alfama since 1914. This holographic card captures its dramatic ascent against the ancient skyline of Castelo de São Jorge and the golden glow of the Rio Tejo. The subtitle \"A Vitória de Lisboa\" celebrates the victory of Lisbon's enduring spirit. This card is dedicated to Inês, whose love for the city made this project possible. Selective-color holography keeps the tram in vivid yellow while the city dissolves into copperplate etching."
 }
