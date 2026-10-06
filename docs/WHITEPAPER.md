@@ -1,9 +1,5 @@
-<!-- title: final -->
-<!-- generated-at: 2026-09-29T04:11:02.124Z -->
 
 ---
-
-<!-- source: manuscript/ch01-executive-summary.md -->
 
 # 第一章 执行摘要（Executive Summary）
 
@@ -15,10 +11,8 @@ Three capabilities of the project are worth highlighting to a technical reader. 
 
 What the reader will find in the rest of this white paper: Chapter 2 frames the motivation and the AIGC context. Chapter 3 lays out the layered architecture and the data flow of a full publish. Chapter 4 details the AI generation pipeline — prompt engineering, matting, contour extraction, and typography — with the reasoning behind each tool choice. Chapter 5 explains how the Blender and Three.js paths share one mathematical model for parallax and foil. Chapter 6 covers deployment, idempotent publishing, and key security practices. Chapter 7 is an honest account of the bugs found and the reliability mechanisms that keep the pipeline reproducible. Chapter 8 closes with known limitations, the roadmap, and a precise statement of the author's contribution.
 
-The project is publicly accessible at https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/ , with full source, documentation, and **26 published cards in 8 languages** (zh · en · de · es · bn · da · pt · no) demonstrating the pipeline end to end. The complete pipeline can be rerun offline at negligible cost, which makes it a suitable reference for evaluation, reproduction, and extension.
+The project is publicly accessible at https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/ , with full source, documentation, and **42 published cards in 8 languages** (zh · en · de · es · bn · da · pt · no) demonstrating the pipeline end to end. The complete pipeline can be rerun offline at negligible cost, which makes it a suitable reference for evaluation, reproduction, and extension.
 
-
-<!-- source: manuscript/ch02-background-motivation.md -->
 
 # 第二章 背景与动机（Background and Motivation）
 
@@ -46,8 +40,6 @@ Formally, the project addresses the following problem. Given a short natural-lan
 
 Chapters 3 through 6 show how each constraint is enforced in the architecture, the generation pipeline, the rendering path, and the deployment workflow.
 
-
-<!-- source: manuscript/ch03-system-architecture.md -->
 
 # 第三章 系统架构（System Architecture）
 
@@ -106,8 +98,6 @@ A complete publish flows through five stages. First, `card-config.json` is read 
 Auditability is a first-class property. Every card keeps its work directory with raw AI outputs and matting results, plus a `verification.json` recording the Blender version, device, materials, and parameters. The publishing script is idempotent, so re-publishing removes the old archive and deduplicates the manifest. API keys live in a `.env` file excluded by `.gitignore`, so the public repository contains no secrets. Any reviewer can walk from a card on the website back to the configuration, code, and artifacts that produced it. The three originally planned steps — asset compression, rotating previews, and gallery classification — are all **shipped** (see Chapter 8); the collection has since grown to 42 cards and a public submission pipeline.
 
 
-<!-- source: manuscript/ch04-ai-generation-pipeline.md -->
-
 # 第四章 AI 生成管线（AI Generation Pipeline）
 
 ## 一、四层结构与工具分工
@@ -145,8 +135,6 @@ The typography layer reads the card configuration — title, subtitle, collectio
 Four principles summarize the design. First, distrust the single model: image generation, matting, edge extraction, and text rendering each use the most reliable tool for the subtask, and the pipeline degrades gracefully when one tool fails. Second, reliability first: every layer has validation for real alpha, line-art extremes, and dimensions, with documented fallbacks, so the pipeline is reproducible rather than lucky. Third, explainability: every layer's product, parameters, and prompt land on disk, making the pipeline easy to debug and audit. Fourth, cost awareness: generation uses the flash tier of the image model where possible, keeping per-card cost near zero. The one-sentence-to-card mode — a language model drafting the configuration from a sentence — is now shipped as the **Create studio** and the issue-driven **public submission pipeline**, closing the loop from natural language to a published card.
 
 
-<!-- source: manuscript/ch05-rendering-shaders.md -->
-
 # 第五章 3D 渲染与实时着色（3D Rendering & Realtime Shaders）
 
 ## 一、两条渲染路径的分工
@@ -183,8 +171,6 @@ The build script constructs the card scene; the export script then opens card.bl
 Performance is bounded by design. The four textures are 1920×2880 PNGs at original resolution, which is the current main size cost and a known roadmap item. The WebGL path uses an orthographic camera and a single fullscreen compositing pass; the bloom pass runs on a downsampled buffer to keep fragment cost low. Users with the prefers-reduced-motion preference are served a version that disables auto-rotation, which respects accessibility requirements. The next steps（下一步建议）are texture compression and a hover preview per card, both scheduled in Chapter 8.
 
 
-<!-- source: manuscript/ch06-deployment-operations.md -->
-
 # 第六章 部署与运维（Deployment & Operations）
 
 ## 一、纯静态展厅
@@ -212,8 +198,6 @@ Gallery size is managed by the shared vendor strategy and by archive hygiene. Ea
 The project logs operational lessons as documentation. Common failure modes and their resolutions are recorded: a 404 on the site points to a wrong Pages branch or directory selection; a black card page points to missing WebGL support in the browser; slow image loading is handled by the per-card compression step that ships with every publish; and a .env appearing in git status is treated as a stop condition with instructions not to commit. Keeping these notes in the repository turns operational knowledge into part of the codebase, so the next deployer or reviewer does not have to rediscover the same traps.
 
 
-<!-- source: manuscript/ch07-engineering-practice.md -->
-
 # 第七章 工程实践与踩坑（Engineering Practice & Lessons）
 
 ## 一、一个真实的发布级 Bug：缩略图自删
@@ -240,8 +224,6 @@ The image generation endpoint returned a 404 for the flash model name until the 
 
 Across the project, reliability comes from four mechanisms rather than from luck. Validation gates check real alpha, dimensions, and line-art extremes before a card can proceed. Fallbacks keep the pipeline alive when a single tool fails, while still preferring the high-quality path. Idempotent scripts and manifest deduplication make repeated publishing converge. And a written audit trail — verification.json per card, work directories retained, and documented bug fixes — makes every step inspectable. The combination is what allows the pipeline to be described as reproducible rather than merely working once.
 
-
-<!-- source: manuscript/ch08-limitations-roadmap-contribution.md -->
 
 # 第八章 局限、路线图与贡献（Limitations, Roadmap & Contribution）
 
