@@ -1,0 +1,49 @@
+{
+  "mode": "holographic",
+  "slug": "vc-tommy-vercetti",
+  "title": "Neon Godfather",
+  "subtitle": "He came back to own the city",
+  "technique": "Neon-Noir",
+  "tagline": "I'm gonna own this city.",
+  "edition": "037 / 001",
+  "collection": "Vice City Nights · Characters",
+  "description": "Neon Godfather — He came back to own the city. Part of the Vice City Nights character roster, 1986 neon-noir tribute.",
+  "style": "1980s Miami noir cartoon, neon-pink dusk, mobster chic",
+  "prompt": "80年代迈阿密风格卡通汤米·维赛迪：深色大背头、夏威夷花衬衫外披白色西装外套、脖子挂金链、手持一根棒球棍扛在肩头，自信霸气坏笑，全身像占画面约 65%，四周留白，细节清晰，无任何文字",
+  "subject_desc": "80年代迈阿密风格卡通汤米·维赛迪：深色大背头、夏威夷花衬衫外披白色西装外套、脖子挂金链、手持一根棒球棍扛在肩头，自信霸气坏笑，全身像占画面约 65%，四周留白，细节清晰，无任何文字",
+  "background_desc": "1986年罪恶都市黄昏：粉色霓虹天空、棕榈树剪影、Art Deco 建筑天际线、霓虹招牌灯光，画面下方 40% 区域留空用于排版，无任何文字",
+  "text_desc": "Title「Neon Godfather」Subtitle「Vice City · 1986」, holographic foil typography, English",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.45,
+    "backgroundDepth": -0.35,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.04,
+      -0.06
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Vice City Nights · Characters · vc-tommy-vercetti",
+  "honors": [
+    "The man who walked out of prison and took the city",
+    "Pink-neon 1986 Miami-noir palette with palm silhouettes",
+    "Bat over the shoulder — the cover-worthy mobster stance"
+  ],
+  "back_story": "Tommy Vercetti did fifteen years for a mob hit, then got sent to Vice City to broker a drug deal that went sideways in a hail of gunfire. Double-crossed, stripped of cash and cargo, he rebuilt himself from a disposable soldier into the man who owns the city. Under the pink-neon dusk of 1986, a hoodlum's revenge became an empire.",
+  "curation": {
+    "zh": "汤米为黑手党顶罪入狱十五年，被派到罪恶城做交易却遭埋伏。他从一枚弃子杀回巅峰，最终掌控全城。80 年代粉色霓虹下，暴徒的复仇长成帝国。",
+    "en": "Tommy did 15 years, got double-crossed in Vice City, and came back to own the whole town. The 1986 neon-noir origin story."
+  },
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "vc-tommy-vercetti"
+}

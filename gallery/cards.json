@@ -1,6 +1,26 @@
 {
   "cards": [
     {
+      "id": "vc-tommy-vercetti",
+      "title": "Neon Godfather",
+      "subtitle": "He came back to own the city",
+      "technique": "Neon-Noir",
+      "tagline": "I'm gonna own this city.",
+      "edition": "037 / 001",
+      "collection": "Vice City Nights · Characters",
+      "description": "Neon Godfather — He came back to own the city. Part of the Vice City Nights character roster, 1986 neon-noir tribute.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "vice-city",
+        "80s",
+        "人物志"
+      ],
+      "url": "cards/vc-tommy-vercetti/",
+      "thumb": "cards/vc-tommy-vercetti/thumb.jpg",
+      "date": "2026-10-06",
+      "preview": "cards/vc-tommy-vercetti/preview.webm"
+    },
+    {
       "id": "vc-general-cortez",
       "title": "General Cortez",
       "subtitle": "El General of the old guard",
