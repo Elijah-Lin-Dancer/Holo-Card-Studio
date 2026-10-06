@@ -100,6 +100,14 @@
     '迈阿密': { zh: '迈阿密', en: 'Miami' },
     '教练':   { zh: '教练', en: 'Manager' },
     '战术':   { zh: '战术', en: 'Tactics' },
+    '80s':    { zh: '80年代', en: '80s' },
+    'vice-city': { zh: '罪恶都市', en: 'Vice City' },
+    '人物志': { zh: '人物志', en: 'Characters' },
+    'Tom猫':  { zh: 'Tom猫', en: 'Tom Cat' },
+    '偷喝门将水': { zh: '偷喝门将水', en: 'Goalie Water Sip' },
+    '吃重庆轻轨': { zh: '吃重庆轻轨', en: 'Monorail Munch' },
+    '大葱塑': { zh: '大葱塑', en: 'Scallion Sculpt' },
+    '鲨鱼笑': { zh: '鲨鱼笑', en: 'Shark Grin' },
 
     // 隐藏解锁（locked card）
     locked_badge:    { zh: '已锁定 · 密码解锁', en: 'Locked · Password' },
