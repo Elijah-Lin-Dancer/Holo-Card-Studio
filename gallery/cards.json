@@ -1,6 +1,26 @@
 {
   "cards": [
     {
+      "id": "vc-ricardo-diaz",
+      "title": "Ricardo Diaz",
+      "subtitle": "El Jefe of Vice City",
+      "technique": "Cigar-Empire",
+      "tagline": "Soy el jefe.",
+      "edition": "040 / 004",
+      "collection": "Vice City Nights · Characters",
+      "description": "Ricardo Diaz — El Jefe of Vice City. Part of the Vice City Nights character roster, 1986 neon-noir tribute.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "vice-city",
+        "80s",
+        "人物志"
+      ],
+      "url": "cards/vc-ricardo-diaz/",
+      "thumb": "cards/vc-ricardo-diaz/thumb.jpg",
+      "date": "2026-10-06",
+      "preview": "cards/vc-ricardo-diaz/preview.webm"
+    },
+    {
       "id": "vc-lance-vance",
       "title": "Lance Vance Dance!",
       "subtitle": "The dance that became a prophecy",
