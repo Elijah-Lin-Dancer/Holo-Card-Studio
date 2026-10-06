@@ -1,6 +1,26 @@
 {
   "cards": [
     {
+      "id": "vc-auntie-poulet",
+      "title": "Auntie Poulet",
+      "subtitle": "The voodoo of Little Haiti",
+      "technique": "Voodoo-Blessing",
+      "tagline": "Da spirits be workin'.",
+      "edition": "042 / 006",
+      "collection": "Vice City Nights · Characters",
+      "description": "Auntie Poulet — The voodoo of Little Haiti. Part of the Vice City Nights character roster, 1986 neon-noir tribute.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "vice-city",
+        "80s",
+        "人物志"
+      ],
+      "url": "cards/vc-auntie-poulet/",
+      "thumb": "cards/vc-auntie-poulet/thumb.jpg",
+      "date": "2026-10-06",
+      "preview": "cards/vc-auntie-poulet/preview.webm"
+    },
+    {
       "id": "vc-ricardo-diaz",
       "title": "Ricardo Diaz",
       "subtitle": "El Jefe of Vice City",
