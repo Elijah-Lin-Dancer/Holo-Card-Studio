@@ -1,6 +1,26 @@
 {
   "cards": [
     {
+      "id": "vc-ken-rosenberg",
+      "title": "Ken Rosenberg",
+      "subtitle": "Why is this happening to me?!",
+      "technique": "Anxiety-Noir",
+      "tagline": "Why is this happening to me?!",
+      "edition": "039 / 003",
+      "collection": "Vice City Nights · Characters",
+      "description": "Ken Rosenberg — Why is this happening to me?!. Part of the Vice City Nights character roster, 1986 neon-noir tribute.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "vice-city",
+        "80s",
+        "人物志"
+      ],
+      "url": "cards/vc-ken-rosenberg/",
+      "thumb": "cards/vc-ken-rosenberg/thumb.jpg",
+      "date": "2026-10-06",
+      "preview": "cards/vc-ken-rosenberg/preview.webm"
+    },
+    {
       "id": "vc-auntie-poulet",
       "title": "Auntie Poulet",
       "subtitle": "The voodoo of Little Haiti",

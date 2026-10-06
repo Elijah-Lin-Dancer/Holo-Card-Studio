@@ -1,0 +1,49 @@
+{
+  "mode": "holographic",
+  "slug": "vc-ken-rosenberg",
+  "title": "Ken Rosenberg",
+  "subtitle": "Why is this happening to me?!",
+  "technique": "Anxiety-Noir",
+  "tagline": "Why is this happening to me?!",
+  "edition": "039 / 003",
+  "collection": "Vice City Nights · Characters",
+  "description": "Ken Rosenberg — Why is this happening to me?!. Part of the Vice City Nights character roster, 1986 neon-noir tribute.",
+  "style": "1980s comedic cartoon, sweaty nervous lawyer, pastel Miami office",
+  "prompt": "80年代卡通肯·罗森博格：稀疏金色头发、秃顶、紧张神经质的表情、满头大汗、花衬衫加西装外套，双手抱头一副崩溃样子，全身像占画面约 65%，四周留白，细节清晰，无任何文字",
+  "subject_desc": "80年代卡通肯·罗森博格：稀疏金色头发、秃顶、紧张神经质的表情、满头大汗、花衬衫加西装外套，双手抱头一副崩溃样子，全身像占画面约 65%，四周留白，细节清晰，无任何文字",
+  "background_desc": "罪恶都市复古办公楼：暖色办公室、百叶窗、透过窗户的霓虹光、桌上的文件与电话，画面下方 40% 区域留空用于排版，无任何文字",
+  "text_desc": "Title「Ken Rosenberg」Subtitle「\"Why is this happening to me?!\"」, holographic foil typography, English",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.45,
+    "backgroundDepth": -0.35,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.04,
+      -0.06
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Vice City Nights · Characters · vc-ken-rosenberg",
+  "honors": [
+    "Vice City's most stressed-out lawyer",
+    "Sweat, panic and a catchphrase for the ages",
+    "The coward who somehow survived to the top"
+  ],
+  "back_story": "Ken Rosenberg is a lawyer who wants nothing more than to be left alone — which is hilarious, because his clients are the most dangerous men in Vice City. He sweats, he trembles, he wails 'Why is this happening to me?!' — and yet, through pure survival instinct, he ends up at the right hand of the city's new king.",
+  "curation": {
+    "zh": "肯是汤米的总律师：永远紧张、永远大汗淋漓、永远想跑路。全游戏喜剧担当——可就是这个怂包，一路活到了罪恶城权力之巅。",
+    "en": "Vice City's sweatiest lawyer. Panic as a lifestyle, and a catchphrase everyone remembers."
+  },
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "vc-ken-rosenberg"
+}
