@@ -56,10 +56,11 @@ That's a **real turntable render** from the Blender pipeline (96 frames), not a 
 
 ![HoloLab card wall](docs/screenshots/card-wall.jpg)
 
-**26 cards · 8 languages · every card a permanent URL**, openable and shareable by anyone:
+**42 cards · 8 languages · every card a permanent URL**, openable and shareable by anyone:
 
 - 🇦🇷 **Messi** series (5) — the original *Messi, King* (梅西称王) + Barcelona · PSG · Inter Miami · World Cup 2022
 - 💙❤️ **FC Barcelona Legacy series** (6) — Cruyff *El Arquitecto* · Guardiola *Tiki-Taka* · Messi ×4 eras (Spanish card faces)
+- 🌴 **Vice City Nights · Characters** (6) — Tommy Vercetti *Neon Godfather* · Lance Vance Dance! · Ken Rosenberg · Ricardo Diaz · General Cortez · Auntie Poulet (Vol.I of a planned GTA Vice City series)
 - 🎤 **King of Pop** — Michael Jackson (English)
 - 🖤💛 **Marco Reus** (3) — Dortmund *Gelbwand* · DFB *Unbeugsamer* · LA Galaxy *Neue Horizonte* (German card faces)
 - 🎨 **Frida Kahlo** — Mexican painter (Spanish accents)
