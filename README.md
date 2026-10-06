@@ -268,6 +268,8 @@ Holo-Card-Studio/
 - [Architecture](docs/architecture.md) — system design & trade-offs
 - [AI pipeline](docs/ai-pipeline.md) — layered generation in detail
 - [Graphics](docs/graphics.md) — Blender nodes & GLSL shader notes
+- [Design decisions](docs/DESIGN-DECISIONS.md) — why submission needs a GitHub account & the cost model
+- [Graphics](docs/graphics.md) — Blender nodes & GLSL shader notes
 - [Deployment](docs/DEPLOYMENT.md) — Pages & Actions
 - [Development plan](docs/DEVELOPMENT-PLAN.md)
 - [Toolkit roadmap](docs/TOOLKIT-ROADMAP.md)

@@ -236,6 +236,7 @@ Holo-Card-Studio/
 
 - [架构设计](docs/architecture.md) — 系统设计与权衡
 - [AI 管线](docs/ai-pipeline.md) — 分层生成详解
+- [设计决策](docs/DESIGN-DECISIONS.md) — 为什么投稿需要 GitHub 账号 & 成本模型
 - [图形学](docs/graphics.md) — Blender 节点与 GLSL 着色器笔记
 - [部署](docs/DEPLOYMENT.md) — Pages 与 Actions
 - [开发计划](docs/DEVELOPMENT-PLAN.md)
