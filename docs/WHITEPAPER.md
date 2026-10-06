@@ -103,7 +103,7 @@ A complete publish flows through five stages. First, `card-config.json` is read 
 
 ## 五、可审计性
 
-Auditability is a first-class property. Every card keeps its work directory with raw AI outputs and matting results, plus a `verification.json` recording the Blender version, device, materials, and parameters. The publishing script is idempotent, so re-publishing removes the old archive and deduplicates the manifest. API keys live in a `.env` file excluded by `.gitignore`, so the public repository contains no secrets. Any reviewer can walk from a card on the website back to the configuration, code, and artifacts that produced it. The three originally planned steps — asset compression, rotating previews, and gallery classification — are all **shipped** (see Chapter 8); the collection has since grown to 26 cards and a public submission pipeline.
+Auditability is a first-class property. Every card keeps its work directory with raw AI outputs and matting results, plus a `verification.json` recording the Blender version, device, materials, and parameters. The publishing script is idempotent, so re-publishing removes the old archive and deduplicates the manifest. API keys live in a `.env` file excluded by `.gitignore`, so the public repository contains no secrets. Any reviewer can walk from a card on the website back to the configuration, code, and artifacts that produced it. The three originally planned steps — asset compression, rotating previews, and gallery classification — are all **shipped** (see Chapter 8); the collection has since grown to 42 cards and a public submission pipeline.
 
 
 <!-- source: manuscript/ch04-ai-generation-pipeline.md -->
@@ -251,7 +251,7 @@ The project documents its limitations explicitly rather than presenting an ideal
 
 ## 二、路线图
 
-The original roadmap — asset compression, rotating previews, gallery classification, and one-sentence-to-card mode — has all shipped: publish-time compression keeps archived cards small; every card gets a Blender-rendered `preview.webm`; the gallery gained bilingual filter chips and a curated timeline; and the Create studio plus the issue-driven submission pipeline turn a single sentence into a published card. What remains open is the natural growth of the project: keep shipping cards (the collection is now 26 cards in 8 languages and counting), harden the concurrent render workflow (push-retry and auto-deploy are already in place), and keep the public submission pipeline as the way anyone's idea becomes a permanent card. The lenticular dual-image mode from the upstream project remains a possible future extension.
+The original roadmap — asset compression, rotating previews, gallery classification, and one-sentence-to-card mode — has all shipped: publish-time compression keeps archived cards small; every card gets a Blender-rendered `preview.webm`; the gallery gained bilingual filter chips and a curated timeline; and the Create studio plus the issue-driven submission pipeline turn a single sentence into a published card. What remains open is the natural growth of the project: keep shipping cards (the collection is now 42 cards across multiple languages and counting), harden the concurrent render workflow (push-retry and auto-deploy are already in place), and keep the public submission pipeline as the way anyone's idea becomes a permanent card. The lenticular dual-image mode from the upstream project remains a possible future extension.
 
 ## 三、作者的贡献界定
 
