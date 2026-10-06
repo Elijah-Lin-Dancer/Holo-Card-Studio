@@ -1,0 +1,49 @@
+{
+  "mode": "holographic",
+  "slug": "vc-lance-vance",
+  "title": "Lance Vance Dance!",
+  "subtitle": "The dance that became a prophecy",
+  "technique": "Disco-Prophecy",
+  "tagline": "Lance Vance Dance!",
+  "edition": "038 / 002",
+  "collection": "Vice City Nights · Characters",
+  "description": "Lance Vance Dance! — The dance that became a prophecy. Part of the Vice City Nights character roster, 1986 neon-noir tribute.",
+  "style": "Retro neon nightclub cartoon, disco ball, purple-suit swagger",
+  "prompt": "80年代卡通兰斯·万斯：紫色西装白衬衫、深色墨镜、金链子、自信笑容，在霓虹舞池中跳标志性的滑稽舞步（一手叉腰一手高举、扭胯），全身像占画面约 65%，四周留白，细节清晰，无任何文字",
+  "subject_desc": "80年代卡通兰斯·万斯：紫色西装白衬衫、深色墨镜、金链子、自信笑容，在霓虹舞池中跳标志性的滑稽舞步（一手叉腰一手高举、扭胯），全身像占画面约 65%，四周留白，细节清晰，无任何文字",
+  "background_desc": "80年代夜店舞池：迪斯科球折射五彩光斑、粉色紫色霓虹灯管、模糊舞动人影剪影，画面下方 35% 区域留空用于排版，无任何文字",
+  "text_desc": "Title「Lance Vance Dance!」Subtitle「The prophecy」, holographic foil typography, English",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.45,
+    "backgroundDepth": -0.35,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.04,
+      -0.06
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Vice City Nights · Characters · vc-lance-vance",
+  "honors": [
+    "The most legendary dance in Vice City",
+    "Purple suit + mirror shades + gold chain swagger",
+    "A brother's dance — and the betrayal it foreshadowed"
+  ],
+  "back_story": "Lance Vance was Tommy's first real ally in Vice City — and the author of the game's most unforgettable moment: that stiff, gloriously confident dance under the disco ball. Nobody laughed harder than Lance, and nobody suspected he'd one day aim a gun at his own partner. The dance was a prophecy; the finale kept the promise.",
+  "curation": {
+    "zh": "兰斯是汤米第一个盟友，也是全游戏最魔性的名场面——霓虹舞池里那段笨拙又自信的舞步成了无数玩家的童年记忆。只是没人想到，跳舞的兄弟最后会把枪口对准你。",
+    "en": "The most memed dance in gaming, from the brother who'd later betray you. Disco ball, purple suit, and a prophecy."
+  },
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "vc-lance-vance"
+}

@@ -1,6 +1,26 @@
 {
   "cards": [
     {
+      "id": "vc-lance-vance",
+      "title": "Lance Vance Dance!",
+      "subtitle": "The dance that became a prophecy",
+      "technique": "Disco-Prophecy",
+      "tagline": "Lance Vance Dance!",
+      "edition": "038 / 002",
+      "collection": "Vice City Nights · Characters",
+      "description": "Lance Vance Dance! — The dance that became a prophecy. Part of the Vice City Nights character roster, 1986 neon-noir tribute.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "vice-city",
+        "80s",
+        "人物志"
+      ],
+      "url": "cards/vc-lance-vance/",
+      "thumb": "cards/vc-lance-vance/thumb.jpg",
+      "date": "2026-10-06",
+      "preview": "cards/vc-lance-vance/preview.webm"
+    },
+    {
       "id": "haaland-chongqing-metro",
       "title": "吃重庆轻轨·哈兰德",
       "subtitle": "重庆必吃榜第一名：穿楼轻轨",
