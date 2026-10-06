@@ -1,0 +1,41 @@
+{
+ "mode": "holographic",
+ "slug": "vc-auntie-poulet",
+ "title": "Auntie Poulet",
+ "subtitle": "The voodoo of Little Haiti",
+ "technique": "Voodoo-Blessing",
+ "tagline": "Da spirits be workin'.",
+ "edition": "042 / 006",
+ "collection": "Vice City Nights · Characters",
+ "description": "Auntie Poulet — The voodoo of Little Haiti. Part of the Vice City Nights character roster, 1986 neon-noir tribute.",
+ "style": "Voodoo mystic cartoon, purple smoke, candles, mystery",
+ "prompt": "80年代卡通巫毒老太波莱特：黑人老妇人、彩色头巾、大圆框眼镜、串珠项链、神秘慈祥的笑容，手持一根冒着烟的香烛，全身像占画面约 65%，四周留白，细节清晰，无任何文字",
+ "subject_desc": "80年代卡通巫毒老太波莱特：黑人老妇人、彩色头巾、大圆框眼镜、串珠项链、神秘慈祥的笑容，手持一根冒着烟的香烛，全身像占画面约 65%，四周留白，细节清晰，无任何文字",
+ "background_desc": "小海地巫毒商店：紫色神秘烟雾、点燃的蜡烛、塔罗牌、图腾玩偶、昏暗霓虹光，画面下方 35% 区域留空用于排版，无任何文字",
+ "text_desc": "Title「Auntie Poulet」Subtitle「Voodoo Queen」, holographic foil typography, English",
+ "parameters": {
+  "subjectScale": 1.25,
+  "subjectDepth": 0.45,
+  "backgroundDepth": -0.35,
+  "foil": 1.0
+ },
+ "safeArea": {
+  "scale": 1.1,
+  "offset": [
+   -0.04,
+   -0.06
+  ]
+ },
+ "author": "HoloLab Studio",
+ "stats": "Vice City Nights · Characters · vc-auntie-poulet",
+ "honors": [
+  "The voodoo matriarch of Little Haiti",
+  "Candles, charms and blessings that actually work",
+  "Vice City's strangest ally — and its best kept secret"
+ ],
+ "back_story": "Auntie Poulet reads the spirits from her candle-lit shop in Little Haiti, and her 'blessings' come with real teeth — thicker skin, wounds that close faster, favors repaid in blood and debt. Tommy's most surreal ally wasn't a kingpin or a general; it was a smiling old woman who made the supernatural feel like business as usual in 1986 Vice City.",
+ "curation": {
+  "zh": "波莱特是小海地区的巫毒女巫，用蜡烛和咒语给汤米'祝福'——皮糙肉厚、伤口快速愈合。罪恶城最魔幻的一页，写在烟雾缭绕的巫毒小店里。",
+  "en": "Vice City's strangest ally: candles, spirits and blessings that actually work. The voodoo queen of Little Haiti."
+ }
+}

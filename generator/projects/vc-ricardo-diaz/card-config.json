@@ -1,0 +1,41 @@
+{
+ "mode": "holographic",
+ "slug": "vc-ricardo-diaz",
+ "title": "Ricardo Diaz",
+ "subtitle": "El Jefe of Vice City",
+ "technique": "Cigar-Empire",
+ "tagline": "Soy el jefe.",
+ "edition": "040 / 004",
+ "collection": "Vice City Nights · Characters",
+ "description": "Ricardo Diaz — El Jefe of Vice City. Part of the Vice City Nights character roster, 1986 neon-noir tribute.",
+ "style": "Colombian drug-lord cartoon, opulent mansion, cigar smoke",
+ "prompt": "80年代卡通里卡多·迪亚兹：哥伦比亚大毒枭，深色头发、修剪整齐的胡须、贵气西装加太阳镜加大金表、叼着雪茄、傲慢自信的神情，站在豪宅中，全身像占画面约 65%，四周留白，细节清晰，无任何文字",
+ "subject_desc": "80年代卡通里卡多·迪亚兹：哥伦比亚大毒枭，深色头发、修剪整齐的胡须、贵气西装加太阳镜加大金表、叼着雪茄、傲慢自信的神情，站在豪宅中，全身像占画面约 65%，四周留白，细节清晰，无任何文字",
+ "background_desc": "罪恶都市豪宅庄园：私人泳池、棕榈树、霓虹晚霞、保镖人形剪影，画面下方 35% 区域留空用于排版，无任何文字",
+ "text_desc": "Title「Ricardo Diaz」Subtitle「El Jefe of Vice City」, holographic foil typography, English",
+ "parameters": {
+  "subjectScale": 1.25,
+  "subjectDepth": 0.45,
+  "backgroundDepth": -0.35,
+  "foil": 1.0
+ },
+ "safeArea": {
+  "scale": 1.1,
+  "offset": [
+   -0.04,
+   -0.06
+  ]
+ },
+ "author": "HoloLab Studio",
+ "stats": "Vice City Nights · Characters · vc-ricardo-diaz",
+ "honors": [
+  "The biggest drug lord Vice City has ever seen",
+  "Mansion, cigar, gold watch — the whole cartel aesthetic",
+  "He ruled the city, until Tommy paid a visit"
+ ],
+ "back_story": "Ricardo Diaz ran Vice City's cocaine empire the way he ran his mansion: loud, arrogant, and utterly convinced no one could touch him. He had men, money and a private army. But he made one mistake — he crossed Tommy Vercetti. The Rub Out hit turned the city's throne over, and the old king's cigar went cold forever.",
+ "curation": {
+  "zh": "迪亚兹是罪恶城最大的毒枭，傲慢、残暴、自以为无人能撼动。可惜他惹错了人——Rub Out 一役，老毒枭的雪茄在自家庄园永远熄了。",
+  "en": "The drug lord who ruled Vice City with a mansion, a cigar and pure arrogance — until Tommy paid a visit."
+ }
+}
