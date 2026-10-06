@@ -240,8 +240,6 @@ Holo-Card-Studio/
 - [设计决策](docs/DESIGN-DECISIONS.md) — 为什么投稿需要 GitHub 账号 & 成本模型
 - [图形学](docs/graphics.md) — Blender 节点与 GLSL 着色器笔记
 - [部署](docs/DEPLOYMENT.md) — Pages 与 Actions
-- [开发计划](docs/DEVELOPMENT-PLAN.md)
-- [工具路线图](docs/TOOLKIT-ROADMAP.md)
 - [白皮书](docs/WHITEPAPER.md)
 
 ## 🙏 致谢
