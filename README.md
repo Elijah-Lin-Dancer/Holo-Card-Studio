@@ -269,6 +269,8 @@ Holo-Card-Studio/
 - [Design decisions](docs/DESIGN-DECISIONS.md) — why submission needs a GitHub account & the cost model
 - [Deployment](docs/DEPLOYMENT.md) — Pages & Actions
 - [Whitepaper](docs/WHITEPAPER.md)
+- [Contributing](CONTRIBUTING.md) — submit a card or develop locally
+- [Changelog](CHANGELOG.md)
 
 ## 🙏 Acknowledgement
 
