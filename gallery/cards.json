@@ -1,6 +1,26 @@
 {
   "cards": [
     {
+      "id": "vc-general-cortez",
+      "title": "General Cortez",
+      "subtitle": "El General of the old guard",
+      "technique": "Yacht-General",
+      "tagline": "El General siempre cumple.",
+      "edition": "041 / 005",
+      "collection": "Vice City Nights · Characters",
+      "description": "General Cortez — El General of the old guard. Part of the Vice City Nights character roster, 1986 neon-noir tribute.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "vice-city",
+        "80s",
+        "人物志"
+      ],
+      "url": "cards/vc-general-cortez/",
+      "thumb": "cards/vc-general-cortez/thumb.jpg",
+      "date": "2026-10-06",
+      "preview": "cards/vc-general-cortez/preview.webm"
+    },
+    {
       "id": "vc-ken-rosenberg",
       "title": "Ken Rosenberg",
       "subtitle": "Why is this happening to me?!",

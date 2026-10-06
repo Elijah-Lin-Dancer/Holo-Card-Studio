@@ -1,0 +1,49 @@
+{
+  "mode": "holographic",
+  "slug": "vc-general-cortez",
+  "title": "General Cortez",
+  "subtitle": "El General of the old guard",
+  "technique": "Yacht-General",
+  "tagline": "El General siempre cumple.",
+  "edition": "041 / 005",
+  "collection": "Vice City Nights · Characters",
+  "description": "General Cortez — El General of the old guard. Part of the Vice City Nights character roster, 1986 neon-noir tribute.",
+  "style": "Cuban exile general cartoon, yacht deck, cigar & medals",
+  "prompt": "80年代卡通古巴将军科尔特斯：白发老者、军装外套配勋章、叼着雪茄、威严又慈祥的微笑，站在豪华游艇甲板上，全身像占画面约 65%，四周留白，细节清晰，无任何文字",
+  "subject_desc": "80年代卡通古巴将军科尔特斯：白发老者、军装外套配勋章、叼着雪茄、威严又慈祥的微笑，站在豪华游艇甲板上，全身像占画面约 65%，四周留白，细节清晰，无任何文字",
+  "background_desc": "罪恶都市码头游艇：傍晚金色阳光、海面波光粼粼、豪华游艇、远处城市天际线，画面下方 35% 区域留空用于排版，无任何文字",
+  "text_desc": "Title「General Cortez」Subtitle「El General」, holographic foil typography, English",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.45,
+    "backgroundDepth": -0.35,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.04,
+      -0.06
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Vice City Nights · Characters · vc-general-cortez",
+  "honors": [
+    "The exiled Cuban general of the old guard",
+    "Yacht-deck statesmanship and a well-earned cigar",
+    "The chess player who put Tommy on the board"
+  ],
+  "back_story": "General Cortez is a Cuban exile with a military past, a gentleman's smile, and a very sharp sense of who to back. From the deck of his yacht he ran the old guard's network — and he saw in Tommy the weapon that would reset the city's power map. Every dinner aboard was a deal; every deal, a step toward Tommy's crown.",
+  "curation": {
+    "zh": "科尔特斯是流亡美国的古巴老将军，罪恶城上流社会的操盘手。游艇上的每一场宴会都是一次交易——老将军教会了汤米什么叫'体面的犯罪'。",
+    "en": "The exiled general who plays the city like chess from his yacht. Cigar, medals, and the smile of a man who always knows more."
+  },
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "vc-general-cortez"
+}
