@@ -58,20 +58,15 @@ That's a **real turntable render** from the Blender pipeline (96 frames), not a 
 
 **42 cards · 8 languages · every card a permanent URL**, openable and shareable by anyone:
 
-- 🇦🇷 **Messi** series (5) — the original *Messi, King* (梅西称王) + Barcelona · PSG · Inter Miami · World Cup 2022
-- 💙❤️ **FC Barcelona Legacy series** (6) — Cruyff *El Arquitecto* · Guardiola *Tiki-Taka* · Messi ×4 eras (Spanish card faces)
-- 🌴 **Vice City Nights · Characters** (6) — Tommy Vercetti *Neon Godfather* · Lance Vance Dance! · Ken Rosenberg · Ricardo Diaz · General Cortez · Auntie Poulet (Vol.I of a planned GTA Vice City series)
-- 🎤 **King of Pop** — Michael Jackson (English)
-- 🖤💛 **Marco Reus** (3) — Dortmund *Gelbwand* · DFB *Unbeugsamer* · LA Galaxy *Neue Horizonte* (German card faces)
-- 🎨 **Frida Kahlo** — Mexican painter (Spanish accents)
-- 🎬 **Satyajit Ray** — Bengali maestro (Bengali card face)
-- 🐎 **Neeltje** — a Friesian mare in Kalundborg, Denmark (Danish card face, **🔒 password-locked**)
-- 🐋 **Blue Whale** — first community-submitted card via the auto-render pipeline
-- 🤖 **Haaland Multiverse** (15) — meme cards: goal machine · meditation · Majin Buu · disco anthem · Viking · scallion-man · Chongqing monorail · goalie-water thief · shark grin · Tom cat (EN / ZH / NO card faces)
-- 📚 **Kenji Kishimoto** — the fan-favourite rebel from *Shatter Me* (English card face)
-- 🚋 **Elétrico 28** — a tribute to Lisbon's yellow tram (Portuguese card face)
-- 🦘🐱 **Pouch Invader** — community card from Lay: "The Laytenant" (English card face)
-- 🚀 **Taikonaut** · 🐵 **Sun Wukong** · 🐆 **Snow Leopard** — one-sentence pipeline cards
+| Series | Cards | Faces |
+|---|---|---|
+| 🤖 **Haaland Multiverse** | **15** — Majin Buu · goal machine 2.0 · meditation · disco anthem · Viking · scallion-man · Chongqing monorail · goalie-water thief · shark grin · Tom cat · raccoon · Wanglaoji · bun · "eat the kid" · physics  | 🇨🇳🇬🇧🇳🇴 |
+| 🌴 **Vice City Nights · Characters** (GTA Vol.I) | **6** — Tommy *Neon Godfather* · Lance Vance Dance! · Ken Rosenberg · Ricardo Diaz · General Cortez · Auntie Poulet | 🇬🇧 |
+| 💙❤️ **FC Barcelona Legacy** | **6** — Messi ×4 eras · Cruyff *El Arquitecto* · Guardiola *Tiki-Taka* | 🇪🇸 |
+| 🖤💛 **The Reus Trilogy** | **3** — BVB *Gelbwand* · DFB *Unbeugsamer* · LA Galaxy *Neue Horizonte* | 🇩🇪 |
+| ⭐ **Single editions** | **12** — Messi, King (梅西称王) · King of Pop (流行之王) · Satyajit Ray (সত্যজিৎ রায়) · Frida Kahlo · Neeltje (🔒 locked) · Luminous Blue Whale · Kenji Kishimoto · Elétrico 28 · Pouch Invader · Stellar Expedition (星辰远征) · Great Sage (齐天大圣) · Aurora Ridge snow leopard | 🇨🇳🇬🇧🇧🇩🇪🇸🇩🇰🇵🇹 |
+
+**8 languages** on the card faces: 🇨🇳 中文 · 🇬🇧 English · 🇪🇸 Español · 🇩🇪 Deutsch · 🇧🇩 বাংলা · 🇩🇰 Dansk · 🇳🇴 Norsk · 🇵🇹 Português.
 
 Each card flips: a **structured back** with career stats · honors · quote, written in the card's own language.
 
@@ -203,7 +198,7 @@ Holo-Card-Studio/
 │   └── vendor/               # three.js + GSAP, vendored locally — zero CDN dependency
 ├── generator/
 │   ├── projects/<slug>/      # one folder per card: config, work/, web/, renders/
-│   ├── tests/                # pytest suite (20 tests, C2)
+│   ├── tests/                # pytest suite (21 tests, C2)
 │   └── scripts/
 │       ├── one_shot_card.py  # text model → card config (zh/en/de/es/bn/da/pt/no)
 │       ├── ai_generate.py    # Seedream layered art + cutout + line-art
@@ -214,7 +209,7 @@ Holo-Card-Studio/
 │       └── verify_gallery.py # gallery health check (used by CI)
 ├── .github/workflows/
 │   ├── deploy.yml            # Pages deployment
-│   ├── gallery-check.yml     # CI: 20 pytest tests + gallery verify (C2)
+│   ├── gallery-check.yml     # CI: 21 pytest tests + gallery verify (C2)
 │   ├── render-card.yml       # card rendering: layered art → Blender → publish (push-retry ×3)
 │   └── auto-render.yml       # community submissions: issue → review → card → deploy
 ├── tools/blender-4.5.0/      # portable Blender (gitignored)
@@ -226,6 +221,8 @@ Holo-Card-Studio/
 
 - 🇦🇷 **Messi, King** (梅西称王) — Argentina No.10 · Holographic Archive series
 - 🎤 **King of Pop** (流行之王) — Michael Jackson · Legend series
+- 🌴 **Neon Godfather** — Tommy Vercetti · Vice City Nights Vol.I (GTA tribute)
+- 💃 **Lance Vance Dance!** — Lance Vance · Vice City Nights Vol.I
 - 🖤💛 **Gelbwand** (黄黑之魂) — Marco Reus · Borussia Dortmund · German card face
 - 🏆 **Unbeugsamer** (未竟之约) — Marco Reus · DFB · WM 2014
 - 🌌 **Neue Horizonte** (银河新章) — Marco Reus · LA Galaxy · MLS Cup champion
@@ -252,7 +249,7 @@ Holo-Card-Studio/
 - [x] Front-end interaction layer (parallax · shine · glow · magnetic CTA · dual themes)
 - [x] **Public submission channel** — GitHub Issue → auto-render pipeline → live gallery (fully automated)
 - [x] **C1 Curated timeline** — bilingual creation notes, exhibition view
-- [x] **C2 CI** — 20 pytest tests + gallery health check, every push
+- [x] **C2 CI** — 21 pytest tests + gallery health check, every push
 - [x] **C3 OG meta** — per-card social preview injection
 - [x] **Password-locked cards** — SHA-256 lock, unlock-in-hall UX
 - [x] **Auto Tour v2 "Light Walk"** — traveling beam · card activation · HUD · intro/outro staging
@@ -270,7 +267,6 @@ Holo-Card-Studio/
 - [AI pipeline](docs/ai-pipeline.md) — layered generation in detail
 - [Graphics](docs/graphics.md) — Blender nodes & GLSL shader notes
 - [Design decisions](docs/DESIGN-DECISIONS.md) — why submission needs a GitHub account & the cost model
-- [Graphics](docs/graphics.md) — Blender nodes & GLSL shader notes
 - [Deployment](docs/DEPLOYMENT.md) — Pages & Actions
 - [Whitepaper](docs/WHITEPAPER.md)
 
