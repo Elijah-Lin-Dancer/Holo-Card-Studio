@@ -1,0 +1,56 @@
+{
+  "mode": "holographic",
+  "slug": "shang-fuhao-jade",
+  "title": "妇好玉器",
+  "subtitle": "玉润殷商",
+  "technique": "Royal-Jade-Carving",
+  "tagline": "妇好墓出土玉器七百余件，涵盖玉龙、玉凤、玉人、玉兽诸形，数量与工艺皆居商代墓葬之冠。",
+  "edition": "025 / 027",
+  "collection": "Yin-Shang Chronicles · 殷商纪",
+  "description": "妇好玉器——《玉润殷商》，殷商纪系列第 025 号收藏，中文卡面。",
+  "style": "中国古风 · 青铜质感 · 殷商美学",
+  "prompt": "商代玉器写实风格：妇好墓玉器群像，玉龙、玉凤、玉人等诸形并置，温润光泽，深色衬底，占画面约 70%，细节清晰，无任何文字",
+  "subject_desc": "商代玉器写实风格：妇好墓玉器群像，玉龙、玉凤、玉人等诸形并置，温润光泽，深色衬底，占画面约 70%，细节清晰，无任何文字",
+  "background_desc": "博物馆暗厅的温润渐变空景，青玉色调，柔和光晕，画面纯净，绝对没有任何文字、人物或其他器物",
+  "text_desc": "标题「妇好玉器」副标题「玉润殷商」，鎏金箔字排版，中文",
+  "parameters": {
+    "subjectScale": 1.2,
+    "subjectDepth": 0.45,
+    "backgroundDepth": -0.35,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.03,
+      -0.05
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Yin-Shang Chronicles · 殷商纪 · 025/027",
+  "honors": [
+    "妇好墓出土玉器七百余件",
+    "玉龙玉凤玉人诸形俱全",
+    "商代玉雕技艺的巅峰集合",
+    "数量与工艺皆冠于商墓",
+    "温润光泽里的三千年匠心"
+  ],
+  "back_story": "妇好墓出土玉器七百余件，涵盖玉龙、玉凤、玉人、玉兽诸形，数量与工艺皆居商代墓葬之冠。它们是妇好王后身份的礼器，也是商代玉雕技艺的巅峰集合——三千年前匠人手下的一抹温润，至今仍能听见刀与玉的对话。",
+  "curation": {
+    "zh": "妇好墓出土玉器七百余件，涵盖玉龙、玉凤、玉人、玉兽诸形，数量与工艺皆居商代墓葬之冠。它们是妇好王后身份的礼器，也是商代玉雕技艺的巅峰集合——三千年前匠人手下的一抹温润，至今仍能听见刀与玉的对话。",
+    "en": "妇好墓出土玉器七百余件，涵盖玉龙、玉凤、玉人、玉兽诸形，数量与工艺皆居商代墓葬之冠。它们是妇好王后身份的礼器，也是商代玉雕技艺的巅峰集合——三千年前匠人手下的一抹温润，至今仍能听见刀与玉的对话。"
+  },
+  "style_tags": [
+    "殷商",
+    "玉器",
+    "女将"
+  ],
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "shang-fuhao-jade"
+}

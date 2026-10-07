@@ -1,0 +1,56 @@
+{
+  "mode": "holographic",
+  "slug": "shang-millet",
+  "title": "黍稷",
+  "subtitle": "农本商兴",
+  "technique": "Millet-Harvest-Omen",
+  "tagline": "甲骨文中，商人反复卜问「受年」——今年收成如何。",
+  "edition": "024 / 027",
+  "collection": "Yin-Shang Chronicles · 殷商纪",
+  "description": "黍稷——《农本商兴》，殷商纪系列第 024 号收藏，中文卡面。",
+  "style": "中国古风 · 青铜质感 · 殷商美学",
+  "prompt": "商代风格中国古风画：黍稷丰收的农田意象，谷穗金黄垂实，甲骨文「年」字形若隐若现于穗浪之上，占画面约 70%，细节清晰，无任何文字",
+  "subject_desc": "商代风格中国古风画：黍稷丰收的农田意象，谷穗金黄垂实，甲骨文「年」字形若隐若现于穗浪之上，占画面约 70%，细节清晰，无任何文字",
+  "background_desc": "田野丰收的金色渐变空景，麦浪光影，暖阳氛围，画面纯净，绝对没有任何文字、人物或器物",
+  "text_desc": "标题「黍稷」副标题「农本商兴」，鎏金箔字排版，中文",
+  "parameters": {
+    "subjectScale": 1.2,
+    "subjectDepth": 0.45,
+    "backgroundDepth": -0.35,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.03,
+      -0.05
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Yin-Shang Chronicles · 殷商纪 · 024/027",
+  "honors": [
+    "甲骨文大量卜问「受年」",
+    "黍稷为商代主粮，农业立国",
+    "「年」字即禾与人相逢之形",
+    "「小邦周」翦商的农业暗线",
+    "金色穗浪里的殷商农本"
+  ],
+  "back_story": "甲骨文中，商人反复卜问「受年」——今年收成如何。黍与稷是商代主粮，农业是商王朝的立国之本，也是「小邦周」终能翦商的暗线：谁能稳住仓廪，谁就握住了天命。甲骨文「年」字，正是禾与人的重逢。",
+  "curation": {
+    "zh": "甲骨文中，商人反复卜问「受年」——今年收成如何。黍与稷是商代主粮，农业是商王朝的立国之本，也是「小邦周」终能翦商的暗线：谁能稳住仓廪，谁就握住了天命。甲骨文「年」字，正是禾与人的重逢。",
+    "en": "甲骨文中，商人反复卜问「受年」——今年收成如何。黍与稷是商代主粮，农业是商王朝的立国之本，也是「小邦周」终能翦商的暗线：谁能稳住仓廪，谁就握住了天命。甲骨文「年」字，正是禾与人的重逢。"
+  },
+  "style_tags": [
+    "殷商",
+    "农事",
+    "甲骨"
+  ],
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "shang-millet"
+}

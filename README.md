@@ -56,11 +56,11 @@ That's a **real turntable render** from the Blender pipeline (96 frames), not a 
 
 ![HoloLab card wall](docs/screenshots/card-wall.jpg)
 
-**64 cards · 8 languages · every card a permanent URL**, openable and shareable by anyone:
+**77 cards · 8 languages · every card a permanent URL**, openable and shareable by anyone:
 
 | Series | Cards | Faces |
 |---|---|---|
-| 🏺 **Yin-Shang Chronicles · 殷商纪** | **14** — 妇好 *Bronze Valkyrie* · 武丁 *Divination Seal* · 甲骨文 *Oracle Script* · 盘庚 *Riverside Exodus* · 商汤 *Net Opened Thrice* · 伊尹 *Prime Sage* · 后母戊鼎 *Imperial Cauldron* · 妇好鸮尊 *Owl Guardian* · 四羊方尊 *Four Rams* · 玄鸟 *Dark Bird* · 占卜 *Fire-Crack Omen* · 殷墟 *Sleeping Capital* · 战车 *Bronze Chariot* · 饕餮 *Beast Mask* | 🇨🇳 |
+| 🏺 **Yin-Shang Chronicles · 殷商纪** | **27** — 妇好 *Bronze Valkyrie* · 武丁 *Divination Seal* · 甲骨文 *Oracle Script* · 盘庚 *Riverside Exodus* · 商汤 *Net Opened Thrice* · 伊尹 *Prime Sage* · 后母戊鼎 *Imperial Cauldron* · 妇好鸮尊 *Owl Guardian* · 四羊方尊 *Four Rams* · 玄鸟 *Dark Bird* · 占卜 *Fire-Crack Omen* · 殷墟 *Sleeping Capital* · 战车 *Bronze Chariot* · 饕餮 *Beast Mask* · 比干 *Loyal Heart* · 箕子 *Nine Categories* · 微子 *Song Founder* · 傅说 *Mortar Builder* · 司母辛鼎 *Mother Xin* · 妇好铜钺 *General Axe* · 龙虎纹铜尊 *Dragon Tiger* · 乳钉纹方鼎 *Studded Ding* · 贝币 *Cowrie Currency* · 黍稷 *Millet Harvest* · 妇好玉器 *Royal Jade* · 干支 *Sexagenary Cycle* · 贞人 *Oracle Scribe* | 🇨🇳 |
 | 🤖 **Haaland Multiverse** | **15** — Majin Buu · goal machine 2.0 · meditation · disco anthem · Viking · scallion-man · Chongqing monorail · goalie-water thief · shark grin · Tom cat · raccoon · Wanglaoji · bun · "eat the kid" · physics  | 🇨🇳🇬🇧🇳🇴 |
 | 🌴 **Vice City Nights · Characters** (GTA Vol.I) | **6** — Tommy *Neon Godfather* · Lance Vance Dance! · Ken Rosenberg · Ricardo Diaz · General Cortez · Auntie Poulet | 🇬🇧 |
 | 🌴 **Vice City Nights · Places & Vibes** (GTA Vol.II) | **8** — Ocean Drive Neon · Starfish Island Estate · Little Havana · Little Haiti · The Vercetti Estate · FM Radio 1986 · Dockyard Sunset · Neon 1986 | 🇬🇧 |

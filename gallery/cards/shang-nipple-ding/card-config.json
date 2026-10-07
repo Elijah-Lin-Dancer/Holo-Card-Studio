@@ -1,0 +1,56 @@
+{
+  "mode": "holographic",
+  "slug": "shang-nipple-ding",
+  "title": "乳钉纹方鼎",
+  "subtitle": "乳钉镇国",
+  "technique": "Studded-Square-Ding",
+  "tagline": "乳钉纹方鼎，商代早期方鼎的典型形制。",
+  "edition": "022 / 027",
+  "collection": "Yin-Shang Chronicles · 殷商纪",
+  "description": "乳钉纹方鼎——《乳钉镇国》，殷商纪系列第 022 号收藏，中文卡面。",
+  "style": "中国古风 · 青铜质感 · 殷商美学",
+  "prompt": "商代青铜器写实风格：早期方鼎，腹壁乳钉纹阵列整齐，方正厚重，浅绿铜锈，博物馆光效，占画面约 70%，细节清晰，无任何文字",
+  "subject_desc": "商代青铜器写实风格：早期方鼎，腹壁乳钉纹阵列整齐，方正厚重，浅绿铜锈，博物馆光效，占画面约 70%，细节清晰，无任何文字",
+  "background_desc": "博物馆暗厅的庄重渐变空景，暖灰与古铜色调，几何暗纹，画面纯净，绝对没有任何文字、人物或其他器物",
+  "text_desc": "标题「乳钉纹方鼎」副标题「乳钉镇国」，鎏金箔字排版，中文",
+  "parameters": {
+    "subjectScale": 1.2,
+    "subjectDepth": 0.45,
+    "backgroundDepth": -0.35,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.03,
+      -0.05
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Yin-Shang Chronicles · 殷商纪 · 022/027",
+  "honors": [
+    "商代早期方鼎的典型形制",
+    "乳钉纹为最早的系统性青铜纹饰之一",
+    "郑州杜岭方鼎即此类代表（现藏河南博物院）",
+    "「镇国之鼎」的方正气象",
+    "商代青铜器纹饰谱系的重要一环"
+  ],
+  "back_story": "乳钉纹方鼎，商代早期方鼎的典型形制。腹壁整齐的乳钉纹，是商周青铜器最早的纹饰系统之一。1974 年郑州杜岭出土的乳钉纹方鼎（现藏河南博物院）正是此类重器的代表——郑州，这座商代早期都城遗址所在之城，把「镇国之鼎」藏进了自己的地下。",
+  "curation": {
+    "zh": "乳钉纹方鼎，商代早期方鼎的典型形制。腹壁整齐的乳钉纹，是商周青铜器最早的纹饰系统之一。1974 年郑州杜岭出土的乳钉纹方鼎（现藏河南博物院）正是此类重器的代表——郑州，这座商代早期都城遗址所在之城，把「镇国之鼎」藏进了自己的地下。",
+    "en": "乳钉纹方鼎，商代早期方鼎的典型形制。腹壁整齐的乳钉纹，是商周青铜器最早的纹饰系统之一。1974 年郑州杜岭出土的乳钉纹方鼎（现藏河南博物院）正是此类重器的代表——郑州，这座商代早期都城遗址所在之城，把「镇国之鼎」藏进了自己的地下。"
+  },
+  "style_tags": [
+    "殷商",
+    "青铜",
+    "重器"
+  ],
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "shang-nipple-ding"
+}

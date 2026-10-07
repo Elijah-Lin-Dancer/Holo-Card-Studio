@@ -1,0 +1,56 @@
+{
+  "mode": "holographic",
+  "slug": "shang-wei-zi",
+  "title": "微子",
+  "subtitle": "宋国开基",
+  "technique": "Song-Ancestor-Etching",
+  "tagline": "微子，殷末三仁之一，商纣王庶兄。",
+  "edition": "017 / 027",
+  "collection": "Yin-Shang Chronicles · 殷商纪",
+  "description": "微子——《宋国开基》，殷商纪系列第 017 号收藏，中文卡面。",
+  "style": "中国古风 · 青铜质感 · 殷商美学",
+  "prompt": "商代风格中国古风人物画：微子，商末贵族形象，庄重中年，身着诸侯礼服，手执周初册封诰命卷轴意象，立于开国朝仪光影中，占画面约 65%，四周留白，细节清晰，无任何文字",
+  "subject_desc": "商代风格中国古风人物画：微子，商末贵族形象，庄重中年，身着诸侯礼服，手执周初册封诰命卷轴意象，立于开国朝仪光影中，占画面约 65%，四周留白，细节清晰，无任何文字",
+  "background_desc": "周初册封朝仪的金色光影空景，礼器暗纹，庄重渐变，画面纯净，绝对没有任何文字、人物或器物",
+  "text_desc": "标题「微子」副标题「宋国开基」，鎏金箔字排版，中文",
+  "parameters": {
+    "subjectScale": 1.2,
+    "subjectDepth": 0.45,
+    "backgroundDepth": -0.35,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.03,
+      -0.05
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Yin-Shang Chronicles · 殷商纪 · 017/027",
+  "honors": [
+    "殷末三仁之一，纣王庶兄",
+    "数谏不听而去，明哲之择",
+    "周封宋国，商祀得以延续",
+    "宋国八百年，殷商血脉所寄",
+    "「存亡继绝」观念的早期典范"
+  ],
+  "back_story": "微子，殷末三仁之一，商纣王庶兄。他数谏纣王不听，遂离去。周武王灭商，封微子于宋，奉守殷商之祀。宋国由此立国八百年，成为殷商血脉与文化在周代的延续——商祀不绝，皆自微子始。",
+  "curation": {
+    "zh": "微子，殷末三仁之一，商纣王庶兄。他数谏纣王不听，遂离去。周武王灭商，封微子于宋，奉守殷商之祀。宋国由此立国八百年，成为殷商血脉与文化在周代的延续——商祀不绝，皆自微子始。",
+    "en": "微子，殷末三仁之一，商纣王庶兄。他数谏纣王不听，遂离去。周武王灭商，封微子于宋，奉守殷商之祀。宋国由此立国八百年，成为殷商血脉与文化在周代的延续——商祀不绝，皆自微子始。"
+  },
+  "style_tags": [
+    "殷商",
+    "三仁",
+    "开国"
+  ],
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "shang-wei-zi"
+}

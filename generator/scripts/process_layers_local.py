@@ -19,6 +19,12 @@ CARDS = [
     # 罪恶都市 Vol.II 场景文化（057-064）
     "vc-ocean-drive", "vc-starfish-island", "vc-little-havana", "vc-little-haiti",
     "vc-vercetti-estate", "vc-fm-radio", "vc-dockyard", "vc-neon-1986",
+    # 殷商纪 Vol.IV 殷末三仁与贤相（015-018）
+    "shang-bi-gan", "shang-ji-zi", "shang-wei-zi", "shang-fu-yue",
+    # 殷商纪 Vol.V 重器续编（019-022）
+    "shang-simuxin-ding", "shang-fuhao-yue", "shang-dragon-tiger-zun", "shang-nipple-ding",
+    # 殷商纪 Vol.VI 生活与文字（023-027）
+    "shang-cowrie", "shang-millet", "shang-fuhao-jade", "shang-ganzhi", "shang-zhen-ren",
 ]
 ROOT = Path(__file__).resolve().parent.parent  # generator/
 

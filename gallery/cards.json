@@ -1,6 +1,279 @@
 {
   "cards": [
     {
+      "id": "shang-zhen-ren",
+      "title": "贞人",
+      "subtitle": "灼龟之官",
+      "technique": "Oracle-Scribe-Lacquer",
+      "tagline": "贞人，商代专职的占卜官——灼龟问卜、解读裂纹、契刻卜辞，他们是王与神意之间的通道。",
+      "edition": "027 / 027",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "贞人——《灼龟之官》，殷商纪系列第 027 号收藏，中文卡面。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "殷商",
+        "占卜",
+        "贞人"
+      ],
+      "url": "cards/shang-zhen-ren/",
+      "thumb": "cards/shang-zhen-ren/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/shang-zhen-ren/preview.webm",
+      "category": "history"
+    },
+    {
+      "id": "shang-ganzhi",
+      "title": "干支",
+      "subtitle": "六十甲子",
+      "technique": "Sixty-Cycle-Oracle",
+      "tagline": "甲骨文中，商人已拥有完整的干支表：十天干配十二地支，成六十甲子循环，用于纪日、纪年、占卜吉凶。",
+      "edition": "026 / 027",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "干支——《六十甲子》，殷商纪系列第 026 号收藏，中文卡面。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "殷商",
+        "历法",
+        "文字"
+      ],
+      "url": "cards/shang-ganzhi/",
+      "thumb": "cards/shang-ganzhi/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/shang-ganzhi/preview.webm",
+      "category": "history"
+    },
+    {
+      "id": "shang-fuhao-jade",
+      "title": "妇好玉器",
+      "subtitle": "玉润殷商",
+      "technique": "Royal-Jade-Carving",
+      "tagline": "妇好墓出土玉器七百余件，涵盖玉龙、玉凤、玉人、玉兽诸形，数量与工艺皆居商代墓葬之冠。",
+      "edition": "025 / 027",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "妇好玉器——《玉润殷商》，殷商纪系列第 025 号收藏，中文卡面。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "殷商",
+        "玉器",
+        "女将"
+      ],
+      "url": "cards/shang-fuhao-jade/",
+      "thumb": "cards/shang-fuhao-jade/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/shang-fuhao-jade/preview.webm",
+      "category": "history"
+    },
+    {
+      "id": "shang-millet",
+      "title": "黍稷",
+      "subtitle": "农本商兴",
+      "technique": "Millet-Harvest-Omen",
+      "tagline": "甲骨文中，商人反复卜问「受年」——今年收成如何。",
+      "edition": "024 / 027",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "黍稷——《农本商兴》，殷商纪系列第 024 号收藏，中文卡面。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "殷商",
+        "农事",
+        "甲骨"
+      ],
+      "url": "cards/shang-millet/",
+      "thumb": "cards/shang-millet/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/shang-millet/preview.webm",
+      "category": "history"
+    },
+    {
+      "id": "shang-cowrie",
+      "title": "贝币",
+      "subtitle": "商贝通商",
+      "technique": "Cowrie-Currency-Etching",
+      "tagline": "商代以海贝为货币，甲骨文「贝」字就是海贝之形。",
+      "edition": "023 / 027",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "贝币——《商贝通商》，殷商纪系列第 023 号收藏，中文卡面。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "殷商",
+        "货币",
+        "文字"
+      ],
+      "url": "cards/shang-cowrie/",
+      "thumb": "cards/shang-cowrie/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/shang-cowrie/preview.webm",
+      "category": "history"
+    },
+    {
+      "id": "shang-nipple-ding",
+      "title": "乳钉纹方鼎",
+      "subtitle": "乳钉镇国",
+      "technique": "Studded-Square-Ding",
+      "tagline": "乳钉纹方鼎，商代早期方鼎的典型形制。",
+      "edition": "022 / 027",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "乳钉纹方鼎——《乳钉镇国》，殷商纪系列第 022 号收藏，中文卡面。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "殷商",
+        "青铜",
+        "重器"
+      ],
+      "url": "cards/shang-nipple-ding/",
+      "thumb": "cards/shang-nipple-ding/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/shang-nipple-ding/preview.webm",
+      "category": "history"
+    },
+    {
+      "id": "shang-dragon-tiger-zun",
+      "title": "龙虎纹铜尊",
+      "subtitle": "龙虎风云",
+      "technique": "Dragon-Tiger-Vessel",
+      "tagline": "龙虎纹铜尊，安阳殷墟出土的著名青铜礼器。",
+      "edition": "021 / 027",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "龙虎纹铜尊——《龙虎风云》，殷商纪系列第 021 号收藏，中文卡面。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "殷商",
+        "青铜",
+        "神话"
+      ],
+      "url": "cards/shang-dragon-tiger-zun/",
+      "thumb": "cards/shang-dragon-tiger-zun/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/shang-dragon-tiger-zun/preview.webm",
+      "category": "history"
+    },
+    {
+      "id": "shang-fuhao-yue",
+      "title": "妇好铜钺",
+      "subtitle": "战神之钺",
+      "technique": "General-Axe-Bronze",
+      "tagline": "妇好墓出土两件大铜钺，重约 9 公斤。",
+      "edition": "020 / 027",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "妇好铜钺——《战神之钺》，殷商纪系列第 020 号收藏，中文卡面。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "殷商",
+        "青铜",
+        "兵器"
+      ],
+      "url": "cards/shang-fuhao-yue/",
+      "thumb": "cards/shang-fuhao-yue/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/shang-fuhao-yue/preview.webm",
+      "category": "history"
+    },
+    {
+      "id": "shang-simuxin-ding",
+      "title": "司母辛鼎",
+      "subtitle": "妇好之鼎",
+      "technique": "Mother-Xin-Cauldron",
+      "tagline": "司母辛鼎，妇好墓出土的大型青铜方鼎，「辛」是妇好的庙号——这件重器是商王武丁为其妻妇好所铸。",
+      "edition": "019 / 027",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "司母辛鼎——《妇好之鼎》，殷商纪系列第 019 号收藏，中文卡面。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "殷商",
+        "青铜",
+        "重器"
+      ],
+      "url": "cards/shang-simuxin-ding/",
+      "thumb": "cards/shang-simuxin-ding/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/shang-simuxin-ding/preview.webm",
+      "category": "history"
+    },
+    {
+      "id": "shang-fu-yue",
+      "title": "傅说",
+      "subtitle": "版筑中兴",
+      "technique": "Mortar-Builder-Relief",
+      "tagline": "傅说，武丁梦中的圣人。",
+      "edition": "018 / 027",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "傅说——《版筑中兴》，殷商纪系列第 018 号收藏，中文卡面。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "殷商",
+        "贤相",
+        "中兴"
+      ],
+      "url": "cards/shang-fu-yue/",
+      "thumb": "cards/shang-fu-yue/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/shang-fu-yue/preview.webm",
+      "category": "history"
+    },
+    {
+      "id": "shang-wei-zi",
+      "title": "微子",
+      "subtitle": "宋国开基",
+      "technique": "Song-Ancestor-Etching",
+      "tagline": "微子，殷末三仁之一，商纣王庶兄。",
+      "edition": "017 / 027",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "微子——《宋国开基》，殷商纪系列第 017 号收藏，中文卡面。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "殷商",
+        "三仁",
+        "开国"
+      ],
+      "url": "cards/shang-wei-zi/",
+      "thumb": "cards/shang-wei-zi/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/shang-wei-zi/preview.webm",
+      "category": "history"
+    },
+    {
+      "id": "shang-ji-zi",
+      "title": "箕子",
+      "subtitle": "洪范九畴",
+      "technique": "Nine-Categories-Lacquer",
+      "tagline": "箕子，殷末三仁之一，纣王叔父。",
+      "edition": "016 / 027",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "箕子——《洪范九畴》，殷商纪系列第 016 号收藏，中文卡面。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "殷商",
+        "三仁",
+        "典籍"
+      ],
+      "url": "cards/shang-ji-zi/",
+      "thumb": "cards/shang-ji-zi/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/shang-ji-zi/preview.webm",
+      "category": "history"
+    },
+    {
+      "id": "shang-bi-gan",
+      "title": "比干",
+      "subtitle": "剖心诤谏",
+      "technique": "Loyal-Heart-Etching",
+      "tagline": "比干，殷末三仁之首，商纣王叔父。",
+      "edition": "015 / 027",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "比干——《剖心诤谏》，殷商纪系列第 015 号收藏，中文卡面。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "殷商",
+        "三仁",
+        "忠臣"
+      ],
+      "url": "cards/shang-bi-gan/",
+      "thumb": "cards/shang-bi-gan/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/shang-bi-gan/preview.webm",
+      "category": "history"
+    },
+    {
       "id": "vc-neon-1986",
       "title": "Neon 1986",
       "subtitle": "An era of excess in pink & purple",
