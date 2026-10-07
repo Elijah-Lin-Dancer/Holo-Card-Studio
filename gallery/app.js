@@ -205,11 +205,19 @@ function renderChips() {
   filtersBox.innerHTML = '';
   filtersBox.classList.remove('expanded');
 
+  // 结构化分行：主分类独占一行（.filter-row-main），子标签整行另起（.filter-row-sub）
+  const rowMain = document.createElement('div');
+  rowMain.className = 'filter-row filter-row-main';
+  const rowSub = document.createElement('div');
+  rowSub.className = 'filter-row filter-row-sub';
+  filtersBox.appendChild(rowMain);
+  filtersBox.appendChild(rowSub);
+
   // 第一行：大分类 chips
   CATEGORIES.forEach(cat => {
     const f = 'cat:' + cat;
     const label = cat === 'all' ? t('cat_all', 'All') : t('cat_' + cat, cat);
-    mk(f, label, filtersBox, activeCategory === cat, 'cat');
+    mk(f, label, rowMain, activeCategory === cat, 'cat');
   });
 
   // 第二行：当前分类内的子标签（仅选中具体分类时出现）
@@ -221,16 +229,16 @@ function renderChips() {
     });
     const visibleTags = tagSet.slice(0, FILTERS_COLLAPSE_AFTER);
     const hiddenTags = tagSet.slice(FILTERS_COLLAPSE_AFTER);
-    visibleTags.forEach(tag => mk('tag:' + tag, t(tag, tag), filtersBox, activeFilter === 'tag:' + tag, 'tag'));
+    visibleTags.forEach(tag => mk('tag:' + tag, t(tag, tag), rowSub, activeFilter === 'tag:' + tag, 'tag'));
     if (hiddenTags.length > 0) {
       const toggle = document.createElement('button');
       toggle.className = 'chip chip-toggle';
       toggle.dataset.action = 'toggle-filters';
-      filtersBox.appendChild(toggle);
+      rowSub.appendChild(toggle);
       const extra = document.createElement('div');
       extra.className = 'chip-extra';
       hiddenTags.forEach(tag => mk('tag:' + tag, t(tag, tag), extra, activeFilter === 'tag:' + tag, 'tag'));
-      filtersBox.appendChild(extra);
+      rowSub.appendChild(extra);
       const userExpanded = localStorage.getItem('hololab_filters_expanded') === '1';
       const activeInHidden = hiddenTags.some(tag => activeFilter === 'tag:' + tag);
       const isExpanded = userExpanded || activeInHidden;
