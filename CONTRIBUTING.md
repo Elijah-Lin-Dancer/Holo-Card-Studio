@@ -45,6 +45,14 @@ Approved cards are rendered (4-layer AI art → Blender 3D → preview video),
 committed, deployed to the gallery, and the Issue is closed with the live link.
 Your card stays in the hall **forever**, credited to you.
 
+> 🛡️ **Card quality gate — read before shipping any card:** every card (submitted
+> via Issue, made locally, or by the maintainer) must pass the **five gates** in
+> [`docs/CARD-QUALITY.md`](docs/CARD-QUALITY.md): prompt locks (complete limbs,
+> strong subject/background contrast) → background never same-toned as the subject
+> → matting self-check on the transparent channel → front-view readability
+> (a card must read at rest, not only when rotated) → no batch-speed waivers.
+> Missing limbs or "invisible" (transparent) subjects are **defects, not features**.
+
 ---
 
 ## 🧑‍💻 Local development

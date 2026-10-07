@@ -273,6 +273,7 @@ Holo-Card-Studio/
 
 - [Architecture](docs/architecture.md) — system design & trade-offs
 - [AI pipeline](docs/ai-pipeline.md) — layered generation in detail
+- [Card quality gate](docs/CARD-QUALITY.md) — the five mandatory gates before any card ships (limbs, contrast, matting, front-view)
 - [Graphics](docs/graphics.md) — Blender nodes & GLSL shader notes
 - [Design decisions](docs/DESIGN-DECISIONS.md) — why submission needs a GitHub account & the cost model
 - [Deployment](docs/DEPLOYMENT.md) — Pages & Actions
