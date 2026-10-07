@@ -189,9 +189,13 @@ const FILTERS_COLLAPSE_AFTER = 7; // 子标签默认显示数量，其余收进"
 function renderChips() {
   if (!filtersBox) return;
   const t = (key, fb) => (typeof window.HoloLabI18n !== 'undefined' ? window.HoloLabI18n.t(key) : fb);
-  const mk = (f, label, parent, isActive) => {
+  const mk = (f, label, parent, isActive, kind) => {
     const b = document.createElement('button');
-    b.className = 'chip' + (isActive ? ' active' : '');
+    const cls = ['chip'];
+    if (kind === 'cat') cls.push('chip-cat');
+    if (kind === 'tag') cls.push('chip-tag');
+    if (isActive) cls.push('active');
+    b.className = cls.join(' ');
     b.dataset.filter = f;
     b.textContent = label;
     b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
@@ -205,7 +209,7 @@ function renderChips() {
   CATEGORIES.forEach(cat => {
     const f = 'cat:' + cat;
     const label = cat === 'all' ? t('cat_all', 'All') : t('cat_' + cat, cat);
-    mk(f, label, filtersBox, activeCategory === cat);
+    mk(f, label, filtersBox, activeCategory === cat, 'cat');
   });
 
   // 第二行：当前分类内的子标签（仅选中具体分类时出现）
@@ -217,7 +221,7 @@ function renderChips() {
     });
     const visibleTags = tagSet.slice(0, FILTERS_COLLAPSE_AFTER);
     const hiddenTags = tagSet.slice(FILTERS_COLLAPSE_AFTER);
-    visibleTags.forEach(tag => mk('tag:' + tag, t(tag, tag), filtersBox, activeFilter === 'tag:' + tag));
+    visibleTags.forEach(tag => mk('tag:' + tag, t(tag, tag), filtersBox, activeFilter === 'tag:' + tag, 'tag'));
     if (hiddenTags.length > 0) {
       const toggle = document.createElement('button');
       toggle.className = 'chip chip-toggle';
@@ -225,7 +229,7 @@ function renderChips() {
       filtersBox.appendChild(toggle);
       const extra = document.createElement('div');
       extra.className = 'chip-extra';
-      hiddenTags.forEach(tag => mk('tag:' + tag, t(tag, tag), extra, activeFilter === 'tag:' + tag));
+      hiddenTags.forEach(tag => mk('tag:' + tag, t(tag, tag), extra, activeFilter === 'tag:' + tag, 'tag'));
       filtersBox.appendChild(extra);
       const userExpanded = localStorage.getItem('hololab_filters_expanded') === '1';
       const activeInHidden = hiddenTags.some(tag => activeFilter === 'tag:' + tag);
