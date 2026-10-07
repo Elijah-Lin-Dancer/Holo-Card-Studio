@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f6f4ee">
+  <title>HOLO CARD STUDIO</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="../../theme.js"></script>
+  <script>var _m=document.querySelector('meta[name="theme-color"]');if(_m&&window.HoloLabTheme)_m.content=HoloLabTheme.get()==='dark'?'#12100d':'#f6f4ee';</script>
+  <script type="importmap">{"imports":{"three":"../../vendor/three/build/three.module.js","three/addons/":"../../vendor/three/examples/jsm/"}}</script>
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="HoloLab Studio">
+<meta property="og:title" content="殷墟">
+<meta property="og:description" content="安阳殷墟，商朝晚期都城遗址，2006 年列入世界文化遗产。">
+<meta property="og:image" content="https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/cards/shang-yin-xu/thumb.jpg">
+<meta property="og:url" content="https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/cards/shang-yin-xu/">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+  <header class="topbar">
+    <a class="wordmark" href="../../index.html" aria-label="HoloLab Studio gallery">HOLOLAB STUDIO</a>
+    <span id="edition" class="edition">001 / 001</span>
+  </header>
+
+  <main>
+    <section class="identity" aria-labelledby="card-title">
+      <p id="subtitle" class="kicker">COLLECTIBLE CARD</p>
+      <h1 id="card-title">CARD TITLE</h1>
+      <dl class="meta" id="meta">
+        <div><dt>Collection</dt><dd id="meta-collection">—</dd></div>
+        <div><dt>Technique</dt><dd id="meta-technique">—</dd></div>
+        <div><dt>Released</dt><dd id="meta-date">—</dd></div>
+      </dl>
+      <p id="desc" class="desc">…</p>
+      <div class="actions" aria-label="Card actions">
+        <button id="auto" type="button" aria-pressed="false">AUTO</button>
+        <button id="flip" type="button">FLIP</button>
+        <button id="reset" type="button">RESET</button>
+        <button id="save" type="button">SAVE</button>
+      </div>
+      <p class="hint">Drag to rotate · scroll to zoom · <b>FLIP</b> for the story side</p>
+    </section>
+
+    <section class="display" aria-label="Interactive holographic card">
+      <div id="stage" tabindex="0" role="img" aria-label="Drag to rotate the card. Scroll to zoom. Press F to flip and R to reset.">
+        <div id="loading" role="status">LOADING</div>
+      </div>
+      <div id="lock-screen" class="lock-screen" hidden>
+        <div class="lock-panel" role="dialog" aria-modal="true" aria-labelledby="lock-title">
+          <svg class="lock-icon" viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><circle cx="12" cy="15.5" r="1.4" fill="currentColor" stroke="none"/>
+          </svg>
+          <h2 id="lock-title">这张卡为朋友定制，已上锁<br><span lang="en">This card is a gift, locked</span></h2>
+          <p id="lock-hint" class="lock-hint">输入密码以解锁查看 · Enter the password to view</p>
+          <input id="lock-input" class="lock-input" type="password" placeholder="Unlock password · 解锁密码" autocomplete="off" autocapitalize="off" spellcheck="false">
+          <p id="lock-err" class="lock-err" role="alert" hidden></p>
+          <button id="lock-yes" class="lock-yes" type="button">解锁 · Unlock</button>
+          <p id="lock-egg" class="lock-egg" hidden></p>
+        </div>
+      </div>
+      <output id="view-label" class="view-label">FRONT</output>
+    </section>
+  </main>
+
+  <section class="controls" aria-label="Card controls">
+    <label>
+      <span>FOIL <output id="foil-value">65%</output></span>
+      <input id="foil" type="range" min="0" max="1.2" step="0.01" value="0.65">
+    </label>
+    <label>
+      <span>SUBJECT SCALE <output id="scale-value">1.25</output></span>
+      <input id="scale" type="range" min="1" max="1.7" step="0.01" value="1.25">
+    </label>
+    <label>
+      <span>SUBJECT DEPTH <output id="depth-value">0.40</output></span>
+      <input id="depth" type="range" min="0" max="0.8" step="0.01" value="0.4">
+    </label>
+    <label>
+      <span>BACKGROUND DEPTH <output id="bg-depth-value">−0.25</output></span>
+      <input id="bg-depth" type="range" min="-0.65" max="0" step="0.01" value="-0.25">
+    </label>
+  </section>
+
+  <section class="more" aria-labelledby="more-title">
+    <h2 id="more-title">More cards in the collection</h2>
+    <div class="more-grid" id="more-grid"></div>
+  </section>
+
+  <footer class="foot">
+    <span>HoloLab Studio © 2026 · built by Elijah Lin</span>
+    <span class="foot-links"><a href="../../index.html">Gallery</a> · <a href="../../create.html">Create</a> · <a href="https://github.com/Elijah-Lin-Dancer/Holo-Card-Studio" target="_blank" rel="noopener">GitHub</a></span>
+    <span class="foot-note">AI × 3D holographic cards · MIT License · based on holo-card-studio</span>
+  </footer>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

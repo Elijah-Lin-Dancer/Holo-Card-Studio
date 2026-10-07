@@ -1,0 +1,44 @@
+{
+  "mode": "holographic",
+  "slug": "shang-chariot",
+  "title": "战车",
+  "subtitle": "车辚马萧 · 王师之威",
+  "technique": "Bronze-Chariot-Advance",
+  "tagline": "两马一车三人，驰骋在三千年前的战场。",
+  "edition": "013 / 014",
+  "collection": "Yin-Shang Chronicles · 殷商纪",
+  "description": "商代战车，木质车身青铜饰件，殷墟出土马车遗迹。",
+  "style": "殷商青铜美学 · 高细节全息收藏卡，黑金与赤金主调，战阵威仪，雄浑有力",
+  "prompt": "商代战车，两马驾挽，木质车身配青铜饰件，驭手与持戈武士立于车上，尘土飞扬，青铜纹饰光影，战场威势，黑金与赤金主调，电影感光影，高细节",
+  "subject_desc": "商代战车，两马驾挽，木质车身配青铜饰件，驭手与持戈武士立于车上，尘土飞扬，青铜纹饰光影，战场威势，黑金与赤金主调，电影感光影，高细节",
+  "background_desc": "旷野战场，尘土与战旗，青铜云雷纹暗纹，赤金氛围，空镜无主体",
+  "parameters": {
+    "subjectScale": 1.2,
+    "subjectDepth": 0.42,
+    "backgroundDepth": -0.3,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.03,
+      -0.05
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Yin-Shang Chronicles · 殷商纪 · 013/014",
+  "honors": [
+    "商代战车：两马驾挽，车上三人",
+    "御者居中，弓手与戈手分列两侧",
+    "殷墟车马坑见证三千年前的车战阵列",
+    "木质车身配青铜饰件，王师之威",
+    "商代最重的战争机器"
+  ],
+  "back_story": "商代战车以两马或四马驾挽，车上三人——御者居中，弓手与戈手分列两侧。殷墟出土的车马坑，见证着三千年前的车战阵列。一辆战车，就是那个时代最重的战争机器。",
+  "curation": {},
+  "style_tags": [
+    "殷商",
+    "战车",
+    "战争"
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "mode": "holographic",
+  "slug": "shang-houmuwu-ding",
+  "title": "后母戊鼎",
+  "subtitle": "国之重器 · 镇世之鼎",
+  "technique": "Imperial-Cauldron-Relief",
+  "tagline": "八百三十二公斤的青铜，是殷商王权的重量。",
+  "edition": "007 / 014",
+  "collection": "Yin-Shang Chronicles · 殷商纪",
+  "description": "中国现存最大青铜鼎，1939 年出土于安阳武官村，国家博物馆镇馆之宝。",
+  "style": "殷商青铜美学 · 高细节全息收藏卡，黑金主调，重器威严，庄重肃穆",
+  "prompt": "后母戊鼎——巨型青铜方鼎正面特写，鼎腹铸饕餮纹与夔龙纹浮雕，鼎耳立兽，厚重青铜质感，暗金高光，鼎身古朴铭文隐约，深黑背景，庄重威严，博物馆陈列光，高细节",
+  "subject_desc": "后母戊鼎——巨型青铜方鼎正面特写，鼎腹铸饕餮纹与夔龙纹浮雕，鼎耳立兽，厚重青铜质感，暗金高光，鼎身古朴铭文隐约，深黑背景，庄重威严，博物馆陈列光，高细节",
+  "background_desc": "深邃展厅暗场，一束顶光照亮巨鼎轮廓，青铜鎏金暗纹，黑金氛围，空镜无器物",
+  "parameters": {
+    "subjectScale": 1.2,
+    "subjectDepth": 0.42,
+    "backgroundDepth": -0.3,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.03,
+      -0.05
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Yin-Shang Chronicles · 殷商纪 · 007/014",
+  "honors": [
+    "中国已知最重的青铜器，重达832.84千克",
+    "1939年出土于安阳武官村，后入国家博物馆",
+    "商王祖庚、祖甲为祭母“戊”所铸",
+    "鼎腹饕餮纹、夔龙纹为青铜艺术巅峰",
+    "殷商王权与礼制的象征"
+  ],
+  "back_story": "后母戊鼎重达八百三十二点八四千克，是已知中国古代最重的青铜器。商王祖庚、祖甲为祭祀母亲“戊”而铸此鼎。鼎腹铭文“后母戊”三字，见证着殷商青铜铸造的巅峰技艺与王权礼制。",
+  "curation": {},
+  "style_tags": [
+    "殷商",
+    "青铜",
+    "重器"
+  ],
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "shang-houmuwu-ding"
+}

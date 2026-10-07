@@ -1,0 +1,44 @@
+{
+  "mode": "holographic",
+  "slug": "shang-divination",
+  "title": "占卜",
+  "subtitle": "灼龟而卜 · 以契鬼神",
+  "technique": "Fire-Crack-Omen",
+  "tagline": "钻凿灼烧，裂纹即天意。",
+  "edition": "011 / 014",
+  "collection": "Yin-Shang Chronicles · 殷商纪",
+  "description": "商王凡事必卜——征战、天象、疾病、生育，皆刻于甲骨。",
+  "style": "殷商青铜美学 · 高细节全息收藏卡，黑金与暗红主调，灼火神示，神秘肃穆",
+  "prompt": "殷商占卜场景，贞人跪坐，双手持灼烧中的龟甲，火光映面，龟甲裂纹（兆纹）隐隐发光，周围甲骨碎片环绕，暗红火光与黑金主调，神秘仪式感，电影感光影，高细节",
+  "subject_desc": "殷商占卜场景，贞人跪坐，双手持灼烧中的龟甲，火光映面，龟甲裂纹（兆纹）隐隐发光，周围甲骨碎片环绕，暗红火光与黑金主调，神秘仪式感，电影感光影，高细节",
+  "background_desc": "幽暗卜室，篝火与烟气，甲骨暗纹铺陈，暗红黑金氛围，空镜无人物",
+  "parameters": {
+    "subjectScale": 1.2,
+    "subjectDepth": 0.42,
+    "backgroundDepth": -0.3,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.03,
+      -0.05
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Yin-Shang Chronicles · 殷商纪 · 011/014",
+  "honors": [
+    "商王凡事必卜：征战、天象、疾病、生育",
+    "贞人钻凿灼烧，观裂纹定吉凶",
+    "十余万片甲骨，人与神明的对话档案",
+    "甲骨卜辞为汉字最早的记录",
+    "中国最早的系统性成熟文字载体"
+  ],
+  "back_story": "商王凡事必占卜，贞人钻凿龟甲兽骨，以火灼之，观其裂纹定吉凶，再将所问所应刻为卜辞。十余万片甲骨，就是三千年前人与神明的对话档案，也是汉字最初的记录。",
+  "curation": {},
+  "style_tags": [
+    "殷商",
+    "甲骨",
+    "占卜"
+  ]
+}

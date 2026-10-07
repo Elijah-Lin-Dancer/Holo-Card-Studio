@@ -1,0 +1,52 @@
+{
+  "mode": "holographic",
+  "slug": "shang-dark-bird",
+  "title": "玄鸟",
+  "subtitle": "天命玄鸟 · 降而生商",
+  "technique": "Dark-Bird-Origins-Lacquer",
+  "tagline": "天命玄鸟，降而生商——一个王朝的开端传说。",
+  "edition": "010 / 014",
+  "collection": "Yin-Shang Chronicles · 殷商纪",
+  "description": "《诗经·商颂·玄鸟》：“天命玄鸟，降而生商。”",
+  "style": "殷商青铜美学 · 高细节全息收藏卡，黑金主调，天命神话，庄严神秘",
+  "prompt": "玄鸟——巨大的玄黑神鸟，燕形，展翅回望，羽毛层叠如墨，翱翔于彤云之间，金色云雷纹与甲骨文光影环绕，天命神话氛围，黑金主调，庄严神秘，电影感光影，高细节",
+  "subject_desc": "玄鸟——巨大的玄黑神鸟，燕形，展翅回望，羽毛层叠如墨，翱翔于彤云之间，金色云雷纹与甲骨文光影环绕，天命神话氛围，黑金主调，庄严神秘，电影感光影，高细节",
+  "background_desc": "彤云翻涌的天际，金色云雷纹暗纹铺展，神秘光辉，黑金氛围，空镜无主体",
+  "parameters": {
+    "subjectScale": 1.2,
+    "subjectDepth": 0.42,
+    "backgroundDepth": -0.3,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.03,
+      -0.05
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Yin-Shang Chronicles · 殷商纪 · 010/014",
+  "honors": [
+    "《诗经·商颂·玄鸟》：天命玄鸟，降而生商",
+    "商族血脉起点：简狄吞玄鸟卵而生契",
+    "玄鸟为商王朝最古老的精神图腾",
+    "从神话到信史的民族记忆",
+    "殷商纪 Vol.III 的开篇"
+  ],
+  "back_story": "“天命玄鸟，降而生商。”传说简狄吞食玄鸟之卵，生下了商的始祖契。从神话到信史，玄鸟是商族血脉的起点，也是这个王朝最古老的精神图腾。",
+  "curation": {},
+  "style_tags": [
+    "殷商",
+    "神话",
+    "玄鸟"
+  ],
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "shang-dark-bird"
+}

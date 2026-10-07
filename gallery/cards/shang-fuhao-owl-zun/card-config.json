@@ -1,0 +1,52 @@
+{
+  "mode": "holographic",
+  "slug": "shang-fuhao-owl-zun",
+  "title": "妇好鸮尊",
+  "subtitle": "战神之鸮 · 王后之酒",
+  "technique": "Owl-Guardian-Vessel",
+  "tagline": "三千年前的猫头鹰，替女将军守住夜色。",
+  "edition": "008 / 014",
+  "collection": "Yin-Shang Chronicles · 殷商纪",
+  "description": "1976 年妇好墓出土的猫头鹰形盛酒器，殷商青铜艺术巅峰之作。",
+  "style": "殷商青铜美学 · 高细节全息收藏卡，黑金主调，夜之守护，瑰丽神秘",
+  "prompt": "妇好鸮尊——猫头鹰形青铜盛酒器，站姿，圆眼突出，利喙微张，盖顶立冠，羽纹鳞纹精美，45 度侧面视角，青铜鎏金质感，深色背景，博物馆陈列光，高细节，瑰丽庄重",
+  "subject_desc": "妇好鸮尊——猫头鹰形青铜盛酒器，站姿，圆眼突出，利喙微张，盖顶立冠，羽纹鳞纹精美，45 度侧面视角，青铜鎏金质感，深色背景，博物馆陈列光，高细节，瑰丽庄重",
+  "background_desc": "博物馆暗场，暖色展灯光晕，青铜纹样暗纹，黑金氛围，空镜无器物",
+  "parameters": {
+    "subjectScale": 1.2,
+    "subjectDepth": 0.42,
+    "backgroundDepth": -0.3,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.03,
+      -0.05
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Yin-Shang Chronicles · 殷商纪 · 008/014",
+  "honors": [
+    "1976年妇好墓出土的青铜盛酒器",
+    "鸮（猫头鹰）为商代战神与夜之守护的化身",
+    "器盖器身满饰羽纹、鳞纹，造型瑰丽",
+    "中国青铜鸟形酒器中的国宝",
+    "殷商青铜艺术的巅峰之作"
+  ],
+  "back_story": "鸮，即猫头鹰，在商文化中是战神的化身、夜的守护者。妇好鸮尊出土于殷墟妇好墓，通体作鸮鸟站立之形，器盖与器身纹饰繁丽，既是酒器，也是三千年前那位女将军的肃穆守望。",
+  "curation": {},
+  "style_tags": [
+    "殷商",
+    "青铜",
+    "鸮尊"
+  ],
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "shang-fuhao-owl-zun"
+}

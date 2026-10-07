@@ -1,997 +1,1228 @@
 {
- "cards": [
-  {
-   "id": "shang-oracle",
-   "title": "甲骨文",
-   "subtitle": "汉字从这里走来",
-   "technique": "Cracked-Oracle-Lacquer",
-   "tagline": "三千年前的卜辞，是汉字最早的家。",
-   "edition": "003 / 014",
-   "collection": "Yin-Shang Chronicles · 殷商纪",
-   "description": "甲骨文，刻写在龟甲与兽骨上的殷商占卜文字，是中国已发现的最早的系统性成熟文字。商王凡事皆卜，贞人在灼烧的甲骨上刻下卜辞，为我们留下约十五万片刻辞甲骨、四千余个单字。1899 年，金石学家王懿荣在中药'龙骨'上发现甲骨文，尘封三千年的汉字童年就此苏醒。",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "殷商",
-    "甲骨",
-    "文字"
-   ],
-   "url": "cards/shang-oracle/",
-   "thumb": "cards/shang-oracle/thumb.jpg",
-   "date": "2026-10-07",
-   "preview": "cards/shang-oracle/preview.webm",
-   "category": "history"
-  },
-  {
-   "id": "shang-wu-ding",
-   "title": "武丁",
-   "subtitle": "商之中兴 · 梦得傅说",
-   "technique": "Divination-Seal-Carving",
-   "tagline": "把王朝推向鼎盛的一代明君，甲骨时代由此开启。",
-   "edition": "002 / 014",
-   "collection": "Yin-Shang Chronicles · 殷商纪",
-   "description": "武丁，商朝第二十三任君主，在位约五十九年，励精图治，任用傅说、妇好，征伐四方，史称'武丁中兴'，使商朝达到鼎盛。相传他即位后三年不语、以观国是，夜梦圣人，得傅说于版筑之间。武丁时期甲骨文最为繁盛，留下大量占卜记录，是商代文明的黄金时代。",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "殷商",
-    "青铜",
-    "帝王"
-   ],
-   "url": "cards/shang-wu-ding/",
-   "thumb": "cards/shang-wu-ding/thumb.jpg",
-   "date": "2026-10-07",
-   "preview": "cards/shang-wu-ding/preview.webm",
-   "category": "history"
-  },
-  {
-   "id": "shang-fu-hao",
-   "title": "妇好",
-   "subtitle": "三千年前的女将军 · 甲骨为证",
-   "technique": "Bronze-Valkyrie-Etching",
-   "tagline": "中国历史上第一位有文字可考的女统帅。",
-   "edition": "001 / 014",
-   "collection": "Yin-Shang Chronicles · 殷商纪",
-   "description": "妇好，商王武丁之妻，中国历史上第一位有甲骨文实证的女性统帅。据卜辞记载，她曾率军征伐羌方、土方等四方部族，一次出兵最多达一万三千人，并主持祭祀，是集王后、将军、大祭司于一身的传奇女性。1976 年殷墟妇好墓出土近两千件随葬品，妇好鸮尊为其中代表。",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "殷商",
-    "青铜",
-    "女将"
-   ],
-   "url": "cards/shang-fu-hao/",
-   "thumb": "cards/shang-fu-hao/thumb.jpg",
-   "date": "2026-10-07",
-   "preview": "cards/shang-fu-hao/preview.webm",
-   "category": "history"
-  },
-  {
-   "id": "vc-tommy-vercetti",
-   "title": "Neon Godfather",
-   "subtitle": "He came back to own the city",
-   "technique": "Neon-Noir",
-   "tagline": "I'm gonna own this city.",
-   "edition": "037 / 001",
-   "collection": "Vice City Nights · Characters",
-   "description": "Neon Godfather — He came back to own the city. Part of the Vice City Nights character roster, 1986 neon-noir tribute.",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "vice-city",
-    "80s",
-    "人物志"
-   ],
-   "url": "cards/vc-tommy-vercetti/",
-   "thumb": "cards/vc-tommy-vercetti/thumb.jpg",
-   "date": "2026-10-06",
-   "preview": "cards/vc-tommy-vercetti/preview.webm",
-   "category": "game"
-  },
-  {
-   "id": "vc-general-cortez",
-   "title": "General Cortez",
-   "subtitle": "El General of the old guard",
-   "technique": "Yacht-General",
-   "tagline": "El General siempre cumple.",
-   "edition": "041 / 005",
-   "collection": "Vice City Nights · Characters",
-   "description": "General Cortez — El General of the old guard. Part of the Vice City Nights character roster, 1986 neon-noir tribute.",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "vice-city",
-    "80s",
-    "人物志"
-   ],
-   "url": "cards/vc-general-cortez/",
-   "thumb": "cards/vc-general-cortez/thumb.jpg",
-   "date": "2026-10-06",
-   "preview": "cards/vc-general-cortez/preview.webm",
-   "category": "game"
-  },
-  {
-   "id": "vc-ken-rosenberg",
-   "title": "Ken Rosenberg",
-   "subtitle": "Why is this happening to me?!",
-   "technique": "Anxiety-Noir",
-   "tagline": "Why is this happening to me?!",
-   "edition": "039 / 003",
-   "collection": "Vice City Nights · Characters",
-   "description": "Ken Rosenberg — Why is this happening to me?!. Part of the Vice City Nights character roster, 1986 neon-noir tribute.",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "vice-city",
-    "80s",
-    "人物志"
-   ],
-   "url": "cards/vc-ken-rosenberg/",
-   "thumb": "cards/vc-ken-rosenberg/thumb.jpg",
-   "date": "2026-10-06",
-   "preview": "cards/vc-ken-rosenberg/preview.webm",
-   "category": "game"
-  },
-  {
-   "id": "vc-auntie-poulet",
-   "title": "Auntie Poulet",
-   "subtitle": "The voodoo of Little Haiti",
-   "technique": "Voodoo-Blessing",
-   "tagline": "Da spirits be workin'.",
-   "edition": "042 / 006",
-   "collection": "Vice City Nights · Characters",
-   "description": "Auntie Poulet — The voodoo of Little Haiti. Part of the Vice City Nights character roster, 1986 neon-noir tribute.",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "vice-city",
-    "80s",
-    "人物志"
-   ],
-   "url": "cards/vc-auntie-poulet/",
-   "thumb": "cards/vc-auntie-poulet/thumb.jpg",
-   "date": "2026-10-06",
-   "preview": "cards/vc-auntie-poulet/preview.webm",
-   "category": "game"
-  },
-  {
-   "id": "vc-ricardo-diaz",
-   "title": "Ricardo Diaz",
-   "subtitle": "El Jefe of Vice City",
-   "technique": "Cigar-Empire",
-   "tagline": "Soy el jefe.",
-   "edition": "040 / 004",
-   "collection": "Vice City Nights · Characters",
-   "description": "Ricardo Diaz — El Jefe of Vice City. Part of the Vice City Nights character roster, 1986 neon-noir tribute.",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "vice-city",
-    "80s",
-    "人物志"
-   ],
-   "url": "cards/vc-ricardo-diaz/",
-   "thumb": "cards/vc-ricardo-diaz/thumb.jpg",
-   "date": "2026-10-06",
-   "preview": "cards/vc-ricardo-diaz/preview.webm",
-   "category": "game"
-  },
-  {
-   "id": "vc-lance-vance",
-   "title": "Lance Vance Dance!",
-   "subtitle": "The dance that became a prophecy",
-   "technique": "Disco-Prophecy",
-   "tagline": "Lance Vance Dance!",
-   "edition": "038 / 002",
-   "collection": "Vice City Nights · Characters",
-   "description": "Lance Vance Dance! — The dance that became a prophecy. Part of the Vice City Nights character roster, 1986 neon-noir tribute.",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "vice-city",
-    "80s",
-    "人物志"
-   ],
-   "url": "cards/vc-lance-vance/",
-   "thumb": "cards/vc-lance-vance/thumb.jpg",
-   "date": "2026-10-06",
-   "preview": "cards/vc-lance-vance/preview.webm",
-   "category": "game"
-  },
-  {
-   "id": "haaland-chongqing-metro",
-   "title": "吃重庆轻轨·哈兰德",
-   "subtitle": "重庆必吃榜第一名：穿楼轻轨",
-   "technique": "Selective-Color Holography",
-   "tagline": "Quando a cidade vira um prato de Haaland",
-   "edition": "011 / 010",
-   "collection": "Haaland Multiverse · Meme Series",
-   "description": "网友玩'重庆必吃榜'梗，哈兰德真拍视频张嘴'吞'穿楼轻轨。李子坝名场面，全网欢乐。",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "吃重庆轻轨",
-    "梗卡",
-    "足球"
-   ],
-   "url": "cards/haaland-chongqing-metro/",
-   "thumb": "cards/haaland-chongqing-metro/thumb.jpg",
-   "date": "2026-10-01",
-   "preview": "cards/haaland-chongqing-metro/preview.webm",
-   "category": "meme"
-  },
-  {
-   "id": "haaland-tom-cat",
-   "title": "Tom Cat Haaland",
-   "subtitle": "Jerry, meet your new nightmare",
-   "technique": "Selective-Color Holography",
-   "tagline": "O gato que marcou 111 gols",
-   "edition": "011 / 010",
-   "collection": "Haaland Multiverse · Meme Series",
-   "description": "The internet noticed Haaland looks exactly like Tom from Tom & Jerry — blonde hair, blue-and-white kit, and that expression. 111 goals in 111 games, meow.",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "Tom猫",
-    "梗卡",
-    "足球"
-   ],
-   "url": "cards/haaland-tom-cat/",
-   "thumb": "cards/haaland-tom-cat/thumb.jpg",
-   "date": "2026-10-01",
-   "preview": "cards/haaland-tom-cat/preview.webm",
-   "category": "meme"
-  },
-  {
-   "id": "haaland-goalie-water",
-   "title": "Goalie Water Heist",
-   "subtitle": "Caught in 4K: the great bottle theft",
-   "technique": "Selective-Color Holography",
-   "tagline": "Ninguém rouba água como ele",
-   "edition": "011 / 010",
-   "collection": "Haaland Multiverse · Meme Series",
-   "description": "Haaland's famous sideline heist — stealing the opponent goalkeeper's water bottle mid-match, caught on camera with a sheepish grin.",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "偷喝门将水",
-    "梗卡",
-    "足球"
-   ],
-   "url": "cards/haaland-goalie-water/",
-   "thumb": "cards/haaland-goalie-water/thumb.jpg",
-   "date": "2026-10-01",
-   "preview": "cards/haaland-goalie-water/preview.webm",
-   "category": "meme"
-  },
-  {
-   "id": "haaland-scallion",
-   "title": "大葱塑·哈兰德",
-   "subtitle": "全网热转：大葱也有哈兰德之魂",
-   "technique": "Selective-Color Holography",
-   "tagline": "O seu fã mais esquisito é uma cebolinha",
-   "edition": "011 / 010",
-   "collection": "Haaland Multiverse · Meme Series",
-   "description": "网民拿大葱根茎复刻哈兰德金发前倾体态，他本人主动转发。中国田间最魔性的球迷应援。",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "大葱塑",
-    "梗卡",
-    "足球"
-   ],
-   "url": "cards/haaland-scallion/",
-   "thumb": "cards/haaland-scallion/thumb.jpg",
-   "date": "2026-10-01",
-   "preview": "cards/haaland-scallion/preview.webm",
-   "category": "meme"
-  },
-  {
-   "id": "haaland-shark-grin",
-   "title": "Shark Grin",
-   "subtitle": "The smile that terrified defenders",
-   "technique": "Selective-Color Holography",
-   "tagline": "O sorriso que aterroriza zagueiros",
-   "edition": "011 / 010",
-   "collection": "Haaland Multiverse · Meme Series",
-   "description": "Haaland's signature shark-tooth grin — the meme-worthy laugh that became his brand. Deep-sea blue, bigger and wilder than the Machine card.",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "鲨鱼笑",
-    "梗卡",
-    "足球"
-   ],
-   "url": "cards/haaland-shark-grin/",
-   "thumb": "cards/haaland-shark-grin/thumb.jpg",
-   "date": "2026-10-01",
-   "preview": "cards/haaland-shark-grin/preview.webm",
-   "category": "meme"
-  },
-  {
-   "id": "haaland-bun-haartie",
-   "title": "丸子头",
-   "subtitle": "90 分钟不散 · 同款头绳已售 3 万+",
-   "technique": "Fashion-Statement Holography",
-   "tagline": "男人扎丸子头，也能成为时尚单品。",
-   "edition": "008 / 010",
-   "collection": "Haaland Multiverse · Meme Series",
-   "description": "哈兰德的金发丸子头 90 分钟比赛不散，同款发绳在淘宝爆火（超 3 万人搜索）。时尚单品海报风 + 呆萌反差。",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "梗卡",
-    "足球",
-    "丸子头"
-   ],
-   "url": "cards/haaland-bun-haartie/",
-   "thumb": "cards/haaland-bun-haartie/thumb.jpg",
-   "date": "2026-10-01",
-   "preview": "cards/haaland-bun-haartie/preview.webm",
-   "category": "meme"
-  },
-  {
-   "id": "haaland-wanglaoji",
-   "title": "王老吉·哈兰德",
-   "subtitle": "怕上火，喝王老吉",
-   "technique": "Spicy-Advert Holography",
-   "tagline": "蹩脚中文魔性广告，阅读量 7.5 亿。",
-   "edition": "010 / 010",
-   "collection": "Haaland Multiverse · Meme Series",
-   "description": "哈兰德给王老吉拍的蹩脚中文魔性广告'怕上火，喝王老吉'，全网 7.5 亿阅读。凉茶 + 火焰吐息，中国特供梗。",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "梗卡",
-    "足球",
-    "王老吉"
-   ],
-   "url": "cards/haaland-wanglaoji/",
-   "thumb": "cards/haaland-wanglaoji/thumb.jpg",
-   "date": "2026-10-01",
-   "preview": "cards/haaland-wanglaoji/preview.webm",
-   "category": "meme"
-  },
-  {
-   "id": "haaland-raccoon",
-   "title": "RACCOON HAALAND",
-   "subtitle": "Souvenirs from Qatar.",
-   "technique": "Airport-Paparazzi Holography",
-   "tagline": "Brought back a raccoon, a whisky, and zero regrets.",
-   "edition": "009 / 010",
-   "collection": "Haaland Multiverse · Meme Series",
-   "description": "世界杯后哈兰德带着一只浣熊标本和一瓶威士忌走下飞机——狗仔镜头里的硬汉反差萌，挪威梗王实锤。",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "梗卡",
-    "足球",
-    "浣熊"
-   ],
-   "url": "cards/haaland-raccoon/",
-   "thumb": "cards/haaland-raccoon/thumb.jpg",
-   "date": "2026-10-01",
-   "preview": "cards/haaland-raccoon/preview.webm",
-   "category": "meme"
-  },
-  {
-   "id": "haaland-eat-kid",
-   "title": "SNACK TIME",
-   "subtitle": "Lunch is served. Sorry, kids.",
-   "technique": "Hype-Beast Holography",
-   "tagline": "The striker who 'eats' defenders — now literally.",
-   "edition": "006 / 010",
-   "collection": "Haaland Multiverse · Meme Series",
-   "description": "世界杯广告片里'生吃小孩'的世纪名场面——Q 版化：张大嘴的哈兰德，把吓到弹开的迷你小球迷当成'午餐'。黑色幽默，但可爱化处理。",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "梗卡",
-    "足球",
-    "吃小孩"
-   ],
-   "url": "cards/haaland-eat-kid/",
-   "thumb": "cards/haaland-eat-kid/thumb.jpg",
-   "date": "2026-10-01",
-   "preview": "cards/haaland-eat-kid/preview.webm",
-   "category": "meme"
-  },
-  {
-   "id": "haaland-magdeburg",
-   "title": "马德堡半球实验",
-   "subtitle": "人类高质量物理实验",
-   "technique": "Impact Physics Holography",
-   "tagline": "1654 年马德堡，2026 年哈兰德。",
-   "edition": "007 / 010",
-   "collection": "Haaland Multiverse · Meme Series",
-   "description": "哈兰德爆射把球砸在防守球员脸上、球牢牢贴在脸上——网友封为'人类高质量马德堡半球实验'（经典大气压实验梗）。物理课本风 + 呆萌化。",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "梗卡",
-    "足球",
-    "物理"
-   ],
-   "url": "cards/haaland-magdeburg/",
-   "thumb": "cards/haaland-magdeburg/thumb.jpg",
-   "date": "2026-10-01",
-   "preview": "cards/haaland-magdeburg/preview.webm",
-   "category": "meme"
-  },
-  {
-   "id": "pouch-invader",
-   "title": "POUCH INVADER",
-   "subtitle": "THE LAYTENANT",
-   "technique": "Toon Comedy Holography",
-   "tagline": "Rent-free. No lease. Too late to ask questions.",
-   "edition": "001 / 001",
-   "collection": "Animal Comedy · Lay's Submission",
-   "description": "A friend's comedy submission dedicated to Lay — a cat that claims the kangaroo's pouch without a lease, and a kangaroo that never signed up for this. Cute, absurd, and rent-free.",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "搞笑",
-    "动物",
-    "猫咪",
-    "袋鼠"
-   ],
-   "url": "cards/pouch-invader/",
-   "thumb": "cards/pouch-invader/thumb.jpg",
-   "date": "2026-10-01",
-   "preview": "cards/pouch-invader/preview.webm",
-   "category": "meme"
-  },
-  {
-   "id": "kenji-kishimoto",
-   "title": "Kenji Kishimoto",
-   "subtitle": "\"I do it every day.\"",
-   "technique": "Energy-Dispersal Holography",
-   "tagline": "Who says you can't be cute and kick ass at the same time?",
-   "edition": "001 / 001",
-   "collection": "Shatter Me · Resistance Chronicles",
-   "description": "Kenji Troy Kishimoto — the invisible heart of Omega Point. Japanese-American resistance fighter with the ability to vanish by absorbing and redirecting ambient energy. The comic relief who became the war's most essential narrator. ID #45B-67999.",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "小说",
-    "科幻",
-    "角色"
-   ],
-   "url": "cards/kenji-kishimoto/",
-   "thumb": "cards/kenji-kishimoto/thumb.jpg",
-   "date": "2026-09-30",
-   "preview": "cards/kenji-kishimoto/preview.webm",
-   "category": "art"
-  },
-  {
-   "id": "haaland-viking-kriger",
-   "title": "Vikingkrigeren",
-   "subtitle": "Fra Norge, med kjærlighet",
-   "technique": "Norse-Cartoon Holography",
-   "tagline": "Fra fjordene, til verden",
-   "edition": "001 / 001",
-   "collection": "Haaland Multiverse · Meme Series",
-   "description": "En hyllest til Norges viking — med lyst hår, rustning og en robåt-åre. Google søkte til og med 'Erling Haaland' og fikk vikinger som rodde. (致敬挪威维京人——金发、盔甲和一把划船桨。连 Google 搜索他名字都会出现维京划船彩蛋。)",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "足球",
-    "维京"
-   ],
-   "url": "cards/haaland-viking-kriger/",
-   "thumb": "cards/haaland-viking-kriger/thumb.jpg",
-   "date": "2026-10-01",
-   "preview": "cards/haaland-viking-kriger/preview.webm",
-   "category": "football"
-  },
-  {
-   "id": "haaland-moskau-anthem",
-   "title": "哈哈哈兰德",
-   "subtitle": "哈兰哈兰，哈哈哈哈",
-   "technique": "Disco-Fever Holography",
-   "tagline": "一首让全网跟着哈哈的洗脑神曲",
-   "edition": "001 / 001",
-   "collection": "Haaland Multiverse · Meme Series",
-   "description": "球迷把 1979 年迪斯科金曲《Moskau》DJ 成'哈哈哈兰德'，洗脑全网。本人点赞'神曲'，还带队友在更衣室齐声高唱。",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "梗卡",
-    "足球",
-    "disco"
-   ],
-   "url": "cards/haaland-moskau-anthem/",
-   "thumb": "cards/haaland-moskau-anthem/thumb.jpg",
-   "date": "2026-10-01",
-   "preview": "cards/haaland-moskau-anthem/preview.webm",
-   "category": "meme"
-  },
-  {
-   "id": "haaland-majin-buu",
-   "title": "魔人布欧·哈兰德",
-   "subtitle": "我不否认。",
-   "technique": "Dragon-Ball Holography",
-   "tagline": "I don't disagree.",
-   "edition": "001 / 001",
-   "collection": "Haaland Multiverse · Meme Series",
-   "description": "撞脸《龙珠》魔人布欧的实锤现场——本人回应：'我不否认。' 中外网友都玩疯的世纪梗。",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "梗卡",
-    "足球",
-    "龙珠"
-   ],
-   "url": "cards/haaland-majin-buu/",
-   "thumb": "cards/haaland-majin-buu/thumb.jpg",
-   "date": "2026-10-01",
-   "preview": "cards/haaland-majin-buu/preview.webm",
-   "category": "meme"
-  },
-  {
-   "id": "haaland-machine-robot",
-   "title": "HAALAND 2.0",
-   "subtitle": "111 GOALS. NO FEELINGS.",
-   "technique": "Retro-Cartoon Holography",
-   "tagline": "Officially not human. (He doesn't disagree.)",
-   "edition": "001 / 001",
-   "collection": "Haaland Multiverse · Meme Series",
-   "description": "A tribute to the internet's favourite Terminator — the robot Haaland who scored 111 Premier League goals in 111 games, with a system UI that says FEELINGS: 0. Cute, not cool.",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "梗卡",
-    "足球",
-    "机器人"
-   ],
-   "url": "cards/haaland-machine-robot/",
-   "thumb": "cards/haaland-machine-robot/thumb.jpg",
-   "date": "2026-10-01",
-   "preview": "cards/haaland-machine-robot/preview.webm",
-   "category": "meme"
-  },
-  {
-   "id": "haaland-meditation",
-   "title": "入定",
-   "subtitle": "进球后，先让我静一静",
-   "technique": "Zen-Contrast Holography",
-   "tagline": "别人呐喊，我冥想",
-   "edition": "001 / 001",
-   "collection": "Haaland Multiverse · Meme Series",
-   "description": "致敬哈兰德标志性的打坐庆祝——全世界在狂欢，他独自在草坪上入定。世界杯首球也是这么坐的。",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "梗卡",
-    "足球",
-    "冥想"
-   ],
-   "url": "cards/haaland-meditation/",
-   "thumb": "cards/haaland-meditation/thumb.jpg",
-   "date": "2026-10-01",
-   "preview": "cards/haaland-meditation/preview.webm",
-   "category": "meme"
-  },
-  {
-   "id": "eletrico-28-lisboa",
-   "title": "Elétrico 28",
-   "subtitle": "A Vitória de Lisboa",
-   "technique": "Selective-Color Holography",
-   "tagline": "O elétrico mais famoso de Lisboa",
-   "edition": "001 / 001",
-   "collection": "Série Cidade da Luz · Lisboa",
-   "description": "Tributo holográfico ao Elétrico 28 de Lisboa — o amarelo que sobe as colinas de Alfama, com o Castelo de São Jorge ao fundo e o Tejo a brilhar. Dedicado a Inês.",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "葡萄牙",
-    "电车",
-    "里斯本",
-    "欧陆风情"
-   ],
-   "url": "cards/eletrico-28-lisboa/",
-   "thumb": "cards/eletrico-28-lisboa/thumb.jpg",
-   "date": "2026-09-30",
-   "preview": "cards/eletrico-28-lisboa/preview.webm",
-   "category": "travel"
-  },
-  {
-   "id": "pep-guardiola-tiki-taka",
-   "title": "Pep Guardiola",
-   "subtitle": "El Maestro",
-   "technique": "Gilded Holography",
-   "tagline": "TIKI-TAKA · 2008–2012",
-   "edition": "006 / 006",
-   "collection": "HoloLab Archive · FC Barcelona Legacy",
-   "description": "El heredero de Cruijff que convirtió el fútbol en una sinfonía. Un homenaje holográfico a Pep Guardiola, el maestro del tiki-taka y del sextete de 2009.",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "足球",
-    "巴萨",
-    "西班牙",
-    "教练",
-    "战术",
-    "传奇"
-   ],
-   "url": "cards/pep-guardiola-tiki-taka/",
-   "thumb": "cards/pep-guardiola-tiki-taka/thumb.jpg",
-   "date": "2026-09-30",
-   "preview": "cards/pep-guardiola-tiki-taka/preview.webm",
-   "category": "football"
-  },
-  {
-   "id": "messi-world-cup-2022",
-   "title": "Lionel Messi",
-   "subtitle": "La Tercera Estrella",
-   "technique": "Gilded Holography",
-   "tagline": "QATAR 2022 · CAMPEONES DEL MUNDO",
-   "edition": "004 / 006",
-   "collection": "HoloLab Archive · FC Barcelona Legacy",
-   "description": "La noche de Doha: Messi alzó la Copa del Mundo y coronó la leyenda. Un homenaje holográfico al momento que cambió para siempre su historia.",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "足球",
-    "世界杯",
-    "阿根廷",
-    "传奇"
-   ],
-   "url": "cards/messi-world-cup-2022/",
-   "thumb": "cards/messi-world-cup-2022/thumb.jpg",
-   "date": "2026-09-30",
-   "preview": "cards/messi-world-cup-2022/preview.webm",
-   "category": "football"
-  },
-  {
-   "id": "messi-inter-miami",
-   "title": "Lionel Messi",
-   "subtitle": "La Nueva Leyenda",
-   "technique": "Gilded Holography",
-   "tagline": "INTER MIAMI CF · 2023–",
-   "edition": "003 / 006",
-   "collection": "HoloLab Archive · FC Barcelona Legacy",
-   "description": "De Europa al Nuevo Mundo: Messi pintó de rosa el fútbol americano. Un homenaje holográfico a la etapa de Miami, donde una leyenda encontró un nuevo escenario.",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "足球",
-    "美职联",
-    "迈阿密",
-    "阿根廷",
-    "传奇"
-   ],
-   "url": "cards/messi-inter-miami/",
-   "thumb": "cards/messi-inter-miami/thumb.jpg",
-   "date": "2026-09-30",
-   "preview": "cards/messi-inter-miami/preview.webm",
-   "category": "football"
-  },
-  {
-   "id": "messi-psg-paris",
-   "title": "Lionel Messi",
-   "subtitle": "La Ciudad de la Luz",
-   "technique": "Gilded Holography",
-   "tagline": "PARIS SAINT-GERMAIN · 2021–2023",
-   "edition": "002 / 006",
-   "collection": "HoloLab Archive · FC Barcelona Legacy",
-   "description": "El viaje a París: dos años en la ciudad de la luz, dos Ligas francesas y un séptimo Balón de Oro. Un homenaje holográfico a la etapa parisina de Messi.",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "足球",
-    "法甲",
-    "巴黎",
-    "阿根廷",
-    "传奇"
-   ],
-   "url": "cards/messi-psg-paris/",
-   "thumb": "cards/messi-psg-paris/thumb.jpg",
-   "date": "2026-09-30",
-   "preview": "cards/messi-psg-paris/preview.webm",
-   "category": "football"
-  },
-  {
-   "id": "johan-cruyff-el-arquitecto",
-   "title": "Johan Cruijff",
-   "subtitle": "El Arquitecto",
-   "technique": "Gilded Holography",
-   "tagline": "FÚTBOL TOTAL · 1947–2016",
-   "edition": "005 / 006",
-   "collection": "HoloLab Archive · FC Barcelona Legacy",
-   "description": "El hombre que inventó el fútbol moderno. Cruijff dio al Barça su identidad: total, valiente, técnico. Un homenaje holográfico al arquitecto del fútbol total.",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "足球",
-    "巴萨",
-    "荷兰",
-    "传奇"
-   ],
-   "url": "cards/johan-cruyff-el-arquitecto/",
-   "thumb": "cards/johan-cruyff-el-arquitecto/thumb.jpg",
-   "date": "2026-09-30",
-   "preview": "cards/johan-cruyff-el-arquitecto/preview.webm",
-   "category": "football"
-  },
-  {
-   "id": "messi-fc-barcelona",
-   "title": "Lionel Messi",
-   "subtitle": "La Pulga · Rey de la Noche",
-   "technique": "Gilded Holography",
-   "tagline": "FC BARCELONA · 2004–2021",
-   "edition": "001 / 006",
-   "collection": "HoloLab Archive · FC Barcelona Legacy",
-   "description": "El genio que convirtió el Camp Nou en su escenario durante 17 temporadas. Un homenaje holográfico a Lionel Messi y a la era dorada del Barça.",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "足球",
-    "巴萨",
-    "西班牙",
-    "阿根廷",
-    "传奇"
-   ],
-   "url": "cards/messi-fc-barcelona/",
-   "thumb": "cards/messi-fc-barcelona/thumb.jpg",
-   "date": "2026-09-30",
-   "preview": "cards/messi-fc-barcelona/preview.webm",
-   "category": "football"
-  },
-  {
-   "id": "neeltje-friesian-kalundborg",
-   "title": "Neeltje Jacoba Van Swichum",
-   "subtitle": "EN FRIESER PÅ 22 ÅR",
-   "technique": "Moonlit Holography",
-   "tagline": "En sort perle fra Holland",
-   "edition": "001 / 001",
-   "collection": "Made for a Friend · Isabella Nicoline Andersen",
-   "description": "A holographic tribute to Neeltje, a 22-year-old pure-black Friesian mare — a loyal companion in Kalundborg, Denmark, for Isabella and little Sophina.",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "挚友",
-    "马",
-    "丹麦"
-   ],
-   "url": "cards/neeltje-friesian-kalundborg/",
-   "thumb": "cards/neeltje-friesian-kalundborg/thumb.jpg",
-   "date": "2026-09-30",
-   "locked": true,
-   "lockHash": "c90fdbf1d5f4532fd9163bc9120cdd6946ddcc0c1d40f77bd761080152ec6ae8",
-   "preview": "cards/neeltje-friesian-kalundborg/preview.webm",
-   "category": "travel"
-  },
-  {
-   "id": "satyajit-ray-bengali-maestro",
-   "title": "সত্যজিৎ রায়",
-   "subtitle": "চলচ্চিত্রের রূপকার",
-   "technique": "Gilded Holography",
-   "tagline": "SATYAJIT RAY · 1921–1992",
-   "edition": "003 / 003",
-   "collection": "HoloLab Archive · Legend Series",
-   "description": "A holographic tribute to Satyajit Ray, the Bengali master of world cinema — filmmaker, composer, illustrator and writer, whose Apu Trilogy changed the language of film.",
-   "author": "HoloLab Studio",
-   "style_tags": [
-    "传奇",
-    "电影",
-    "孟加拉"
-   ],
-   "url": "cards/satyajit-ray-bengali-maestro/",
-   "thumb": "cards/satyajit-ray-bengali-maestro/thumb.jpg",
-   "date": "2026-09-30",
-   "preview": "cards/satyajit-ray-bengali-maestro/preview.webm",
-   "category": "art"
-  },
-  {
-   "id": "card-elijah-lin-d",
-   "title": "Luminous Blue Whale",
-   "subtitle": "Public Submission · 公众投稿",
-   "technique": "AI Holographic Card · 一句话出卡",
-   "tagline": "Community Gallery · 社区画廊",
-   "edition": "PUB-20260930-CARD-E",
-   "collection": "HoloLab 公众系列 · Public Series",
-   "description": "[IDENTITY] Luminous Blue Whale · leviathan of the starry sea\n[DESIGN]\nSubject layer: a luminous blue whale soaring through clouds, bioluminescent cyan glow, centered, about 65% of canvas, crisp silhouette, rich detail.\nBackground layer: midnight ocean below with mirrored stars, strong depth, lower 40% stays empty for typography, no other figures.\nPalette: deep sapphire and bioluminescent cyan, gilded warm accents, rainbow-foil gradient highlights, clear highlight and shadow separation.\nLine art layer: glowing contour traced along the whale, even stroke width, black lines on white, glow spreading outward.\nTypography layer: title \"Leviathan of the Starlight Sea\", subtitle \"Mythic · Public Series\", series number and rarity badge, gold outlined type.",
-   "style_tags": [
-    "海洋"
-   ],
-   "url": "cards/card-elijah-lin-d/",
-   "thumb": "cards/card-elijah-lin-d/thumb.jpg",
-   "date": "2026-09-30",
-   "author": "Elijah-Lin-Dancer",
-   "category": "art"
-  },
-  {
-   "id": "marco-reus-la-galaxy-neue-horizonte",
-   "title": "Marco Reus bei LA Galaxy",
-   "subtitle": "MLS-Champion · Neuer Horizont",
-   "technique": "Hologramm-Flug-Schimmer",
-   "tagline": "Neue Horizonte auf dem Platz der MLS",
-   "edition": "009 / 009",
-   "collection": "HoloLab Archiv · MLS Stars Serie",
-   "description": "Diese holografische Sammelkarte zeigt Marco Reus, der bei LA Galaxy spielt. Er wechselt zur MLS, um seine Karriere in Nordamerika fortzusetzen.",
-   "style_tags": [
-    "足球",
-    "美职联",
-    "洛杉矶"
-   ],
-   "url": "cards/marco-reus-la-galaxy-neue-horizonte/",
-   "thumb": "cards/marco-reus-la-galaxy-neue-horizonte/thumb.jpg",
-   "date": "2026-09-29",
-   "preview": "cards/marco-reus-la-galaxy-neue-horizonte/preview.webm",
-   "lenticular": {
-    "L": "cards/marco-reus-la-galaxy-neue-horizonte/lent-L.jpg",
-    "R": "cards/marco-reus-la-galaxy-neue-horizonte/lent-R.jpg"
-   },
-   "author": "HoloLab Studio",
-   "category": "football"
-  },
-  {
-   "id": "marco-reus-wm-2014-verpasst",
-   "title": "Marco Reus: Unbeugsamer",
-   "subtitle": "DFB-Team · WM 2014",
-   "technique": "Hologramm-Schimmer der Treue",
-   "tagline": "Verpasste WM, nie aufgegebene Hoffnung",
-   "edition": "008 / 009",
-   "collection": "HoloLab Archiv · Nationalhelden Serie",
-   "description": "Diese Karte feiert Marco Reus, der die WM 2014 verpasste, aber nie seine Leidenschaft für den deutschen Fußball aufgab. Er gilt als Symbol für Ausdauer im Team.",
-   "style_tags": [
-    "足球",
-    "德国",
-    "国家队"
-   ],
-   "url": "cards/marco-reus-wm-2014-verpasst/",
-   "thumb": "cards/marco-reus-wm-2014-verpasst/thumb.jpg",
-   "date": "2026-09-29",
-   "preview": "cards/marco-reus-wm-2014-verpasst/preview.webm",
-   "lenticular": {
-    "L": "cards/marco-reus-wm-2014-verpasst/lent-L.jpg",
-    "R": "cards/marco-reus-wm-2014-verpasst/lent-R.jpg"
-   },
-   "author": "HoloLab Studio",
-   "category": "football"
-  },
-  {
-   "id": "marco-reus-bvb-kapitain",
-   "title": "BVB Kapitän Marco Reus",
-   "subtitle": "Borussia Dortmund · Kapitän",
-   "technique": "Gelbwand-Schimmer",
-   "tagline": "Kapitänstreue auf Signal Iduna Park",
-   "edition": "007 / 009",
-   "collection": "HoloLab Archiv · BVB Serie",
-   "description": "Diese holografische Sammelkarte zeigt Marco Reus, den langjährigen Kapitän von Borussia Dortmund. Sie feiert seine treue Zugehörigkeit zum Verein.",
-   "style_tags": [
-    "足球",
-    "德甲",
-    "多特蒙德",
-    "传奇"
-   ],
-   "url": "cards/marco-reus-bvb-kapitain/",
-   "thumb": "cards/marco-reus-bvb-kapitain/thumb.jpg",
-   "date": "2026-09-29",
-   "preview": "cards/marco-reus-bvb-kapitain/preview.webm",
-   "lenticular": {
-    "L": "cards/marco-reus-bvb-kapitain/lent-L.jpg",
-    "R": "cards/marco-reus-bvb-kapitain/lent-R.jpg"
-   },
-   "author": "HoloLab Studio",
-   "category": "football"
-  },
-  {
-   "id": "frida-kahlo-mexican-painter",
-   "title": "Frida Kahlo, Visionary Painter",
-   "subtitle": "HoloLab · Frida",
-   "technique": "Vivid Brush Whispers",
-   "tagline": "Art of color and unfiltered truth",
-   "edition": "006 / 006",
-   "collection": "HoloLab Archive · Mexican Masters Series",
-   "description": "This holographic card honors Frida Kahlo, the iconic Mexican artist. It brings her bold identity to life through textured, luminous art.",
-   "style_tags": [
-    "艺术",
-    "画家",
-    "墨西哥"
-   ],
-   "url": "cards/frida-kahlo-mexican-painter/",
-   "thumb": "cards/frida-kahlo-mexican-painter/thumb.jpg",
-   "date": "2026-09-29",
-   "lenticular": {
-    "L": "cards/frida-kahlo-mexican-painter/lent-L.jpg",
-    "R": "cards/frida-kahlo-mexican-painter/lent-R.jpg"
-   },
-   "preview": "cards/frida-kahlo-mexican-painter/preview.webm",
-   "author": "HoloLab Studio",
-   "category": "art"
-  },
-  {
-   "id": "snow-leopard-aurora-ridge",
-   "title": "Aurora Ridge Snow Leopard",
-   "subtitle": "Icy Ridge · Northern Lights",
-   "technique": "Frosted Aurora Waltz",
-   "tagline": "Crouching under skies of green and gold.",
-   "edition": "005 / 005",
-   "collection": "HoloLab Archive · Frosted Wild Series",
-   "description": "This card showcases a snow leopard in its remote arctic home. It highlights the serene beauty of northern lights over an icy ridge.",
-   "style_tags": [
-    "雪原",
-    "极光",
-    "野生",
-    "动物"
-   ],
-   "url": "cards/snow-leopard-aurora-ridge/",
-   "thumb": "cards/snow-leopard-aurora-ridge/thumb.jpg",
-   "date": "2026-09-29",
-   "lenticular": {
-    "L": "cards/snow-leopard-aurora-ridge/lent-L.jpg",
-    "R": "cards/snow-leopard-aurora-ridge/lent-R.jpg"
-   },
-   "preview": "cards/snow-leopard-aurora-ridge/preview.webm",
-   "author": "HoloLab Studio",
-   "category": "travel"
-  },
-  {
-   "id": "great-sage-sun-wukong",
-   "title": "齐天大圣",
-   "subtitle": "花果山 · 傲世苍穹",
-   "technique": "腾云驾雾",
-   "tagline": "一棒破九霄，大圣镇乾坤",
-   "edition": "004 / 004",
-   "collection": "HoloLab 典藏 · 西游系列",
-   "description": "本卡收录齐天大圣孙悟空经典形象，还原桀骜气质，极具收藏价值。",
-   "style_tags": [
-    "西游",
-    "神话"
-   ],
-   "url": "cards/great-sage-sun-wukong/",
-   "thumb": "cards/great-sage-sun-wukong/thumb.jpg",
-   "date": "2026-09-29",
-   "preview": "cards/great-sage-sun-wukong/preview.webm",
-   "lenticular": {
-    "L": "cards/great-sage-sun-wukong/lent-L.jpg",
-    "R": "cards/great-sage-sun-wukong/lent-R.jpg"
-   },
-   "author": "HoloLab Studio",
-   "category": "art"
-  },
-  {
-   "id": "taikonaut-stellar-expedition",
-   "title": "星辰远征",
-   "subtitle": "taikonaut · 逐梦星海",
-   "technique": "星海驭风",
-   "tagline": "逐梦苍穹，远征星海",
-   "edition": "003 / 003",
-   "collection": "HoloLab 典藏 · 星辰远征系列",
-   "description": "致敬中国航天员的太空探索征程，展现人类对星辰大海的无限向往。",
-   "style_tags": [
-    "航天",
-    "星空",
-    "夜景"
-   ],
-   "url": "cards/taikonaut-stellar-expedition/",
-   "thumb": "cards/taikonaut-stellar-expedition/thumb.jpg",
-   "date": "2026-09-29",
-   "preview": "cards/taikonaut-stellar-expedition/preview.webm",
-   "lenticular": {
-    "L": "cards/taikonaut-stellar-expedition/lent-L.jpg",
-    "R": "cards/taikonaut-stellar-expedition/lent-R.jpg"
-   },
-   "author": "HoloLab Studio",
-   "category": "art"
-  },
-  {
-   "id": "mj-demo",
-   "title": "流行之王",
-   "subtitle": "KING OF POP · 音乐传奇",
-   "technique": "月球漫步",
-   "tagline": "音乐即魔法，舞台即永恒",
-   "edition": "002 / 002",
-   "collection": "HoloLab 典藏 · 传奇系列",
-   "description": "流行音乐之王的全息收藏卡：金色亮片、白钻手套与聚光灯下的镭射流光。",
-   "style_tags": [
-    "音乐",
-    "传奇",
-    "舞台"
-   ],
-   "url": "cards/mj-demo/",
-   "thumb": "cards/mj-demo/thumb.jpg",
-   "date": "2026-09-29",
-   "preview": "cards/mj-demo/preview.webm",
-   "lenticular": {
-    "L": "cards/mj-demo/lent-L.jpg",
-    "R": "cards/mj-demo/lent-R.jpg"
-   },
-   "author": "HoloLab Studio",
-   "category": "art"
-  },
-  {
-   "id": "messi-demo",
-   "title": "梅西称王",
-   "subtitle": "球王 · 阿根廷十号",
-   "technique": "潘帕斯雄鹰",
-   "tagline": "无需多言，数据与荣誉即证明",
-   "edition": "001 / 001",
-   "collection": "HoloLab 典藏 · 传奇系列",
-   "description": "球王梅西的传奇全息收藏卡：蓝白间条、金色纸屑与夜空的镭射流光。",
-   "style_tags": [
-    "足球",
-    "传奇",
-    "夜景"
-   ],
-   "url": "cards/messi-demo/",
-   "thumb": "cards/messi-demo/thumb.jpg",
-   "date": "2026-09-29",
-   "preview": "cards/messi-demo/preview.webm",
-   "lenticular": {
-    "L": "cards/messi-demo/lent-L.jpg",
-    "R": "cards/messi-demo/lent-R.jpg"
-   },
-   "author": "HoloLab Studio",
-   "category": "football"
-  }
- ]
+  "cards": [
+    {
+      "id": "shang-taotie",
+      "title": "饕餮",
+      "subtitle": "兽面饕餮 · 青铜之魂",
+      "technique": "Beast-Mask-Relief",
+      "tagline": "一张没有下颌的兽脸，凝视了三千年。",
+      "edition": "014 / 014",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "饕餮纹（兽面纹），商周青铜器上最常见也最神秘的脸。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "殷商",
+        "青铜",
+        "饕餮"
+      ],
+      "url": "cards/shang-taotie/",
+      "thumb": "cards/shang-taotie/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/shang-taotie/preview.webm",
+      "category": "history"
+    },
+    {
+      "id": "shang-chariot",
+      "title": "战车",
+      "subtitle": "车辚马萧 · 王师之威",
+      "technique": "Bronze-Chariot-Advance",
+      "tagline": "两马一车三人，驰骋在三千年前的战场。",
+      "edition": "013 / 014",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "商代战车，木质车身青铜饰件，殷墟出土马车遗迹。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "殷商",
+        "战车",
+        "战争"
+      ],
+      "url": "cards/shang-chariot/",
+      "thumb": "cards/shang-chariot/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/shang-chariot/preview.webm",
+      "category": "history"
+    },
+    {
+      "id": "shang-yin-xu",
+      "title": "殷墟",
+      "subtitle": "洹水之滨 · 殷商之墟",
+      "technique": "Sleeping-Capital-Etching",
+      "tagline": "洹水之滨，沉睡三千年的王朝都城。",
+      "edition": "012 / 014",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "安阳殷墟，商朝晚期都城遗址，2006 年列入世界文化遗产。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "殷商",
+        "都城",
+        "殷墟"
+      ],
+      "url": "cards/shang-yin-xu/",
+      "thumb": "cards/shang-yin-xu/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/shang-yin-xu/preview.webm",
+      "category": "history"
+    },
+    {
+      "id": "shang-divination",
+      "title": "占卜",
+      "subtitle": "灼龟而卜 · 以契鬼神",
+      "technique": "Fire-Crack-Omen",
+      "tagline": "钻凿灼烧，裂纹即天意。",
+      "edition": "011 / 014",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "商王凡事必卜——征战、天象、疾病、生育，皆刻于甲骨。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "殷商",
+        "甲骨",
+        "占卜"
+      ],
+      "url": "cards/shang-divination/",
+      "thumb": "cards/shang-divination/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/shang-divination/preview.webm",
+      "category": "history"
+    },
+    {
+      "id": "shang-dark-bird",
+      "title": "玄鸟",
+      "subtitle": "天命玄鸟 · 降而生商",
+      "technique": "Dark-Bird-Origins-Lacquer",
+      "tagline": "天命玄鸟，降而生商——一个王朝的开端传说。",
+      "edition": "010 / 014",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "《诗经·商颂·玄鸟》：“天命玄鸟，降而生商。”",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "殷商",
+        "神话",
+        "玄鸟"
+      ],
+      "url": "cards/shang-dark-bird/",
+      "thumb": "cards/shang-dark-bird/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/shang-dark-bird/preview.webm",
+      "category": "history"
+    },
+    {
+      "id": "shang-four-ram-zun",
+      "title": "四羊方尊",
+      "subtitle": "四羊聚瑞 · 方尊之绝",
+      "technique": "Four-Ram-Ritual-Vessel",
+      "tagline": "四只羊首各守一方，商代青铜的巅峰造物。",
+      "edition": "009 / 014",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "1938 年出土于湖南宁乡，商代青铜艺术的不朽绝品。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "殷商",
+        "青铜",
+        "羊尊"
+      ],
+      "url": "cards/shang-four-ram-zun/",
+      "thumb": "cards/shang-four-ram-zun/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/shang-four-ram-zun/preview.webm",
+      "category": "history"
+    },
+    {
+      "id": "shang-fuhao-owl-zun",
+      "title": "妇好鸮尊",
+      "subtitle": "战神之鸮 · 王后之酒",
+      "technique": "Owl-Guardian-Vessel",
+      "tagline": "三千年前的猫头鹰，替女将军守住夜色。",
+      "edition": "008 / 014",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "1976 年妇好墓出土的猫头鹰形盛酒器，殷商青铜艺术巅峰之作。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "殷商",
+        "青铜",
+        "鸮尊"
+      ],
+      "url": "cards/shang-fuhao-owl-zun/",
+      "thumb": "cards/shang-fuhao-owl-zun/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/shang-fuhao-owl-zun/preview.webm",
+      "category": "history"
+    },
+    {
+      "id": "shang-houmuwu-ding",
+      "title": "后母戊鼎",
+      "subtitle": "国之重器 · 镇世之鼎",
+      "technique": "Imperial-Cauldron-Relief",
+      "tagline": "八百三十二公斤的青铜，是殷商王权的重量。",
+      "edition": "007 / 014",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "中国现存最大青铜鼎，1939 年出土于安阳武官村，国家博物馆镇馆之宝。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "殷商",
+        "青铜",
+        "重器"
+      ],
+      "url": "cards/shang-houmuwu-ding/",
+      "thumb": "cards/shang-houmuwu-ding/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/shang-houmuwu-ding/preview.webm",
+      "category": "history"
+    },
+    {
+      "id": "shang-yi-yin",
+      "title": "伊尹",
+      "subtitle": "庖厨之贤 · 元圣相汤",
+      "technique": "Culinary-Wisdom-Lacquer",
+      "tagline": "从庖厨到元圣，辅佐商汤开创天下。",
+      "edition": "006 / 014",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "治大国若烹小鲜——从灶台到庙堂，一代元圣。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "殷商",
+        "贤相",
+        "元圣"
+      ],
+      "url": "cards/shang-yi-yin/",
+      "thumb": "cards/shang-yi-yin/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/shang-yi-yin/preview.webm",
+      "category": "history"
+    },
+    {
+      "id": "shang-tang",
+      "title": "商汤",
+      "subtitle": "网开三面 · 天命有归",
+      "technique": "Benevolent-Hunt-Bronze",
+      "tagline": "以仁德取天下，开创商朝六百年基业。",
+      "edition": "005 / 014",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "网开三面的仁德之君，鸣条一战，天命有归。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "殷商",
+        "帝王",
+        "开国"
+      ],
+      "url": "cards/shang-tang/",
+      "thumb": "cards/shang-tang/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/shang-tang/preview.webm",
+      "category": "history"
+    },
+    {
+      "id": "shang-pan-geng",
+      "title": "盘庚",
+      "subtitle": "迁都殷地 · 商道复兴",
+      "technique": "Riverside-Exodus-Etching",
+      "tagline": "商朝最后一次迁都，从此定都殷地二百七十余年。",
+      "edition": "004 / 014",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "盘庚迁殷，让飘摇的王朝在洹水之畔重获根基；“殷商”之名，自此而来。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "殷商",
+        "帝王",
+        "迁都"
+      ],
+      "url": "cards/shang-pan-geng/",
+      "thumb": "cards/shang-pan-geng/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/shang-pan-geng/preview.webm",
+      "category": "history"
+    },
+    {
+      "id": "shang-oracle",
+      "title": "甲骨文",
+      "subtitle": "汉字从这里走来",
+      "technique": "Cracked-Oracle-Lacquer",
+      "tagline": "三千年前的卜辞，是汉字最早的家。",
+      "edition": "003 / 014",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "甲骨文，刻写在龟甲与兽骨上的殷商占卜文字，是中国已发现的最早的系统性成熟文字。商王凡事皆卜，贞人在灼烧的甲骨上刻下卜辞，为我们留下约十五万片刻辞甲骨、四千余个单字。1899 年，金石学家王懿荣在中药'龙骨'上发现甲骨文，尘封三千年的汉字童年就此苏醒。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "殷商",
+        "甲骨",
+        "文字"
+      ],
+      "url": "cards/shang-oracle/",
+      "thumb": "cards/shang-oracle/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/shang-oracle/preview.webm",
+      "category": "history"
+    },
+    {
+      "id": "shang-wu-ding",
+      "title": "武丁",
+      "subtitle": "商之中兴 · 梦得傅说",
+      "technique": "Divination-Seal-Carving",
+      "tagline": "把王朝推向鼎盛的一代明君，甲骨时代由此开启。",
+      "edition": "002 / 014",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "武丁，商朝第二十三任君主，在位约五十九年，励精图治，任用傅说、妇好，征伐四方，史称'武丁中兴'，使商朝达到鼎盛。相传他即位后三年不语、以观国是，夜梦圣人，得傅说于版筑之间。武丁时期甲骨文最为繁盛，留下大量占卜记录，是商代文明的黄金时代。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "殷商",
+        "青铜",
+        "帝王"
+      ],
+      "url": "cards/shang-wu-ding/",
+      "thumb": "cards/shang-wu-ding/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/shang-wu-ding/preview.webm",
+      "category": "history"
+    },
+    {
+      "id": "shang-fu-hao",
+      "title": "妇好",
+      "subtitle": "三千年前的女将军 · 甲骨为证",
+      "technique": "Bronze-Valkyrie-Etching",
+      "tagline": "中国历史上第一位有文字可考的女统帅。",
+      "edition": "001 / 014",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "妇好，商王武丁之妻，中国历史上第一位有甲骨文实证的女性统帅。据卜辞记载，她曾率军征伐羌方、土方等四方部族，一次出兵最多达一万三千人，并主持祭祀，是集王后、将军、大祭司于一身的传奇女性。1976 年殷墟妇好墓出土近两千件随葬品，妇好鸮尊为其中代表。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "殷商",
+        "青铜",
+        "女将"
+      ],
+      "url": "cards/shang-fu-hao/",
+      "thumb": "cards/shang-fu-hao/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/shang-fu-hao/preview.webm",
+      "category": "history"
+    },
+    {
+      "id": "vc-tommy-vercetti",
+      "title": "Neon Godfather",
+      "subtitle": "He came back to own the city",
+      "technique": "Neon-Noir",
+      "tagline": "I'm gonna own this city.",
+      "edition": "037 / 001",
+      "collection": "Vice City Nights · Characters",
+      "description": "Neon Godfather — He came back to own the city. Part of the Vice City Nights character roster, 1986 neon-noir tribute.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "vice-city",
+        "80s",
+        "人物志"
+      ],
+      "url": "cards/vc-tommy-vercetti/",
+      "thumb": "cards/vc-tommy-vercetti/thumb.jpg",
+      "date": "2026-10-06",
+      "preview": "cards/vc-tommy-vercetti/preview.webm",
+      "category": "game"
+    },
+    {
+      "id": "vc-general-cortez",
+      "title": "General Cortez",
+      "subtitle": "El General of the old guard",
+      "technique": "Yacht-General",
+      "tagline": "El General siempre cumple.",
+      "edition": "041 / 005",
+      "collection": "Vice City Nights · Characters",
+      "description": "General Cortez — El General of the old guard. Part of the Vice City Nights character roster, 1986 neon-noir tribute.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "vice-city",
+        "80s",
+        "人物志"
+      ],
+      "url": "cards/vc-general-cortez/",
+      "thumb": "cards/vc-general-cortez/thumb.jpg",
+      "date": "2026-10-06",
+      "preview": "cards/vc-general-cortez/preview.webm",
+      "category": "game"
+    },
+    {
+      "id": "vc-ken-rosenberg",
+      "title": "Ken Rosenberg",
+      "subtitle": "Why is this happening to me?!",
+      "technique": "Anxiety-Noir",
+      "tagline": "Why is this happening to me?!",
+      "edition": "039 / 003",
+      "collection": "Vice City Nights · Characters",
+      "description": "Ken Rosenberg — Why is this happening to me?!. Part of the Vice City Nights character roster, 1986 neon-noir tribute.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "vice-city",
+        "80s",
+        "人物志"
+      ],
+      "url": "cards/vc-ken-rosenberg/",
+      "thumb": "cards/vc-ken-rosenberg/thumb.jpg",
+      "date": "2026-10-06",
+      "preview": "cards/vc-ken-rosenberg/preview.webm",
+      "category": "game"
+    },
+    {
+      "id": "vc-auntie-poulet",
+      "title": "Auntie Poulet",
+      "subtitle": "The voodoo of Little Haiti",
+      "technique": "Voodoo-Blessing",
+      "tagline": "Da spirits be workin'.",
+      "edition": "042 / 006",
+      "collection": "Vice City Nights · Characters",
+      "description": "Auntie Poulet — The voodoo of Little Haiti. Part of the Vice City Nights character roster, 1986 neon-noir tribute.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "vice-city",
+        "80s",
+        "人物志"
+      ],
+      "url": "cards/vc-auntie-poulet/",
+      "thumb": "cards/vc-auntie-poulet/thumb.jpg",
+      "date": "2026-10-06",
+      "preview": "cards/vc-auntie-poulet/preview.webm",
+      "category": "game"
+    },
+    {
+      "id": "vc-ricardo-diaz",
+      "title": "Ricardo Diaz",
+      "subtitle": "El Jefe of Vice City",
+      "technique": "Cigar-Empire",
+      "tagline": "Soy el jefe.",
+      "edition": "040 / 004",
+      "collection": "Vice City Nights · Characters",
+      "description": "Ricardo Diaz — El Jefe of Vice City. Part of the Vice City Nights character roster, 1986 neon-noir tribute.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "vice-city",
+        "80s",
+        "人物志"
+      ],
+      "url": "cards/vc-ricardo-diaz/",
+      "thumb": "cards/vc-ricardo-diaz/thumb.jpg",
+      "date": "2026-10-06",
+      "preview": "cards/vc-ricardo-diaz/preview.webm",
+      "category": "game"
+    },
+    {
+      "id": "vc-lance-vance",
+      "title": "Lance Vance Dance!",
+      "subtitle": "The dance that became a prophecy",
+      "technique": "Disco-Prophecy",
+      "tagline": "Lance Vance Dance!",
+      "edition": "038 / 002",
+      "collection": "Vice City Nights · Characters",
+      "description": "Lance Vance Dance! — The dance that became a prophecy. Part of the Vice City Nights character roster, 1986 neon-noir tribute.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "vice-city",
+        "80s",
+        "人物志"
+      ],
+      "url": "cards/vc-lance-vance/",
+      "thumb": "cards/vc-lance-vance/thumb.jpg",
+      "date": "2026-10-06",
+      "preview": "cards/vc-lance-vance/preview.webm",
+      "category": "game"
+    },
+    {
+      "id": "haaland-chongqing-metro",
+      "title": "吃重庆轻轨·哈兰德",
+      "subtitle": "重庆必吃榜第一名：穿楼轻轨",
+      "technique": "Selective-Color Holography",
+      "tagline": "Quando a cidade vira um prato de Haaland",
+      "edition": "011 / 010",
+      "collection": "Haaland Multiverse · Meme Series",
+      "description": "网友玩'重庆必吃榜'梗，哈兰德真拍视频张嘴'吞'穿楼轻轨。李子坝名场面，全网欢乐。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "吃重庆轻轨",
+        "梗卡",
+        "足球"
+      ],
+      "url": "cards/haaland-chongqing-metro/",
+      "thumb": "cards/haaland-chongqing-metro/thumb.jpg",
+      "date": "2026-10-01",
+      "preview": "cards/haaland-chongqing-metro/preview.webm",
+      "category": "meme"
+    },
+    {
+      "id": "haaland-tom-cat",
+      "title": "Tom Cat Haaland",
+      "subtitle": "Jerry, meet your new nightmare",
+      "technique": "Selective-Color Holography",
+      "tagline": "O gato que marcou 111 gols",
+      "edition": "011 / 010",
+      "collection": "Haaland Multiverse · Meme Series",
+      "description": "The internet noticed Haaland looks exactly like Tom from Tom & Jerry — blonde hair, blue-and-white kit, and that expression. 111 goals in 111 games, meow.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "Tom猫",
+        "梗卡",
+        "足球"
+      ],
+      "url": "cards/haaland-tom-cat/",
+      "thumb": "cards/haaland-tom-cat/thumb.jpg",
+      "date": "2026-10-01",
+      "preview": "cards/haaland-tom-cat/preview.webm",
+      "category": "meme"
+    },
+    {
+      "id": "haaland-goalie-water",
+      "title": "Goalie Water Heist",
+      "subtitle": "Caught in 4K: the great bottle theft",
+      "technique": "Selective-Color Holography",
+      "tagline": "Ninguém rouba água como ele",
+      "edition": "011 / 010",
+      "collection": "Haaland Multiverse · Meme Series",
+      "description": "Haaland's famous sideline heist — stealing the opponent goalkeeper's water bottle mid-match, caught on camera with a sheepish grin.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "偷喝门将水",
+        "梗卡",
+        "足球"
+      ],
+      "url": "cards/haaland-goalie-water/",
+      "thumb": "cards/haaland-goalie-water/thumb.jpg",
+      "date": "2026-10-01",
+      "preview": "cards/haaland-goalie-water/preview.webm",
+      "category": "meme"
+    },
+    {
+      "id": "haaland-scallion",
+      "title": "大葱塑·哈兰德",
+      "subtitle": "全网热转：大葱也有哈兰德之魂",
+      "technique": "Selective-Color Holography",
+      "tagline": "O seu fã mais esquisito é uma cebolinha",
+      "edition": "011 / 010",
+      "collection": "Haaland Multiverse · Meme Series",
+      "description": "网民拿大葱根茎复刻哈兰德金发前倾体态，他本人主动转发。中国田间最魔性的球迷应援。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "大葱塑",
+        "梗卡",
+        "足球"
+      ],
+      "url": "cards/haaland-scallion/",
+      "thumb": "cards/haaland-scallion/thumb.jpg",
+      "date": "2026-10-01",
+      "preview": "cards/haaland-scallion/preview.webm",
+      "category": "meme"
+    },
+    {
+      "id": "haaland-shark-grin",
+      "title": "Shark Grin",
+      "subtitle": "The smile that terrified defenders",
+      "technique": "Selective-Color Holography",
+      "tagline": "O sorriso que aterroriza zagueiros",
+      "edition": "011 / 010",
+      "collection": "Haaland Multiverse · Meme Series",
+      "description": "Haaland's signature shark-tooth grin — the meme-worthy laugh that became his brand. Deep-sea blue, bigger and wilder than the Machine card.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "鲨鱼笑",
+        "梗卡",
+        "足球"
+      ],
+      "url": "cards/haaland-shark-grin/",
+      "thumb": "cards/haaland-shark-grin/thumb.jpg",
+      "date": "2026-10-01",
+      "preview": "cards/haaland-shark-grin/preview.webm",
+      "category": "meme"
+    },
+    {
+      "id": "haaland-bun-haartie",
+      "title": "丸子头",
+      "subtitle": "90 分钟不散 · 同款头绳已售 3 万+",
+      "technique": "Fashion-Statement Holography",
+      "tagline": "男人扎丸子头，也能成为时尚单品。",
+      "edition": "008 / 010",
+      "collection": "Haaland Multiverse · Meme Series",
+      "description": "哈兰德的金发丸子头 90 分钟比赛不散，同款发绳在淘宝爆火（超 3 万人搜索）。时尚单品海报风 + 呆萌反差。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "梗卡",
+        "足球",
+        "丸子头"
+      ],
+      "url": "cards/haaland-bun-haartie/",
+      "thumb": "cards/haaland-bun-haartie/thumb.jpg",
+      "date": "2026-10-01",
+      "preview": "cards/haaland-bun-haartie/preview.webm",
+      "category": "meme"
+    },
+    {
+      "id": "haaland-wanglaoji",
+      "title": "王老吉·哈兰德",
+      "subtitle": "怕上火，喝王老吉",
+      "technique": "Spicy-Advert Holography",
+      "tagline": "蹩脚中文魔性广告，阅读量 7.5 亿。",
+      "edition": "010 / 010",
+      "collection": "Haaland Multiverse · Meme Series",
+      "description": "哈兰德给王老吉拍的蹩脚中文魔性广告'怕上火，喝王老吉'，全网 7.5 亿阅读。凉茶 + 火焰吐息，中国特供梗。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "梗卡",
+        "足球",
+        "王老吉"
+      ],
+      "url": "cards/haaland-wanglaoji/",
+      "thumb": "cards/haaland-wanglaoji/thumb.jpg",
+      "date": "2026-10-01",
+      "preview": "cards/haaland-wanglaoji/preview.webm",
+      "category": "meme"
+    },
+    {
+      "id": "haaland-raccoon",
+      "title": "RACCOON HAALAND",
+      "subtitle": "Souvenirs from Qatar.",
+      "technique": "Airport-Paparazzi Holography",
+      "tagline": "Brought back a raccoon, a whisky, and zero regrets.",
+      "edition": "009 / 010",
+      "collection": "Haaland Multiverse · Meme Series",
+      "description": "世界杯后哈兰德带着一只浣熊标本和一瓶威士忌走下飞机——狗仔镜头里的硬汉反差萌，挪威梗王实锤。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "梗卡",
+        "足球",
+        "浣熊"
+      ],
+      "url": "cards/haaland-raccoon/",
+      "thumb": "cards/haaland-raccoon/thumb.jpg",
+      "date": "2026-10-01",
+      "preview": "cards/haaland-raccoon/preview.webm",
+      "category": "meme"
+    },
+    {
+      "id": "haaland-eat-kid",
+      "title": "SNACK TIME",
+      "subtitle": "Lunch is served. Sorry, kids.",
+      "technique": "Hype-Beast Holography",
+      "tagline": "The striker who 'eats' defenders — now literally.",
+      "edition": "006 / 010",
+      "collection": "Haaland Multiverse · Meme Series",
+      "description": "世界杯广告片里'生吃小孩'的世纪名场面——Q 版化：张大嘴的哈兰德，把吓到弹开的迷你小球迷当成'午餐'。黑色幽默，但可爱化处理。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "梗卡",
+        "足球",
+        "吃小孩"
+      ],
+      "url": "cards/haaland-eat-kid/",
+      "thumb": "cards/haaland-eat-kid/thumb.jpg",
+      "date": "2026-10-01",
+      "preview": "cards/haaland-eat-kid/preview.webm",
+      "category": "meme"
+    },
+    {
+      "id": "haaland-magdeburg",
+      "title": "马德堡半球实验",
+      "subtitle": "人类高质量物理实验",
+      "technique": "Impact Physics Holography",
+      "tagline": "1654 年马德堡，2026 年哈兰德。",
+      "edition": "007 / 010",
+      "collection": "Haaland Multiverse · Meme Series",
+      "description": "哈兰德爆射把球砸在防守球员脸上、球牢牢贴在脸上——网友封为'人类高质量马德堡半球实验'（经典大气压实验梗）。物理课本风 + 呆萌化。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "梗卡",
+        "足球",
+        "物理"
+      ],
+      "url": "cards/haaland-magdeburg/",
+      "thumb": "cards/haaland-magdeburg/thumb.jpg",
+      "date": "2026-10-01",
+      "preview": "cards/haaland-magdeburg/preview.webm",
+      "category": "meme"
+    },
+    {
+      "id": "pouch-invader",
+      "title": "POUCH INVADER",
+      "subtitle": "THE LAYTENANT",
+      "technique": "Toon Comedy Holography",
+      "tagline": "Rent-free. No lease. Too late to ask questions.",
+      "edition": "001 / 001",
+      "collection": "Animal Comedy · Lay's Submission",
+      "description": "A friend's comedy submission dedicated to Lay — a cat that claims the kangaroo's pouch without a lease, and a kangaroo that never signed up for this. Cute, absurd, and rent-free.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "搞笑",
+        "动物",
+        "猫咪",
+        "袋鼠"
+      ],
+      "url": "cards/pouch-invader/",
+      "thumb": "cards/pouch-invader/thumb.jpg",
+      "date": "2026-10-01",
+      "preview": "cards/pouch-invader/preview.webm",
+      "category": "meme"
+    },
+    {
+      "id": "kenji-kishimoto",
+      "title": "Kenji Kishimoto",
+      "subtitle": "\"I do it every day.\"",
+      "technique": "Energy-Dispersal Holography",
+      "tagline": "Who says you can't be cute and kick ass at the same time?",
+      "edition": "001 / 001",
+      "collection": "Shatter Me · Resistance Chronicles",
+      "description": "Kenji Troy Kishimoto — the invisible heart of Omega Point. Japanese-American resistance fighter with the ability to vanish by absorbing and redirecting ambient energy. The comic relief who became the war's most essential narrator. ID #45B-67999.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "小说",
+        "科幻",
+        "角色"
+      ],
+      "url": "cards/kenji-kishimoto/",
+      "thumb": "cards/kenji-kishimoto/thumb.jpg",
+      "date": "2026-09-30",
+      "preview": "cards/kenji-kishimoto/preview.webm",
+      "category": "art"
+    },
+    {
+      "id": "haaland-viking-kriger",
+      "title": "Vikingkrigeren",
+      "subtitle": "Fra Norge, med kjærlighet",
+      "technique": "Norse-Cartoon Holography",
+      "tagline": "Fra fjordene, til verden",
+      "edition": "001 / 001",
+      "collection": "Haaland Multiverse · Meme Series",
+      "description": "En hyllest til Norges viking — med lyst hår, rustning og en robåt-åre. Google søkte til og med 'Erling Haaland' og fikk vikinger som rodde. (致敬挪威维京人——金发、盔甲和一把划船桨。连 Google 搜索他名字都会出现维京划船彩蛋。)",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "足球",
+        "维京"
+      ],
+      "url": "cards/haaland-viking-kriger/",
+      "thumb": "cards/haaland-viking-kriger/thumb.jpg",
+      "date": "2026-10-01",
+      "preview": "cards/haaland-viking-kriger/preview.webm",
+      "category": "football"
+    },
+    {
+      "id": "haaland-moskau-anthem",
+      "title": "哈哈哈兰德",
+      "subtitle": "哈兰哈兰，哈哈哈哈",
+      "technique": "Disco-Fever Holography",
+      "tagline": "一首让全网跟着哈哈的洗脑神曲",
+      "edition": "001 / 001",
+      "collection": "Haaland Multiverse · Meme Series",
+      "description": "球迷把 1979 年迪斯科金曲《Moskau》DJ 成'哈哈哈兰德'，洗脑全网。本人点赞'神曲'，还带队友在更衣室齐声高唱。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "梗卡",
+        "足球",
+        "disco"
+      ],
+      "url": "cards/haaland-moskau-anthem/",
+      "thumb": "cards/haaland-moskau-anthem/thumb.jpg",
+      "date": "2026-10-01",
+      "preview": "cards/haaland-moskau-anthem/preview.webm",
+      "category": "meme"
+    },
+    {
+      "id": "haaland-majin-buu",
+      "title": "魔人布欧·哈兰德",
+      "subtitle": "我不否认。",
+      "technique": "Dragon-Ball Holography",
+      "tagline": "I don't disagree.",
+      "edition": "001 / 001",
+      "collection": "Haaland Multiverse · Meme Series",
+      "description": "撞脸《龙珠》魔人布欧的实锤现场——本人回应：'我不否认。' 中外网友都玩疯的世纪梗。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "梗卡",
+        "足球",
+        "龙珠"
+      ],
+      "url": "cards/haaland-majin-buu/",
+      "thumb": "cards/haaland-majin-buu/thumb.jpg",
+      "date": "2026-10-01",
+      "preview": "cards/haaland-majin-buu/preview.webm",
+      "category": "meme"
+    },
+    {
+      "id": "haaland-machine-robot",
+      "title": "HAALAND 2.0",
+      "subtitle": "111 GOALS. NO FEELINGS.",
+      "technique": "Retro-Cartoon Holography",
+      "tagline": "Officially not human. (He doesn't disagree.)",
+      "edition": "001 / 001",
+      "collection": "Haaland Multiverse · Meme Series",
+      "description": "A tribute to the internet's favourite Terminator — the robot Haaland who scored 111 Premier League goals in 111 games, with a system UI that says FEELINGS: 0. Cute, not cool.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "梗卡",
+        "足球",
+        "机器人"
+      ],
+      "url": "cards/haaland-machine-robot/",
+      "thumb": "cards/haaland-machine-robot/thumb.jpg",
+      "date": "2026-10-01",
+      "preview": "cards/haaland-machine-robot/preview.webm",
+      "category": "meme"
+    },
+    {
+      "id": "haaland-meditation",
+      "title": "入定",
+      "subtitle": "进球后，先让我静一静",
+      "technique": "Zen-Contrast Holography",
+      "tagline": "别人呐喊，我冥想",
+      "edition": "001 / 001",
+      "collection": "Haaland Multiverse · Meme Series",
+      "description": "致敬哈兰德标志性的打坐庆祝——全世界在狂欢，他独自在草坪上入定。世界杯首球也是这么坐的。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "梗卡",
+        "足球",
+        "冥想"
+      ],
+      "url": "cards/haaland-meditation/",
+      "thumb": "cards/haaland-meditation/thumb.jpg",
+      "date": "2026-10-01",
+      "preview": "cards/haaland-meditation/preview.webm",
+      "category": "meme"
+    },
+    {
+      "id": "eletrico-28-lisboa",
+      "title": "Elétrico 28",
+      "subtitle": "A Vitória de Lisboa",
+      "technique": "Selective-Color Holography",
+      "tagline": "O elétrico mais famoso de Lisboa",
+      "edition": "001 / 001",
+      "collection": "Série Cidade da Luz · Lisboa",
+      "description": "Tributo holográfico ao Elétrico 28 de Lisboa — o amarelo que sobe as colinas de Alfama, com o Castelo de São Jorge ao fundo e o Tejo a brilhar. Dedicado a Inês.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "葡萄牙",
+        "电车",
+        "里斯本",
+        "欧陆风情"
+      ],
+      "url": "cards/eletrico-28-lisboa/",
+      "thumb": "cards/eletrico-28-lisboa/thumb.jpg",
+      "date": "2026-09-30",
+      "preview": "cards/eletrico-28-lisboa/preview.webm",
+      "category": "travel"
+    },
+    {
+      "id": "pep-guardiola-tiki-taka",
+      "title": "Pep Guardiola",
+      "subtitle": "El Maestro",
+      "technique": "Gilded Holography",
+      "tagline": "TIKI-TAKA · 2008–2012",
+      "edition": "006 / 006",
+      "collection": "HoloLab Archive · FC Barcelona Legacy",
+      "description": "El heredero de Cruijff que convirtió el fútbol en una sinfonía. Un homenaje holográfico a Pep Guardiola, el maestro del tiki-taka y del sextete de 2009.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "足球",
+        "巴萨",
+        "西班牙",
+        "教练",
+        "战术",
+        "传奇"
+      ],
+      "url": "cards/pep-guardiola-tiki-taka/",
+      "thumb": "cards/pep-guardiola-tiki-taka/thumb.jpg",
+      "date": "2026-09-30",
+      "preview": "cards/pep-guardiola-tiki-taka/preview.webm",
+      "category": "football"
+    },
+    {
+      "id": "messi-world-cup-2022",
+      "title": "Lionel Messi",
+      "subtitle": "La Tercera Estrella",
+      "technique": "Gilded Holography",
+      "tagline": "QATAR 2022 · CAMPEONES DEL MUNDO",
+      "edition": "004 / 006",
+      "collection": "HoloLab Archive · FC Barcelona Legacy",
+      "description": "La noche de Doha: Messi alzó la Copa del Mundo y coronó la leyenda. Un homenaje holográfico al momento que cambió para siempre su historia.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "足球",
+        "世界杯",
+        "阿根廷",
+        "传奇"
+      ],
+      "url": "cards/messi-world-cup-2022/",
+      "thumb": "cards/messi-world-cup-2022/thumb.jpg",
+      "date": "2026-09-30",
+      "preview": "cards/messi-world-cup-2022/preview.webm",
+      "category": "football"
+    },
+    {
+      "id": "messi-inter-miami",
+      "title": "Lionel Messi",
+      "subtitle": "La Nueva Leyenda",
+      "technique": "Gilded Holography",
+      "tagline": "INTER MIAMI CF · 2023–",
+      "edition": "003 / 006",
+      "collection": "HoloLab Archive · FC Barcelona Legacy",
+      "description": "De Europa al Nuevo Mundo: Messi pintó de rosa el fútbol americano. Un homenaje holográfico a la etapa de Miami, donde una leyenda encontró un nuevo escenario.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "足球",
+        "美职联",
+        "迈阿密",
+        "阿根廷",
+        "传奇"
+      ],
+      "url": "cards/messi-inter-miami/",
+      "thumb": "cards/messi-inter-miami/thumb.jpg",
+      "date": "2026-09-30",
+      "preview": "cards/messi-inter-miami/preview.webm",
+      "category": "football"
+    },
+    {
+      "id": "messi-psg-paris",
+      "title": "Lionel Messi",
+      "subtitle": "La Ciudad de la Luz",
+      "technique": "Gilded Holography",
+      "tagline": "PARIS SAINT-GERMAIN · 2021–2023",
+      "edition": "002 / 006",
+      "collection": "HoloLab Archive · FC Barcelona Legacy",
+      "description": "El viaje a París: dos años en la ciudad de la luz, dos Ligas francesas y un séptimo Balón de Oro. Un homenaje holográfico a la etapa parisina de Messi.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "足球",
+        "法甲",
+        "巴黎",
+        "阿根廷",
+        "传奇"
+      ],
+      "url": "cards/messi-psg-paris/",
+      "thumb": "cards/messi-psg-paris/thumb.jpg",
+      "date": "2026-09-30",
+      "preview": "cards/messi-psg-paris/preview.webm",
+      "category": "football"
+    },
+    {
+      "id": "johan-cruyff-el-arquitecto",
+      "title": "Johan Cruijff",
+      "subtitle": "El Arquitecto",
+      "technique": "Gilded Holography",
+      "tagline": "FÚTBOL TOTAL · 1947–2016",
+      "edition": "005 / 006",
+      "collection": "HoloLab Archive · FC Barcelona Legacy",
+      "description": "El hombre que inventó el fútbol moderno. Cruijff dio al Barça su identidad: total, valiente, técnico. Un homenaje holográfico al arquitecto del fútbol total.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "足球",
+        "巴萨",
+        "荷兰",
+        "传奇"
+      ],
+      "url": "cards/johan-cruyff-el-arquitecto/",
+      "thumb": "cards/johan-cruyff-el-arquitecto/thumb.jpg",
+      "date": "2026-09-30",
+      "preview": "cards/johan-cruyff-el-arquitecto/preview.webm",
+      "category": "football"
+    },
+    {
+      "id": "messi-fc-barcelona",
+      "title": "Lionel Messi",
+      "subtitle": "La Pulga · Rey de la Noche",
+      "technique": "Gilded Holography",
+      "tagline": "FC BARCELONA · 2004–2021",
+      "edition": "001 / 006",
+      "collection": "HoloLab Archive · FC Barcelona Legacy",
+      "description": "El genio que convirtió el Camp Nou en su escenario durante 17 temporadas. Un homenaje holográfico a Lionel Messi y a la era dorada del Barça.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "足球",
+        "巴萨",
+        "西班牙",
+        "阿根廷",
+        "传奇"
+      ],
+      "url": "cards/messi-fc-barcelona/",
+      "thumb": "cards/messi-fc-barcelona/thumb.jpg",
+      "date": "2026-09-30",
+      "preview": "cards/messi-fc-barcelona/preview.webm",
+      "category": "football"
+    },
+    {
+      "id": "neeltje-friesian-kalundborg",
+      "title": "Neeltje Jacoba Van Swichum",
+      "subtitle": "EN FRIESER PÅ 22 ÅR",
+      "technique": "Moonlit Holography",
+      "tagline": "En sort perle fra Holland",
+      "edition": "001 / 001",
+      "collection": "Made for a Friend · Isabella Nicoline Andersen",
+      "description": "A holographic tribute to Neeltje, a 22-year-old pure-black Friesian mare — a loyal companion in Kalundborg, Denmark, for Isabella and little Sophina.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "挚友",
+        "马",
+        "丹麦"
+      ],
+      "url": "cards/neeltje-friesian-kalundborg/",
+      "thumb": "cards/neeltje-friesian-kalundborg/thumb.jpg",
+      "date": "2026-09-30",
+      "locked": true,
+      "lockHash": "c90fdbf1d5f4532fd9163bc9120cdd6946ddcc0c1d40f77bd761080152ec6ae8",
+      "preview": "cards/neeltje-friesian-kalundborg/preview.webm",
+      "category": "travel"
+    },
+    {
+      "id": "satyajit-ray-bengali-maestro",
+      "title": "সত্যজিৎ রায়",
+      "subtitle": "চলচ্চিত্রের রূপকার",
+      "technique": "Gilded Holography",
+      "tagline": "SATYAJIT RAY · 1921–1992",
+      "edition": "003 / 003",
+      "collection": "HoloLab Archive · Legend Series",
+      "description": "A holographic tribute to Satyajit Ray, the Bengali master of world cinema — filmmaker, composer, illustrator and writer, whose Apu Trilogy changed the language of film.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "传奇",
+        "电影",
+        "孟加拉"
+      ],
+      "url": "cards/satyajit-ray-bengali-maestro/",
+      "thumb": "cards/satyajit-ray-bengali-maestro/thumb.jpg",
+      "date": "2026-09-30",
+      "preview": "cards/satyajit-ray-bengali-maestro/preview.webm",
+      "category": "art"
+    },
+    {
+      "id": "card-elijah-lin-d",
+      "title": "Luminous Blue Whale",
+      "subtitle": "Public Submission · 公众投稿",
+      "technique": "AI Holographic Card · 一句话出卡",
+      "tagline": "Community Gallery · 社区画廊",
+      "edition": "PUB-20260930-CARD-E",
+      "collection": "HoloLab 公众系列 · Public Series",
+      "description": "[IDENTITY] Luminous Blue Whale · leviathan of the starry sea\n[DESIGN]\nSubject layer: a luminous blue whale soaring through clouds, bioluminescent cyan glow, centered, about 65% of canvas, crisp silhouette, rich detail.\nBackground layer: midnight ocean below with mirrored stars, strong depth, lower 40% stays empty for typography, no other figures.\nPalette: deep sapphire and bioluminescent cyan, gilded warm accents, rainbow-foil gradient highlights, clear highlight and shadow separation.\nLine art layer: glowing contour traced along the whale, even stroke width, black lines on white, glow spreading outward.\nTypography layer: title \"Leviathan of the Starlight Sea\", subtitle \"Mythic · Public Series\", series number and rarity badge, gold outlined type.",
+      "style_tags": [
+        "海洋"
+      ],
+      "url": "cards/card-elijah-lin-d/",
+      "thumb": "cards/card-elijah-lin-d/thumb.jpg",
+      "date": "2026-09-30",
+      "author": "Elijah-Lin-Dancer",
+      "category": "art"
+    },
+    {
+      "id": "marco-reus-la-galaxy-neue-horizonte",
+      "title": "Marco Reus bei LA Galaxy",
+      "subtitle": "MLS-Champion · Neuer Horizont",
+      "technique": "Hologramm-Flug-Schimmer",
+      "tagline": "Neue Horizonte auf dem Platz der MLS",
+      "edition": "009 / 009",
+      "collection": "HoloLab Archiv · MLS Stars Serie",
+      "description": "Diese holografische Sammelkarte zeigt Marco Reus, der bei LA Galaxy spielt. Er wechselt zur MLS, um seine Karriere in Nordamerika fortzusetzen.",
+      "style_tags": [
+        "足球",
+        "美职联",
+        "洛杉矶"
+      ],
+      "url": "cards/marco-reus-la-galaxy-neue-horizonte/",
+      "thumb": "cards/marco-reus-la-galaxy-neue-horizonte/thumb.jpg",
+      "date": "2026-09-29",
+      "preview": "cards/marco-reus-la-galaxy-neue-horizonte/preview.webm",
+      "lenticular": {
+        "L": "cards/marco-reus-la-galaxy-neue-horizonte/lent-L.jpg",
+        "R": "cards/marco-reus-la-galaxy-neue-horizonte/lent-R.jpg"
+      },
+      "author": "HoloLab Studio",
+      "category": "football"
+    },
+    {
+      "id": "marco-reus-wm-2014-verpasst",
+      "title": "Marco Reus: Unbeugsamer",
+      "subtitle": "DFB-Team · WM 2014",
+      "technique": "Hologramm-Schimmer der Treue",
+      "tagline": "Verpasste WM, nie aufgegebene Hoffnung",
+      "edition": "008 / 009",
+      "collection": "HoloLab Archiv · Nationalhelden Serie",
+      "description": "Diese Karte feiert Marco Reus, der die WM 2014 verpasste, aber nie seine Leidenschaft für den deutschen Fußball aufgab. Er gilt als Symbol für Ausdauer im Team.",
+      "style_tags": [
+        "足球",
+        "德国",
+        "国家队"
+      ],
+      "url": "cards/marco-reus-wm-2014-verpasst/",
+      "thumb": "cards/marco-reus-wm-2014-verpasst/thumb.jpg",
+      "date": "2026-09-29",
+      "preview": "cards/marco-reus-wm-2014-verpasst/preview.webm",
+      "lenticular": {
+        "L": "cards/marco-reus-wm-2014-verpasst/lent-L.jpg",
+        "R": "cards/marco-reus-wm-2014-verpasst/lent-R.jpg"
+      },
+      "author": "HoloLab Studio",
+      "category": "football"
+    },
+    {
+      "id": "marco-reus-bvb-kapitain",
+      "title": "BVB Kapitän Marco Reus",
+      "subtitle": "Borussia Dortmund · Kapitän",
+      "technique": "Gelbwand-Schimmer",
+      "tagline": "Kapitänstreue auf Signal Iduna Park",
+      "edition": "007 / 009",
+      "collection": "HoloLab Archiv · BVB Serie",
+      "description": "Diese holografische Sammelkarte zeigt Marco Reus, den langjährigen Kapitän von Borussia Dortmund. Sie feiert seine treue Zugehörigkeit zum Verein.",
+      "style_tags": [
+        "足球",
+        "德甲",
+        "多特蒙德",
+        "传奇"
+      ],
+      "url": "cards/marco-reus-bvb-kapitain/",
+      "thumb": "cards/marco-reus-bvb-kapitain/thumb.jpg",
+      "date": "2026-09-29",
+      "preview": "cards/marco-reus-bvb-kapitain/preview.webm",
+      "lenticular": {
+        "L": "cards/marco-reus-bvb-kapitain/lent-L.jpg",
+        "R": "cards/marco-reus-bvb-kapitain/lent-R.jpg"
+      },
+      "author": "HoloLab Studio",
+      "category": "football"
+    },
+    {
+      "id": "frida-kahlo-mexican-painter",
+      "title": "Frida Kahlo, Visionary Painter",
+      "subtitle": "HoloLab · Frida",
+      "technique": "Vivid Brush Whispers",
+      "tagline": "Art of color and unfiltered truth",
+      "edition": "006 / 006",
+      "collection": "HoloLab Archive · Mexican Masters Series",
+      "description": "This holographic card honors Frida Kahlo, the iconic Mexican artist. It brings her bold identity to life through textured, luminous art.",
+      "style_tags": [
+        "艺术",
+        "画家",
+        "墨西哥"
+      ],
+      "url": "cards/frida-kahlo-mexican-painter/",
+      "thumb": "cards/frida-kahlo-mexican-painter/thumb.jpg",
+      "date": "2026-09-29",
+      "lenticular": {
+        "L": "cards/frida-kahlo-mexican-painter/lent-L.jpg",
+        "R": "cards/frida-kahlo-mexican-painter/lent-R.jpg"
+      },
+      "preview": "cards/frida-kahlo-mexican-painter/preview.webm",
+      "author": "HoloLab Studio",
+      "category": "art"
+    },
+    {
+      "id": "snow-leopard-aurora-ridge",
+      "title": "Aurora Ridge Snow Leopard",
+      "subtitle": "Icy Ridge · Northern Lights",
+      "technique": "Frosted Aurora Waltz",
+      "tagline": "Crouching under skies of green and gold.",
+      "edition": "005 / 005",
+      "collection": "HoloLab Archive · Frosted Wild Series",
+      "description": "This card showcases a snow leopard in its remote arctic home. It highlights the serene beauty of northern lights over an icy ridge.",
+      "style_tags": [
+        "雪原",
+        "极光",
+        "野生",
+        "动物"
+      ],
+      "url": "cards/snow-leopard-aurora-ridge/",
+      "thumb": "cards/snow-leopard-aurora-ridge/thumb.jpg",
+      "date": "2026-09-29",
+      "lenticular": {
+        "L": "cards/snow-leopard-aurora-ridge/lent-L.jpg",
+        "R": "cards/snow-leopard-aurora-ridge/lent-R.jpg"
+      },
+      "preview": "cards/snow-leopard-aurora-ridge/preview.webm",
+      "author": "HoloLab Studio",
+      "category": "travel"
+    },
+    {
+      "id": "great-sage-sun-wukong",
+      "title": "齐天大圣",
+      "subtitle": "花果山 · 傲世苍穹",
+      "technique": "腾云驾雾",
+      "tagline": "一棒破九霄，大圣镇乾坤",
+      "edition": "004 / 004",
+      "collection": "HoloLab 典藏 · 西游系列",
+      "description": "本卡收录齐天大圣孙悟空经典形象，还原桀骜气质，极具收藏价值。",
+      "style_tags": [
+        "西游",
+        "神话"
+      ],
+      "url": "cards/great-sage-sun-wukong/",
+      "thumb": "cards/great-sage-sun-wukong/thumb.jpg",
+      "date": "2026-09-29",
+      "preview": "cards/great-sage-sun-wukong/preview.webm",
+      "lenticular": {
+        "L": "cards/great-sage-sun-wukong/lent-L.jpg",
+        "R": "cards/great-sage-sun-wukong/lent-R.jpg"
+      },
+      "author": "HoloLab Studio",
+      "category": "art"
+    },
+    {
+      "id": "taikonaut-stellar-expedition",
+      "title": "星辰远征",
+      "subtitle": "taikonaut · 逐梦星海",
+      "technique": "星海驭风",
+      "tagline": "逐梦苍穹，远征星海",
+      "edition": "003 / 003",
+      "collection": "HoloLab 典藏 · 星辰远征系列",
+      "description": "致敬中国航天员的太空探索征程，展现人类对星辰大海的无限向往。",
+      "style_tags": [
+        "航天",
+        "星空",
+        "夜景"
+      ],
+      "url": "cards/taikonaut-stellar-expedition/",
+      "thumb": "cards/taikonaut-stellar-expedition/thumb.jpg",
+      "date": "2026-09-29",
+      "preview": "cards/taikonaut-stellar-expedition/preview.webm",
+      "lenticular": {
+        "L": "cards/taikonaut-stellar-expedition/lent-L.jpg",
+        "R": "cards/taikonaut-stellar-expedition/lent-R.jpg"
+      },
+      "author": "HoloLab Studio",
+      "category": "art"
+    },
+    {
+      "id": "mj-demo",
+      "title": "流行之王",
+      "subtitle": "KING OF POP · 音乐传奇",
+      "technique": "月球漫步",
+      "tagline": "音乐即魔法，舞台即永恒",
+      "edition": "002 / 002",
+      "collection": "HoloLab 典藏 · 传奇系列",
+      "description": "流行音乐之王的全息收藏卡：金色亮片、白钻手套与聚光灯下的镭射流光。",
+      "style_tags": [
+        "音乐",
+        "传奇",
+        "舞台"
+      ],
+      "url": "cards/mj-demo/",
+      "thumb": "cards/mj-demo/thumb.jpg",
+      "date": "2026-09-29",
+      "preview": "cards/mj-demo/preview.webm",
+      "lenticular": {
+        "L": "cards/mj-demo/lent-L.jpg",
+        "R": "cards/mj-demo/lent-R.jpg"
+      },
+      "author": "HoloLab Studio",
+      "category": "art"
+    },
+    {
+      "id": "messi-demo",
+      "title": "梅西称王",
+      "subtitle": "球王 · 阿根廷十号",
+      "technique": "潘帕斯雄鹰",
+      "tagline": "无需多言，数据与荣誉即证明",
+      "edition": "001 / 001",
+      "collection": "HoloLab 典藏 · 传奇系列",
+      "description": "球王梅西的传奇全息收藏卡：蓝白间条、金色纸屑与夜空的镭射流光。",
+      "style_tags": [
+        "足球",
+        "传奇",
+        "夜景"
+      ],
+      "url": "cards/messi-demo/",
+      "thumb": "cards/messi-demo/thumb.jpg",
+      "date": "2026-09-29",
+      "preview": "cards/messi-demo/preview.webm",
+      "lenticular": {
+        "L": "cards/messi-demo/lent-L.jpg",
+        "R": "cards/messi-demo/lent-R.jpg"
+      },
+      "author": "HoloLab Studio",
+      "category": "football"
+    }
+  ]
 }

@@ -7,7 +7,16 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from PIL import Image
 from ai_generate import make_subject, make_lineart, CANVAS
 
-CARDS = ["shang-fu-hao", "shang-wu-ding", "shang-oracle"]
+CARDS = [
+    "shang-fu-hao", "shang-wu-ding", "shang-oracle",
+    # 殷商纪 Vol.I 余（004-006）
+    "shang-pan-geng", "shang-tang", "shang-yi-yin",
+    # 殷商纪 Vol.II 重器（007-009）
+    "shang-houmuwu-ding", "shang-fuhao-owl-zun", "shang-four-ram-zun",
+    # 殷商纪 Vol.III 文明密码（010-014）
+    "shang-dark-bird", "shang-divination", "shang-yin-xu",
+    "shang-chariot", "shang-taotie",
+]
 ROOT = Path(__file__).resolve().parent.parent  # generator/
 
 def main() -> None:

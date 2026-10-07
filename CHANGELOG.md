@@ -14,14 +14,18 @@ this project is pre-1.0.
 ## [2026-10-07]
 
 ### Added
-- **Streaming-style two-level category filters** — gallery top row now shows
+- **Yin-Shang Chronicles · 殷商纪** Vol.I–III complete — **14 cards total**:
+  Vol.I 人物志 (妇好 · 武丁 · 盘庚 · 商汤 · 伊尹), Vol.II 重器典藏 (后母戊鼎 ·
+  妇好鸮尊 · 四羊方尊), Vol.III 文明密码 (甲骨文 · 玄鸟 · 占卜 · 殷墟 · 战车 ·
+  饕餮); earliest verifiable dynasty (oracle-bone evidence, c. 1600–1046 BCE),
+  all 中文 card faces, each card carries a unique technique name
+- New style tags i18n entries (迁都 · 开国 · 贤相 · 元圣 · 重器 · 鸮尊 · 羊尊 ·
+  神话 · 占卜 · 都城 · 战车 · 饕餮)
+- Streaming-style two-level category filters — gallery top row now shows
   `全部 · ⚽ Football · 🤣 Memes · 🎮 Games · 🏺 Civilization · 🎨 Art & Culture · 🌍 Travel`
   (45 cards mapped to 6 categories, `category` field in cards.json); picking a
   category reveals a second row of fine-grained sub-tags with More/Less collapse.
   Raw style_tags no longer flood the top filter bar (73 chips → 7).
-- **Yin-Shang Chronicles · 殷商纪** Vol.I — 3 cards (妇好 · 武丁 · 甲骨文),
-  the earliest verifiable dynasty of Chinese history, 中文 card faces
-- New style tags i18n entries (殷商 · 女将 · 甲骨 · 青铜 · 帝王 · 文字)
 
 ## [2026-10-06]
 

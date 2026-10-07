@@ -1,0 +1,52 @@
+{
+  "mode": "holographic",
+  "slug": "shang-four-ram-zun",
+  "title": "四羊方尊",
+  "subtitle": "四羊聚瑞 · 方尊之绝",
+  "technique": "Four-Ram-Ritual-Vessel",
+  "tagline": "四只羊首各守一方，商代青铜的巅峰造物。",
+  "edition": "009 / 014",
+  "collection": "Yin-Shang Chronicles · 殷商纪",
+  "description": "1938 年出土于湖南宁乡，商代青铜艺术的不朽绝品。",
+  "style": "殷商青铜美学 · 高细节全息收藏卡，黑金主调，四羊聚瑞，瑰丽庄重",
+  "prompt": "四羊方尊——方形青铜尊体，四角各一羊首探出，羊角卷曲，羊身云雷纹与鳞纹精美，尊口外敞，正面视角略俯视，青铜鎏金质感，深色背景，陈列光，高细节，瑰丽庄重",
+  "subject_desc": "四羊方尊——方形青铜尊体，四角各一羊首探出，羊角卷曲，羊身云雷纹与鳞纹精美，尊口外敞，正面视角略俯视，青铜鎏金质感，深色背景，陈列光，高细节，瑰丽庄重",
+  "background_desc": "深邃暗场，暖金展灯光晕，青铜云雷纹暗纹，黑金氛围，空镜无器物",
+  "parameters": {
+    "subjectScale": 1.2,
+    "subjectDepth": 0.42,
+    "backgroundDepth": -0.3,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.03,
+      -0.05
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Yin-Shang Chronicles · 殷商纪 · 009/014",
+  "honors": [
+    "商代晚期青铜礼器，四羊聚尊",
+    "1938年出土于湖南宁乡，现藏国家博物馆",
+    "四角各一卷角羊首，动静相生",
+    "羊为祥瑞，方尊之绝",
+    "商代青铜铸造的巅峰技艺"
+  ],
+  "back_story": "四羊方尊以四只卷角羊首分踞尊之四角，动静相生，是商代晚期青铜艺术的绝品。1938 年于湖南宁乡出土，辗转烽火岁月，现藏中国国家博物馆。羊为祥瑞，四羊聚尊，气象万千。",
+  "curation": {},
+  "style_tags": [
+    "殷商",
+    "青铜",
+    "羊尊"
+  ],
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "shang-four-ram-zun"
+}

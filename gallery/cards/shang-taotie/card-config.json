@@ -1,0 +1,52 @@
+{
+  "mode": "holographic",
+  "slug": "shang-taotie",
+  "title": "饕餮",
+  "subtitle": "兽面饕餮 · 青铜之魂",
+  "technique": "Beast-Mask-Relief",
+  "tagline": "一张没有下颌的兽脸，凝视了三千年。",
+  "edition": "014 / 014",
+  "collection": "Yin-Shang Chronicles · 殷商纪",
+  "description": "饕餮纹（兽面纹），商周青铜器上最常见也最神秘的脸。",
+  "style": "殷商青铜美学 · 高细节全息收藏卡，黑金主调，兽面威仪，神秘庄严",
+  "prompt": "饕餮纹特写，对称兽面，怒目圆睁，巨口獠牙，无下颌，额上卷角，青铜浮雕质感，鎏金高光，深黑底，庄重神秘，凝视感，电影感光影，高细节",
+  "subject_desc": "饕餮纹特写，对称兽面，怒目圆睁，巨口獠牙，无下颌，额上卷角，青铜浮雕质感，鎏金高光，深黑底，庄重神秘，凝视感，电影感光影，高细节",
+  "background_desc": "深邃暗场，青铜纹样暗纹铺陈，鎏金微光，神秘氛围，空镜无主体",
+  "parameters": {
+    "subjectScale": 1.2,
+    "subjectDepth": 0.42,
+    "backgroundDepth": -0.3,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.03,
+      -0.05
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Yin-Shang Chronicles · 殷商纪 · 014/014",
+  "honors": [
+    "兽面纹，商周青铜器最核心的纹饰",
+    "对称兽面：怒目、巨口、卷角",
+    "无下颌，却凝视千年",
+    "礼器上的神性符号，青铜时代的精神图腾",
+    "商周青铜美学的标志性面孔"
+  ],
+  "back_story": "饕餮纹，学术界多称“兽面纹”，是商周青铜器上最核心的纹饰：对称的兽面，怒目、巨口、卷角，没有下颌，却凝视千年。它既是礼器上的神性符号，也是青铜时代的集体想象与威仪。",
+  "curation": {},
+  "style_tags": [
+    "殷商",
+    "青铜",
+    "饕餮"
+  ],
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "shang-taotie"
+}
