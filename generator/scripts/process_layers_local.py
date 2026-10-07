@@ -16,6 +16,9 @@ CARDS = [
     # 殷商纪 Vol.III 文明密码（010-014）
     "shang-dark-bird", "shang-divination", "shang-yin-xu",
     "shang-chariot", "shang-taotie",
+    # 罪恶都市 Vol.II 场景文化（057-064）
+    "vc-ocean-drive", "vc-starfish-island", "vc-little-havana", "vc-little-haiti",
+    "vc-vercetti-estate", "vc-fm-radio", "vc-dockyard", "vc-neon-1986",
 ]
 ROOT = Path(__file__).resolve().parent.parent  # generator/
 

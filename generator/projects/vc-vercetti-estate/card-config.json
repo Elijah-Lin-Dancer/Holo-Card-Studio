@@ -1,0 +1,46 @@
+{
+  "mode": "holographic",
+  "slug": "vc-vercetti-estate",
+  "title": "The Vercetti Estate",
+  "subtitle": "From construction site to empire",
+  "technique": "Empire-Ascent-Crane",
+  "tagline": "Build it, buy it, own it.",
+  "edition": "061 / 008",
+  "collection": "Vice City Nights · Places & Vibes",
+  "description": "The Vercetti Estate — From construction site to empire. Part of the Vice City Nights Places & Vibes series, 1986 Miami neon tribute.",
+  "style": "1980s Miami neon aesthetic, pink-purple dusk, Art Deco & synthwave energy",
+  "prompt": "1980s Miami cartoon style: abandoned construction site transforming into a luxury estate, concrete skeleton with a crane, half-built pink mansion, workers' scaffolding, late afternoon light, ambition mood, subject centered about 65% of frame, crisp details, no text",
+  "subject_desc": "1980s Miami cartoon style: abandoned construction site transforming into a luxury estate, concrete skeleton with a crane, half-built pink mansion, workers' scaffolding, late afternoon light, ambition mood, subject centered about 65% of frame, crisp details, no text",
+  "background_desc": "construction dust haze at Miami dusk, warm amber-gold sky, no text",
+  "text_desc": "Title「The Vercetti Estate」Subtitle「Vice City · 1986」, holographic foil typography, English",
+  "parameters": {
+    "subjectScale": 1.2,
+    "subjectDepth": 0.42,
+    "backgroundDepth": -0.3,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.03,
+      -0.05
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Vice City Nights · Places & Vibes · 005/008",
+  "honors": [
+    "The asset-system origin — a site bought cheap and built into a HQ",
+    "Crane and concrete skeleton as the empire's honest first brick",
+    "Amber construction dusk, ambition in the dust"
+  ],
+  "back_story": "Every empire needs a cornerstone. Tommy's was a run-down construction site at the edge of town — bought cheap, rebuilt into a mansion that doubled as his headquarters. The crane above the half-finished walls is the honest symbol of Vice City's dream: concrete, cash, and the nerve to build your own skyline.",
+  "curation": {
+    "zh": "Every empire needs a cornerstone. Tommy's was a run-down construction site at the edge of town — bought cheap, rebuilt into a mansion that doubled as his headquarters. The crane above the half-finished walls is the honest symbol of Vice City's dream: concrete, cash, and the nerve to build your own skyline.",
+    "en": "Every empire needs a cornerstone. Tommy's was a run-down construction site at the edge of town — bought cheap, rebuilt into a mansion that doubled as his headquarters. The crane above the half-finished walls is the honest symbol of Vice City's dream: concrete, cash, and the nerve to build your own skyline."
+  },
+  "style_tags": [
+    "vice-city",
+    "80s",
+    "场景"
+  ]
+}

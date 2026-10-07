@@ -1,0 +1,46 @@
+{
+  "mode": "holographic",
+  "slug": "vc-fm-radio",
+  "title": "FM Radio 1986",
+  "subtitle": "The soundtrack of the city",
+  "technique": "Cassette-Synthwave",
+  "tagline": "Every car on the drive is playing this.",
+  "edition": "062 / 008",
+  "collection": "Vice City Nights · Places & Vibes",
+  "description": "FM Radio 1986 — The soundtrack of the city. Part of the Vice City Nights Places & Vibes series, 1986 Miami neon tribute.",
+  "style": "1980s Miami neon aesthetic, pink-purple dusk, Art Deco & synthwave energy",
+  "prompt": "1980s Miami cartoon style: retro boombox radio on the hood of a pink sports car at a drive-in, cassette tape flying mid-air, glowing neon radio waves in the air, palm silhouettes, synthwave palette, subject centered about 65% of frame, crisp details, no text",
+  "subject_desc": "1980s Miami cartoon style: retro boombox radio on the hood of a pink sports car at a drive-in, cassette tape flying mid-air, glowing neon radio waves in the air, palm silhouettes, synthwave palette, subject centered about 65% of frame, crisp details, no text",
+  "background_desc": "synthwave sunset grid sky, pink-purple gradient, neon horizon line, no text",
+  "text_desc": "Title「FM Radio 1986」Subtitle「Vice City · 1986」, holographic foil typography, English",
+  "parameters": {
+    "subjectScale": 1.2,
+    "subjectDepth": 0.42,
+    "backgroundDepth": -0.3,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.03,
+      -0.05
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Vice City Nights · Places & Vibes · 006/008",
+  "honors": [
+    "The mixtape era: FM stations on every open window",
+    "Boombox-on-hood culture and the cassette flying mid-air",
+    "Synthwave grid sunset, neon radio waves in the air"
+  ],
+  "back_story": "Vice City is nothing without its radio. FM stations pumped new wave, funk, rock and Latin through every open window — the mixtape era's golden hour. A boombox on a hood, a cassette thrown in the air, neon waves leaking from the speakers: this is the sound of 1986, and the city's real soundtrack.",
+  "curation": {
+    "zh": "Vice City is nothing without its radio. FM stations pumped new wave, funk, rock and Latin through every open window — the mixtape era's golden hour. A boombox on a hood, a cassette thrown in the air, neon waves leaking from the speakers: this is the sound of 1986, and the city's real soundtrack.",
+    "en": "Vice City is nothing without its radio. FM stations pumped new wave, funk, rock and Latin through every open window — the mixtape era's golden hour. A boombox on a hood, a cassette thrown in the air, neon waves leaking from the speakers: this is the sound of 1986, and the city's real soundtrack."
+  },
+  "style_tags": [
+    "vice-city",
+    "80s",
+    "时代"
+  ]
+}

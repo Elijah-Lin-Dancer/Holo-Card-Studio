@@ -1,0 +1,54 @@
+{
+  "mode": "holographic",
+  "slug": "vc-dockyard",
+  "title": "Dockyard Sunset",
+  "subtitle": "Speedboats under burning skies",
+  "technique": "Harbor-Chase-Ember",
+  "tagline": "The ocean is the fastest road out.",
+  "edition": "063 / 008",
+  "collection": "Vice City Nights · Places & Vibes",
+  "description": "Dockyard Sunset — Speedboats under burning skies. Part of the Vice City Nights Places & Vibes series, 1986 Miami neon tribute.",
+  "style": "1980s Miami neon aesthetic, pink-purple dusk, Art Deco & synthwave energy",
+  "prompt": "1980s Miami cartoon style: speedboat racing across the bay at sunset, wake spraying white foam, dockyard crane silhouettes behind, burning orange-pink sky, waves glinting, motion feel, subject centered about 65% of frame, crisp details, no text",
+  "subject_desc": "1980s Miami cartoon style: speedboat racing across the bay at sunset, wake spraying white foam, dockyard crane silhouettes behind, burning orange-pink sky, waves glinting, motion feel, subject centered about 65% of frame, crisp details, no text",
+  "background_desc": "burning sunset sky over the bay, orange-to-pink gradient, distant crane silhouettes, no text",
+  "text_desc": "Title「Dockyard Sunset」Subtitle「Vice City · 1986」, holographic foil typography, English",
+  "parameters": {
+    "subjectScale": 1.2,
+    "subjectDepth": 0.42,
+    "backgroundDepth": -0.3,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.03,
+      -0.05
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Vice City Nights · Places & Vibes · 007/008",
+  "honors": [
+    "Vice City's back door: smuggled crates and fast boats",
+    "Sunset chase silhouettes over the bay",
+    "Orange-to-pink ember sky, white wake on dark water"
+  ],
+  "back_story": "The docks are Vice City's back door — where the smuggled crates came in and the fast boats went out. At sunset the sky burns orange over the bay while speedboats cut white wakes toward the horizon. On the water, there are no neon signs; just engines, salt, and the fastest road out of town.",
+  "curation": {
+    "zh": "The docks are Vice City's back door — where the smuggled crates came in and the fast boats went out. At sunset the sky burns orange over the bay while speedboats cut white wakes toward the horizon. On the water, there are no neon signs; just engines, salt, and the fastest road out of town.",
+    "en": "The docks are Vice City's back door — where the smuggled crates came in and the fast boats went out. At sunset the sky burns orange over the bay while speedboats cut white wakes toward the horizon. On the water, there are no neon signs; just engines, salt, and the fastest road out of town."
+  },
+  "style_tags": [
+    "vice-city",
+    "80s",
+    "场景"
+  ],
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "vc-dockyard"
+}

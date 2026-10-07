@@ -1,0 +1,54 @@
+{
+  "mode": "holographic",
+  "slug": "vc-ocean-drive",
+  "title": "Ocean Drive Neon",
+  "subtitle": "Where the city never sleeps",
+  "technique": "Art-Deco-Neon",
+  "tagline": "Neon palms, pink dusk, endless summer.",
+  "edition": "057 / 008",
+  "collection": "Vice City Nights · Places & Vibes",
+  "description": "Ocean Drive Neon — Where the city never sleeps. Part of the Vice City Nights Places & Vibes series, 1986 Miami neon tribute.",
+  "style": "1980s Miami neon aesthetic, pink-purple dusk, Art Deco & synthwave energy",
+  "prompt": "1980s Miami cartoon style: Ocean Drive at night, Art Deco hotels with pink and teal neon signs, palm tree silhouettes, a pink Chevrolet convertible parked under the lights, neon reflections on wet asphalt, subject centered about 65% of frame, crisp details, no text",
+  "subject_desc": "1980s Miami cartoon style: Ocean Drive at night, Art Deco hotels with pink and teal neon signs, palm tree silhouettes, a pink Chevrolet convertible parked under the lights, neon reflections on wet asphalt, subject centered about 65% of frame, crisp details, no text",
+  "background_desc": "1986 Vice City dusk sky, gradient from deep purple to hot pink, palm silhouettes, soft neon glow at the horizon, lower area empty for typography, no text",
+  "text_desc": "Title「Ocean Drive Neon」Subtitle「Vice City · 1986」, holographic foil typography, English",
+  "parameters": {
+    "subjectScale": 1.2,
+    "subjectDepth": 0.42,
+    "backgroundDepth": -0.3,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.03,
+      -0.05
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Vice City Nights · Places & Vibes · 001/008",
+  "honors": [
+    "The most iconic strip in Vice City — Art Deco rows and neon palms",
+    "Pink-purple dusk palette with wet-street reflections",
+    "Every era-defining drive in 1986 passes through here"
+  ],
+  "back_story": "Ocean Drive is the beating heart of Vice City — a strip of Art Deco hotels, neon signs and palm shadows where every night looks like the cover of a summer album. Convertibles cruise the wet asphalt, radios blast, and the pink dusk never quite ends. In 1986 this was the most famous street in Miami, and in Vice City it was the one you drove to feel alive.",
+  "curation": {
+    "zh": "Ocean Drive is the beating heart of Vice City — a strip of Art Deco hotels, neon signs and palm shadows where every night looks like the cover of a summer album. Convertibles cruise the wet asphalt, radios blast, and the pink dusk never quite ends. In 1986 this was the most famous street in Miami, and in Vice City it was the one you drove to feel alive.",
+    "en": "Ocean Drive is the beating heart of Vice City — a strip of Art Deco hotels, neon signs and palm shadows where every night looks like the cover of a summer album. Convertibles cruise the wet asphalt, radios blast, and the pink dusk never quite ends. In 1986 this was the most famous street in Miami, and in Vice City it was the one you drove to feel alive."
+  },
+  "style_tags": [
+    "vice-city",
+    "80s",
+    "场景"
+  ],
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "vc-ocean-drive"
+}

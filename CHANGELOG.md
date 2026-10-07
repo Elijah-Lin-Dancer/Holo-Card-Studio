@@ -14,6 +14,10 @@ this project is pre-1.0.
 ## [2026-10-07]
 
 ### Added
+- **Vice City Nights · Places & Vibes** Vol.II — 8 cards (Ocean Drive Neon ·
+  Starfish Island Estate · Little Havana · Little Haiti · The Vercetti Estate ·
+  FM Radio 1986 · Dockyard Sunset · Neon 1986), GTA Vice City tribute,
+  scenes / culture / era dimensions, English card faces, unique technique names
 - **Yin-Shang Chronicles · 殷商纪** Vol.I–III complete — **14 cards total**:
   Vol.I 人物志 (妇好 · 武丁 · 盘庚 · 商汤 · 伊尹), Vol.II 重器典藏 (后母戊鼎 ·
   妇好鸮尊 · 四羊方尊), Vol.III 文明密码 (甲骨文 · 玄鸟 · 占卜 · 殷墟 · 战车 ·

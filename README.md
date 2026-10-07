@@ -56,13 +56,14 @@ That's a **real turntable render** from the Blender pipeline (96 frames), not a 
 
 ![HoloLab card wall](docs/screenshots/card-wall.jpg)
 
-**56 cards · 8 languages · every card a permanent URL**, openable and shareable by anyone:
+**64 cards · 8 languages · every card a permanent URL**, openable and shareable by anyone:
 
 | Series | Cards | Faces |
 |---|---|---|
 | 🏺 **Yin-Shang Chronicles · 殷商纪** | **14** — 妇好 *Bronze Valkyrie* · 武丁 *Divination Seal* · 甲骨文 *Oracle Script* · 盘庚 *Riverside Exodus* · 商汤 *Net Opened Thrice* · 伊尹 *Prime Sage* · 后母戊鼎 *Imperial Cauldron* · 妇好鸮尊 *Owl Guardian* · 四羊方尊 *Four Rams* · 玄鸟 *Dark Bird* · 占卜 *Fire-Crack Omen* · 殷墟 *Sleeping Capital* · 战车 *Bronze Chariot* · 饕餮 *Beast Mask* | 🇨🇳 |
 | 🤖 **Haaland Multiverse** | **15** — Majin Buu · goal machine 2.0 · meditation · disco anthem · Viking · scallion-man · Chongqing monorail · goalie-water thief · shark grin · Tom cat · raccoon · Wanglaoji · bun · "eat the kid" · physics  | 🇨🇳🇬🇧🇳🇴 |
 | 🌴 **Vice City Nights · Characters** (GTA Vol.I) | **6** — Tommy *Neon Godfather* · Lance Vance Dance! · Ken Rosenberg · Ricardo Diaz · General Cortez · Auntie Poulet | 🇬🇧 |
+| 🌴 **Vice City Nights · Places & Vibes** (GTA Vol.II) | **8** — Ocean Drive Neon · Starfish Island Estate · Little Havana · Little Haiti · The Vercetti Estate · FM Radio 1986 · Dockyard Sunset · Neon 1986 | 🇬🇧 |
 | 💙❤️ **FC Barcelona Legacy** | **6** — Messi ×4 eras · Cruyff *El Arquitecto* · Guardiola *Tiki-Taka* | 🇪🇸 |
 | 🖤💛 **The Reus Trilogy** | **3** — BVB *Gelbwand* · DFB *Unbeugsamer* · LA Galaxy *Neue Horizonte* | 🇩🇪 |
 | ⭐ **Single editions** | **12** — Messi, King (梅西称王) · King of Pop (流行之王) · Satyajit Ray (সত্যজিৎ রায়) · Frida Kahlo · Neeltje (🔒 locked) · Luminous Blue Whale · Kenji Kishimoto · Elétrico 28 · Pouch Invader · Stellar Expedition (星辰远征) · Great Sage (齐天大圣) · Aurora Ridge snow leopard | 🇨🇳🇬🇧🇧🇩🇪🇸🇩🇰🇵🇹 |
@@ -228,6 +229,8 @@ Holo-Card-Studio/
 - 🎤 **King of Pop** (流行之王) — Michael Jackson · Legend series
 - 🌴 **Neon Godfather** — Tommy Vercetti · Vice City Nights Vol.I (GTA tribute)
 - 💃 **Lance Vance Dance!** — Lance Vance · Vice City Nights Vol.I
+- 🌆 **Ocean Drive Neon** — Art Deco strip by night · Vice City Nights Vol.II
+- 📻 **FM Radio 1986** — the city's soundtrack · Vice City Nights Vol.II
 - 🖤💛 **Gelbwand** (黄黑之魂) — Marco Reus · Borussia Dortmund · German card face
 - 🏆 **Unbeugsamer** (未竟之约) — Marco Reus · DFB · WM 2014
 - 🌌 **Neue Horizonte** (银河新章) — Marco Reus · LA Galaxy · MLS Cup champion

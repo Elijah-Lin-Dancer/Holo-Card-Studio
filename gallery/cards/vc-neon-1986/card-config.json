@@ -1,0 +1,54 @@
+{
+  "mode": "holographic",
+  "slug": "vc-neon-1986",
+  "title": "Neon 1986",
+  "subtitle": "An era of excess in pink & purple",
+  "technique": "Excess-Era-Neon",
+  "tagline": "Big cars, big hair, big dreams.",
+  "edition": "064 / 008",
+  "collection": "Vice City Nights · Places & Vibes",
+  "description": "Neon 1986 — An era of excess in pink & purple. Part of the Vice City Nights Places & Vibes series, 1986 Miami neon tribute.",
+  "style": "1980s Miami neon aesthetic, pink-purple dusk, Art Deco & synthwave energy",
+  "prompt": "1980s Miami cartoon style: neon-drenched city street at night, big chromed muscle car with a man in padded-shoulder suit leaning on it, cassette in hand, neon signs in pink purple teal, vaporwave energy, subject centered about 65% of frame, crisp details, no text",
+  "subject_desc": "1980s Miami cartoon style: neon-drenched city street at night, big chromed muscle car with a man in padded-shoulder suit leaning on it, cassette in hand, neon signs in pink purple teal, vaporwave energy, subject centered about 65% of frame, crisp details, no text",
+  "background_desc": "dense neon night cityscape, pink-purple-teal glow haze, no text",
+  "text_desc": "Title「Neon 1986」Subtitle「Vice City · 1986」, holographic foil typography, English",
+  "parameters": {
+    "subjectScale": 1.2,
+    "subjectDepth": 0.42,
+    "backgroundDepth": -0.3,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.03,
+      -0.05
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Vice City Nights · Places & Vibes · 008/008",
+  "honors": [
+    "The excess era: muscle cars, padded suits and dual-time watches",
+    "Neon in three colors — pink, purple, teal — on every block",
+    "Vaporwave energy of a decade that burned brightest"
+  ],
+  "back_story": "1986 was the year of excess: muscle cars, padded shoulders, wristwatches that told two time zones, and a skyline bought on credit. Vice City is that era distilled — cocaine economics, real-estate fever, and neon in three colors. Big cars, big hair, big dreams: the decade that burned brightest.",
+  "curation": {
+    "zh": "1986 was the year of excess: muscle cars, padded shoulders, wristwatches that told two time zones, and a skyline bought on credit. Vice City is that era distilled — cocaine economics, real-estate fever, and neon in three colors. Big cars, big hair, big dreams: the decade that burned brightest.",
+    "en": "1986 was the year of excess: muscle cars, padded shoulders, wristwatches that told two time zones, and a skyline bought on credit. Vice City is that era distilled — cocaine economics, real-estate fever, and neon in three colors. Big cars, big hair, big dreams: the decade that burned brightest."
+  },
+  "style_tags": [
+    "vice-city",
+    "80s",
+    "时代"
+  ],
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "vc-neon-1986"
+}

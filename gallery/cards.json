@@ -1,6 +1,182 @@
 {
   "cards": [
     {
+      "id": "vc-neon-1986",
+      "title": "Neon 1986",
+      "subtitle": "An era of excess in pink & purple",
+      "technique": "Excess-Era-Neon",
+      "tagline": "Big cars, big hair, big dreams.",
+      "edition": "064 / 008",
+      "collection": "Vice City Nights · Places & Vibes",
+      "description": "Neon 1986 — An era of excess in pink & purple. Part of the Vice City Nights Places & Vibes series, 1986 Miami neon tribute.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "vice-city",
+        "80s",
+        "时代"
+      ],
+      "url": "cards/vc-neon-1986/",
+      "thumb": "cards/vc-neon-1986/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/vc-neon-1986/preview.webm",
+      "category": "game",
+      "language": "en"
+    },
+    {
+      "id": "vc-dockyard",
+      "title": "Dockyard Sunset",
+      "subtitle": "Speedboats under burning skies",
+      "technique": "Harbor-Chase-Ember",
+      "tagline": "The ocean is the fastest road out.",
+      "edition": "063 / 008",
+      "collection": "Vice City Nights · Places & Vibes",
+      "description": "Dockyard Sunset — Speedboats under burning skies. Part of the Vice City Nights Places & Vibes series, 1986 Miami neon tribute.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "vice-city",
+        "80s",
+        "场景"
+      ],
+      "url": "cards/vc-dockyard/",
+      "thumb": "cards/vc-dockyard/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/vc-dockyard/preview.webm",
+      "category": "game",
+      "language": "en"
+    },
+    {
+      "id": "vc-fm-radio",
+      "title": "FM Radio 1986",
+      "subtitle": "The soundtrack of the city",
+      "technique": "Cassette-Synthwave",
+      "tagline": "Every car on the drive is playing this.",
+      "edition": "062 / 008",
+      "collection": "Vice City Nights · Places & Vibes",
+      "description": "FM Radio 1986 — The soundtrack of the city. Part of the Vice City Nights Places & Vibes series, 1986 Miami neon tribute.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "vice-city",
+        "80s",
+        "时代"
+      ],
+      "url": "cards/vc-fm-radio/",
+      "thumb": "cards/vc-fm-radio/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/vc-fm-radio/preview.webm",
+      "category": "game",
+      "language": "en"
+    },
+    {
+      "id": "vc-vercetti-estate",
+      "title": "The Vercetti Estate",
+      "subtitle": "From construction site to empire",
+      "technique": "Empire-Ascent-Crane",
+      "tagline": "Build it, buy it, own it.",
+      "edition": "061 / 008",
+      "collection": "Vice City Nights · Places & Vibes",
+      "description": "The Vercetti Estate — From construction site to empire. Part of the Vice City Nights Places & Vibes series, 1986 Miami neon tribute.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "vice-city",
+        "80s",
+        "场景"
+      ],
+      "url": "cards/vc-vercetti-estate/",
+      "thumb": "cards/vc-vercetti-estate/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/vc-vercetti-estate/preview.webm",
+      "category": "game",
+      "language": "en"
+    },
+    {
+      "id": "vc-little-haiti",
+      "title": "Little Haiti",
+      "subtitle": "Voodoo drums behind chain-link gates",
+      "technique": "Voodoo-Fence-Night",
+      "tagline": "Auntie Poulet's voodoo runs deep here.",
+      "edition": "060 / 008",
+      "collection": "Vice City Nights · Places & Vibes",
+      "description": "Little Haiti — Voodoo drums behind chain-link gates. Part of the Vice City Nights Places & Vibes series, 1986 Miami neon tribute.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "vice-city",
+        "80s",
+        "文化"
+      ],
+      "url": "cards/vc-little-haiti/",
+      "thumb": "cards/vc-little-haiti/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/vc-little-haiti/preview.webm",
+      "category": "game",
+      "language": "en"
+    },
+    {
+      "id": "vc-little-havana",
+      "title": "Little Havana",
+      "subtitle": "Cuban coffee, dominoes & brotherhood",
+      "technique": "Domino-Cafe-Cubano",
+      "tagline": "El Sindicato's neighborhood — cigar smoke and salsa.",
+      "edition": "059 / 008",
+      "collection": "Vice City Nights · Places & Vibes",
+      "description": "Little Havana — Cuban coffee, dominoes & brotherhood. Part of the Vice City Nights Places & Vibes series, 1986 Miami neon tribute.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "vice-city",
+        "80s",
+        "文化"
+      ],
+      "url": "cards/vc-little-havana/",
+      "thumb": "cards/vc-little-havana/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/vc-little-havana/preview.webm",
+      "category": "game",
+      "language": "en"
+    },
+    {
+      "id": "vc-starfish-island",
+      "title": "Starfish Island Estate",
+      "subtitle": "The view from the top",
+      "technique": "Island-Sunset-Villa",
+      "tagline": "Own the island, own the night.",
+      "edition": "058 / 008",
+      "collection": "Vice City Nights · Places & Vibes",
+      "description": "Starfish Island Estate — The view from the top. Part of the Vice City Nights Places & Vibes series, 1986 Miami neon tribute.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "vice-city",
+        "80s",
+        "场景"
+      ],
+      "url": "cards/vc-starfish-island/",
+      "thumb": "cards/vc-starfish-island/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/vc-starfish-island/preview.webm",
+      "category": "game",
+      "language": "en"
+    },
+    {
+      "id": "vc-ocean-drive",
+      "title": "Ocean Drive Neon",
+      "subtitle": "Where the city never sleeps",
+      "technique": "Art-Deco-Neon",
+      "tagline": "Neon palms, pink dusk, endless summer.",
+      "edition": "057 / 008",
+      "collection": "Vice City Nights · Places & Vibes",
+      "description": "Ocean Drive Neon — Where the city never sleeps. Part of the Vice City Nights Places & Vibes series, 1986 Miami neon tribute.",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "vice-city",
+        "80s",
+        "场景"
+      ],
+      "url": "cards/vc-ocean-drive/",
+      "thumb": "cards/vc-ocean-drive/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/vc-ocean-drive/preview.webm",
+      "category": "game",
+      "language": "en"
+    },
+    {
       "id": "shang-taotie",
       "title": "饕餮",
       "subtitle": "兽面饕餮 · 青铜之魂",

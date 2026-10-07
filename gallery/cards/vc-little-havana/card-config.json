@@ -1,0 +1,54 @@
+{
+  "mode": "holographic",
+  "slug": "vc-little-havana",
+  "title": "Little Havana",
+  "subtitle": "Cuban coffee, dominoes & brotherhood",
+  "technique": "Domino-Cafe-Cubano",
+  "tagline": "El Sindicato's neighborhood — cigar smoke and salsa.",
+  "edition": "059 / 008",
+  "collection": "Vice City Nights · Places & Vibes",
+  "description": "Little Havana — Cuban coffee, dominoes & brotherhood. Part of the Vice City Nights Places & Vibes series, 1986 Miami neon tribute.",
+  "style": "1980s Miami neon aesthetic, pink-purple dusk, Art Deco & synthwave energy",
+  "prompt": "1980s Miami cartoon style: Little Havana street scene, Cuban cafe with striped awning, old men playing dominoes at an outdoor table, cigar smoke curling, palm trees, vintage Chevy parked, warm afternoon light, salsa vibe, subject centered about 65% of frame, crisp details, no text",
+  "subject_desc": "1980s Miami cartoon style: Little Havana street scene, Cuban cafe with striped awning, old men playing dominoes at an outdoor table, cigar smoke curling, palm trees, vintage Chevy parked, warm afternoon light, salsa vibe, subject centered about 65% of frame, crisp details, no text",
+  "background_desc": "warm Cuban afternoon haze over a colorful Miami street, soft amber light, no text",
+  "text_desc": "Title「Little Havana」Subtitle「Vice City · 1986」, holographic foil typography, English",
+  "parameters": {
+    "subjectScale": 1.2,
+    "subjectDepth": 0.42,
+    "backgroundDepth": -0.3,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.03,
+      -0.05
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Vice City Nights · Places & Vibes · 003/008",
+  "honors": [
+    "Cuba-in-Miami: coffee, dominoes, cigar smoke and salsa",
+    "El Sindicato turf — the Cuban side of the street war",
+    "Warm amber afternoon, vintage Chevys and striped awnings"
+  ],
+  "back_story": "Little Havana is where Cuba landed in Miami: strong coffee, dominoes on outdoor tables, cigar smoke, and salsa from every window. It's the turf of the Cuban gang El Sindicato — and in Vice City, the front line of a quiet street war with the Haitians. Brotherhood, rum, and a neighborhood that never forgets home.",
+  "curation": {
+    "zh": "Little Havana is where Cuba landed in Miami: strong coffee, dominoes on outdoor tables, cigar smoke, and salsa from every window. It's the turf of the Cuban gang El Sindicato — and in Vice City, the front line of a quiet street war with the Haitians. Brotherhood, rum, and a neighborhood that never forgets home.",
+    "en": "Little Havana is where Cuba landed in Miami: strong coffee, dominoes on outdoor tables, cigar smoke, and salsa from every window. It's the turf of the Cuban gang El Sindicato — and in Vice City, the front line of a quiet street war with the Haitians. Brotherhood, rum, and a neighborhood that never forgets home."
+  },
+  "style_tags": [
+    "vice-city",
+    "80s",
+    "文化"
+  ],
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "vc-little-havana"
+}
