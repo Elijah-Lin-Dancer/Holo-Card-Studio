@@ -114,6 +114,10 @@ flowchart LR
 
 Just open the **Live Gallery** above. No account, no install, no server — it's pure static pages.
 
+> 🎬 **Streaming-style navigation** — the gallery filters cards with two-level chips:
+> top row = 6 big categories (`⚽ Football · 🤣 Memes · 🎮 Games · 🏺 Civilization · 🎨 Art & Culture · 🌍 Travel`),
+> picking one reveals a second row of fine-grained sub-tags inside that category.
+
 ### 💻 Run the gallery locally
 
 ```bash

@@ -38,5 +38,9 @@
   "curation": {
     "zh": "维京战士（挪威语卡）——谷歌彩蛋「维京划船」的致敬。",
     "en": "The Viking warrior (in Norwegian) — a tribute to Google's Viking Row easter egg."
-  }
+  },
+  "style_tags": [
+    "足球",
+    "维京"
+  ]
 }

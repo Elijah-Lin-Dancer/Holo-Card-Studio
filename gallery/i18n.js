@@ -35,6 +35,15 @@
     curation_title:  { zh: '策展时间线 · 创作手记', en: 'Curated timeline · Creator notes' },
     curation_hint:   { zh: '从第一张卡到巴萨传承系列——每一张卡诞生的理由。', en: 'From the first card to the Barça Legacy series — why each card exists.' },
 
+    // 大分类（流媒体式顶层分类 chips）
+    cat_all:         { zh: '全部', en: 'All' },
+    cat_football:    { zh: '⚽ 足球', en: '⚽ Football' },
+    cat_meme:        { zh: '🤣 梗卡', en: '🤣 Memes' },
+    cat_game:        { zh: '🎮 游戏', en: '🎮 Games' },
+    cat_history:     { zh: '🏺 文明史', en: '🏺 Civilization' },
+    cat_art:         { zh: '🎨 艺术文化', en: '🎨 Art & Culture' },
+    cat_travel:      { zh: '🌍 旅行风物', en: '🌍 Travel' },
+
     // 自动导览（Auto Tour）
     tour_play:       { zh: '自动导览', en: 'Auto Tour' },
     tour_stop:       { zh: '停止导览', en: 'Stop Tour' },

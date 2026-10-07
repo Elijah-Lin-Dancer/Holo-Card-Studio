@@ -135,6 +135,7 @@ if (heroTitle && !reduceMotion) reSplitTitle();
 const grid = document.getElementById('gallery');
 const empty = grid.querySelector('.empty');
 let activeFilter = 'all';
+let activeCategory = 'all';   /* 大分类（流媒体式）：all | football | meme | game | history | art | travel */
 let cards = [];
 let currentEls = [];
 let curated = {};   /* curation.json：id → {zh,en} 创作手记 */
@@ -178,49 +179,60 @@ if (viewSwitch) {
   });
 }
 
-/* 自动分类：chips 从 cards.json 的 style_tags 动态生成（去重），加新卡自动出新筛选项 */
-/* 默认折叠：显示"全部"+前 7 个标签，其余收进 .chip-extra，点"更多"展开 */
+/* 自动分类（流媒体式）：第一行 = 全部 + 6 大分类（按 card.category），
+   选中某分类后第二行 = 该分类内的 style_tags 子标签（二次收窄，默认折叠）。
+   碎片 style_tags 不再作为顶层筛选项，只作分类内细分。 */
 const filtersBox = document.getElementById('filters');
-const FILTERS_COLLAPSE_AFTER = 7; // "全部"之外默认再显示 7 个
+const CATEGORIES = ['all', 'football', 'meme', 'game', 'history', 'art', 'travel'];
+const SUBSELECT_EXCLUDE = ['足球', '梗卡']; /* 分类通用词：已由大分类 chips 表达，不再当子标签 */
+const FILTERS_COLLAPSE_AFTER = 7; // 子标签默认显示数量，其余收进"更多"
 function renderChips() {
   if (!filtersBox) return;
-  const set = [];
-  cards.forEach(c => (c.style_tags || []).forEach(t => { if (set.indexOf(t) === -1) set.push(t); }));
   const t = (key, fb) => (typeof window.HoloLabI18n !== 'undefined' ? window.HoloLabI18n.t(key) : fb);
-  const mk = (f, label, parent) => {
+  const mk = (f, label, parent, isActive) => {
     const b = document.createElement('button');
-    b.className = 'chip' + (f === activeFilter ? ' active' : '');
+    b.className = 'chip' + (isActive ? ' active' : '');
     b.dataset.filter = f;
     b.textContent = label;
-    b.setAttribute('aria-pressed', f === activeFilter ? 'true' : 'false');
+    b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     parent.appendChild(b);
     return b;
   };
   filtersBox.innerHTML = '';
   filtersBox.classList.remove('expanded');
 
-  mk('all', t('filters_all', 'All'), filtersBox);
-  const visibleTags = set.slice(0, FILTERS_COLLAPSE_AFTER);
-  const hiddenTags = set.slice(FILTERS_COLLAPSE_AFTER);
-  visibleTags.forEach(tag => mk(tag, t(tag, tag), filtersBox));
+  // 第一行：大分类 chips
+  CATEGORIES.forEach(cat => {
+    const f = 'cat:' + cat;
+    const label = cat === 'all' ? t('cat_all', 'All') : t('cat_' + cat, cat);
+    mk(f, label, filtersBox, activeCategory === cat);
+  });
 
-  if (hiddenTags.length > 0) {
-    const toggle = document.createElement('button');
-    toggle.className = 'chip chip-toggle';
-    toggle.dataset.action = 'toggle-filters';
-    filtersBox.appendChild(toggle);
-
-    const extra = document.createElement('div');
-    extra.className = 'chip-extra';
-    hiddenTags.forEach(tag => mk(tag, t(tag, tag), extra));
-    filtersBox.appendChild(extra);
-
-    // 展开条件：用户偏好 或 当前选中的标签在隐藏区
-    const userExpanded = localStorage.getItem('hololab_filters_expanded') === '1';
-    const activeInHidden = hiddenTags.some(tag => tag === activeFilter);
-    const isExpanded = userExpanded || activeInHidden;
-    if (isExpanded) filtersBox.classList.add('expanded');
-    toggle.textContent = isExpanded ? t('filters_less', 'Less') : t('filters_more', 'More');
+  // 第二行：当前分类内的子标签（仅选中具体分类时出现）
+  if (activeCategory !== 'all') {
+    const tagSet = [];
+    cards.forEach(c => {
+      if (c.category !== activeCategory) return;
+      (c.style_tags || []).forEach(tg => { if (tagSet.indexOf(tg) === -1 && SUBSELECT_EXCLUDE.indexOf(tg) === -1) tagSet.push(tg); });
+    });
+    const visibleTags = tagSet.slice(0, FILTERS_COLLAPSE_AFTER);
+    const hiddenTags = tagSet.slice(FILTERS_COLLAPSE_AFTER);
+    visibleTags.forEach(tag => mk('tag:' + tag, t(tag, tag), filtersBox, activeFilter === 'tag:' + tag));
+    if (hiddenTags.length > 0) {
+      const toggle = document.createElement('button');
+      toggle.className = 'chip chip-toggle';
+      toggle.dataset.action = 'toggle-filters';
+      filtersBox.appendChild(toggle);
+      const extra = document.createElement('div');
+      extra.className = 'chip-extra';
+      hiddenTags.forEach(tag => mk('tag:' + tag, t(tag, tag), extra, activeFilter === 'tag:' + tag));
+      filtersBox.appendChild(extra);
+      const userExpanded = localStorage.getItem('hololab_filters_expanded') === '1';
+      const activeInHidden = hiddenTags.some(tag => activeFilter === 'tag:' + tag);
+      const isExpanded = userExpanded || activeInHidden;
+      if (isExpanded) filtersBox.classList.add('expanded');
+      toggle.textContent = isExpanded ? t('filters_less', 'Less') : t('filters_more', 'More');
+    }
   }
 }
 if (filtersBox) {
@@ -236,13 +248,15 @@ if (filtersBox) {
     }
     const chip = e.target.closest('.chip');
     if (!chip) return;
-    filtersBox.querySelectorAll('.chip').forEach(c => {
-      c.classList.remove('active');
-      c.setAttribute('aria-pressed', 'false');
-    });
-    chip.classList.add('active');
-    chip.setAttribute('aria-pressed', 'true');
-    activeFilter = chip.dataset.filter;
+    const f = chip.dataset.filter || '';
+    if (f.indexOf('cat:') === 0) {
+      activeCategory = f.slice(4);
+      if (activeCategory !== 'all') activeFilter = 'cat:' + activeCategory;
+      else activeFilter = 'all';
+    } else {
+      activeFilter = f; /* tag:xxx */
+    }
+    renderChips();
     render();
   });
 }
@@ -383,9 +397,14 @@ function makeCard(c, i) {
 }
 
 function filtered() {
-  return activeFilter === 'all'
-    ? cards
-    : cards.filter(c => (c.style_tags || []).includes(activeFilter));
+  return cards.filter(c => {
+    if (activeCategory !== 'all' && c.category !== activeCategory) return false;
+    if (activeFilter.indexOf('tag:') === 0) {
+      const tag = activeFilter.slice(4);
+      if (!(c.style_tags || []).includes(tag)) return false;
+    }
+    return true;
+  });
 }
 
 function render() {
