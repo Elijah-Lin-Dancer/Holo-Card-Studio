@@ -108,6 +108,12 @@
     '吃重庆轻轨': { zh: '吃重庆轻轨', en: 'Monorail Munch' },
     '大葱塑': { zh: '大葱塑', en: 'Scallion Sculpt' },
     '鲨鱼笑': { zh: '鲨鱼笑', en: 'Shark Grin' },
+    '殷商':   { zh: '殷商', en: 'Yin-Shang' },
+    '女将':   { zh: '女将', en: 'Female General' },
+    '甲骨':   { zh: '甲骨', en: 'Oracle Bones' },
+    '青铜':   { zh: '青铜', en: 'Bronze' },
+    '帝王':   { zh: '帝王', en: 'Emperor' },
+    '文字':   { zh: '文字', en: 'Script' },
 
     // 隐藏解锁（locked card）
     locked_badge:    { zh: '已锁定 · 密码解锁', en: 'Locked · Password' },

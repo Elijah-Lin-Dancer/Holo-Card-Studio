@@ -1,6 +1,66 @@
 {
   "cards": [
     {
+      "id": "shang-oracle",
+      "title": "甲骨文",
+      "subtitle": "汉字从这里走来",
+      "technique": "Cracked-Oracle-Lacquer",
+      "tagline": "三千年前的卜辞，是汉字最早的家。",
+      "edition": "003 / 014",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "甲骨文，刻写在龟甲与兽骨上的殷商占卜文字，是中国已发现的最早的系统性成熟文字。商王凡事皆卜，贞人在灼烧的甲骨上刻下卜辞，为我们留下约十五万片刻辞甲骨、四千余个单字。1899 年，金石学家王懿荣在中药'龙骨'上发现甲骨文，尘封三千年的汉字童年就此苏醒。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "殷商",
+        "甲骨",
+        "文字"
+      ],
+      "url": "cards/shang-oracle/",
+      "thumb": "cards/shang-oracle/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/shang-oracle/preview.webm"
+    },
+    {
+      "id": "shang-wu-ding",
+      "title": "武丁",
+      "subtitle": "商之中兴 · 梦得傅说",
+      "technique": "Divination-Seal-Carving",
+      "tagline": "把王朝推向鼎盛的一代明君，甲骨时代由此开启。",
+      "edition": "002 / 014",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "武丁，商朝第二十三任君主，在位约五十九年，励精图治，任用傅说、妇好，征伐四方，史称'武丁中兴'，使商朝达到鼎盛。相传他即位后三年不语、以观国是，夜梦圣人，得傅说于版筑之间。武丁时期甲骨文最为繁盛，留下大量占卜记录，是商代文明的黄金时代。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "殷商",
+        "青铜",
+        "帝王"
+      ],
+      "url": "cards/shang-wu-ding/",
+      "thumb": "cards/shang-wu-ding/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/shang-wu-ding/preview.webm"
+    },
+    {
+      "id": "shang-fu-hao",
+      "title": "妇好",
+      "subtitle": "三千年前的女将军 · 甲骨为证",
+      "technique": "Bronze-Valkyrie-Etching",
+      "tagline": "中国历史上第一位有文字可考的女统帅。",
+      "edition": "001 / 014",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "妇好，商王武丁之妻，中国历史上第一位有甲骨文实证的女性统帅。据卜辞记载，她曾率军征伐羌方、土方等四方部族，一次出兵最多达一万三千人，并主持祭祀，是集王后、将军、大祭司于一身的传奇女性。1976 年殷墟妇好墓出土近两千件随葬品，妇好鸮尊为其中代表。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "殷商",
+        "青铜",
+        "女将"
+      ],
+      "url": "cards/shang-fu-hao/",
+      "thumb": "cards/shang-fu-hao/thumb.jpg",
+      "date": "2026-10-07",
+      "preview": "cards/shang-fu-hao/preview.webm"
+    },
+    {
       "id": "vc-tommy-vercetti",
       "title": "Neon Godfather",
       "subtitle": "He came back to own the city",

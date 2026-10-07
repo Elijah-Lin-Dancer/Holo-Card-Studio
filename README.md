@@ -56,10 +56,11 @@ That's a **real turntable render** from the Blender pipeline (96 frames), not a 
 
 ![HoloLab card wall](docs/screenshots/card-wall.jpg)
 
-**42 cards · 8 languages · every card a permanent URL**, openable and shareable by anyone:
+**45 cards · 8 languages · every card a permanent URL**, openable and shareable by anyone:
 
 | Series | Cards | Faces |
 |---|---|---|
+| 🏺 **Yin-Shang Chronicles · 殷商纪** | **3** — 妇好 *Bronze Valkyrie* · 武丁 *Divination Seal* · 甲骨文 *Oracle Script* | 🇨🇳 |
 | 🤖 **Haaland Multiverse** | **15** — Majin Buu · goal machine 2.0 · meditation · disco anthem · Viking · scallion-man · Chongqing monorail · goalie-water thief · shark grin · Tom cat · raccoon · Wanglaoji · bun · "eat the kid" · physics  | 🇨🇳🇬🇧🇳🇴 |
 | 🌴 **Vice City Nights · Characters** (GTA Vol.I) | **6** — Tommy *Neon Godfather* · Lance Vance Dance! · Ken Rosenberg · Ricardo Diaz · General Cortez · Auntie Poulet | 🇬🇧 |
 | 💙❤️ **FC Barcelona Legacy** | **6** — Messi ×4 eras · Cruyff *El Arquitecto* · Guardiola *Tiki-Taka* | 🇪🇸 |

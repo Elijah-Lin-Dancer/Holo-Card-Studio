@@ -11,6 +11,13 @@ this project is pre-1.0.
   (no API / Blender required)
 - `CONTRIBUTING.md` — submission guide and local development docs
 
+## [2026-10-07]
+
+### Added
+- **Yin-Shang Chronicles · 殷商纪** Vol.I — 3 cards (妇好 · 武丁 · 甲骨文),
+  the earliest verifiable dynasty of Chinese history, 中文 card faces
+- New style tags i18n entries (殷商 · 女将 · 甲骨 · 青铜 · 帝王 · 文字)
+
 ## [2026-10-06]
 
 ### Added
