@@ -228,6 +228,14 @@ body::after{
 .card video{opacity:0;transition:opacity .25s}
 .card:hover video{opacity:1}
 .card canvas.lent{position:absolute;inset:0;width:100%;height:100%;display:none;pointer-events:none;object-fit:cover}
+.card .premium-badge{
+  position:absolute;top:10px;right:10px;font-size:10px;letter-spacing:1.2px;font-weight:600;
+  color:#fff;background:linear-gradient(135deg,rgba(120,60,220,.82),rgba(201,168,106,.92));
+  border:1px solid rgba(255,255,255,.35);border-radius:20px;padding:4px 12px;
+  backdrop-filter:blur(6px);box-shadow:0 0 18px rgba(160,110,240,.45);pointer-events:none;z-index:3;
+  text-shadow:0 1px 3px rgba(0,0,0,.55);
+}
+.tl-thumb .premium-badge.tl{top:6px;right:6px;font-size:9px;padding:3px 9px}
 .card .rarity{
   position:absolute;top:10px;left:10px;font-size:10px;letter-spacing:1.5px;color:var(--cream);
   background:rgba(8,12,20,.55);border:1px solid rgba(255,255,255,.14);border-radius:20px;

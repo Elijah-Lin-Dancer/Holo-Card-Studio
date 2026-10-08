@@ -111,6 +111,8 @@
     '战术':   { zh: '战术', en: 'Tactics' },
     '80s':    { zh: '80年代', en: '80s' },
     'vice-city': { zh: '罪恶都市', en: 'Vice City' },
+    '罪恶都市': { zh: '罪恶都市', en: 'Vice City' },
+    '黑手党': { zh: '黑手党', en: 'Mafia' },
     '人物志': { zh: '人物志', en: 'Characters' },
     '场景':   { zh: '场景', en: 'Scenes' },
     '文化':   { zh: '文化', en: 'Culture' },
@@ -150,6 +152,8 @@
     '饕餮':   { zh: '饕餮', en: 'Taotie' },
 
     // 隐藏解锁（locked card）
+    premium_badge:   { zh: '高级光学', en: 'Premium Optics' },
+    premium_line:    { zh: '高级光学 · 物理仿真全息', en: 'Premium Optics · Physically Simulated Holography' },
     locked_badge:    { zh: '已锁定 · 密码解锁', en: 'Locked · Password' },
     unlocked_badge:  { zh: '已解锁',     en: 'Unlocked' },
     lock_private:    { zh: 'PRIVATE · 私藏', en: 'PRIVATE' },
@@ -264,6 +268,7 @@
     '重器': { zh: '重器', en: '重器' },
     '饕餮': { zh: '饕餮', en: '饕餮' },
     '鸮尊': { zh: '鸮尊', en: '鸮尊' },
+    'GTA': { zh: 'GTA', en: 'GTA' },
     // 卡面占位
     mc_tag:          { zh: 'HOLOGRAPHIC COLLECTION', en: 'HOLOGRAPHIC COLLECTION' }
   };

@@ -59,24 +59,35 @@ xy=vec(g,'MULTIPLY','仅保留平面 XY',-320,-730); xy.inputs[1].default_value=
 sc=vec(g,'SCALE','矢量缩放 · 深度',310,-160); link(g,xy,0,sc,0); link(g,div,0,sc,'Scale')
 add=vec(g,'ADD','居中 UV + 视线偏移',650,200); link(g,fma,0,add,0); link(g,sc,0,add,1); link(g,add,0,no,'视差效果')
 g['说明']='缩放控制 UV。深度正负控制前后反向视差；物体 X 旋转须保留 90°。法向变换用于视线夹角，额外视线变换用于真实平面偏移。'
-# Angle-dependent foil shared by face and edges.
-f=bpy.data.node_groups.new('镭射 · 条带与木版花纹','ShaderNodeTree'); socket(f,'UV','INPUT','NodeSocketVector'); socket(f,'全息颜色','OUTPUT','NodeSocketColor'); socket(f,'条纹遮罩','OUTPUT','NodeSocketFloat')
-fi=node(f,'NodeGroupInput','纹理输入',-1100,250); fo=node(f,'NodeGroupOutput','镭射输出',950,180)
-fg=node(f,'ShaderNodeNewGeometry','几何视线',-1100,-130)
-vt=node(f,'ShaderNodeVectorTransform','视线到卡牌局部',-900,-130); vt.vector_type='VECTOR'; vt.convert_from='WORLD'; vt.convert_to='OBJECT'; link(f,fg,'Incoming',vt,0)
-vs=vec(f,'SCALE','转卡驱动镭射位移',-710,-130); vs.inputs['Scale'].default_value=2.4; link(f,vt,0,vs,0)
-ad=vec(f,'ADD','UV + 角度',-520,270); link(f,fi,'UV',ad,0); link(f,vs,0,ad,1)
-mp=node(f,'ShaderNodeMapping','映射 · Y 32°',-330,350); mp.inputs['Rotation'].default_value[1]=math.radians(32); link(f,ad,0,mp,0)
-wave=node(f,'ShaderNodeTexWave','条带 · 0.55 / 畸变 7',-80,400); wave.wave_type='BANDS'; wave.bands_direction='X'; wave.inputs['Scale'].default_value=.55; wave.inputs['Distortion'].default_value=7; wave.inputs['Detail Scale'].default_value=1.5; link(f,mp,0,wave,0)
-mp2=node(f,'ShaderNodeMapping','映射副本 · 花纹 UV',-700,-420); link(f,fi,'UV',mp2,0)
-pat=node(f,'ShaderNodeTexNoise','木版颗粒花纹',-460,-420); pat.inputs['Scale'].default_value=94; pat.inputs['Detail'].default_value=2; link(f,mp2,0,pat,0)
-mul=node(f,'ShaderNodeMixRGB','正片叠底',150,250); mul.blend_type='MULTIPLY'; mul.inputs[0].default_value=.55; link(f,wave,'Color',mul,1); link(f,pat,'Color',mul,2)
-plus=node(f,'ShaderNodeMixRGB','相加 · 花纹',350,250); plus.blend_type='ADD'; plus.inputs[0].default_value=.12; link(f,mul,0,plus,1); link(f,pat,'Fac',plus,2)
-ramp=node(f,'ShaderNodeValToRGB','粉 → 黄 → 蓝 → 白',560,250)
-ramp.color_ramp.elements.remove(ramp.color_ramp.elements[1]); ramp.color_ramp.elements[0].position=.0; ramp.color_ramp.elements[0].color=(.7,.10,.34,1)
-for pos,col in [(.35,(1,.68,.16,1)),(.68,(.10,.48,1,1)),(1,(1,1,1,1))]: ramp.color_ramp.elements.new(pos).color=col
-link(f,plus,0,ramp,0); link(f,ramp,0,fo,'全息颜色')
-mask=node(f,'ShaderNodeValToRGB','窄条纹发光遮罩',370,-80); mask.color_ramp.elements[0].position=.76; mask.color_ramp.elements[1].position=.94; link(f,wave,'Fac',mask,0); link(f,mask,0,fo,'条纹遮罩')
+# 高级线 premium：物理仿真全息（6 波长薄膜干涉 + 光栅 + CIE）。触发：--render-mode premium 或 config.render_mode。
+_premium = ('--render-mode' in args and args[args.index('--render-mode') + 1] == 'premium') \
+    or CFG.get('render_mode') == 'premium'
+if _premium:
+    _sys_path = str(Path(__file__).resolve().parents[1] / 'foil')
+    if _sys_path not in sys.path: sys.path.insert(0, _sys_path)
+    import build_foil_nodegroup as bfg
+    _foil_params = CFG.get('foil', {})
+    f = bfg.build_premium_foil_group(**_foil_params)   # 输出接口与标准组 f 完全一致
+    scene['制作说明'] = scene.get('制作说明', '') + ' · premium 物理仿真全息'
+else:
+    # Angle-dependent foil shared by face and edges.
+    f=bpy.data.node_groups.new('镭射 · 条带与木版花纹','ShaderNodeTree'); socket(f,'UV','INPUT','NodeSocketVector'); socket(f,'全息颜色','OUTPUT','NodeSocketColor'); socket(f,'条纹遮罩','OUTPUT','NodeSocketFloat')
+    fi=node(f,'NodeGroupInput','纹理输入',-1100,250); fo=node(f,'NodeGroupOutput','镭射输出',950,180)
+    fg=node(f,'ShaderNodeNewGeometry','几何视线',-1100,-130)
+    vt=node(f,'ShaderNodeVectorTransform','视线到卡牌局部',-900,-130); vt.vector_type='VECTOR'; vt.convert_from='WORLD'; vt.convert_to='OBJECT'; link(f,fg,'Incoming',vt,0)
+    vs=vec(f,'SCALE','转卡驱动镭射位移',-710,-130); vs.inputs['Scale'].default_value=2.4; link(f,vt,0,vs,0)
+    ad=vec(f,'ADD','UV + 角度',-520,270); link(f,fi,'UV',ad,0); link(f,vs,0,ad,1)
+    mp=node(f,'ShaderNodeMapping','映射 · Y 32°',-330,350); mp.inputs['Rotation'].default_value[1]=math.radians(32); link(f,ad,0,mp,0)
+    wave=node(f,'ShaderNodeTexWave','条带 · 0.55 / 畸变 7',-80,400); wave.wave_type='BANDS'; wave.bands_direction='X'; wave.inputs['Scale'].default_value=.55; wave.inputs['Distortion'].default_value=7; wave.inputs['Detail Scale'].default_value=1.5; link(f,mp,0,wave,0)
+    mp2=node(f,'ShaderNodeMapping','映射副本 · 花纹 UV',-700,-420); link(f,fi,'UV',mp2,0)
+    pat=node(f,'ShaderNodeTexNoise','木版颗粒花纹',-460,-420); pat.inputs['Scale'].default_value=94; pat.inputs['Detail'].default_value=2; link(f,mp2,0,pat,0)
+    mul=node(f,'ShaderNodeMixRGB','正片叠底',150,250); mul.blend_type='MULTIPLY'; mul.inputs[0].default_value=.55; link(f,wave,'Color',mul,1); link(f,pat,'Color',mul,2)
+    plus=node(f,'ShaderNodeMixRGB','相加 · 花纹',350,250); plus.blend_type='ADD'; plus.inputs[0].default_value=.12; link(f,mul,0,plus,1); link(f,pat,'Fac',plus,2)
+    ramp=node(f,'ShaderNodeValToRGB','粉 → 黄 → 蓝 → 白',560,250)
+    ramp.color_ramp.elements.remove(ramp.color_ramp.elements[1]); ramp.color_ramp.elements[0].position=.0; ramp.color_ramp.elements[0].color=(.7,.10,.34,1)
+    for pos,col in [(.35,(1,.68,.16,1)),(.68,(.10,.48,1,1)),(1,(1,1,1,1))]: ramp.color_ramp.elements.new(pos).color=col
+    link(f,plus,0,ramp,0); link(f,ramp,0,fo,'全息颜色')
+    mask=node(f,'ShaderNodeValToRGB','窄条纹发光遮罩',370,-80); mask.color_ramp.elements[0].position=.76; mask.color_ramp.elements[1].position=.94; link(f,wave,'Fac',mask,0); link(f,mask,0,fo,'条纹遮罩')
 # Loaded images are kept separate and packed for portable blend.
 images={k:bpy.data.images.load(str(R/'assets'/v),check_existing=True) for k,v in {'subject':'subject.png','text':'text.png','background':'background.png','lineart':'lineart.png'}.items()}
 images['lineart'].colorspace_settings.name='Non-Color'
@@ -235,8 +246,9 @@ t.links.new(pS.outputs['视差效果'],safe.inputs[0]); t.links.new(safe.outputs
 over.inputs[0].default_value=.14; sm.inputs[1].default_value=.10; la.inputs[1].default_value=.006
 for ob in bpy.data.objects:
     if ob.type=='LIGHT': ob.data.energy*=.48
-pattern=f.nodes.new('ShaderNodeTexImage'); pattern.name='花纹贴图'; pattern.image=images['background']; pattern.location=(-450,-700)
-f.links.new(mp2.outputs[0],pattern.inputs['Vector']); f.links.new(pattern.outputs['Color'],mul.inputs[2])
+if not _premium:
+    pattern=f.nodes.new('ShaderNodeTexImage'); pattern.name='花纹贴图'; pattern.image=images['background']; pattern.location=(-450,-700)
+    f.links.new(mp2.outputs[0],pattern.inputs['Vector']); f.links.new(pattern.outputs['Color'],mul.inputs[2])
 scene['制作说明']=CFG.get('title','Card')+' · '+CFG.get('technique','')
 
 bpy.ops.wm.save_as_mainfile(filepath=str(R/'card.blend'))

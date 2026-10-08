@@ -351,6 +351,7 @@ function makeCard(c, i) {
         ? '<canvas class="lent" width="720" height="1000" aria-hidden="true"></canvas>'
         : (c.preview ? '<video class="card-video" src="' + escHtml(c.preview) + '" muted playsinline loop preload="none"></video>' : ''))) +
     '<span class="rarity">' + escHtml(c.collection || '典藏') + '</span>' +
+    (c.render_mode === 'premium' ? '<span class="premium-badge">✦ ' + escHtml(L('premium_badge')) + '</span>' : '') +
     '</div>' +
     '<div class="meta' + (locked ? ' locked-meta' : '') + '">' +
     '<div class="tags">' + (c.style_tags || []).map(t => '<span class="tag">' + escHtml(t) + '</span>').join('') + '</div>' +
@@ -463,7 +464,7 @@ function makeTimelineItem(c, i) {
     '<div class="tl-date"><span class="tl-d">' + escHtml(String(c.date || '').replace(/^(\d{4})-(\d{2})-(\d{2})$/, '$2.$3')) + '</span></div>' +
     '<div class="tl-axis"><span class="tl-dot"></span></div>' +
     '<div class="tl-body">' +
-    '<a class="tl-thumb' + (locked ? ' is-locked' : '') + '" href="' + escHtml(c.url) + '" aria-label="' + escHtml(c.title) + '">' +
+    '<a class="tl-thumb' + (locked ? ' is-locked' : '') + '" href="' + escHtml(c.url) + '" aria-label="' + escHtml(c.title) + '">' +'<span class="premium-badge tl">✦ ' + escHtml(L('premium_badge')) + '</span>' +
     '<img class="' + (locked ? 'locked-img ' : '') + '" src="' + escHtml(c.thumb) + '" alt="' + escHtml(c.title) + '" loading="lazy">' +
     (locked ? '<div class="lock-overlay"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><circle cx="12" cy="15.5" r="1.4" fill="currentColor" stroke="none"/></svg><span>' + escHtml(L('locked_badge')) + '</span></div>' : '') +
     '</a>' +

@@ -269,6 +269,228 @@ def build_foil_material(mat, thickness_nm=320.0, ior=1.5, grating_period_um=1.8,
     return mat
 
 
+def build_premium_foil_group(thickness_nm=320.0, ior=1.5, grating_period_um=1.8,
+                             grating_azimuth_deg=30.0, roughness=0.18, rainbow_gain=1.0,
+                             base_reflect=0.85):
+    """节点组版物理仿真全息（高级线 premium）。
+
+    与 build_foil_material 同一套数学（6 波长薄膜干涉 + 光栅 + CIE），但产出
+    与 build_card.py 现有美术近似组 f 完全同构的接口：
+        INPUT  UV            → NodeSocketVector（与现有视差链一致）
+        OUTPUT 全息颜色      → NodeSocketColor（物理彩虹色，视角驱动）
+        OUTPUT 条纹遮罩      → NodeSocketFloat（窄条发光遮罩，管线兼容）
+    这样 build_card.py 在 premium 模式下只需替换节点组来源，材质合成/线描/卡边零改动。
+    """
+    f = bpy.data.node_groups.new('镭射 · 物理仿真 6λ', 'ShaderNodeTree')
+    f.interface.new_socket(name='UV', in_out='INPUT', socket_type='NodeSocketVector')
+    f.interface.new_socket(name='全息颜色', in_out='OUTPUT', socket_type='NodeSocketColor')
+    f.interface.new_socket(name='条纹遮罩', in_out='OUTPUT', socket_type='NodeSocketFloat')
+
+    nt = f
+    fi = nt.nodes.new('NodeGroupInput'); fi.location = (-2400, 300)
+    fo = nt.nodes.new('NodeGroupOutput'); fo.location = (3400, 300)
+
+    # ============ 公共几何（组内直接用几何节点，与材质版一致） ============
+    geoms = nt.nodes.new('ShaderNodeNewGeometry'); geoms.location = (-2100, 300)
+    dotNV = vec_node(nt, 'DOT_PRODUCT', -1800, 400)
+    nt.links.new(geoms.outputs[1], dotNV.inputs[0])   # Normal
+    nt.links.new(geoms.outputs[4], dotNV.inputs[1])   # Incoming
+    cosI = nt.nodes.new('ShaderNodeClamp'); cosI.location = (-1600, 500)
+    cosI.inputs[1].default_value = 0.0; cosI.inputs[2].default_value = 1.0
+    nt.links.new(dotNV.outputs[0], cosI.inputs[0])
+    theta_i = math_node(nt, 'ARCCOSINE', -1400, 500)
+    nt.links.new(cosI.outputs[0], theta_i.inputs[0])
+    sinI = math_node(nt, 'SINE', -1400, 350)
+    nt.links.new(theta_i.outputs[0], sinI.inputs[0])
+    sinT = math_node(nt, 'MULTIPLY', -1200, 350)
+    sinT.inputs[0].default_value = 1.0 / max(ior, 1.01)
+    nt.links.new(sinI.outputs[0], sinT.inputs[1])
+    sinT_c = nt.nodes.new('ShaderNodeClamp'); sinT_c.location = (-1000, 350)
+    sinT_c.inputs[1].default_value = 0.0; sinT_c.inputs[2].default_value = 1.0
+    nt.links.new(sinT.outputs[0], sinT_c.inputs[0])
+    sinT_sq = math_node(nt, 'POWER', -1000, 200)
+    sinT_sq.inputs[1].default_value = 2.0
+    nt.links.new(sinT_c.outputs[0], sinT_sq.inputs[0])
+    one_m = math_node(nt, 'SUBTRACT', -800, 200)
+    one_m.inputs[0].default_value = 1.0
+    nt.links.new(sinT_sq.outputs[0], one_m.inputs[1])
+    cosT = math_node(nt, 'SQRT', -800, 350)
+    nt.links.new(one_m.outputs[0], cosT.inputs[0])
+
+    dup = nt.nodes.new('ShaderNodeCombineXYZ'); dup.location = (-1800, 100)
+    nt.links.new(dotNV.outputs[0], dup.inputs[0])
+    nt.links.new(dotNV.outputs[0], dup.inputs[1])
+    nt.links.new(dotNV.outputs[0], dup.inputs[2])
+    n_mul = vec_node(nt, 'MULTIPLY', -1600, 100)
+    nt.links.new(geoms.outputs[1], n_mul.inputs[0])
+    nt.links.new(dup.outputs[0], n_mul.inputs[1])
+    flatV = vec_node(nt, 'SUBTRACT', -1400, 0)
+    nt.links.new(geoms.outputs[4], flatV.inputs[0])
+    nt.links.new(n_mul.outputs[0], flatV.inputs[1])
+    flat_len = vec_node(nt, 'LENGTH', -1200, 0)
+    nt.links.new(flatV.outputs[0], flat_len.inputs[0])
+    az = math.radians(grating_azimuth_deg)
+    Bv = (-math.sin(az), math.cos(az), 0.0)
+    v_dot = vec_node(nt, 'DOT_PRODUCT', -1200, -100)
+    v_dot.inputs[1].default_value = Bv
+    nt.links.new(flatV.outputs[0], v_dot.inputs[0])
+    v_div = vec_node(nt, 'DIVIDE', -1000, -100)
+    nt.links.new(v_dot.outputs[0], v_div.inputs[0])
+    nt.links.new(flat_len.outputs[0], v_div.inputs[1])
+
+    one_mc = math_node(nt, 'SUBTRACT', -1000, 700)
+    one_mc.inputs[0].default_value = 1.0
+    nt.links.new(cosI.outputs[0], one_mc.inputs[1])
+    grazing = math_node(nt, 'POWER', -800, 700)
+    grazing.inputs[1].default_value = 0.5
+    nt.links.new(one_mc.outputs[0], grazing.inputs[0])
+    g_mix = math_node(nt, 'MULTIPLY_ADD', -600, 700)
+    g_mix.inputs[0].default_value = 0.65
+    g_mix.inputs[2].default_value = 0.35
+    nt.links.new(grazing.outputs[0], g_mix.inputs[1])
+    wG = math_node(nt, 'MULTIPLY', -400, 700)
+    wG.inputs[0].default_value = rainbow_gain * (1.0 - roughness)
+    nt.links.new(g_mix.outputs[0], wG.inputs[1])
+    wG_c = nt.nodes.new('ShaderNodeClamp'); wG_c.location = (-200, 700)
+    wG_c.inputs[1].default_value = 0.0; wG_c.inputs[2].default_value = 1.0
+    nt.links.new(wG.outputs[0], wG_c.inputs[0])
+
+    dispK = math_node(nt, 'MULTIPLY', -200, 500)
+    dispK.inputs[0].default_value = 0.5 * (1.8 / max(grating_period_um, 0.1))
+
+    # ============ 6 波长分支 ============
+    accR_in = []; accG_in = []; accB_in = []; sumw_in = []
+    for i, lam in enumerate(WAVES):
+        y0 = -400 - i * 190
+        v_disp = math_node(nt, 'MULTIPLY', -200, y0)
+        nt.links.new(v_div.outputs[0], v_disp.inputs[0])
+        nt.links.new(dispK.outputs[0], v_disp.inputs[1])
+        peak_pre = math_node(nt, 'SUBTRACT', 0, y0)
+        peak_pre.inputs[0].default_value = (lam - 380.0) / 320.0
+        nt.links.new(v_disp.outputs[0], peak_pre.inputs[1])
+        peak = nt.nodes.new('ShaderNodeClamp'); peak.location = (200, y0)
+        peak.inputs[1].default_value = 0.0; peak.inputs[2].default_value = 1.0
+        nt.links.new(peak_pre.outputs[0], peak.inputs[0])
+        peak_n = math_node(nt, 'MULTIPLY', 400, y0)
+        peak_n.inputs[0].default_value = 1.0 / 0.22
+        nt.links.new(peak.outputs[0], peak_n.inputs[1])
+        peak_sq = math_node(nt, 'POWER', 600, y0)
+        peak_sq.inputs[1].default_value = 2.0
+        nt.links.new(peak_n.outputs[0], peak_sq.inputs[0])
+        peak_neg = math_node(nt, 'MULTIPLY', 800, y0)
+        peak_neg.inputs[0].default_value = -1.0
+        nt.links.new(peak_sq.outputs[0], peak_neg.inputs[1])
+        band_exp = math_node(nt, 'EXPONENT', 1000, y0)
+        nt.links.new(peak_neg.outputs[0], band_exp.inputs[0])
+        band_att = math_node(nt, 'MULTIPLY', 1200, y0)
+        band_att.inputs[0].default_value = max(1.0 - roughness * 2.2, 0.0)
+        nt.links.new(band_exp.outputs[0], band_att.inputs[1])
+        C = 2.0 * math.pi * ior * thickness_nm / lam
+        phase_pre = math_node(nt, 'MULTIPLY', 400, y0 - 120)
+        phase_pre.inputs[0].default_value = C
+        nt.links.new(cosT.outputs[0], phase_pre.inputs[1])
+        phase = math_node(nt, 'ADD', 600, y0 - 120)
+        phase.inputs[0].default_value = math.pi
+        nt.links.new(phase_pre.outputs[0], phase.inputs[1])
+        phase_deg = math_node(nt, 'DEGREES', 800, y0 - 120)
+        nt.links.new(phase.outputs[0], phase_deg.inputs[0])
+        cos_p = math_node(nt, 'COSINE', 1000, y0 - 120)
+        nt.links.new(phase_deg.outputs[0], cos_p.inputs[0])
+        rf_pre = math_node(nt, 'SUBTRACT', 1000, y0 - 120)
+        rf_pre.inputs[0].default_value = 1.0
+        nt.links.new(cos_p.outputs[0], rf_pre.inputs[1])
+        Rf = math_node(nt, 'MULTIPLY', 1200, y0 - 120)
+        Rf.inputs[0].default_value = 0.5
+        nt.links.new(rf_pre.outputs[0], Rf.inputs[1])
+        grat1 = math_node(nt, 'MULTIPLY', 1400, y0)
+        grat1.inputs[0].default_value = 0.95
+        nt.links.new(wG_c.outputs[0], grat1.inputs[1])
+        grat2 = math_node(nt, 'MULTIPLY', 1600, y0)
+        nt.links.new(grat1.outputs[0], grat2.inputs[0])
+        nt.links.new(band_att.outputs[0], grat2.inputs[1])
+        one_wG = math_node(nt, 'SUBTRACT', 1400, y0 - 120)
+        one_wG.inputs[0].default_value = 1.0
+        nt.links.new(wG_c.outputs[0], one_wG.inputs[1])
+        band_sc = math_node(nt, 'MULTIPLY', 1400, y0 - 240)
+        band_sc.inputs[0].default_value = 0.8
+        nt.links.new(band_att.outputs[0], band_sc.inputs[1])
+        one_band = math_node(nt, 'SUBTRACT', 1600, y0 - 240)
+        one_band.inputs[0].default_value = 1.0
+        nt.links.new(band_sc.outputs[0], one_band.inputs[1])
+        film1 = math_node(nt, 'MULTIPLY', 1600, y0 - 120)
+        nt.links.new(one_wG.outputs[0], film1.inputs[0])
+        nt.links.new(Rf.outputs[0], film1.inputs[1])
+        film2 = math_node(nt, 'MULTIPLY', 1800, y0 - 120)
+        nt.links.new(film1.outputs[0], film2.inputs[0])
+        nt.links.new(one_band.outputs[0], film2.inputs[1])
+        wSpec = math_node(nt, 'ADD', 2000, y0 - 100)
+        nt.links.new(grat2.outputs[0], wSpec.inputs[0])
+        nt.links.new(film2.outputs[0], wSpec.inputs[1])
+        cx, cy_, cz = CIE[lam]
+        if cx > 0:
+            m = math_node(nt, 'MULTIPLY', 2200, y0 - 60)
+            m.inputs[0].default_value = cx
+            nt.links.new(wSpec.outputs[0], m.inputs[1])
+            accR_in.append(m.outputs[0])
+        if cy_ > 0:
+            m = math_node(nt, 'MULTIPLY', 2200, y0 - 130)
+            m.inputs[0].default_value = cy_
+            nt.links.new(wSpec.outputs[0], m.inputs[1])
+            accG_in.append(m.outputs[0])
+        if cz > 0:
+            m = math_node(nt, 'MULTIPLY', 2200, y0 - 200)
+            m.inputs[0].default_value = cz
+            nt.links.new(wSpec.outputs[0], m.inputs[1])
+            accB_in.append(m.outputs[0])
+        sumw_in.append(wSpec.outputs[0])
+
+    def add_chain(inputs, x, y):
+        if len(inputs) == 1:
+            return inputs[0]
+        cur = inputs[0]
+        for j, src in enumerate(inputs[1:]):
+            a = math_node(nt, 'ADD', x, y - j * 90)
+            nt.links.new(cur, a.inputs[0])
+            nt.links.new(src, a.inputs[1])
+            cur = a.outputs[0]
+        return cur
+
+    sumR = add_chain(accR_in, 2600, 500)
+    sumG = add_chain(accG_in, 2600, 300)
+    sumB = add_chain(accB_in, 2600, 100)
+    sumW = add_chain(sumw_in, 2600, -100)
+    normR = math_node(nt, 'DIVIDE', 2900, 500); normR.inputs[1].default_value = 1.0
+    normG = math_node(nt, 'DIVIDE', 2900, 300); normG.inputs[1].default_value = 1.0
+    normB = math_node(nt, 'DIVIDE', 2900, 100); normB.inputs[1].default_value = 1.0
+    nt.links.new(sumR, normR.inputs[0]); nt.links.new(sumW, normR.inputs[1])
+    nt.links.new(sumG, normG.inputs[0]); nt.links.new(sumW, normG.inputs[1])
+    nt.links.new(sumB, normB.inputs[0]); nt.links.new(sumW, normB.inputs[1])
+    comb = nt.nodes.new('ShaderNodeCombineColor'); comb.mode = 'RGB'; comb.location = (3200, 200)
+    nt.links.new(normR.outputs[0], comb.inputs[0])
+    nt.links.new(normG.outputs[0], comb.inputs[1])
+    nt.links.new(normB.outputs[0], comb.inputs[2])
+    # 颜色输出（物理彩虹，随视角移动）
+    nt.links.new(comb.outputs[0], fo.inputs['全息颜色'])
+
+    # ============ 条纹遮罩（窄条发光，管线兼容：线描扫光 / 条纹发光 / 卡边共用） ============
+    wave = nt.nodes.new('ShaderNodeTexWave'); wave.wave_type = 'BANDS'; wave.bands_direction = 'X'
+    wave.location = (-1600, -700)
+    wave.inputs['Scale'].default_value = 0.55
+    wave.inputs['Distortion'].default_value = 7.0
+    wave.inputs['Detail Scale'].default_value = 1.5
+    nt.links.new(fi.outputs['UV'], wave.inputs['Vector'])
+    mp_w = nt.nodes.new('ShaderNodeMapping'); mp_w.location = (-1900, -700)
+    mp_w.inputs['Rotation'].default_value[1] = math.radians(32)
+    nt.links.new(fi.outputs['UV'], mp_w.inputs[0])
+    nt.links.new(mp_w.outputs[0], wave.inputs['Vector'])
+    mask = nt.nodes.new('ShaderNodeValToRGB'); mask.location = (-1200, -700)
+    mask.color_ramp.elements[0].position = .76
+    mask.color_ramp.elements[1].position = .94
+    nt.links.new(wave.outputs['Fac'], mask.inputs[0])
+    nt.links.new(mask.outputs[0], fo.inputs['条纹遮罩'])
+    return f
+
+
 def render_view(filepath, cam_rot):
     scene = bpy.context.scene
     scene.render.filepath = filepath

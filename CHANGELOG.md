@@ -7,6 +7,15 @@ this project is pre-1.0.
 ## [Unreleased]
 
 ### Added
+- Dual Render Pipeline: `--render-mode standard|premium` — premium runs the physically simulated holographic foil (6-wavelength thin-film interference + grating + CIE) inside the production Blender pipeline via a drop-in node group with the same UV/color/mask interface as the standard artistic foil. Zero changes to the standard line.
+- Premium gallery badge: ✦ 高级光学 / Premium Optics (bilingual, follows site language) on premium cards in grid + timeline; detail pages append a `· Premium Optics` line to the technique row.
+- First premium card: Sonny Forelli — "The Forelli Don" (Vice City Nights · 065/009, technique `Pinstripe Prism`, foil fingerprint 320nm / 1.5 ior / 1.8µm @ 30°), gallery now at 79 cards.
+- `publish_card.py` now propagates `render_mode` + `foil` fingerprint into `cards.json`.
+
+### Changed
+- `run_pipeline.py` / `build_card.py`: premium branch shares the entire composite chain (overlay / lineart sweep / edge foil) — only the foil source is swapped.
+- README (EN + zh-CN): documented the dual pipeline, params table, CLI usage.
+
 - Pipeline smoke tests: prompt building, asset validation, preflight gating
   (no API / Blender required)
 - `CONTRIBUTING.md` — submission guide and local development docs

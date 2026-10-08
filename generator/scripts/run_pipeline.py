@@ -8,7 +8,7 @@ from generate_typography import create
 from qa.quality_gate import run_gate as run_qa
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--project',required=True);p.add_argument('--blender');p.add_argument('--skip-render',action='store_true');p.add_argument('--skip-npm',action='store_true');p.add_argument('--skip-qa',action='store_true',help='跳过 AI 素材质检门禁（调试用）');p.add_argument('--force',action='store_true',help='质检不过仍继续（手动放行）');a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--project',required=True);p.add_argument('--blender');p.add_argument('--skip-render',action='store_true');p.add_argument('--skip-npm',action='store_true');p.add_argument('--skip-qa',action='store_true',help='跳过 AI 素材质检门禁（调试用）');p.add_argument('--force',action='store_true',help='质检不过仍继续（手动放行）');p.add_argument('--render-mode',default=None,choices=['standard','premium'],help='渲染工艺线：standard=美术近似镭射（默认，随 config.render_mode 或默认）/ premium=物理仿真全息（需 config.foil 参数块）');a=p.parse_args()
     root=Path(a.project).resolve();scripts=Path(__file__).resolve().parent;web_template=scripts/'web-template-holographic'
     config=root/'card-config.json'
     if not config.exists():raise FileNotFoundError('Write card-config.json from references/config.example.json first')
@@ -31,6 +31,7 @@ def main():
     blender=ensure_blender(root,a.blender)
     env=os.environ.copy();prefs=root/'tools'/'blender-config';prefs.mkdir(parents=True,exist_ok=True);env['BLENDER_USER_CONFIG']=str(prefs)
     cmd=[str(blender),'--background','--factory-startup','--python-exit-code','1','--python',str(scripts/'build_card.py'),'--',str(root)]
+    if a.render_mode: cmd += ['--render-mode', a.render_mode]
     if a.skip_render:cmd.append('--skip-render')
     subprocess.run(cmd,check=True,env=env)
     if not (root/'card.blend').exists():raise RuntimeError('Blender did not save card.blend; inspect its log')

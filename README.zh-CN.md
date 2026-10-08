@@ -57,3 +57,24 @@
 > 物理仿真全息 shader · AI 素材质检流水线 → [docs/PLANS/technical-lift-roadmap.md](docs/PLANS/technical-lift-roadmap.md)
 > ✅ A-1→A-4 已交付：光学模型 + Node Group/GLSL 双实现 + ΔE 验收 → [技术笔记①](docs/TECH-NOTES/01-holographic-foil-shader.md) · [光学 RFC](docs/GRAPHICS/HOLO-OPTICS.md)
 > ✅ B-1→B-3 已交付：零 API 视觉质检门禁（G1-G4）+ 校准/破坏样本验收 + CI 轻量门 → [技术笔记②](docs/TECH-NOTES/02-visual-qa-gate.md)
+
+### ⚗️ 双线渲染管线 —— 标准线 / 高级光学
+
+同一份卡配置，两条物理机制完全不同的镭射管线。按卡选择：`--render-mode` 或 `card-config.json` 里的 `render_mode`（默认 `standard`）：
+
+| | **标准线（默认）** | **高级光学 Premium Optics** |
+|---|---|---|
+| 镭射模型 | 美术近似（条带 + 木纹渐变） | **物理仿真**——6 波长薄膜干涉（380/444/508/572/636/700 nm）+ 光栅衍射 + CIE 权重配色，ΔE≈4.7 对照验收 |
+| 触发方式 | `--render-mode standard`（或省略） | `--render-mode premium` + config 写 `"foil": {...}` 参数块 |
+| 光学参数 | — | `thickness_nm` · `ior` · `grating_period_um` · `grating_azimuth_deg` · `roughness` · `rainbow_gain` · `base_reflect`（每卡光学指纹） |
+| 展厅角标 | 无 | 自动 **✦ 高级光学** 角标（双语，随站点语言切换） |
+| 成本 | 不变 | 同一套 Blender 管线，零额外 API 调用 |
+
+```bash
+# 标准线（默认）
+python3 generator/scripts/run_pipeline.py --project generator/projects/<slug> --render-mode standard
+# 高级线：card-config.json 写 "render_mode": "premium" + "foil": {...}，或显式传参
+python3 generator/scripts/run_pipeline.py --project generator/projects/<slug> --render-mode premium
+```
+
+首张高级线正式发行：**桑尼·弗雷利 — 「The Forelli Don」**（罪恶都市之夜 · 065/009，工艺 `Pinstripe Prism`，320 nm 膜厚 / 1.5 折射率 / 1.8 µm 光栅 @ 30°）。存量 78 张卡保持标准线不动。

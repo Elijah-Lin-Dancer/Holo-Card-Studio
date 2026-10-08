@@ -227,6 +227,10 @@ def load_card_meta(cfg: dict, tags: list[str]) -> dict:
         "author": cfg.get("author") or "HoloLab Studio",
         "style_tags": tags,
     }
+    # 高级线 premium：物理仿真全息（6λ 薄膜干涉 + 光栅）。透传 render_mode，前端据此渲染角标。
+    if cfg.get("render_mode") == "premium":
+        meta["render_mode"] = "premium"
+        meta["foil"] = cfg.get("foil", {})
     # 隐藏解锁：locked=true 时透传锁定标记与密码哈希（前端 SHA-256 比对，不存明文）
     if cfg.get("locked"):
         meta["locked"] = True
