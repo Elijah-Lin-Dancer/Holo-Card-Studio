@@ -105,8 +105,8 @@ export async function initTrue3D(canvas, cfg = {}) {
   const subTex = new THREE.Texture(subImg); subTex.colorSpace = THREE.SRGBColorSpace; subTex.needsUpdate = true;
   const txtTex = new THREE.Texture(txtImg); txtTex.colorSpace = THREE.SRGBColorSpace; txtTex.needsUpdate = true;
   const bgMat  = new THREE.MeshBasicMaterial({ map: bgTex });
-  const subMat = new THREE.MeshBasicMaterial({ map: subTex, transparent: true });
-  const txtMat = new THREE.MeshBasicMaterial({ map: txtTex, transparent: true });
+  const subMat = new THREE.MeshBasicMaterial({ map: subTex, transparent: true, depthWrite: false });
+  const txtMat = new THREE.MeshBasicMaterial({ map: txtTex, transparent: true, depthWrite: false });
   const lineMat = new THREE.MeshBasicMaterial({ map: glow.line, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false });
   const glowMat = new THREE.MeshBasicMaterial({ map: glow.glow, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false });
 
@@ -124,20 +124,26 @@ export async function initTrue3D(canvas, cfg = {}) {
   );
   grp.add(cardBody);
 
-  // 卡面（背景）贴在卡体正面
+  // 卡面（背景）贴在卡体正面（不透明，提供深度基准）
   const face = new THREE.Mesh(new THREE.PlaneGeometry(W - 0.09, H - 0.09), bgMat);
   face.position.z = THICK / 2;
+  face.renderOrder = 1;
   grp.add(face);
 
   // 悬浮层：真实深度差 → 真视差（主体视觉零损失）
+  // 层距 ≥0.025 世界单位 + renderOrder 固定，避免透明层 z-fighting 频闪
+  const l2 = new THREE.Mesh(new THREE.PlaneGeometry(W - 0.14, H - 0.14), glowMat);  // 光晕（最底）
+  l2.position.z = THICK / 2 + 0.025;
+  l2.renderOrder = 2;
   const l1 = new THREE.Mesh(new THREE.PlaneGeometry(W - 0.16, H - 0.16), lineMat);  // 发光描边
-  l1.position.z = THICK / 2 + 0.016;
-  const l2 = new THREE.Mesh(new THREE.PlaneGeometry(W - 0.14, H - 0.14), glowMat);  // 光晕
-  l2.position.z = THICK / 2 + 0.014;
-  const l3 = new THREE.Mesh(new THREE.PlaneGeometry(W - 0.18, H - 0.18), subMat);   // 主体
-  l3.position.z = THICK / 2 + 0.031;
+  l1.position.z = THICK / 2 + 0.05;
+  l1.renderOrder = 3;
   const l4 = new THREE.Mesh(new THREE.PlaneGeometry(W - 0.18, H - 0.18), txtMat);   // 文字
-  l4.position.z = THICK / 2 + 0.021;
+  l4.position.z = THICK / 2 + 0.075;
+  l4.renderOrder = 4;
+  const l3 = new THREE.Mesh(new THREE.PlaneGeometry(W - 0.18, H - 0.18), subMat);   // 主体（最顶）
+  l3.position.z = THICK / 2 + 0.11;
+  l3.renderOrder = 5;
   grp.add(l1, l2, l3, l4);
 
   // 卡框边缘发光条
