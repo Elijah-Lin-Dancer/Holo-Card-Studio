@@ -18,7 +18,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from detectors import completeness, sharpness, alpha_quality, composition  # noqa: E402
+# 轻依赖常驻（G2/G3 与 ci_gate 共用）；G1/G4 的重依赖（mediapipe/u2net）在 run_gate 内延迟导入，
+# 保证 CI 轻量门不拖入未安装的重型包。
+from detectors import sharpness, alpha_quality  # noqa: E402
 
 CONFIG = Path(__file__).resolve().parent / 'config' / 'qa_thresholds.json'
 GATES = ['G1 主体完整性', 'G2 清晰度', 'G3 透明通道', 'G4 构图']
@@ -39,6 +41,7 @@ def run_gate(card_dir, series='default'):
 
     thr = load_thresholds(series)
     t0 = time.time()
+    from detectors import completeness, composition  # 延迟导入（重依赖）
     g1 = completeness.run(str(subj), thr)
     g2 = sharpness.run(str(subj), thr)
     g3 = alpha_quality.run(str(subj), thr)
