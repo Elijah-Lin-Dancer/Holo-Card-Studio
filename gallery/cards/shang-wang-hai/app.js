@@ -204,22 +204,25 @@ cleanup=()=>{try{renderer.setAnimationLoop(null);}catch(e){}try{renderer.dispose
 async function bootTrue3D(){
 const t3=document.createElement('canvas');t3.className='t3-canvas';t3.setAttribute('aria-label','True-3D card view');
 stage.append(t3);
-const ctrl=await initTrue3D(t3,{
+let ctrl;
+try{
+ctrl=await initTrue3D(t3,{
 background:config.assets.background,subject:config.assets.subject,
 lineart:config.assets.lineart,text:config.assets.text,
 cardWidth:2,cardHeight:3,thickness:0.14,frameColor:0xc8a25a,autoRotate:true,
 onStatus:m=>{if(loading)loading.textContent=m;}
 });
+}catch(e){console.error('true3d init failed',e);ctrl={ok:false,dispose(){}};}
 if(!ctrl.ok){t3.remove();loading.textContent='True-3D unavailable · 真 3D 不可用，回退静态封面';return;}
 currentCtrl=ctrl;loading.remove();
 window.__holo={ready:true,config,true3d:ctrl};
-const controls=document.querySelector('.controls');if(controls)controls.hidden=true;
+const controls=document.querySelector('.controls');if(controls)controls.style.display='none';
 const flipBtn=$('flip');if(flipBtn)flipBtn.hidden=true;
 const label=$('view-label');if(label)label.hidden=true;
 const autoBtn=$('auto');autoBtn.onclick=()=>{auto=!auto;ctrl.setAutoRotate(auto);autoBtn.setAttribute('aria-pressed',String(auto));autoBtn.textContent=auto?'PAUSE':'AUTO';};
 const resetBtn=$('reset');resetBtn.onclick=()=>ctrl.reset();
 cleanup=()=>{try{ctrl.dispose();}catch(e){}if(t3.parentNode)t3.parentNode.removeChild(t3);currentCtrl=null;
-const controls2=document.querySelector('.controls');if(controls2)controls2.hidden=false;
+const controls2=document.querySelector('.controls');if(controls2)controls2.style.display='';
 const flipBtn2=$('flip');if(flipBtn2)flipBtn2.hidden=false;
 const label2=$('view-label');if(label2)label2.hidden=false;
 if(autoBtn)autoBtn.onclick=()=>{if(flipped)flip();setAuto(!auto);};

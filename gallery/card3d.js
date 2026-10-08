@@ -100,9 +100,9 @@ export async function initTrue3D(canvas, cfg = {}) {
     loadImage(cfg.background), loadImage(cfg.subject),
     loadImage(cfg.text), makeGlowTextures(cfg.lineart),
   ]);
-  const bgTex = new THREE.Texture(bgImg); bgTex.colorSpace = THREE.SRGBColorSpace;
-  const subTex = new THREE.Texture(subImg); subTex.colorSpace = THREE.SRGBColorSpace;
-  const txtTex = new THREE.Texture(txtImg); txtTex.colorSpace = THREE.SRGBColorSpace;
+  const bgTex = new THREE.Texture(bgImg); bgTex.colorSpace = THREE.SRGBColorSpace; bgTex.needsUpdate = true;
+  const subTex = new THREE.Texture(subImg); subTex.colorSpace = THREE.SRGBColorSpace; subTex.needsUpdate = true;
+  const txtTex = new THREE.Texture(txtImg); txtTex.colorSpace = THREE.SRGBColorSpace; txtTex.needsUpdate = true;
   const bgMat  = new THREE.MeshBasicMaterial({ map: bgTex });
   const subMat = new THREE.MeshBasicMaterial({ map: subTex, transparent: true });
   const txtMat = new THREE.MeshBasicMaterial({ map: txtTex, transparent: true });
