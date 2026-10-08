@@ -189,6 +189,7 @@ if(mode==='true3d'){await bootTrue3D();}else{await bootClassic();}
 const rm2=$('render-modes');if(rm2){rm2.querySelectorAll('.rmode').forEach(b=>b.classList.toggle('active',b.dataset.mode===mode));}
 }
 async function bootClassic(){
+stage.querySelectorAll('canvas').forEach(c=>c.remove());
 renderer=new THREE.WebGLRenderer({antialias:true,alpha:false,preserveDrawingBuffer:true,powerPreference:'high-performance'});renderer.setClearColor((window.HoloLabTheme&&HoloLabTheme.get()==='dark')?0x12100d:0xf6f4ee,1);if(window.HoloLabTheme){var _th=window.__hololabOnTheme||function(){};window.__hololabOnTheme=function(t){if(renderer)renderer.setClearColor(t==='dark'?0x12100d:0xf6f4ee,1);_th(t);};}renderer.setPixelRatio(Math.min(devicePixelRatio,1.75));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.NoToneMapping;renderer.toneMappingExposure=1;stage.append(renderer.domElement);
 composer=new EffectComposer(renderer);composer.addPass(new RenderPass(scene,camera));composer.addPass(new UnrealBloomPass(new THREE.Vector2(720,1000),.18,.35,1.0));composer.addPass(new OutputPass());
 const loader=new THREE.TextureLoader();const names=['subject','background','text','lineart'];const textures=await Promise.all(names.map(name=>loader.loadAsync(config.assets[name])));textures.forEach(t=>{t.colorSpace=THREE.NoColorSpace;t.anisotropy=Math.min(renderer.capabilities.getMaxAnisotropy(),8);});
@@ -202,6 +203,7 @@ window.__holo={ready:true,config,renderer,root,uniforms,reset,modelSource:config
 cleanup=()=>{try{renderer.setAnimationLoop(null);}catch(e){}try{renderer.dispose();}catch(e){}if(renderer&&renderer.domElement&&renderer.domElement.parentNode)renderer.domElement.parentNode.removeChild(renderer.domElement);renderer=null;root=null;composer=null;};
 }
 async function bootTrue3D(){
+stage.querySelectorAll('canvas').forEach(c=>c.remove());
 const t3=document.createElement('canvas');t3.className='t3-canvas';t3.setAttribute('aria-label','True-3D card view');
 stage.append(t3);
 let ctrl;

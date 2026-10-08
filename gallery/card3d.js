@@ -63,10 +63,30 @@ async function makeGlowTextures(url) {
 function loadImage(url) {
   return new Promise((res, rej) => {
     const img = new Image();
-    img.onload = () => res(img);
+    img.onload = () => {
+      const out = downsample(img);
+      if (out === img) { res(out); return; }
+      out.onload = () => res(out);   // data URL 解码是异步的，必须等它就绪
+      out.onerror = rej;
+    };
     img.onerror = rej;
     img.src = url;
   });
+}
+// 卡面显示尺寸远小于素材原图：统一缩到短边 ≤1024，纹理带宽/显存降 60%+，避免掉帧卡顿
+function downsample(img) {
+  const MAX = 1024;
+  const short = Math.min(img.width, img.height);
+  if (short <= MAX) return img;
+  const k = MAX / short;
+  const w = Math.round(img.width * k), h = Math.round(img.height * k);
+  const c = document.createElement('canvas');
+  c.width = w; c.height = h;
+  const ctx = c.getContext('2d');
+  ctx.drawImage(img, 0, 0, w, h);
+  const out = new Image();
+  out.src = c.toDataURL('image/png');
+  return out;
 }
 
 /**
@@ -88,10 +108,12 @@ export async function initTrue3D(canvas, cfg = {}) {
 
   let renderer, composer, bloomOn = true;
   try {
-    renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
   } catch (e) {
     status('WebGL 初始化失败，回退静态封面'); return { ok: false, dispose() {} };
   }
+  const isDark = !!(window.HoloLabTheme && HoloLabTheme.get() === 'dark');
+  renderer.setClearColor(isDark ? 0x12100d : 0xf6f4ee, 1);
   renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.1;
