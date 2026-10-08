@@ -99,6 +99,27 @@ must never be an unlimited public resource.**
 
 ---
 
+## 6. Card language policy
+
+Every card carries **one deliberate language** across its entire surface — card-face
+typography, the back story, **and the technique name** (the technique line is printed
+on the card face itself, below the tagline).
+
+- **Default: English.** Most cards are made in pure English — face text, back story,
+  technique name alike.
+- **Chinese cultural series (殷商纪 / Yin-Shang Chronicles, etc.): Chinese only.**
+  When the subject is our own cultural heritage, the full card speaks Chinese —
+  title, tagline, back story, and the technique name (e.g. `青铜服牛` for
+  Wang Hai, not `Bronze-Ox-Yoke`).
+- **Other cultural subjects follow their own language**: Bengali (Satyajit Ray),
+  Danish (Friesian horse), Portuguese (Lisbon tram), German (Marco Reus) — the
+  language of the subject is the language of the card.
+
+The technique-name language must always match the card's language; a Chinese card
+with an English technique line is a defect, not a style choice.
+
+---
+
 *This document is a design decision record, not an apology. The GitHub-issue
 gate is a feature: it makes submission safe, attributable, and cheap — and it
 happens to look great on a résumé.*
