@@ -1,0 +1,7 @@
+out/
+__pycache__/
+blender_*.py
+osl_*.osl
+osl_*.oso
+foil_holographic.osl
+foil_holographic.oso
