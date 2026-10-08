@@ -46,9 +46,10 @@ async function makeGlowTextures(url) {
     ctx.drawImage(img, 0, 0);
     const d = ctx.getImageData(0, 0, c.width, c.height);
     for (let i = 0; i < d.data.length; i += 4) {
-      const g = d.data[i]; // 白线亮、黑底暗
+      // 四层管线 lineart = 白底黑线：白底透明、黑线反转为白色发光描边
+      const g = d.data[i];
       d.data[i] = 255; d.data[i + 1] = 255; d.data[i + 2] = 255;
-      d.data[i + 3] = blur ? g * 0.55 : g;  // 光晕层透明度减半
+      d.data[i + 3] = blur ? (255 - g) * 0.55 : (255 - g);  // 光晕层透明度减半
     }
     ctx.putImageData(d, 0, 0);
     return c;
