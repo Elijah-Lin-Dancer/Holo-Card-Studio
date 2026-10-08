@@ -15,7 +15,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from quality_gate import run_gate
 
-BASE = Path('/home/user/.super_doubao/super-doubao-runtime/workspace/holo-lab/generator/projects')
+BASE = Path(__file__).resolve().parents[1] / 'projects'
 GROUND_TRUTH = {
     'shang-wang-hai': True,
     'vc-tommy-vercetti': True,

@@ -19,7 +19,7 @@ from PIL import Image, ImageFilter, ImageOps
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from quality_gate import run_gate
 
-SRC = Path('/home/user/.super_doubao/super-doubao-runtime/workspace/holo-lab/generator/projects/shang-wang-hai/assets/subject.png')
+SRC = Path(__file__).resolve().parents[2] / 'generator' / 'projects' / 'shang-wang-hai' / 'assets' / 'subject.png'
 OUT = Path('/tmp/qa_break')
 
 

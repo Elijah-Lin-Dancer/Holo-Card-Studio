@@ -14,7 +14,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-ROOT = Path('/home/user/.super_doubao/super-doubao-runtime/workspace/holo-lab')
+ROOT = Path(__file__).resolve().parents[2]   # <repo>/generator/qa/ci_gate.py → <repo>
 PROJECTS = ROOT / 'generator' / 'projects'
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
