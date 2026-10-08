@@ -167,11 +167,11 @@ async function init(){
  for(const [id,key]of Object.entries({'card-title':'title','subtitle':'subtitle','edition':'edition'}))if(config[key]&&$(id))$(id).textContent=config[key];
  for(const [id,key]of Object.entries({'meta-collection':'collection','meta-technique':'technique','meta-date':'date'})){
   const v=config[key];const el=$(id);
-  if(el&&v){el.textContent=String(v);el.closest('div')?.removeAttribute('hidden');}
- }
- if(config.render_mode==='premium'&&$(id)){
-  const v=String(config[key]||'Premium Optics')+' · Premium Optics';
-  el.textContent=v;
+  if(el&&v){
+   let label=String(v);
+   if(id==='meta-technique'&&config.render_mode==='premium')label+=' · Premium Optics';
+   el.textContent=label;el.closest('div')?.removeAttribute('hidden');
+  }
  }
  const descEl=$('desc');
  if(descEl&&config.description){
