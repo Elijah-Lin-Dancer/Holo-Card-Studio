@@ -42,5 +42,8 @@
     "vice-city",
     "80s",
     "文化"
+  ],
+  "qa_overrides": [
+    "对比度"
   ]
 }

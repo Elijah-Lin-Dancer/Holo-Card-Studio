@@ -1,0 +1,26 @@
+{
+  "_comment": "per-series thresholds, calibrated on 5 historical cards (B-1). qa_overrides in card-config.json can exempt gates",
+  "default": {
+    "g1_pose_visibility": 0.45,
+    "g1_mask_major_ratio": 0.75,
+    "g1_mask_fragments_max": 4,
+    "g2_laplacian_var_min": 5.0,
+    "g2_histogram_span_min": 20.0,
+    "g3_edge_leftover_max": 0.02,
+    "g3_translucent_noise_max": 0.4,
+    "g4_subject_ratio": [
+      0.25,
+      0.92
+    ],
+    "g4_center_offset_max": 0.18,
+    "g2_edge_density_min": 0.5
+  },
+  "meme": {
+    "_comment": "meme cards may intentionally break G1/G4",
+    "g1_pose_visibility": 0.35,
+    "g4_subject_ratio": [
+      0.15,
+      0.95
+    ]
+  }
+}

@@ -56,3 +56,4 @@
 ## 🔬 技术含金量提升（RFC 规划）
 > 物理仿真全息 shader · AI 素材质检流水线 → [docs/PLANS/technical-lift-roadmap.md](docs/PLANS/technical-lift-roadmap.md)
 > ✅ A-1→A-4 已交付：光学模型 + Node Group/GLSL 双实现 + ΔE 验收 → [技术笔记①](docs/TECH-NOTES/01-holographic-foil-shader.md) · [光学 RFC](docs/GRAPHICS/HOLO-OPTICS.md)
+> ✅ B-1→B-3 已交付：零 API 视觉质检门禁（G1-G4）+ 校准/破坏样本验收 + CI 轻量门 → [技术笔记②](docs/TECH-NOTES/02-visual-qa-gate.md)

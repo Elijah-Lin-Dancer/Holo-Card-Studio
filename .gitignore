@@ -38,3 +38,5 @@ tools/
 # 本地视觉检查临时图（不入库）
 generator/projects/_preview/
 generator/projects/*/card.blend1
+# QA 门禁运行报告（不入库）
+generator/projects/*/qa_reports/

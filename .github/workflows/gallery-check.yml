@@ -16,10 +16,16 @@ jobs:
           python-version: "3.11"
 
       - name: Install test deps
-        run: pip install --quiet pytest pillow numpy
+        run: pip install --quiet pytest pillow numpy opencv-python-headless scipy
 
       - name: Pipeline unit tests
         run: pytest generator/tests -q
 
       - name: Gallery health check
         run: python3 generator/scripts/verify_gallery.py
+
+      - name: QA lightweight gate (G2/G3)
+        run: python3 generator/qa/ci_gate.py
+
+      - name: QA break-sample interception (G2/G3)
+        run: python3 generator/qa/break_tests.py --lite

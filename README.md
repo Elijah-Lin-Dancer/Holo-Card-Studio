@@ -56,3 +56,4 @@ That's a **real turntable render** from the Blender pipeline (96 frames), not a 
 ## 🔬 Technical Value Lift (RFC)
 > Physically-based holographic foil shader · automated visual QA gate → [docs/PLANS/technical-lift-roadmap.md](docs/PLANS/technical-lift-roadmap.md)
 > ✅ A-1→A-4 已交付：光学模型 + Node Group/GLSL 双实现 + ΔE 验收 → [Tech Note ①](docs/TECH-NOTES/01-holographic-foil-shader.md) · [光学 RFC](docs/GRAPHICS/HOLO-OPTICS.md)
+> ✅ B-1→B-3 已交付：零 API 视觉质检门禁（G1-G4）+ 校准/破坏样本验收 + CI 轻量门 → [Tech Note ②](docs/TECH-NOTES/02-visual-qa-gate.md)
