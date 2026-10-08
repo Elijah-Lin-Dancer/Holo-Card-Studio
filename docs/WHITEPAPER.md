@@ -93,16 +93,6 @@ Blender is large and system-dependent, so manual installation is a barrier to re
 
 The subject and background are two independent generations, so alignment is not guaranteed. The mitigations are threefold: prompts share one style prefix and the background prompt reserves empty space; parallax occlusion hides small misalignment as natural depth; and the tradeoff is documented in code and docs. In a portfolio, honesty about a tradeoff（不足如实记录）is more credible than hiding it.
 
-### （六）为什么保留双线：经典 Blender 工艺与真 3D 运行时并存（Dual-Pipeline）
-
-The project deliberately runs **two production lines in parallel** instead of migrating everything to one.
-
-The **Classic line**（经典线）is the craft signature: four layered PNGs → Blender turntable render → `card.glb` + `preview.webm` → the detail page loads the GLB with a holographic shader and bloom. It is the visible, heavy, reproducible pipeline — the part an interviewer can run locally and audit end to end. All existing cards stay on this line and are never re-rendered.
-
-The **True-3D line**（真 3D 线，C-scheme）keeps the same four asset layers but replaces the Blender step with `gallery/card3d.js`: a procedural rounded card body (metal material, real 14 mm thickness), the background mapped to the card face, and subject / glow-line / typography floating at different depths to produce **true depth parallax** (not layer offset), plus bloom. It renders entirely in the browser at runtime — no Blender, no GLB, no preview video — so asset-to-live takes minutes instead of a Blender round-trip. New cards are tagged `"render": "true3d"` in `cards.json`.
-
-Why keep both: the Classic line preserves the auditable craft and the turntable aesthetic that makes the collection distinct; the True-3D line removes the heaviest reproducibility dependency (Blender) for speed and adds a genuinely physical card object. Neither is a fallback of the other — cards choose a line by theme, and the choice is visible in the repository (pipeline docs, `card3d.js`, and the README dual-pipeline section).
-
 ## 四、数据流（一次完整发布）
 
 A complete publish flows through five stages. First, `card-config.json` is read by the asset layer, which writes the four PNGs. Second, the generation layer validates assets, builds the scene, renders the hero, exports the GLB, and assembles the page. Third, the publishing layer generates the thumbnail, archives the card, rewrites the import map, and updates the manifest. Fourth, the repository is pushed to GitHub. Fifth, GitHub Actions deploys the gallery directory to Pages. Each stage consumes only what the previous stage wrote, so any stage can be re-run in isolation; this is the operational definition of reproducibility.

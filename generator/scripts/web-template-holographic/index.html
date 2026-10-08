@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="./style.css">
   <script src="../../theme.js"></script>
   <script>var _m=document.querySelector('meta[name="theme-color"]');if(_m&&window.HoloLabTheme)_m.content=HoloLabTheme.get()==='dark'?'#12100d':'#f6f4ee';</script>
-  <script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js","three/addons/":"./node_modules/three/examples/jsm/"}}</script>
+  <script type="importmap">{"imports":{"three":"../../vendor/three/build/three.module.js","three/addons/":"../../vendor/three/examples/jsm/"}}</script>
 </head>
 <body>
   <header class="topbar">
@@ -31,10 +31,6 @@
         <button id="flip" type="button">FLIP</button>
         <button id="reset" type="button">RESET</button>
         <button id="save" type="button">SAVE</button>
-      </div>
-      <div class="render-modes" id="render-modes" aria-label="Rendering mode" hidden>
-        <button type="button" class="rmode" data-mode="classic">CLASSIC · BLENDER</button>
-        <button type="button" class="rmode" data-mode="true3d">TRUE-3D</button>
       </div>
       <p class="hint">Drag to rotate · scroll to zoom · <b>FLIP</b> for the story side</p>
     </section>

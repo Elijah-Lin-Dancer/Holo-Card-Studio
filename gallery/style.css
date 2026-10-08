@@ -233,12 +233,6 @@ body::after{
   background:rgba(8,12,20,.55);border:1px solid rgba(255,255,255,.14);border-radius:20px;
   padding:4px 12px;backdrop-filter:blur(6px);
 }
-.card .dual-badge{
-  position:absolute;top:10px;right:10px;font-size:10px;letter-spacing:1.5px;
-  color:#ffd98a;background:linear-gradient(135deg,rgba(200,162,90,.32),rgba(120,140,180,.28));
-  border:1px solid rgba(255,215,138,.5);border-radius:20px;padding:4px 10px;
-  backdrop-filter:blur(6px);box-shadow:0 0 14px rgba(200,162,90,.25);
-}
 .card .meta{padding:14px 16px 16px}
 .card .tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
 .card .tag{font-size:10.5px;color:var(--gold);border:1px solid var(--line);border-radius:6px;padding:2px 8px;letter-spacing:.5px}

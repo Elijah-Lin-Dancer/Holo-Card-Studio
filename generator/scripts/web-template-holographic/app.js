@@ -4,7 +4,6 @@ import {EffectComposer} from 'three/addons/postprocessing/EffectComposer.js';
 import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
 import {UnrealBloomPass} from 'three/addons/postprocessing/UnrealBloomPass.js';
 import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
-import {initTrue3D} from '../../card3d.js';
 
 const stage=document.querySelector('#stage'), loading=document.querySelector('#loading');
 const $=id=>document.getElementById(id);
@@ -175,61 +174,16 @@ async function init(){
   const d=String(config.description).trim();descEl.textContent=d.length>260?d.slice(0,257)+'…':d;
  }
  renderMore();
-const modes=Array.isArray(config.render)?config.render:(config.render?[config.render]:['classic']);
-const rm=$('render-modes');if(rm&&modes.includes('true3d'))rm.hidden=false;
-if(rm){rm.querySelectorAll('.rmode').forEach(b=>b.addEventListener('click',()=>startMode(b.dataset.mode)));}
-await startMode(modes.includes('true3d')?'true3d':'classic');
-}
-let activeMode=null,cleanup=null,currentCtrl=null;
-async function startMode(mode){
-if(activeMode===mode)return;
-if(cleanup){try{cleanup();}catch(e){console.warn('cleanup',e);}cleanup=null;}
-activeMode=mode;
-if(mode==='true3d'){await bootTrue3D();}else{await bootClassic();}
-const rm2=$('render-modes');if(rm2){rm2.querySelectorAll('.rmode').forEach(b=>b.classList.toggle('active',b.dataset.mode===mode));}
-}
-async function bootClassic(){
-stage.querySelectorAll('canvas').forEach(c=>c.remove());
-renderer=new THREE.WebGLRenderer({antialias:true,alpha:false,preserveDrawingBuffer:true,powerPreference:'high-performance'});renderer.setClearColor((window.HoloLabTheme&&HoloLabTheme.get()==='dark')?0x12100d:0xf6f4ee,1);if(window.HoloLabTheme){var _th=window.__hololabOnTheme||function(){};window.__hololabOnTheme=function(t){if(renderer)renderer.setClearColor(t==='dark'?0x12100d:0xf6f4ee,1);_th(t);};}renderer.setPixelRatio(Math.min(devicePixelRatio,1.75));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.NoToneMapping;renderer.toneMappingExposure=1;stage.append(renderer.domElement);
-composer=new EffectComposer(renderer);composer.addPass(new RenderPass(scene,camera));composer.addPass(new UnrealBloomPass(new THREE.Vector2(720,1000),.18,.35,1.0));composer.addPass(new OutputPass());
-const loader=new THREE.TextureLoader();const names=['subject','background','text','lineart'];const textures=await Promise.all(names.map(name=>loader.loadAsync(config.assets[name])));textures.forEach(t=>{t.colorSpace=THREE.NoColorSpace;t.anisotropy=Math.min(renderer.capabilities.getMaxAnisotropy(),8);});
-const prm=config.parameters||{};uniforms={tSubject:{value:textures[0]},tBackground:{value:textures[1]},tText:{value:textures[2]},tLine:{value:textures[3]},tBack:{value:backTexture()},uTime:{value:0},uView:{value:new THREE.Vector3(0,0,1)},uFoil:{value:prm.foil??.65},uScale:{value:prm.subjectScale??1.25},uDepth:{value:prm.subjectDepth??.4},uBgDepth:{value:prm.backgroundDepth??-.25},uSafeScale:{value:config.safeArea?.scale??1.12},uSafeOffset:{value:new THREE.Vector2(...(config.safeArea?.offset??[-.06,-.085]))}};
-const frontMat=new THREE.ShaderMaterial({uniforms,vertexShader:vertex,fragmentShader:fragment,side:THREE.FrontSide});const edgeMat=new THREE.ShaderMaterial({uniforms,vertexShader:vertex,fragmentShader:edgeFragment});const backMat=new THREE.ShaderMaterial({uniforms,vertexShader:vertex,fragmentShader:backFragment});const goldMat=new THREE.MeshBasicMaterial({color:0xbfa26b});
-const gltf=await new GLTFLoader().loadAsync(config.assets.model);root=new THREE.Group();root.add(gltf.scene);scene.add(root);
-gltf.scene.traverse(ob=>{if(!ob.isMesh)return;const role=ob.material?.name;if(role==='web_front'){ob.material=frontMat;face=ob;}else if(role==='web_back')ob.material=backMat;else if(role==='web_gold')ob.material=goldMat;else if(role==='web_text')ob.visible=false;else ob.material=edgeMat;});
-if(!face)throw Error('The Blender model is missing the web_front material.');
-setupControls();new ResizeObserver(resize).observe(stage);resize();loading.remove();
-window.__holo={ready:true,config,renderer,root,uniforms,reset,modelSource:config.assets.model};renderer.setAnimationLoop(animate);
-cleanup=()=>{try{renderer.setAnimationLoop(null);}catch(e){}try{renderer.dispose();}catch(e){}if(renderer&&renderer.domElement&&renderer.domElement.parentNode)renderer.domElement.parentNode.removeChild(renderer.domElement);renderer=null;root=null;composer=null;};
-}
-async function bootTrue3D(){
-stage.querySelectorAll('canvas').forEach(c=>c.remove());
-const t3=document.createElement('canvas');t3.className='t3-canvas';t3.setAttribute('aria-label','True-3D card view');
-stage.append(t3);
-let ctrl;
-try{
-ctrl=await initTrue3D(t3,{
-background:config.assets.background,subject:config.assets.subject,
-lineart:config.assets.lineart,text:config.assets.text,
-cardWidth:2,cardHeight:3,thickness:0.14,frameColor:0xc8a25a,autoRotate:true,
-onStatus:m=>{if(loading)loading.textContent=m;}
-});
-}catch(e){console.error('true3d init failed',e);ctrl={ok:false,dispose(){}};}
-if(!ctrl.ok){t3.remove();loading.textContent='True-3D unavailable · 真 3D 不可用，回退静态封面';return;}
-currentCtrl=ctrl;loading.remove();
-window.__holo={ready:true,config,true3d:ctrl};
-const controls=document.querySelector('.controls');if(controls)controls.style.display='none';
-const flipBtn=$('flip');if(flipBtn)flipBtn.hidden=true;
-const label=$('view-label');if(label)label.hidden=true;
-const autoBtn=$('auto');autoBtn.onclick=()=>{auto=!auto;ctrl.setAutoRotate(auto);autoBtn.setAttribute('aria-pressed',String(auto));autoBtn.textContent=auto?'PAUSE':'AUTO';};
-const resetBtn=$('reset');resetBtn.onclick=()=>ctrl.reset();
-cleanup=()=>{try{ctrl.dispose();}catch(e){}if(t3.parentNode)t3.parentNode.removeChild(t3);currentCtrl=null;
-const controls2=document.querySelector('.controls');if(controls2)controls2.style.display='';
-const flipBtn2=$('flip');if(flipBtn2)flipBtn2.hidden=false;
-const label2=$('view-label');if(label2)label2.hidden=false;
-if(autoBtn)autoBtn.onclick=()=>{if(flipped)flip();setAuto(!auto);};
-if(resetBtn)resetBtn.onclick=reset;
-};
+ renderer=new THREE.WebGLRenderer({antialias:true,alpha:false,preserveDrawingBuffer:true,powerPreference:'high-performance'});renderer.setClearColor((window.HoloLabTheme&&HoloLabTheme.get()==='dark')?0x12100d:0xf6f4ee,1);if(window.HoloLabTheme){var _th=window.__hololabOnTheme||function(){};window.__hololabOnTheme=function(t){if(renderer)renderer.setClearColor(t==='dark'?0x12100d:0xf6f4ee,1);_th(t);};}renderer.setPixelRatio(Math.min(devicePixelRatio,1.75));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.NoToneMapping;renderer.toneMappingExposure=1;stage.append(renderer.domElement);
+ composer=new EffectComposer(renderer);composer.addPass(new RenderPass(scene,camera));composer.addPass(new UnrealBloomPass(new THREE.Vector2(720,1000),.18,.35,1.0));composer.addPass(new OutputPass());
+ const loader=new THREE.TextureLoader();const names=['subject','background','text','lineart'];const textures=await Promise.all(names.map(name=>loader.loadAsync(config.assets[name])));textures.forEach(t=>{t.colorSpace=THREE.NoColorSpace;t.anisotropy=Math.min(renderer.capabilities.getMaxAnisotropy(),8);});
+ const prm=config.parameters||{};uniforms={tSubject:{value:textures[0]},tBackground:{value:textures[1]},tText:{value:textures[2]},tLine:{value:textures[3]},tBack:{value:backTexture()},uTime:{value:0},uView:{value:new THREE.Vector3(0,0,1)},uFoil:{value:prm.foil??.65},uScale:{value:prm.subjectScale??1.25},uDepth:{value:prm.subjectDepth??.4},uBgDepth:{value:prm.backgroundDepth??-.25},uSafeScale:{value:config.safeArea?.scale??1.12},uSafeOffset:{value:new THREE.Vector2(...(config.safeArea?.offset??[-.06,-.085]))}};
+ const frontMat=new THREE.ShaderMaterial({uniforms,vertexShader:vertex,fragmentShader:fragment,side:THREE.FrontSide});const edgeMat=new THREE.ShaderMaterial({uniforms,vertexShader:vertex,fragmentShader:edgeFragment});const backMat=new THREE.ShaderMaterial({uniforms,vertexShader:vertex,fragmentShader:backFragment});const goldMat=new THREE.MeshBasicMaterial({color:0xbfa26b});
+ const gltf=await new GLTFLoader().loadAsync(config.assets.model);root=new THREE.Group();root.add(gltf.scene);scene.add(root);
+ gltf.scene.traverse(ob=>{if(!ob.isMesh)return;const role=ob.material?.name;if(role==='web_front'){ob.material=frontMat;face=ob;}else if(role==='web_back')ob.material=backMat;else if(role==='web_gold')ob.material=goldMat;else if(role==='web_text')ob.visible=false;else ob.material=edgeMat;});
+ if(!face)throw Error('The Blender model is missing the web_front material.');
+ setupControls();new ResizeObserver(resize).observe(stage);resize();loading.remove();
+ window.__holo={ready:true,config,renderer,root,uniforms,reset,modelSource:config.assets.model};renderer.setAnimationLoop(animate);
 }
 function resize(){const w=stage.clientWidth,h=stage.clientHeight;if(!w||!h||!renderer)return;const aspect=w/h;const halfH=5.65/targetZoom;camera.left=-halfH*aspect;camera.right=halfH*aspect;camera.top=halfH;camera.bottom=-halfH;camera.updateProjectionMatrix();renderer.setSize(w,h);composer.setSize(w,h);}
 function setAuto(value){auto=value;$('auto').setAttribute('aria-pressed',String(auto));$('auto').textContent=auto?'PAUSE':'AUTO';}

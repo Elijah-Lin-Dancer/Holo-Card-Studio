@@ -351,7 +351,6 @@ function makeCard(c, i) {
         ? '<canvas class="lent" width="720" height="1000" aria-hidden="true"></canvas>'
         : (c.preview ? '<video class="card-video" src="' + escHtml(c.preview) + '" muted playsinline loop preload="none"></video>' : ''))) +
     '<span class="rarity">' + escHtml(c.collection || '典藏') + '</span>' +
-    (Array.isArray(c.render) && c.render.length > 1 ? '<span class="dual-badge">' + escHtml(L('dual_badge')) + '</span>' : '') +
     '</div>' +
     '<div class="meta' + (locked ? ' locked-meta' : '') + '">' +
     '<div class="tags">' + (c.style_tags || []).map(t => '<span class="tag">' + escHtml(t) + '</span>').join('') + '</div>' +
