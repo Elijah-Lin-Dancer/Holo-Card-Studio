@@ -52,6 +52,21 @@ A complete **AIGC pipeline** that turns **one sentence** into an **interactive 3
 
 That's a **real turntable render** from the Blender pipeline (96 frames), not a mockup. The gallery plays it on hover; the detail page renders the live WebGL scene.
 
+## 🔀 Dual pipeline: Classic Blender vs True-3D (C-scheme)
+
+Every card ships through one of **two production lines** — both first-class, both visible in this repo:
+
+| | 🏭 Classic line (the craft) | ✨ True-3D line (C-scheme, new) |
+|---|---|---|
+| Assets | four layered PNGs (subject / background / lineart / text) | the same four layers |
+| Build step | Blender turntable render → `card.glb` + `preview.webm` | none — procedural geometry at runtime |
+| Detail page | WebGL loads the GLB (holographic shader + bloom) | `card3d.js` builds a solid rounded card body — metal frame, real depth parallax, bloom — in the browser |
+| Gallery hover | plays `preview.webm` | static cover + CSS tilt (video optional) |
+| Marker | — | `"render": "true3d"` in cards.json |
+| Speed | slower (Blender download + render per card) | fast (no Blender; asset → live in minutes) |
+
+The existing 77+ cards stay on the Classic line **untouched**; each new card picks a line by theme. Technical rationale: `docs/WHITEPAPER.md` → design decision (六).
+
 ## 🗂️ The whole collection
 
 ![HoloLab card wall](docs/screenshots/card-wall.jpg)
@@ -200,6 +215,7 @@ Holo-Card-Studio/
 │   ├── cards.json            # card registry (source of truth)
 │   ├── curation.json         # bilingual creation notes (curated timeline, C1)
 │   ├── i18n.js               # EN / 中文 UI dictionary (incl. filter chips & tour)
+│   ├── card3d.js             # True-3D line (C-scheme) runtime renderer: solid frame / metal / depth parallax / bloom
 │   ├── cards/<id>/           # per-card: app.js · style.css · assets/ · card.glb · preview.webm · lent-L/R
 │   └── vendor/               # three.js + GSAP, vendored locally — zero CDN dependency
 ├── generator/

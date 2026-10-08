@@ -52,6 +52,21 @@
 
 这是 Blender 管线输出的**真实转台渲染**（96 帧），不是效果图。展厅里悬停播放、详情页实时渲染 WebGL 场景。
 
+## 🔀 双线制作体系：经典 Blender vs 真 3D（C 方案）
+
+每张卡经**两条生产线的其中之一**出厂——两条线都是一等公民，也都看得见：
+
+| | 🏭 经典线（工艺招牌） | ✨ 真 3D 线（C 方案 · 新增） |
+|---|---|---|
+| 素材层 | 四层 PNG（主体 / 背景 / 线稿 / 文字） | 同样的四层 |
+| 构建步 | Blender 转台渲染 → `card.glb` + `preview.webm` | 无——运行时程序化几何 |
+| 详情页 | WebGL 加载 GLB（全息 shader + 光晕） | `card3d.js` 在浏览器里构建实体圆角卡框——金属质感、真实深度视差、Bloom 辉光 |
+| 展厅悬停 | 播放 `preview.webm` | 静态封面 + CSS 倾斜（视频可选） |
+| 数据标记 | — | cards.json 里 `"render": "true3d"` |
+| 速度 | 较慢（每卡 Blender 下载 + 渲染） | 快（无 Blender；素材到上线只需几分钟） |
+
+存量 77+ 张卡**一律不动**、留在经典线；今后新卡按题材二选一。技术取舍详见 `docs/WHITEPAPER.md` → 关键设计决策（六）。
+
 ## 🗂️ 完整收藏
 
 ![HoloLab 卡片墙](docs/screenshots/card-wall.jpg)
@@ -165,6 +180,7 @@ Holo-Card-Studio/
 │   ├── cards.json            # 卡片清单（唯一事实源）
 │   ├── curation.json         # 双语创作手记（策展时间线，C1）
 │   ├── i18n.js               # 中英 UI 词典（含筛选标签与导览）
+│   ├── card3d.js             # 真 3D 线（C 方案）运行时渲染器：实体卡框/金属/深度视差/Bloom
 │   ├── cards/<id>/           # 每卡：app.js · style.css · assets/ · card.glb · preview.webm · lent-L/R
 │   └── vendor/               # three.js + GSAP 本地化，零 CDN 依赖
 ├── generator/
