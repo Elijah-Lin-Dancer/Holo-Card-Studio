@@ -54,19 +54,28 @@ if __name__ == '__main__':
     import argparse
     ap = argparse.ArgumentParser()
     ap.add_argument('--lite', action='store_true',
-                    help='CI 模式：只测 G2/G3 破坏样本（无需 MediaPipe/u2net）')
+                    help='CI 模式：只测 G2/G3 破坏样本（直连检测器，无需 MediaPipe/u2net）')
     args = ap.parse_args()
     names = make_break_samples()
     if args.lite:
         names = [n for n in names if n.startswith(('g2', 'g3'))]
-    expected_block = {'g1-break': 'G1 主体完整性', 'g2-break': 'G2 清晰度',
-                      'g3-break': 'G3 透明通道', 'g4-break': 'G4 构图'}
     ok = True
     for n in names:
-        rep = run_gate(OUT / n)
-        blocked = not rep['pass']
-        # 判定：被拦截（pass=False）且至少一个门 FAIL
-        failed_gates = [g['issues'] for g in rep['gates'] if not g['pass']]
+        if args.lite:
+            # 直连 G2/G3（零重依赖）：避免 run_gate 全量拖入 mediapipe/onnxruntime
+            from quality_gate import load_thresholds
+            from detectors import sharpness, alpha_quality
+            thr = load_thresholds('default')
+            subj = OUT / n / 'assets' / 'subject.png'
+            g2 = sharpness.run(str(subj), thr)
+            g3 = alpha_quality.run(str(subj), thr)
+            issues = g2['issues'] + g3['issues']
+            blocked = bool(issues)
+            failed_gates = [issues] if issues else []
+        else:
+            rep = run_gate(OUT / n)
+            blocked = not rep['pass']
+            failed_gates = [g['issues'] for g in rep['gates'] if not g['pass']]
         print(f"{'✅' if blocked and failed_gates else '❌'} {n}: blocked={blocked} "
               f"failed_issues={failed_gates}")
         if not (blocked and failed_gates):
