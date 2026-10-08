@@ -150,6 +150,7 @@
     '饕餮':   { zh: '饕餮', en: 'Taotie' },
 
     // 隐藏解锁（locked card）
+    dual_badge:      { zh: '⚡ 双工艺', en: '⚡ Dual Craft' },
     locked_badge:    { zh: '已锁定 · 密码解锁', en: 'Locked · Password' },
     unlocked_badge:  { zh: '已解锁',     en: 'Unlocked' },
     lock_private:    { zh: 'PRIVATE · 私藏', en: 'PRIVATE' },

@@ -196,6 +196,7 @@ export async function initTrue3D(canvas, cfg = {}) {
   return {
     ok: true,
     setAutoRotate: (on) => { ctrl.autoRotate = on; },
+    reset: () => { ctrl.reset(); },
     setBloom: (on) => { bloomOn = on; },
     dispose() {
       cancelAnimationFrame(raf);

@@ -227,6 +227,9 @@ def load_card_meta(cfg: dict, tags: list[str]) -> dict:
         "author": cfg.get("author") or "HoloLab Studio",
         "style_tags": tags,
     }
+    # 双线制作体系：透传 render 标记（classic / true3d / 双线数组）
+    if cfg.get("render"):
+        meta["render"] = cfg["render"] if isinstance(cfg["render"], list) else [cfg["render"]]
     # 隐藏解锁：locked=true 时透传锁定标记与密码哈希（前端 SHA-256 比对，不存明文）
     if cfg.get("locked"):
         meta["locked"] = True

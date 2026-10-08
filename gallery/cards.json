@@ -1,6 +1,26 @@
 {
   "cards": [
     {
+      "id": "shang-wang-hai",
+      "title": "王亥",
+      "subtitle": "服牛远贾",
+      "technique": "Bronze-Ox-Yoke",
+      "tagline": "王亥，商族第七任首领——服牛作驾、牵车远贾，肇开华夏贸易之先河，被后世尊为「华商始祖」。",
+      "edition": "028 / 028",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "王亥——《服牛远贾》，殷商纪系列第 028 号收藏，中文卡面。双线试点：经典 Blender 工艺 + C 方案真 3D 同卡可切换。",
+      "author": "HoloLab Studio",
+      "style_tags": [],
+      "render": [
+        "classic",
+        "true3d"
+      ],
+      "url": "cards/shang-wang-hai/",
+      "thumb": "cards/shang-wang-hai/thumb.jpg",
+      "date": "2026-10-08",
+      "preview": "cards/shang-wang-hai/preview.webm"
+    },
+    {
       "id": "shang-zhen-ren",
       "title": "贞人",
       "subtitle": "灼龟之官",
