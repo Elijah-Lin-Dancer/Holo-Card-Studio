@@ -222,7 +222,7 @@ Holo-Card-Studio/
 - [x] 前端交互层（视差 · 流光 · 光斑 · 磁吸 · 双主题）
 - [x] **访客公开投稿通道** — GitHub Issue → 自动渲染管线 → 上线展厅（全自动）
 - [x] **C1 策展时间线** — 双语创作手记、展览视图
-- [x] **C2 CI 校验** — 21 pytest + 展厅健康检查，每次推送
+- [x] **C2 CI 校验** — 28 pytest + 展厅健康检查，每次推送
 - [x] **C3 OG 元信息** — 每卡社交预览注入
 - [x] **密码锁定卡** — SHA-256 锁定、展厅内解锁体验
 - [x] **自动导览 v2「光影导览」** — 光束滑行 · 卡面激活 · HUD · 开场/收尾编排
@@ -238,10 +238,33 @@ Holo-Card-Studio/
 
 - [架构设计](docs/architecture.md) — 系统设计与权衡
 - [AI 管线](docs/ai-pipeline.md) — 分层生成详解
+- [卡片质量门禁](docs/CARD-QUALITY.md) — 任何卡上线前的五道强制闸（四肢/对比/抠图/正视角）
+- [5 分钟一键复现](docs/REPRODUCE.md) — `make setup` → `make preview` → `make card` → `make test`
 - [设计决策](docs/DESIGN-DECISIONS.md) — 为什么投稿需要 GitHub 账号 & 成本模型
 - [图形学](docs/graphics.md) — Blender 节点与 GLSL 着色器笔记
 - [部署](docs/DEPLOYMENT.md) — Pages 与 Actions
 - [白皮书](docs/WHITEPAPER.md)
+
+## 🌳 上游与演进（Upstream & Evolution）
+
+这个项目**不是从零开始的**。它是对 [holo-card-studio](https://github.com/EverettFish/holo-card-studio)（MIT）的再工程。上游证明了一个好想法：卡片的箔光与视差随观看角度变化，支持拖动旋转、翻面。但上游缺少从**一句话**到一张成品卡的自动化路径——素材要靠人手准备。
+
+**沿用自上游（署名保留，MIT 不变）：**
+四层图 → Blender → GLB → Three.js 渲染主路径、初始目录结构、MIT 授权。
+
+**在此之上自建（本项目自己的作品）：**
+自动化四层 AI 管线、幂等发布、零后端静态部署、创作工作室（一句话 → 设计稿 → 卡）、GitHub Issue 公开投稿、双语双主题展厅、8 种语言卡面、密码锁定卡、策展时间线、自动导览、五道质量门禁、28 项 CI 测试、性能压缩优化。全部 77 张卡与 11 个系列均为本项目的策展成果。
+
+**量化数据：**
+
+| 指标 | 优化前 | 优化后 |
+|---|---|---|
+| 单卡资产体积 | 47 MB | 14 MB（WebP + GLB 瘦身） |
+| 仓库 `.git` 体积 | 996 MB | 124 MB（git gc） |
+| CI 测试 | 0 | 28 项（每次推送，含 77 卡全量体检） |
+| 卡数 · 语言 | 1 · 1 | 77 卡 · 8 语言 · 11 系列 |
+
+传承关系详见 [docs/WHITEPAPER.md](docs/WHITEPAPER.md)（第二章上游溯源节）；管线设计权衡见 [docs/architecture.md](docs/architecture.md) 与 [docs/CARD-QUALITY.md](docs/CARD-QUALITY.md)。
 
 ## 🙏 致谢
 

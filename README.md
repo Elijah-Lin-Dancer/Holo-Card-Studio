@@ -257,7 +257,7 @@ Holo-Card-Studio/
 - [x] Front-end interaction layer (parallax · shine · glow · magnetic CTA · dual themes)
 - [x] **Public submission channel** — GitHub Issue → auto-render pipeline → live gallery (fully automated)
 - [x] **C1 Curated timeline** — bilingual creation notes, exhibition view
-- [x] **C2 CI** — 21 pytest tests + gallery health check, every push
+- [x] **C2 CI** — 28 pytest tests + gallery health check, every push
 - [x] **C3 OG meta** — per-card social preview injection
 - [x] **Password-locked cards** — SHA-256 lock, unlock-in-hall UX
 - [x] **Auto Tour v2 "Light Walk"** — traveling beam · card activation · HUD · intro/outro staging
@@ -274,12 +274,47 @@ Holo-Card-Studio/
 - [Architecture](docs/architecture.md) — system design & trade-offs
 - [AI pipeline](docs/ai-pipeline.md) — layered generation in detail
 - [Card quality gate](docs/CARD-QUALITY.md) — the five mandatory gates before any card ships (limbs, contrast, matting, front-view)
+- [Reproduce in 5 min](docs/REPRODUCE.md) — one-command guide: `make setup` → `make preview` → `make card` → `make test`
 - [Graphics](docs/graphics.md) — Blender nodes & GLSL shader notes
 - [Design decisions](docs/DESIGN-DECISIONS.md) — why submission needs a GitHub account & the cost model
 - [Deployment](docs/DEPLOYMENT.md) — Pages & Actions
 - [Whitepaper](docs/WHITEPAPER.md)
 - [Contributing](CONTRIBUTING.md) — submit a card or develop locally
 - [Changelog](CHANGELOG.md)
+
+## 🌳 Upstream & Evolution
+
+This project did **not** start from zero. It is a re-engineering of
+[holo-card-studio](https://github.com/EverettFish/holo-card-studio) (MIT), a project
+that proved the core idea: a card whose foil and parallax respond to the viewing
+angle, drag-to-rotate, flip. What upstream didn't have was an automatic path from
+*one sentence* to a finished card — assets were prepared by hand.
+
+**Borrowed from upstream (credited, MIT retained):**
+the four-layer → Blender → GLB → Three.js rendering path, the initial directory
+layout, the MIT grant.
+
+**Built on top of it (this project's own work):**
+the automated four-layer AI pipeline, idempotent publishing, zero-backend static
+deployment, the Create Studio (one sentence → design → card), public submission
+via GitHub Issues, the bilingual gallery UI with dual themes, 8-language card
+faces, password-locked cards, curated timeline, auto tour, five quality gates,
+28 CI tests, and performance compression. All 77 cards and 11 series are this
+project's curation.
+
+**By the numbers:**
+
+| Metric | Before | After |
+|---|---|---|
+| Per-card asset weight | 47 MB | 14 MB (WebP + GLB slimming) |
+| Repo `.git` size | 996 MB | 124 MB (`git gc`) |
+| CI tests | 0 | 28 (every push, incl. 77-card gallery health check) |
+| Cards · languages | 1 · 1 | 77 cards · 8 languages · 11 series |
+
+The lineage is documented in [docs/WHITEPAPER.md](docs/WHITEPAPER.md)
+(Chapter 2, the upstream-provenance section), and the design trade-offs behind the
+pipeline are in [docs/architecture.md](docs/architecture.md) and
+[docs/CARD-QUALITY.md](docs/CARD-QUALITY.md).
 
 ## 🙏 Acknowledgement
 
