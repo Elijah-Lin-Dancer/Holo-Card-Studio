@@ -52,3 +52,6 @@
 
 这是 Blender 管线输出的**真实转台渲染**（96 帧），不是效果图。展厅里悬停播放、详情页实时渲染 WebGL 场景。
 
+
+## 🔬 技术含金量提升（RFC 规划）
+> 物理仿真全息 shader · AI 素材质检流水线 → [docs/PLANS/technical-lift-roadmap.md](docs/PLANS/technical-lift-roadmap.md)

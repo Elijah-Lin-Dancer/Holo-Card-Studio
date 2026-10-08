@@ -52,3 +52,6 @@ A complete **AIGC pipeline** that turns **one sentence** into an **interactive 3
 
 That's a **real turntable render** from the Blender pipeline (96 frames), not a mockup. The gallery plays it on hover; the detail page renders the live WebGL scene.
 
+
+## 🔬 Technical Value Lift (RFC)
+> Physically-based holographic foil shader · automated visual QA gate → [docs/PLANS/technical-lift-roadmap.md](docs/PLANS/technical-lift-roadmap.md)
