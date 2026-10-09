@@ -123,6 +123,7 @@
     '大葱塑': { zh: '大葱塑', en: 'Scallion Sculpt' },
     '鲨鱼笑': { zh: '鲨鱼笑', en: 'Shark Grin' },
     '殷商':   { zh: '殷商', en: 'Yin-Shang' },
+    '亚丑钺': { zh: '亚丑钺', en: 'Yachou Yue' },
     '女将':   { zh: '女将', en: 'Female General' },
     '甲骨':   { zh: '甲骨', en: 'Oracle Bones' },
     '青铜':   { zh: '青铜', en: 'Bronze' },
