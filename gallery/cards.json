@@ -1,6 +1,27 @@
 {
  "cards": [
   {
+   "id": "shang-yachou-yue",
+   "title": "亚丑钺",
+   "subtitle": "人面威仪 · 征伐之权",
+   "technique": "人面雷霆",
+   "tagline": "人面怒目，威震八荒——钺者，王权之斧。",
+   "edition": "029 / 029",
+   "collection": "Yin-Shang Chronicles · 殷商纪",
+   "description": "1965 年山东青州苏埠屯 1 号商墓出土的透雕人面纹青铜大钺，山东博物馆十大镇馆之宝之一，东方方国「亚醜」族首领征伐与王权的象征。",
+   "author": "HoloLab Studio",
+   "style_tags": [
+    "殷商",
+    "青铜",
+    "亚丑钺"
+   ],
+   "url": "cards/shang-yachou-yue/",
+   "thumb": "cards/shang-yachou-yue/thumb.jpg",
+   "date": "2026-10-09",
+   "preview": "cards/shang-yachou-yue/preview.webm",
+   "category": "history"
+  },
+  {
    "id": "vc-sonny-forelli",
    "title": "The Forelli Don",
    "subtitle": "He sends others to die for him",
