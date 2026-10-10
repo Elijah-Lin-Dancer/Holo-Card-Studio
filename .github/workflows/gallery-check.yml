@@ -16,7 +16,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install test deps
-        run: pip install --quiet pytest pillow numpy opencv-python-headless scipy
+        run: pip install --quiet pytest pillow numpy opencv-python-headless scipy fonttools
 
       - name: Pipeline unit tests
         run: pytest generator/tests -q
