@@ -17,7 +17,7 @@
   <a href="https://www.blender.org/"><img src="https://img.shields.io/badge/%F0%9F%A7%8A_Blender-4.5-e08ac0?style=for-the-badge" alt="Blender 4.5"></a>
   <a href="https://threejs.org/"><img src="https://img.shields.io/badge/%F0%9F%8C%80_Three.js-GLSL-8a7446?style=for-the-badge" alt="Three.js"></a>
   <a href="https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2FElijah-Lin-Dancer.github.io%2FHolo-Card-Studio%2Fcards.json&query=%24.cards.length&label=%F0%9F%83%8F%20Cards&color=c9a86a&style=for-the-badge" alt="Cards (auto)"></a>
-  <a href="https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/"><img src="https://img.shields.io/badge/%F0%9F%8C%90_8_Languages-7fd4ff?style=for-the-badge" alt="8 Languages"></a>
+  <a href="https://Elijah-Lin-Dancer.github.io/Holo-Card-Studio/"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2FElijah-Lin-Dancer.github.io%2FHolo-Card-Studio%2Fmeta.json&query=%24.languages&label=%F0%9F%8C%90%20Languages&color=7fd4ff&style=for-the-badge" alt="Languages (auto)"></a>
   <a href="https://github.com/Elijah-Lin-Dancer/Holo-Card-Studio/actions"><img src="https://img.shields.io/github/actions/workflow/status/Elijah-Lin-Dancer/Holo-Card-Studio/gallery-check.yml?style=for-the-badge&label=CI%20Passing" alt="CI Passing"></a>
 </p>
 
@@ -76,4 +76,4 @@ python3 generator/scripts/run_pipeline.py --project generator/projects/<slug> --
 python3 generator/scripts/run_pipeline.py --project generator/projects/<slug> --render-mode premium
 ```
 
-First premium release: **Sonny Forelli — "The Forelli Don"** (Vice City Nights · 065/009, technique `Pinstripe Prism`, 320 nm film / 1.5 ior / 1.8 µm grating @ 30°). Existing 78 cards stay on the standard line untouched.
+First premium release: **Sonny Forelli — "The Forelli Don"** (Vice City Nights · 065/009, technique `Pinstripe Prism`, 320 nm film / 1.5 ior / 1.8 µm grating @ 30°). Existing 79 cards stay on the standard line untouched.

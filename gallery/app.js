@@ -1,3 +1,4 @@
+import {escHtml} from './js/utils.mjs';
 // HoloLab Gallery · 展厅（纯静态，JSON 清单驱动）+ 全息动效引擎
 // 手写实现：粒子背景 / 光标光晕 / 标题逐字动画 / 卡片 staggered 入场 / 3D tilt / 双语切换
 
@@ -5,12 +6,6 @@ const I18N = window.HoloLabI18n;
 const THEME = window.HoloLabTheme;
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-/* HTML 转义：cards.json 为可公开投稿数据源，展示前必须转义防存储型 XSS */
-function escHtml(s) {
-  return String(s == null ? '' : s)
-    .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
-    .replaceAll('"', '&quot;').replaceAll("'", '&#39;');
-}
 
 /* ============ 1. 语言 / 主题切换器 ============ */
 const langBtn = document.getElementById('lang-btn');

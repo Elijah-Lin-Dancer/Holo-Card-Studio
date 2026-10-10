@@ -48,5 +48,6 @@
     "lineart": "./assets/lineart.webp",
     "model": "./assets/card.glb"
   },
-  "_card_id": "shang-yin-xu"
+  "_card_id": "shang-yin-xu",
+  "language": "zh"
 }

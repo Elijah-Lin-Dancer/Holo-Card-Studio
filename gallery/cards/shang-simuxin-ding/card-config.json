@@ -52,5 +52,6 @@
     "lineart": "./assets/lineart.webp",
     "model": "./assets/card.glb"
   },
-  "_card_id": "shang-simuxin-ding"
+  "_card_id": "shang-simuxin-ding",
+  "language": "zh"
 }

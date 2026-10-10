@@ -1,59 +1,60 @@
 {
- "mode": "holographic",
- "slug": "vc-sonny-forelli",
- "title": "The Forelli Don",
- "subtitle": "He sends others to die for him",
- "technique": "Pinstripe Prism",
- "tagline": "You'll never be a made man.",
- "edition": "065 / 009",
- "collection": "Vice City Nights · Characters",
- "description": "The Forelli Don — He sends others to die for him. Part of the Vice City Nights character roster, 1986 neon-noir tribute. Premium Optics line: physically simulated holographic foil (6-wavelength thin-film interference + grating).",
- "style": "1980s Miami noir cartoon, dark red velvet office, mob boss",
- "prompt": "1980年代迈阿密黑色电影卡通风格，意大利裔黑手党教父桑尼·弗雷利：五十多岁，稀疏灰白后梳发、深陷眼窝沉重眼袋、阴沉冷酷注视、深色细条纹西装三件套、左手夹雪茄、教父站姿，全身像约占画面 65%，无文字",
- "subject_desc": "1980年代迈阿密黑色电影卡通风格，意大利裔黑手党教父桑尼·弗雷利：五十多岁，稀疏灰白后梳发、深陷眼窝沉重眼袋、阴沉冷酷注视、深色细条纹西装三件套、左手夹雪茄、教父站姿，全身像约占画面 65%，无文字",
- "background_desc": "1986年罪恶都市黑手党总部办公室：深红丝绒墙面、百叶窗粉紫霓虹光、胡桃木大班台、雪茄烟雾、Art Deco 台灯、家族画像，画面下方 40% 留空，无文字",
- "text_desc": "Title「The Forelli Don」Subtitle「He sends others to die for him」, holographic foil typography, English",
- "parameters": {
-  "subjectScale": 1.25,
-  "subjectDepth": 0.45,
-  "backgroundDepth": -0.35,
-  "foil": 1.0
- },
- "safeArea": {
-  "scale": 1.1,
-  "offset": [
-   -0.04,
-   -0.06
-  ]
- },
- "author": "HoloLab Studio",
- "stats": "Vice City Nights · Characters · vc-sonny-forelli",
- "honors": [
-  "The mob boss who sent others to die for him",
-  "Dark red velvet office with pink neon through Venetian blinds",
-  "Pinstripe suit — the classic 1986 Italian-American don"
- ],
- "back_story": "Sonny Forelli ran the Forelli family from Liberty City, and Tommy Vercetti once did his dirty work. Fifteen years later Tommy came back richer and more dangerous than ever — and Sonny, the jealous old don, sent a crew to Vice City to collect what was never his. On the rooftop helipad of the Vercetti Estate, the man who always made others bleed met the end he had coming.",
- "curation": {
-  "zh": "弗雷利家族的教父，汤米·维赛迪曾经的老大。当汤米带着满身财富和危险回到罪恶都市，忌妒的桑尼派人来收账——他习惯让别人流血，最终在维赛迪庄园的屋顶直升坪迎来自己的结局。",
-  "en": "The jealous don who sent a crew to collect from Tommy — and met his end on the Vercetti Estate helipad."
- },
- "render_mode": "premium",
- "foil": {
-  "thickness_nm": 320.0,
-  "ior": 1.5,
-  "grating_period_um": 1.8,
-  "grating_azimuth_deg": 30.0,
-  "roughness": 0.18,
-  "rainbow_gain": 1.0,
-  "base_reflect": 0.85
- },
- "assets": {
-  "subject": "./assets/subject.webp",
-  "background": "./assets/background.webp",
-  "text": "./assets/text.webp",
-  "lineart": "./assets/lineart.webp",
-  "model": "./assets/card.glb"
- },
- "_card_id": "vc-sonny-forelli"
+  "mode": "holographic",
+  "slug": "vc-sonny-forelli",
+  "title": "The Forelli Don",
+  "subtitle": "He sends others to die for him",
+  "technique": "Pinstripe Prism",
+  "tagline": "You'll never be a made man.",
+  "edition": "065 / 009",
+  "collection": "Vice City Nights · Characters",
+  "description": "The Forelli Don — He sends others to die for him. Part of the Vice City Nights character roster, 1986 neon-noir tribute. Premium Optics line: physically simulated holographic foil (6-wavelength thin-film interference + grating).",
+  "style": "1980s Miami noir cartoon, dark red velvet office, mob boss",
+  "prompt": "1980年代迈阿密黑色电影卡通风格，意大利裔黑手党教父桑尼·弗雷利：五十多岁，稀疏灰白后梳发、深陷眼窝沉重眼袋、阴沉冷酷注视、深色细条纹西装三件套、左手夹雪茄、教父站姿，全身像约占画面 65%，无文字",
+  "subject_desc": "1980年代迈阿密黑色电影卡通风格，意大利裔黑手党教父桑尼·弗雷利：五十多岁，稀疏灰白后梳发、深陷眼窝沉重眼袋、阴沉冷酷注视、深色细条纹西装三件套、左手夹雪茄、教父站姿，全身像约占画面 65%，无文字",
+  "background_desc": "1986年罪恶都市黑手党总部办公室：深红丝绒墙面、百叶窗粉紫霓虹光、胡桃木大班台、雪茄烟雾、Art Deco 台灯、家族画像，画面下方 40% 留空，无文字",
+  "text_desc": "Title「The Forelli Don」Subtitle「He sends others to die for him」, holographic foil typography, English",
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.45,
+    "backgroundDepth": -0.35,
+    "foil": 1.0
+  },
+  "safeArea": {
+    "scale": 1.1,
+    "offset": [
+      -0.04,
+      -0.06
+    ]
+  },
+  "author": "HoloLab Studio",
+  "stats": "Vice City Nights · Characters · vc-sonny-forelli",
+  "honors": [
+    "The mob boss who sent others to die for him",
+    "Dark red velvet office with pink neon through Venetian blinds",
+    "Pinstripe suit — the classic 1986 Italian-American don"
+  ],
+  "back_story": "Sonny Forelli ran the Forelli family from Liberty City, and Tommy Vercetti once did his dirty work. Fifteen years later Tommy came back richer and more dangerous than ever — and Sonny, the jealous old don, sent a crew to Vice City to collect what was never his. On the rooftop helipad of the Vercetti Estate, the man who always made others bleed met the end he had coming.",
+  "curation": {
+    "zh": "弗雷利家族的教父，汤米·维赛迪曾经的老大。当汤米带着满身财富和危险回到罪恶都市，忌妒的桑尼派人来收账——他习惯让别人流血，最终在维赛迪庄园的屋顶直升坪迎来自己的结局。",
+    "en": "The jealous don who sent a crew to collect from Tommy — and met his end on the Vercetti Estate helipad."
+  },
+  "render_mode": "premium",
+  "foil": {
+    "thickness_nm": 320.0,
+    "ior": 1.5,
+    "grating_period_um": 1.8,
+    "grating_azimuth_deg": 30.0,
+    "roughness": 0.18,
+    "rainbow_gain": 1.0,
+    "base_reflect": 0.85
+  },
+  "assets": {
+    "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
+    "text": "./assets/text.webp",
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
+  },
+  "_card_id": "vc-sonny-forelli",
+  "language": "en"
 }

@@ -45,5 +45,6 @@
     "lineart": "./assets/lineart.webp",
     "model": "./assets/card.glb"
   },
-  "_card_id": "vc-ricardo-diaz"
+  "_card_id": "vc-ricardo-diaz",
+  "language": "en"
 }

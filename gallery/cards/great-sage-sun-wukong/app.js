@@ -4,6 +4,7 @@ import {EffectComposer} from 'three/addons/postprocessing/EffectComposer.js';
 import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
 import {UnrealBloomPass} from 'three/addons/postprocessing/UnrealBloomPass.js';
 import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
+import {escHtml} from '../../js/utils.mjs';
 
 const stage=document.querySelector('#stage'), loading=document.querySelector('#loading');
 const $=id=>document.getElementById(id);
@@ -109,7 +110,6 @@ function wrapTextSmart(ctx,text,x,y,maxWidth,lineHeight,maxLines){
  }
  if(line&&row<maxLines)ctx.fillText(line,x,y+row*lineHeight);
 }
-function escHtml(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 /* 隐藏解锁：显示锁屏视图，SHA-256 比对后彩蛋并重载进入卡片 */
 async function showLockScreen(cid,lockHash){
  const screen=$('lock-screen');const input=$('lock-input'),err=$('lock-err'),egg=$('lock-egg'),btn=$('lock-yes');
@@ -167,7 +167,11 @@ async function init(){
  for(const [id,key]of Object.entries({'card-title':'title','subtitle':'subtitle','edition':'edition'}))if(config[key]&&$(id))$(id).textContent=config[key];
  for(const [id,key]of Object.entries({'meta-collection':'collection','meta-technique':'technique','meta-date':'date'})){
   const v=config[key];const el=$(id);
-  if(el&&v){el.textContent=String(v);el.closest('div')?.removeAttribute('hidden');}
+  if(el&&v){
+   let label=String(v);
+   if(id==='meta-technique'&&config.render_mode==='premium')label+=' · Premium Optics';
+   el.textContent=label;el.closest('div')?.removeAttribute('hidden');
+  }
  }
  const descEl=$('desc');
  if(descEl&&config.description){

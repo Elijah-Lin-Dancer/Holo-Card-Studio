@@ -4,6 +4,7 @@ import {EffectComposer} from 'three/addons/postprocessing/EffectComposer.js';
 import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
 import {UnrealBloomPass} from 'three/addons/postprocessing/UnrealBloomPass.js';
 import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
+import {escHtml} from '../../js/utils.mjs';
 
 const stage=document.querySelector('#stage'), loading=document.querySelector('#loading');
 const $=id=>document.getElementById(id);
@@ -109,7 +110,6 @@ function wrapTextSmart(ctx,text,x,y,maxWidth,lineHeight,maxLines){
  }
  if(line&&row<maxLines)ctx.fillText(line,x,y+row*lineHeight);
 }
-function escHtml(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 /* 隐藏解锁：显示锁屏视图，SHA-256 比对后彩蛋并重载进入卡片 */
 async function showLockScreen(cid,lockHash){
  const screen=$('lock-screen');const input=$('lock-input'),err=$('lock-err'),egg=$('lock-egg'),btn=$('lock-yes');

@@ -48,5 +48,6 @@
     "lineart": "./assets/lineart.webp",
     "model": "./assets/card.glb"
   },
-  "_card_id": "shang-yachou-yue"
+  "_card_id": "shang-yachou-yue",
+  "language": "zh"
 }

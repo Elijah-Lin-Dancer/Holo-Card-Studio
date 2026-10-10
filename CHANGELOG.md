@@ -9,16 +9,26 @@ this project is pre-1.0.
 ### Added
 - Dual Render Pipeline: `--render-mode standard|premium` — premium runs the physically simulated holographic foil (6-wavelength thin-film interference + grating + CIE) inside the production Blender pipeline via a drop-in node group with the same UV/color/mask interface as the standard artistic foil. Zero changes to the standard line.
 - Premium gallery badge: ✦ 高级光学 / Premium Optics (bilingual, follows site language) on premium cards in grid + timeline; detail pages append a `· Premium Optics` line to the technique row.
-- First premium card: Sonny Forelli — "The Forelli Don" (Vice City Nights · 065/009, technique `Pinstripe Prism`, foil fingerprint 320nm / 1.5 ior / 1.8µm @ 30°), gallery now at 79 cards.
+- First premium card: Sonny Forelli — "The Forelli Don" (Vice City Nights · 065/009, technique `Pinstripe Prism`, foil fingerprint 320nm / 1.5 ior / 1.8µm @ 30°), gallery now at 80 cards.
 - `publish_card.py` now propagates `render_mode` + `foil` fingerprint into `cards.json`.
+- `run_pipeline.py` / `build_card.py`: `--smoke` flag — low-sample / low-resolution / short-frame render pass to verify the four-layer → GLB chain without a full production render.
+- `gallery/js/utils.mjs`: shared `escHtml` pure function (ES module), consumed by both gallery and detail-page scripts.
+- `verify_gallery.py`: emits `gallery/meta.json` (cards / languages counts) as the data source for dynamic README badges.
+- Card metadata: `language` field added to all 80 card-configs (zh / en / es / de / bn / da / pt / no).
 
 ### Changed
+- i18n: deduplicated 22 repeated dictionary keys, fixed 3 tail entries that fell back to Chinese; `sync_i18n.py --check` now passes with zero duplicates and zero Chinese `en` values.
+- `escHtml`: unified to `utils.mjs` in gallery + all 80 detail-page scripts (identical escaping semantics).
+- README badges (EN + zh-CN): Cards count and Languages count now resolve dynamically from `cards.json` / `meta.json` via shields.io.
+- Docs: card count synced to 80 across README / CHANGELOG / WHITEPAPER / REPRODUCE / HOLO-OPTICS.
 - `run_pipeline.py` / `build_card.py`: premium branch shares the entire composite chain (overlay / lineart sweep / edge foil) — only the foil source is swapped.
 - README (EN + zh-CN): documented the dual pipeline, params table, CLI usage.
-
-- Pipeline smoke tests: prompt building, asset validation, preflight gating
-  (no API / Blender required)
+- Pipeline smoke tests: prompt building, asset validation, preflight gating (no API / Blender required)
 - `CONTRIBUTING.md` — submission guide and local development docs
+
+### Changed (quality gates)
+- `gallery-check.yml`: added frontend pure-function tests (node) step.
+- New tests: `tests/test_detail_page_replicas.py` (3), `tests/test_smoke_flag.py` (3), `tests-js/utils.test.mjs` (4).
 
 ## [2026-10-07]
 

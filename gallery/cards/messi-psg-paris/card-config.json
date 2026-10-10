@@ -45,5 +45,6 @@
     "model": "./assets/card.glb"
   },
   "_card_id": "messi-psg-paris",
-  "author": "HoloLab Studio"
+  "author": "HoloLab Studio",
+  "language": "es"
 }

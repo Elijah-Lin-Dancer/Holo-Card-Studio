@@ -43,5 +43,6 @@
     "model": "./assets/card.glb"
   },
   "_card_id": "marco-reus-bvb-kapitain",
-  "author": "HoloLab Studio"
+  "author": "HoloLab Studio",
+  "language": "de"
 }

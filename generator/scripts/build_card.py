@@ -21,6 +21,11 @@ scene.render.film_transparent=False
 scene.view_settings.view_transform='AgX'
 scene.view_settings.look='AgX - Medium High Contrast'
 scene.render.fps=24; scene.frame_start=1; scene.frame_end=96
+# 快速冒烟模式（--smoke）：低采样/小分辨率/少帧，仅验证四层+GLB 链路不崩，产物不作正式卡
+if '--smoke' in args:
+    scene.cycles.samples=8
+    scene.render.resolution_x=360; scene.render.resolution_y=500; scene.render.resolution_percentage=100
+    scene.frame_end=12
 world=bpy.data.worlds.new('深靛摄影棚'); scene.world=world; world.use_nodes=True
 world.node_tree.nodes['Background'].inputs['Color'].default_value=(.045,.065,.10,1)
 world.node_tree.nodes['Background'].inputs['Strength'].default_value=.4

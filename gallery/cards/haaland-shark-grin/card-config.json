@@ -44,5 +44,6 @@
     "lineart": "./assets/lineart.webp",
     "model": "./assets/card.glb"
   },
-  "_card_id": "haaland-shark-grin"
+  "_card_id": "haaland-shark-grin",
+  "language": "en"
 }

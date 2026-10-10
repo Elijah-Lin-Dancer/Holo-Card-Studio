@@ -50,5 +50,6 @@
     "lineart": "./assets/lineart.webp",
     "model": "./assets/card.glb"
   },
-  "_card_id": "vc-neon-1986"
+  "_card_id": "vc-neon-1986",
+  "language": "en"
 }

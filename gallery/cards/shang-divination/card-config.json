@@ -48,5 +48,6 @@
     "lineart": "./assets/lineart.webp",
     "model": "./assets/card.glb"
   },
-  "_card_id": "shang-divination"
+  "_card_id": "shang-divination",
+  "language": "zh"
 }

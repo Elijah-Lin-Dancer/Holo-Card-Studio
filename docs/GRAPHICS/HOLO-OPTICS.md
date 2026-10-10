@@ -2,7 +2,7 @@
 
 > 状态：RFC 阶段（A-1）· 主线 ① 的单一事实来源
 > 用途：Blender（Cycles OSL）与详情页 GLSL **共用同一套光学数学**；参数入 `card-config.json` 的 `foil` 块，每卡一组 = 独有光学指纹。
-> 阅读对象：面试官 / 协作者 / 未来维护者。公式可直接复现。
+> 读者：协作者 / 维护者 / 未来贡献者。公式可直接复现。
 
 ---
 
@@ -195,7 +195,7 @@ C = Σ_λ  [ F0·D·G · ( (1-w_grating)·spec[λ] + w_grating·rainbow[λ] ) ] 
 
 ### 6.3 回归
 
-- 现有 78 卡详情页视觉基线截图存档；替换 foil 后抽查 5 卡无断裂/过曝；
+- 现有 80 卡详情页视觉基线截图存档；替换 foil 后抽查 5 卡无断裂/过曝；
 - pytest 增加 `test_foil_params_schema`（card-config foil 字段校验）+ `test_foil_lut_bounds`。
 
 ---

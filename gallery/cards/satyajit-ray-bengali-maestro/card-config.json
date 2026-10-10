@@ -45,5 +45,6 @@
     "model": "./assets/card.glb"
   },
   "_card_id": "satyajit-ray-bengali-maestro",
-  "author": "HoloLab Studio"
+  "author": "HoloLab Studio",
+  "language": "bn"
 }

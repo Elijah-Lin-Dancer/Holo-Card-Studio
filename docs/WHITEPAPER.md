@@ -36,7 +36,7 @@ The author's contribution is to close exactly that gap. HoloLab replaces the man
 
 ### 演进与量化（Evolution in Numbers）
 
-The evolution from fork to standalone work is measurable. Performance work on the asset chain took per-card weight from **47 MB to 14 MB** (WebP compression per layer plus GLB mesh/materials slimming), which is what keeps the 77-card hall loadable on mobile. Repository hygiene (dropping stale big-file references) took `.git` from **996 MB to 124 MB** in one `git gc`. Quality gates grew from zero tests to **28 pytest checks plus a 77-card gallery health check** running on every push. The hall now holds **77 cards across 11 series in 8 languages** — content and tooling that did not exist upstream. None of these numbers are decorative: each one maps to a user-visible outcome (first-screen load, repeatable runs, cards that do not break, an audience that speaks eight languages).
+The evolution from fork to standalone work is measurable. Performance work on the asset chain took per-card weight from **47 MB to 14 MB** (WebP compression per layer plus GLB mesh/materials slimming), which is what keeps the 80-card hall loadable on mobile. Repository hygiene (dropping stale big-file references) took `.git` from **996 MB to 124 MB** in one `git gc`. Quality gates grew from zero tests to **28 pytest checks plus an 80-card gallery health check** running on every push. The hall now holds **80 cards across 11 series in 8 languages** — content and tooling that did not exist upstream. None of these numbers are decorative: each one maps to a user-visible outcome (first-screen load, repeatable runs, cards that do not break, an audience that speaks eight languages).
 
 ## 四、问题定义
 
@@ -99,7 +99,7 @@ A complete publish flows through five stages. First, `card-config.json` is read 
 
 ## 五、可审计性
 
-Auditability is a first-class property. Every card keeps its work directory with raw AI outputs and matting results, plus a `verification.json` recording the Blender version, device, materials, and parameters. The publishing script is idempotent, so re-publishing removes the old archive and deduplicates the manifest. API keys live in a `.env` file excluded by `.gitignore`, so the public repository contains no secrets. Any reviewer can walk from a card on the website back to the configuration, code, and artifacts that produced it. The three originally planned steps — asset compression, rotating previews, and gallery classification — are all **shipped** (see Chapter 8); the collection has since grown to 77 cards and a public submission pipeline.
+Auditability is a first-class property. Every card keeps its work directory with raw AI outputs and matting results, plus a `verification.json` recording the Blender version, device, materials, and parameters. The publishing script is idempotent, so re-publishing removes the old archive and deduplicates the manifest. API keys live in a `.env` file excluded by `.gitignore`, so the public repository contains no secrets. Any reviewer can walk from a card on the website back to the configuration, code, and artifacts that produced it. The three originally planned steps — asset compression, rotating previews, and gallery classification — are all **shipped** (see Chapter 8); the collection has since grown to 80 cards and a public submission pipeline.
 
 
 # 第四章 AI 生成管线（AI Generation Pipeline）
@@ -237,7 +237,7 @@ The project documents its limitations explicitly rather than presenting an ideal
 
 ## 二、路线图
 
-The original roadmap — asset compression, rotating previews, gallery classification, and one-sentence-to-card mode — has all shipped: publish-time compression keeps archived cards small; every card gets a Blender-rendered `preview.webm`; the gallery gained bilingual filter chips and a curated timeline; and the Create studio plus the issue-driven submission pipeline turn a single sentence into a published card. What remains open is the natural growth of the project: keep shipping cards (the collection is now 77 cards across multiple languages and counting), harden the concurrent render workflow (push-retry and auto-deploy are already in place), and keep the public submission pipeline as the way anyone's idea becomes a permanent card. The lenticular dual-image mode from the upstream project remains a possible future extension.
+The original roadmap — asset compression, rotating previews, gallery classification, and one-sentence-to-card mode — has all shipped: publish-time compression keeps archived cards small; every card gets a Blender-rendered `preview.webm`; the gallery gained bilingual filter chips and a curated timeline; and the Create studio plus the issue-driven submission pipeline turn a single sentence into a published card. What remains open is the natural growth of the project: keep shipping cards (the collection is now 80 cards across multiple languages and counting), harden the concurrent render workflow (push-retry and auto-deploy are already in place), and keep the public submission pipeline as the way anyone's idea becomes a permanent card. The lenticular dual-image mode from the upstream project remains a possible future extension.
 
 ## 三、作者的贡献界定
 

@@ -45,5 +45,6 @@
     "lineart": "./assets/lineart.webp",
     "model": "./assets/card.glb"
   },
-  "_card_id": "vc-auntie-poulet"
+  "_card_id": "vc-auntie-poulet",
+  "language": "en"
 }

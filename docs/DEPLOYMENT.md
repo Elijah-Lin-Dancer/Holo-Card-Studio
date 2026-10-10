@@ -15,7 +15,7 @@ Pages 免费托管，任何人打开链接就能浏览和玩卡。
 ### 1. 在 GitHub 新建仓库
 
 - 仓库名建议：`holo-lab`（或你喜欢的名字，比如 `holo-card-gallery`）
-- 设为 **Public**（作品集必须公开，招生官/面试官才能打开）
+- 设为 **Public**（公开仓库才能让 GitHub Pages 免费托管，访客无需任何账号即可打开）
 - 不要勾选 "Add a README"（避免初始提交冲突）
 
 ### 2. 推送 gallery 到仓库

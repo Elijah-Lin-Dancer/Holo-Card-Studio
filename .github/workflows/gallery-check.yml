@@ -21,6 +21,9 @@ jobs:
       - name: Pipeline unit tests
         run: pytest generator/tests -q
 
+      - name: Frontend pure-function tests (node)
+        run: node --test generator/tests-js/utils.test.mjs
+
       - name: Gallery health check
         run: python3 generator/scripts/verify_gallery.py
 

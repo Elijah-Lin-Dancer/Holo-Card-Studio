@@ -43,5 +43,6 @@
     "model": "./assets/card.glb"
   },
   "_card_id": "marco-reus-la-galaxy-neue-horizonte",
-  "author": "HoloLab Studio"
+  "author": "HoloLab Studio",
+  "language": "de"
 }

@@ -68,6 +68,22 @@ def main() -> int:
             print("  -", e)
         return 1
     print("PASS: 清单一致 · 资源完整 · vendor 在位")
+
+    # —— 生成 gallery/meta.json（README 动态徽章数据源：卡数 / 语言数）——
+    try:
+        langs = set()
+        for c in cards:
+            cfg_path = GALLERY / "cards" / c["id"] / "card-config.json"
+            if cfg_path.exists():
+                cfg = json.loads(cfg_path.read_text(encoding="utf-8"))
+                if cfg.get("language"):
+                    langs.add(cfg["language"])
+        meta = {"cards": len(cards), "languages": len(langs)}
+        (GALLERY / "meta.json").write_text(
+            json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"meta.json: {meta}")
+    except Exception as e:
+        print(f"  [warn] meta.json 生成失败（不影响校验结果）: {e}")
     return 0
 
 

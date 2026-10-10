@@ -48,5 +48,6 @@
     "lineart": "./assets/lineart.webp",
     "model": "./assets/card.glb"
   },
-  "_card_id": "shang-four-ram-zun"
+  "_card_id": "shang-four-ram-zun",
+  "language": "zh"
 }
