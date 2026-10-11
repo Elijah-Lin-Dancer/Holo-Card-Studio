@@ -1,6 +1,6 @@
 # Contributing to HoloLab Studio
 
-Thanks for wanting to help! This project is a portfolio piece and an open
+Thanks for wanting to help! This project is an open
 gallery: anyone can turn **one sentence into a permanent 3D holographic card**
 in the public exhibition hall. There are two ways to contribute — submit a
 card, or improve the code.

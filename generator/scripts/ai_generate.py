@@ -3,7 +3,7 @@
 HoloLab Studio · ai_generate.py
 豆包 Seedream 分层画图：把一句描述（或一张参考图）变成一张全息卡需要的四层素材。
 
-分层策略（作品集亮点）：
+分层策略（设计要点）：
   1. subject.png    主体层  —— Seedream 生成主体构图 → rembg 抠图出真实透明 alpha
   2. background.png 背景层  —— Seedream 独立生成环境空镜（同风格，中下部安静留白）
   3. lineart.png    线稿层  —— OpenCV 从主体 alpha+彩色边缘程序化提取，保证像素级注册
