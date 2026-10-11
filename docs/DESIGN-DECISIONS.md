@@ -66,7 +66,7 @@ ceiling. That is not a scaling problem — it is an invitation to abuse.
 
 Every card in this gallery is intentional: a chosen subject, a deliberate
 language, a designed punchline. An open firehose would drown the collection in
-noise and destroy the "curated portfolio" character of the project.
+noise and destroy the "curated collection" character of the project.
 
 ### 3.4 Architecture simplicity
 

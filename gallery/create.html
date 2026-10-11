@@ -213,7 +213,7 @@
       <h3 data-i18n="cr_mine">我的卡（私人）</h3>
       <p class="mc-empty" id="mc-empty" data-i18n="cr_empty">还没有私人卡。保存的创意只存在你的浏览器里，别人看不到。</p>
       <ul id="mc-list"></ul>
-      <p class="mc-note" data-i18n="cr_pub_note">公开申请会导出卡片包文件。把文件发给 HoloLab 助手，进入策展管线：审核 + 正式渲染后，永久上线公开展厅。</p>
+      <p class="mc-note" data-i18n="cr_pub_note">公开投稿会导出卡片包文件。把文件发给 HoloLab 助手，进入策展管线：审核 + 正式渲染后，永久上线公开展厅。</p>
     </div>
   </section>
 
@@ -536,7 +536,7 @@ python3 generator/scripts/one_shot_card.py "<span id="cmdq">…</span>"</div>
     detail.value = buildDesc(text, detectLang(text));
   });
 
-  /* ===== 我的卡（私人存储）+ 公开申请 ===== */
+  /* ===== 我的卡（私人存储）+ 公开投稿 ===== */
   var STORE_KEY = 'hololab_mycards';
   var saveBtn = document.getElementById('save-card');
   var myCards = document.getElementById('my-cards');
