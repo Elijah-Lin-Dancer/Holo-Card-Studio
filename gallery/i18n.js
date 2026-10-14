@@ -248,6 +248,14 @@
     '殷墟': { zh: '殷墟', en: 'Yin Xu Ruins' },
     '玄鸟': { zh: '玄鸟', en: 'Dark Bird' },
     'GTA': { zh: 'GTA', en: 'GTA' },
+    '新疆': { zh: '新疆', en: 'Xinjiang' },
+    '旅行风物': { zh: '旅行风物', en: 'Travel' },
+    '晨雾': { zh: '晨雾', en: 'Morning Mist' },
+    '村落': { zh: '村落', en: 'Village' },
+    '湖泊': { zh: '湖泊', en: 'Lake' },
+    '秋天': { zh: '秋天', en: 'Autumn' },
+    '自然': { zh: '自然', en: 'Nature' },
+    '雪山': { zh: '雪山', en: 'Snow Mountain' },
     // 卡面占位
     mc_tag:          { zh: 'HOLOGRAPHIC COLLECTION', en: 'HOLOGRAPHIC COLLECTION' }
   };
