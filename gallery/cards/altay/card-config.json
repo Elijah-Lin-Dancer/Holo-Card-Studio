@@ -49,10 +49,11 @@
     "晨雾"
   ],
   "assets": {
-    "background": "./assets/background.webp",
     "subject": "./assets/subject.webp",
+    "background": "./assets/background.webp",
     "text": "./assets/text.webp",
-    "lineart": "./assets/lineart.webp"
+    "lineart": "./assets/lineart.webp",
+    "model": "./assets/card.glb"
   },
   "_card_id": "altay"
 }
