@@ -94,7 +94,12 @@ else:
     link(f,plus,0,ramp,0); link(f,ramp,0,fo,'全息颜色')
     mask=node(f,'ShaderNodeValToRGB','窄条纹发光遮罩',370,-80); mask.color_ramp.elements[0].position=.76; mask.color_ramp.elements[1].position=.94; link(f,wave,'Fac',mask,0); link(f,mask,0,fo,'条纹遮罩')
 # Loaded images are kept separate and packed for portable blend.
-images={k:bpy.data.images.load(str(R/'assets'/v),check_existing=True) for k,v in {'subject':'subject.png','text':'text.png','background':'background.png','lineart':'lineart.png'}.items()}
+# 背景优先用深度景深烘焙版（assets/background_atm.png）；缺失或传 --skip-ai 时回退原图。
+_ATM = R/'assets'/'background_atm.png'
+_bg_file = 'background_atm.png' if (_ATM.exists() and '--skip-ai' not in args) else 'background.png'
+if _bg_file == 'background.png' and _ATM.exists() and '--skip-ai' in args:
+    print('[build_card] --skip-ai：使用原背景，跳过景深烘焙')
+images={k:bpy.data.images.load(str(R/'assets'/v),check_existing=True) for k,v in {'subject':'subject.png','text':'text.png','background':_bg_file,'lineart':'lineart.png'}.items()}
 images['lineart'].colorspace_settings.name='Non-Color'
 def material(name):
     m=bpy.data.materials.new(name); m.use_nodes=True; m.node_tree.nodes.clear(); return m,m.node_tree

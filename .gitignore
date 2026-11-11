@@ -52,3 +52,6 @@ generator/projects/occlusion_summary.json
 
 # 主观实验的二进制材料（由脚本重新生成，不入库）
 research/depth-study/subject-study/
+
+# 深度景深烘焙产物（可重新生成，不入库）
+generator/projects/*/assets/background_atm.png
