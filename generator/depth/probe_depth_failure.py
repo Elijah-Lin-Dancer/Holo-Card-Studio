@@ -95,6 +95,9 @@ def compute(proj, sess, estimate):
     if footprint.sum() < 1000:
         return None
     d_s = float(np.median(depth[footprint]))
+    # 主体足迹内部的真实纵深跨度：若主体不是平面，中位数只是一个折点
+    d_p10, d_p90 = (float(v) for v in np.percentile(depth[footprint], [10, 90]))
+    spread = d_p90 - d_p10
     raw_fg = depth > (d_s + 0.15)
     fg = clean_mask(raw_fg, 9)
     occ = float(((fg > 0.5) & footprint).sum() / footprint.sum()) * 100.0
@@ -115,6 +118,9 @@ def compute(proj, sess, estimate):
         "flat_frac": round(float(flat.mean()), 3),
         "region_frac": round(float(R.mean()), 3),
         "d_s": round(d_s, 4),
+        "spread": round(spread, 4),
+        "d_p10": round(d_p10, 4),
+        "d_p90": round(d_p90, 4),
         "OCC": round(occ, 2),
         "bg_sharp": round(bg_sharp, 2),
         "sub_sharp": round(sub_sharp, 2),

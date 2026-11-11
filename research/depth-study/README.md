@@ -10,9 +10,9 @@
 
 | 文件 | 内容 |
 |---|---|
-| `data/depth_failure_probe.json` | 62 张卡的深度探针指标（纹理假说各代理量、误裁率、纵深跨度） |
-| `data/occlusion_ablation.json` | 62 张 × 30 组配置（5 估计器 × 6 阈值）的消融结果 |
-| `data/atmosphere_batch.json` | 62 张卡的大气合成景深效果（σ=12 / 30 两档，SR / BVR / far_mean） |
+| `data/depth_failure_probe.json` | 64 张卡的深度探针指标（含 `spread` 纵深跨度）（纹理假说各代理量、误裁率、纵深跨度） |
+| `data/occlusion_ablation.json` | 64 张 × 30 组配置（5 估计器 × 6 阈值）的消融结果 |
+| `data/atmosphere_batch.json` | 64 张卡的大气合成景深效果（σ=12 / 30 两档，SR / BVR / far_mean） |
 
 均为文本，可直接阅读。`.csv` 为同源表格版本。
 
