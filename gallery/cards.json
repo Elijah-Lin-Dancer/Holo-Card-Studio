@@ -1,6 +1,25 @@
 {
   "cards": [
     {
+      "id": "shang-wu-ding-depth",
+      "title": "武丁 · 景深重制",
+      "subtitle": "商之中兴 · 梦得傅说",
+      "technique": "Divination-Seal-Carving",
+      "tagline": "同一构图的深度景深重制：远景区按估测深度渐进虚化，主体保持锐利。",
+      "edition": "002 / 014",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "武丁，商朝第二十三任君主，在位约五十九年，励精图治，任用傅说、妇好，征伐四方，史称'武丁中兴'，使商朝达到鼎盛。相传他即位后三年不语、以观国是，夜梦圣人，得傅说于版筑之间。武丁时期甲骨文最为繁盛，留下大量占卜记录，是商代文明的黄金时代。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "殷商",
+        "深度景深"
+      ],
+      "url": "cards/shang-wu-ding-depth/",
+      "thumb": "cards/shang-wu-ding-depth/thumb.jpg",
+      "date": "2026-11-11",
+      "preview": "cards/shang-wu-ding-depth/preview.webm"
+    },
+    {
       "id": "altay",
       "title": "阿勒泰",
       "subtitle": "神的后花园",

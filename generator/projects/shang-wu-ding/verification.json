@@ -2,7 +2,7 @@
   "blender": "4.5.14 LTS",
   "language": "zh_HANS",
   "interface_translation": true,
-  "config": "/sandboxdata/workspace/file/holo-lab/generator/projects/shang-wu-ding/tools/blender-config",
+  "config": "/home/user/.config/blender/4.5/config",
   "render_engine": "CYCLES",
   "device": "CPU",
   "images": {
