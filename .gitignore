@@ -40,3 +40,15 @@ generator/projects/_preview/
 generator/projects/*/card.blend1
 # QA 门禁运行报告（不入库）
 generator/projects/*/qa_reports/
+
+# 深度模型权重（外部下载，不入库）
+generator/depth/models/
+
+# 深度实验的中间产物（可重新生成，不入库）
+generator/projects/*/occlusion/
+generator/projects/*/atmosphere/
+generator/projects/*/depth/
+generator/projects/occlusion_summary.json
+
+# 主观实验的二进制材料（由脚本重新生成，不入库）
+research/depth-study/subject-study/

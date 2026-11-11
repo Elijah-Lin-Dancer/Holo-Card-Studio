@@ -1,0 +1,1242 @@
+[
+  {
+    "project": "altay",
+    "far_mean": 0.3941,
+    "far_p95": 1.0,
+    "S_sub": 67.7,
+    "S_bg_before": 18.66,
+    "SR_before": 3.63,
+    "sigma": {
+      "12": {
+        "S_bg": 12.14,
+        "SR": 5.58,
+        "BVR": 0.651
+      },
+      "30": {
+        "S_bg": 11.89,
+        "SR": 5.69,
+        "BVR": 0.637
+      }
+    }
+  },
+  {
+    "project": "eletrico-28-lisboa",
+    "far_mean": 0.3461,
+    "far_p95": 1.0,
+    "S_sub": 137.9,
+    "S_bg_before": 115.92,
+    "SR_before": 1.19,
+    "sigma": {
+      "12": {
+        "S_bg": 105.36,
+        "SR": 1.31,
+        "BVR": 0.909
+      },
+      "30": {
+        "S_bg": 104.13,
+        "SR": 1.32,
+        "BVR": 0.898
+      }
+    }
+  },
+  {
+    "project": "haaland-bun-haartie",
+    "far_mean": 0.6307,
+    "far_p95": 0.9525,
+    "S_sub": 30.89,
+    "S_bg_before": 7.66,
+    "SR_before": 4.03,
+    "sigma": {
+      "12": {
+        "S_bg": 2.7,
+        "SR": 11.44,
+        "BVR": 0.353
+      },
+      "30": {
+        "S_bg": 2.43,
+        "SR": 12.72,
+        "BVR": 0.317
+      }
+    }
+  },
+  {
+    "project": "haaland-chongqing-metro",
+    "far_mean": 0.2971,
+    "far_p95": 1.0,
+    "S_sub": 48.46,
+    "S_bg_before": 53.93,
+    "SR_before": 0.9,
+    "sigma": {
+      "12": {
+        "S_bg": 32.93,
+        "SR": 1.47,
+        "BVR": 0.611
+      },
+      "30": {
+        "S_bg": 27.9,
+        "SR": 1.74,
+        "BVR": 0.517
+      }
+    }
+  },
+  {
+    "project": "haaland-eat-kid",
+    "far_mean": 0.5726,
+    "far_p95": 1.0,
+    "S_sub": 31.81,
+    "S_bg_before": 36.63,
+    "SR_before": 0.87,
+    "sigma": {
+      "12": {
+        "S_bg": 21.78,
+        "SR": 1.46,
+        "BVR": 0.595
+      },
+      "30": {
+        "S_bg": 21.36,
+        "SR": 1.49,
+        "BVR": 0.583
+      }
+    }
+  },
+  {
+    "project": "haaland-goalie-water",
+    "far_mean": 0.3289,
+    "far_p95": 0.9853,
+    "S_sub": 39.07,
+    "S_bg_before": 69.62,
+    "SR_before": 0.56,
+    "sigma": {
+      "12": {
+        "S_bg": 36.13,
+        "SR": 1.08,
+        "BVR": 0.519
+      },
+      "30": {
+        "S_bg": 33.56,
+        "SR": 1.16,
+        "BVR": 0.482
+      }
+    }
+  },
+  {
+    "project": "haaland-machine-robot",
+    "far_mean": 0.5282,
+    "far_p95": 0.9699,
+    "S_sub": 60.43,
+    "S_bg_before": 68.56,
+    "SR_before": 0.88,
+    "sigma": {
+      "12": {
+        "S_bg": 20.88,
+        "SR": 2.89,
+        "BVR": 0.305
+      },
+      "30": {
+        "S_bg": 14.41,
+        "SR": 4.19,
+        "BVR": 0.21
+      }
+    }
+  },
+  {
+    "project": "haaland-magdeburg",
+    "far_mean": 0.2211,
+    "far_p95": 0.7204,
+    "S_sub": 63.16,
+    "S_bg_before": 54.85,
+    "SR_before": 1.15,
+    "sigma": {
+      "12": {
+        "S_bg": 35.84,
+        "SR": 1.76,
+        "BVR": 0.653
+      },
+      "30": {
+        "S_bg": 31.97,
+        "SR": 1.98,
+        "BVR": 0.583
+      }
+    }
+  },
+  {
+    "project": "haaland-majin-buu",
+    "far_mean": 0.2987,
+    "far_p95": 0.8361,
+    "S_sub": 61.4,
+    "S_bg_before": 85.62,
+    "SR_before": 0.72,
+    "sigma": {
+      "12": {
+        "S_bg": 83.23,
+        "SR": 0.74,
+        "BVR": 0.972
+      },
+      "30": {
+        "S_bg": 83.07,
+        "SR": 0.74,
+        "BVR": 0.97
+      }
+    }
+  },
+  {
+    "project": "haaland-meditation",
+    "far_mean": 0.7136,
+    "far_p95": 1.0,
+    "S_sub": 40.02,
+    "S_bg_before": 92.42,
+    "SR_before": 0.43,
+    "sigma": {
+      "12": {
+        "S_bg": 24.62,
+        "SR": 1.63,
+        "BVR": 0.266
+      },
+      "30": {
+        "S_bg": 23.6,
+        "SR": 1.7,
+        "BVR": 0.255
+      }
+    }
+  },
+  {
+    "project": "haaland-moskau-anthem",
+    "far_mean": 0.2895,
+    "far_p95": 0.9036,
+    "S_sub": 57.47,
+    "S_bg_before": 41.64,
+    "SR_before": 1.38,
+    "sigma": {
+      "12": {
+        "S_bg": 31.89,
+        "SR": 1.8,
+        "BVR": 0.766
+      },
+      "30": {
+        "S_bg": 31.32,
+        "SR": 1.83,
+        "BVR": 0.752
+      }
+    }
+  },
+  {
+    "project": "haaland-raccoon",
+    "far_mean": 0.3774,
+    "far_p95": 1.0,
+    "S_sub": 47.36,
+    "S_bg_before": 31.8,
+    "SR_before": 1.49,
+    "sigma": {
+      "12": {
+        "S_bg": 10.07,
+        "SR": 4.7,
+        "BVR": 0.317
+      },
+      "30": {
+        "S_bg": 9.6,
+        "SR": 4.93,
+        "BVR": 0.302
+      }
+    }
+  },
+  {
+    "project": "haaland-scallion",
+    "far_mean": 0.1545,
+    "far_p95": 0.9999,
+    "S_sub": 44.11,
+    "S_bg_before": 48.33,
+    "SR_before": 0.91,
+    "sigma": {
+      "12": {
+        "S_bg": 26.42,
+        "SR": 1.67,
+        "BVR": 0.547
+      },
+      "30": {
+        "S_bg": 24.14,
+        "SR": 1.83,
+        "BVR": 0.5
+      }
+    }
+  },
+  {
+    "project": "haaland-shark-grin",
+    "far_mean": 0.2768,
+    "far_p95": 0.6733,
+    "S_sub": 25.57,
+    "S_bg_before": 29.1,
+    "SR_before": 0.88,
+    "sigma": {
+      "12": {
+        "S_bg": 21.0,
+        "SR": 1.22,
+        "BVR": 0.722
+      },
+      "30": {
+        "S_bg": 18.26,
+        "SR": 1.4,
+        "BVR": 0.628
+      }
+    }
+  },
+  {
+    "project": "haaland-tom-cat",
+    "far_mean": 0.4586,
+    "far_p95": 0.8756,
+    "S_sub": 28.13,
+    "S_bg_before": 40.26,
+    "SR_before": 0.7,
+    "sigma": {
+      "12": {
+        "S_bg": 19.69,
+        "SR": 1.43,
+        "BVR": 0.489
+      },
+      "30": {
+        "S_bg": 19.33,
+        "SR": 1.46,
+        "BVR": 0.48
+      }
+    }
+  },
+  {
+    "project": "haaland-viking-kriger",
+    "far_mean": 0.5199,
+    "far_p95": 1.0,
+    "S_sub": 45.1,
+    "S_bg_before": 60.09,
+    "SR_before": 0.75,
+    "sigma": {
+      "12": {
+        "S_bg": 49.88,
+        "SR": 0.9,
+        "BVR": 0.83
+      },
+      "30": {
+        "S_bg": 49.64,
+        "SR": 0.91,
+        "BVR": 0.826
+      }
+    }
+  },
+  {
+    "project": "haaland-wanglaoji",
+    "far_mean": 0.7011,
+    "far_p95": 0.9598,
+    "S_sub": 32.84,
+    "S_bg_before": 79.02,
+    "SR_before": 0.42,
+    "sigma": {
+      "12": {
+        "S_bg": 4.96,
+        "SR": 6.62,
+        "BVR": 0.063
+      },
+      "30": {
+        "S_bg": 4.55,
+        "SR": 7.22,
+        "BVR": 0.058
+      }
+    }
+  },
+  {
+    "project": "kenji-kishimoto",
+    "far_mean": 0.4109,
+    "far_p95": 1.0,
+    "S_sub": 43.69,
+    "S_bg_before": 55.44,
+    "SR_before": 0.79,
+    "sigma": {
+      "12": {
+        "S_bg": 25.9,
+        "SR": 1.69,
+        "BVR": 0.467
+      },
+      "30": {
+        "S_bg": 22.8,
+        "SR": 1.92,
+        "BVR": 0.411
+      }
+    }
+  },
+  {
+    "project": "pouch-invader",
+    "far_mean": 0.6228,
+    "far_p95": 1.0,
+    "S_sub": 21.91,
+    "S_bg_before": 73.12,
+    "SR_before": 0.3,
+    "sigma": {
+      "12": {
+        "S_bg": 31.17,
+        "SR": 0.7,
+        "BVR": 0.426
+      },
+      "30": {
+        "S_bg": 29.35,
+        "SR": 0.75,
+        "BVR": 0.401
+      }
+    }
+  },
+  {
+    "project": "sayram-lake",
+    "far_mean": 0.5774,
+    "far_p95": 1.0,
+    "S_sub": 40.07,
+    "S_bg_before": 13.27,
+    "SR_before": 3.02,
+    "sigma": {
+      "12": {
+        "S_bg": 10.07,
+        "SR": 3.98,
+        "BVR": 0.759
+      },
+      "30": {
+        "S_bg": 9.97,
+        "SR": 4.02,
+        "BVR": 0.751
+      }
+    }
+  },
+  {
+    "project": "shang-bi-gan",
+    "far_mean": 0.0941,
+    "far_p95": 0.5766,
+    "S_sub": 43.93,
+    "S_bg_before": 26.81,
+    "SR_before": 1.64,
+    "sigma": {
+      "12": {
+        "S_bg": 25.08,
+        "SR": 1.75,
+        "BVR": 0.935
+      },
+      "30": {
+        "S_bg": 24.34,
+        "SR": 1.8,
+        "BVR": 0.908
+      }
+    }
+  },
+  {
+    "project": "shang-chariot",
+    "far_mean": 0.2334,
+    "far_p95": 1.0,
+    "S_sub": 35.79,
+    "S_bg_before": 80.09,
+    "SR_before": 0.45,
+    "sigma": {
+      "12": {
+        "S_bg": 72.44,
+        "SR": 0.49,
+        "BVR": 0.905
+      },
+      "30": {
+        "S_bg": 71.73,
+        "SR": 0.5,
+        "BVR": 0.896
+      }
+    }
+  },
+  {
+    "project": "shang-cowrie",
+    "far_mean": 0.0839,
+    "far_p95": 0.4968,
+    "S_sub": 22.92,
+    "S_bg_before": 24.11,
+    "SR_before": 0.95,
+    "sigma": {
+      "12": {
+        "S_bg": 22.47,
+        "SR": 1.02,
+        "BVR": 0.932
+      },
+      "30": {
+        "S_bg": 22.26,
+        "SR": 1.03,
+        "BVR": 0.923
+      }
+    }
+  },
+  {
+    "project": "shang-dark-bird",
+    "far_mean": 0.2355,
+    "far_p95": 0.8719,
+    "S_sub": 23.25,
+    "S_bg_before": 47.43,
+    "SR_before": 0.49,
+    "sigma": {
+      "12": {
+        "S_bg": 34.22,
+        "SR": 0.68,
+        "BVR": 0.722
+      },
+      "30": {
+        "S_bg": 33.93,
+        "SR": 0.69,
+        "BVR": 0.715
+      }
+    }
+  },
+  {
+    "project": "shang-divination",
+    "far_mean": 0.3629,
+    "far_p95": 0.874,
+    "S_sub": 23.69,
+    "S_bg_before": 14.05,
+    "SR_before": 1.69,
+    "sigma": {
+      "12": {
+        "S_bg": 13.18,
+        "SR": 1.8,
+        "BVR": 0.938
+      },
+      "30": {
+        "S_bg": 13.14,
+        "SR": 1.8,
+        "BVR": 0.935
+      }
+    }
+  },
+  {
+    "project": "shang-dragon-tiger-zun",
+    "far_mean": 0.1871,
+    "far_p95": 0.7314,
+    "S_sub": 29.17,
+    "S_bg_before": 16.06,
+    "SR_before": 1.82,
+    "sigma": {
+      "12": {
+        "S_bg": 13.26,
+        "SR": 2.2,
+        "BVR": 0.825
+      },
+      "30": {
+        "S_bg": 13.18,
+        "SR": 2.21,
+        "BVR": 0.82
+      }
+    }
+  },
+  {
+    "project": "shang-four-ram-zun",
+    "far_mean": 0.0746,
+    "far_p95": 0.6558,
+    "S_sub": 38.71,
+    "S_bg_before": 17.45,
+    "SR_before": 2.22,
+    "sigma": {
+      "12": {
+        "S_bg": 8.82,
+        "SR": 4.39,
+        "BVR": 0.506
+      },
+      "30": {
+        "S_bg": 8.57,
+        "SR": 4.52,
+        "BVR": 0.491
+      }
+    }
+  },
+  {
+    "project": "shang-fu-hao",
+    "far_mean": 0.0963,
+    "far_p95": 0.7422,
+    "S_sub": 45.75,
+    "S_bg_before": 72.02,
+    "SR_before": 0.64,
+    "sigma": {
+      "12": {
+        "S_bg": 72.0,
+        "SR": 0.64,
+        "BVR": 1.0
+      },
+      "30": {
+        "S_bg": 72.0,
+        "SR": 0.64,
+        "BVR": 1.0
+      }
+    }
+  },
+  {
+    "project": "shang-fuhao-jade",
+    "far_mean": 0.4347,
+    "far_p95": 0.889,
+    "S_sub": 22.95,
+    "S_bg_before": 17.86,
+    "SR_before": 1.29,
+    "sigma": {
+      "12": {
+        "S_bg": 15.76,
+        "SR": 1.46,
+        "BVR": 0.883
+      },
+      "30": {
+        "S_bg": 15.77,
+        "SR": 1.46,
+        "BVR": 0.883
+      }
+    }
+  },
+  {
+    "project": "shang-fuhao-owl-zun",
+    "far_mean": 0.3857,
+    "far_p95": 0.8782,
+    "S_sub": 31.23,
+    "S_bg_before": 10.97,
+    "SR_before": 2.85,
+    "sigma": {
+      "12": {
+        "S_bg": 8.09,
+        "SR": 3.86,
+        "BVR": 0.737
+      },
+      "30": {
+        "S_bg": 7.99,
+        "SR": 3.91,
+        "BVR": 0.728
+      }
+    }
+  },
+  {
+    "project": "shang-fuhao-yue",
+    "far_mean": 0.1528,
+    "far_p95": 0.666,
+    "S_sub": 39.53,
+    "S_bg_before": 14.9,
+    "SR_before": 2.65,
+    "sigma": {
+      "12": {
+        "S_bg": 13.19,
+        "SR": 3.0,
+        "BVR": 0.885
+      },
+      "30": {
+        "S_bg": 13.09,
+        "SR": 3.02,
+        "BVR": 0.878
+      }
+    }
+  },
+  {
+    "project": "shang-ganzhi",
+    "far_mean": 0.2267,
+    "far_p95": 0.9156,
+    "S_sub": 32.66,
+    "S_bg_before": 13.12,
+    "SR_before": 2.49,
+    "sigma": {
+      "12": {
+        "S_bg": 10.75,
+        "SR": 3.04,
+        "BVR": 0.819
+      },
+      "30": {
+        "S_bg": 10.56,
+        "SR": 3.09,
+        "BVR": 0.805
+      }
+    }
+  },
+  {
+    "project": "shang-houmuwu-ding",
+    "far_mean": 0.4023,
+    "far_p95": 0.9015,
+    "S_sub": 32.66,
+    "S_bg_before": 13.4,
+    "SR_before": 2.44,
+    "sigma": {
+      "12": {
+        "S_bg": 3.81,
+        "SR": 8.57,
+        "BVR": 0.285
+      },
+      "30": {
+        "S_bg": 3.67,
+        "SR": 8.9,
+        "BVR": 0.274
+      }
+    }
+  },
+  {
+    "project": "shang-ji-zi",
+    "far_mean": 0.0427,
+    "far_p95": 0.0613,
+    "S_sub": 38.0,
+    "S_bg_before": 7.07,
+    "SR_before": 5.38,
+    "sigma": {
+      "12": {
+        "S_bg": 6.64,
+        "SR": 5.73,
+        "BVR": 0.939
+      },
+      "30": {
+        "S_bg": 6.55,
+        "SR": 5.8,
+        "BVR": 0.927
+      }
+    }
+  },
+  {
+    "project": "shang-millet",
+    "far_mean": 0.3987,
+    "far_p95": 1.0,
+    "S_sub": 38.71,
+    "S_bg_before": 33.41,
+    "SR_before": 1.16,
+    "sigma": {
+      "12": {
+        "S_bg": 28.04,
+        "SR": 1.38,
+        "BVR": 0.839
+      },
+      "30": {
+        "S_bg": 26.75,
+        "SR": 1.45,
+        "BVR": 0.801
+      }
+    }
+  },
+  {
+    "project": "shang-nipple-ding",
+    "far_mean": 0.2314,
+    "far_p95": 0.8383,
+    "S_sub": 26.27,
+    "S_bg_before": 25.83,
+    "SR_before": 1.02,
+    "sigma": {
+      "12": {
+        "S_bg": 23.62,
+        "SR": 1.11,
+        "BVR": 0.914
+      },
+      "30": {
+        "S_bg": 23.54,
+        "SR": 1.12,
+        "BVR": 0.911
+      }
+    }
+  },
+  {
+    "project": "shang-oracle",
+    "far_mean": 0.3415,
+    "far_p95": 0.8354,
+    "S_sub": 35.4,
+    "S_bg_before": 28.72,
+    "SR_before": 1.23,
+    "sigma": {
+      "12": {
+        "S_bg": 9.7,
+        "SR": 3.65,
+        "BVR": 0.338
+      },
+      "30": {
+        "S_bg": 6.25,
+        "SR": 5.66,
+        "BVR": 0.218
+      }
+    }
+  },
+  {
+    "project": "shang-pan-geng",
+    "far_mean": 0.2961,
+    "far_p95": 1.0,
+    "S_sub": 44.53,
+    "S_bg_before": 69.94,
+    "SR_before": 0.64,
+    "sigma": {
+      "12": {
+        "S_bg": 67.13,
+        "SR": 0.66,
+        "BVR": 0.96
+      },
+      "30": {
+        "S_bg": 66.96,
+        "SR": 0.66,
+        "BVR": 0.957
+      }
+    }
+  },
+  {
+    "project": "shang-simuxin-ding",
+    "far_mean": 0.2478,
+    "far_p95": 0.8708,
+    "S_sub": 30.38,
+    "S_bg_before": 14.83,
+    "SR_before": 2.05,
+    "sigma": {
+      "12": {
+        "S_bg": 14.55,
+        "SR": 2.09,
+        "BVR": 0.981
+      },
+      "30": {
+        "S_bg": 14.52,
+        "SR": 2.09,
+        "BVR": 0.979
+      }
+    }
+  },
+  {
+    "project": "shang-tang",
+    "far_mean": 0.774,
+    "far_p95": 1.0,
+    "S_sub": 46.37,
+    "S_bg_before": 28.11,
+    "SR_before": 1.65,
+    "sigma": {
+      "12": {
+        "S_bg": 8.7,
+        "SR": 5.33,
+        "BVR": 0.309
+      },
+      "30": {
+        "S_bg": 8.58,
+        "SR": 5.4,
+        "BVR": 0.305
+      }
+    }
+  },
+  {
+    "project": "shang-taotie",
+    "far_mean": 0.0623,
+    "far_p95": 0.6015,
+    "S_sub": 34.64,
+    "S_bg_before": 20.56,
+    "SR_before": 1.68,
+    "sigma": {
+      "12": {
+        "S_bg": 20.01,
+        "SR": 1.73,
+        "BVR": 0.974
+      },
+      "30": {
+        "S_bg": 19.95,
+        "SR": 1.74,
+        "BVR": 0.97
+      }
+    }
+  },
+  {
+    "project": "shang-wang-hai",
+    "far_mean": 0.3034,
+    "far_p95": 0.9561,
+    "S_sub": 38.44,
+    "S_bg_before": 96.31,
+    "SR_before": 0.4,
+    "sigma": {
+      "12": {
+        "S_bg": 93.22,
+        "SR": 0.41,
+        "BVR": 0.968
+      },
+      "30": {
+        "S_bg": 92.7,
+        "SR": 0.41,
+        "BVR": 0.963
+      }
+    }
+  },
+  {
+    "project": "shang-wu-ding",
+    "far_mean": 0.9058,
+    "far_p95": 0.9668,
+    "S_sub": 37.76,
+    "S_bg_before": 59.08,
+    "SR_before": 0.64,
+    "sigma": {
+      "12": {
+        "S_bg": 8.68,
+        "SR": 4.35,
+        "BVR": 0.147
+      },
+      "30": {
+        "S_bg": 8.39,
+        "SR": 4.5,
+        "BVR": 0.142
+      }
+    }
+  },
+  {
+    "project": "shang-yachou-yue",
+    "far_mean": 0.0277,
+    "far_p95": 0.2313,
+    "S_sub": 35.92,
+    "S_bg_before": 145.55,
+    "SR_before": 0.25,
+    "sigma": {
+      "12": {
+        "S_bg": 132.11,
+        "SR": 0.27,
+        "BVR": 0.908
+      },
+      "30": {
+        "S_bg": 129.71,
+        "SR": 0.28,
+        "BVR": 0.891
+      }
+    }
+  },
+  {
+    "project": "shang-yi-yin",
+    "far_mean": 0.5606,
+    "far_p95": 0.9499,
+    "S_sub": 30.34,
+    "S_bg_before": 60.57,
+    "SR_before": 0.5,
+    "sigma": {
+      "12": {
+        "S_bg": 39.47,
+        "SR": 0.77,
+        "BVR": 0.652
+      },
+      "30": {
+        "S_bg": 30.81,
+        "SR": 0.98,
+        "BVR": 0.509
+      }
+    }
+  },
+  {
+    "project": "shang-yin-xu",
+    "far_mean": 0.7025,
+    "far_p95": 1.0,
+    "S_sub": 30.8,
+    "S_bg_before": 37.91,
+    "SR_before": 0.81,
+    "sigma": {
+      "12": {
+        "S_bg": 4.85,
+        "SR": 6.36,
+        "BVR": 0.128
+      },
+      "30": {
+        "S_bg": 4.28,
+        "SR": 7.19,
+        "BVR": 0.113
+      }
+    }
+  },
+  {
+    "project": "shang-zhen-ren",
+    "far_mean": 0.6241,
+    "far_p95": 0.9447,
+    "S_sub": 35.65,
+    "S_bg_before": 19.7,
+    "SR_before": 1.81,
+    "sigma": {
+      "12": {
+        "S_bg": 3.72,
+        "SR": 9.57,
+        "BVR": 0.189
+      },
+      "30": {
+        "S_bg": 3.6,
+        "SR": 9.91,
+        "BVR": 0.183
+      }
+    }
+  },
+  {
+    "project": "vc-auntie-poulet",
+    "far_mean": 0.4126,
+    "far_p95": 0.8342,
+    "S_sub": 25.63,
+    "S_bg_before": 64.21,
+    "SR_before": 0.4,
+    "sigma": {
+      "12": {
+        "S_bg": 48.12,
+        "SR": 0.53,
+        "BVR": 0.749
+      },
+      "30": {
+        "S_bg": 42.01,
+        "SR": 0.61,
+        "BVR": 0.654
+      }
+    }
+  },
+  {
+    "project": "vc-dockyard",
+    "far_mean": 0.6267,
+    "far_p95": 1.0,
+    "S_sub": 30.52,
+    "S_bg_before": 24.73,
+    "SR_before": 1.23,
+    "sigma": {
+      "12": {
+        "S_bg": 21.36,
+        "SR": 1.43,
+        "BVR": 0.864
+      },
+      "30": {
+        "S_bg": 21.19,
+        "SR": 1.44,
+        "BVR": 0.857
+      }
+    }
+  },
+  {
+    "project": "vc-fm-radio",
+    "far_mean": 0.7636,
+    "far_p95": 1.0,
+    "S_sub": 37.03,
+    "S_bg_before": 14.08,
+    "SR_before": 2.63,
+    "sigma": {
+      "12": {
+        "S_bg": 11.98,
+        "SR": 3.09,
+        "BVR": 0.851
+      },
+      "30": {
+        "S_bg": 11.97,
+        "SR": 3.09,
+        "BVR": 0.85
+      }
+    }
+  },
+  {
+    "project": "vc-general-cortez",
+    "far_mean": 0.4769,
+    "far_p95": 1.0,
+    "S_sub": 33.9,
+    "S_bg_before": 46.23,
+    "SR_before": 0.73,
+    "sigma": {
+      "12": {
+        "S_bg": 34.48,
+        "SR": 0.98,
+        "BVR": 0.746
+      },
+      "30": {
+        "S_bg": 33.49,
+        "SR": 1.01,
+        "BVR": 0.724
+      }
+    }
+  },
+  {
+    "project": "vc-ken-rosenberg",
+    "far_mean": 0.1177,
+    "far_p95": 0.7827,
+    "S_sub": 34.29,
+    "S_bg_before": 32.28,
+    "SR_before": 1.06,
+    "sigma": {
+      "12": {
+        "S_bg": 29.52,
+        "SR": 1.16,
+        "BVR": 0.915
+      },
+      "30": {
+        "S_bg": 28.86,
+        "SR": 1.19,
+        "BVR": 0.894
+      }
+    }
+  },
+  {
+    "project": "vc-lance-vance",
+    "far_mean": 0.2746,
+    "far_p95": 0.9022,
+    "S_sub": 39.69,
+    "S_bg_before": 20.47,
+    "SR_before": 1.94,
+    "sigma": {
+      "12": {
+        "S_bg": 18.14,
+        "SR": 2.19,
+        "BVR": 0.886
+      },
+      "30": {
+        "S_bg": 17.59,
+        "SR": 2.26,
+        "BVR": 0.859
+      }
+    }
+  },
+  {
+    "project": "vc-little-haiti",
+    "far_mean": 0.6206,
+    "far_p95": 1.0,
+    "S_sub": 29.27,
+    "S_bg_before": 21.11,
+    "SR_before": 1.39,
+    "sigma": {
+      "12": {
+        "S_bg": 10.61,
+        "SR": 2.76,
+        "BVR": 0.502
+      },
+      "30": {
+        "S_bg": 10.43,
+        "SR": 2.81,
+        "BVR": 0.494
+      }
+    }
+  },
+  {
+    "project": "vc-little-havana",
+    "far_mean": 0.2446,
+    "far_p95": 1.0,
+    "S_sub": 51.21,
+    "S_bg_before": 73.08,
+    "SR_before": 0.7,
+    "sigma": {
+      "12": {
+        "S_bg": 64.64,
+        "SR": 0.79,
+        "BVR": 0.884
+      },
+      "30": {
+        "S_bg": 63.5,
+        "SR": 0.81,
+        "BVR": 0.869
+      }
+    }
+  },
+  {
+    "project": "vc-neon-1986",
+    "far_mean": 0.4985,
+    "far_p95": 1.0,
+    "S_sub": 58.56,
+    "S_bg_before": 68.95,
+    "SR_before": 0.85,
+    "sigma": {
+      "12": {
+        "S_bg": 34.05,
+        "SR": 1.72,
+        "BVR": 0.494
+      },
+      "30": {
+        "S_bg": 33.52,
+        "SR": 1.75,
+        "BVR": 0.486
+      }
+    }
+  },
+  {
+    "project": "vc-ocean-drive",
+    "far_mean": 0.5481,
+    "far_p95": 1.0,
+    "S_sub": 43.37,
+    "S_bg_before": 38.72,
+    "SR_before": 1.12,
+    "sigma": {
+      "12": {
+        "S_bg": 13.4,
+        "SR": 3.24,
+        "BVR": 0.346
+      },
+      "30": {
+        "S_bg": 12.91,
+        "SR": 3.36,
+        "BVR": 0.333
+      }
+    }
+  },
+  {
+    "project": "vc-ricardo-diaz",
+    "far_mean": 0.2543,
+    "far_p95": 1.0,
+    "S_sub": 28.67,
+    "S_bg_before": 46.29,
+    "SR_before": 0.62,
+    "sigma": {
+      "12": {
+        "S_bg": 25.87,
+        "SR": 1.11,
+        "BVR": 0.559
+      },
+      "30": {
+        "S_bg": 22.86,
+        "SR": 1.25,
+        "BVR": 0.494
+      }
+    }
+  },
+  {
+    "project": "vc-sonny-forelli",
+    "far_mean": 0.0895,
+    "far_p95": 0.5159,
+    "S_sub": 27.37,
+    "S_bg_before": 27.24,
+    "SR_before": 1.0,
+    "sigma": {
+      "12": {
+        "S_bg": 22.11,
+        "SR": 1.24,
+        "BVR": 0.812
+      },
+      "30": {
+        "S_bg": 20.62,
+        "SR": 1.33,
+        "BVR": 0.757
+      }
+    }
+  },
+  {
+    "project": "vc-starfish-island",
+    "far_mean": 0.5973,
+    "far_p95": 1.0,
+    "S_sub": 51.88,
+    "S_bg_before": 31.55,
+    "SR_before": 1.64,
+    "sigma": {
+      "12": {
+        "S_bg": 30.75,
+        "SR": 1.69,
+        "BVR": 0.975
+      },
+      "30": {
+        "S_bg": 30.74,
+        "SR": 1.69,
+        "BVR": 0.974
+      }
+    }
+  },
+  {
+    "project": "vc-tommy-vercetti",
+    "far_mean": 0.3414,
+    "far_p95": 1.0,
+    "S_sub": 37.94,
+    "S_bg_before": 29.92,
+    "SR_before": 1.27,
+    "sigma": {
+      "12": {
+        "S_bg": 18.89,
+        "SR": 2.01,
+        "BVR": 0.631
+      },
+      "30": {
+        "S_bg": 17.88,
+        "SR": 2.12,
+        "BVR": 0.597
+      }
+    }
+  },
+  {
+    "project": "vc-vercetti-estate",
+    "far_mean": 0.5111,
+    "far_p95": 1.0,
+    "S_sub": 52.38,
+    "S_bg_before": 45.88,
+    "SR_before": 1.14,
+    "sigma": {
+      "12": {
+        "S_bg": 15.12,
+        "SR": 3.46,
+        "BVR": 0.33
+      },
+      "30": {
+        "S_bg": 14.88,
+        "SR": 3.52,
+        "BVR": 0.324
+      }
+    }
+  }
+]
