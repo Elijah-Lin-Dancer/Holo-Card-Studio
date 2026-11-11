@@ -1,6 +1,66 @@
 {
   "cards": [
     {
+      "id": "haaland-wanglaoji-depth",
+      "title": "王老吉·哈兰德 · 景深重制",
+      "subtitle": "怕上火，喝王老吉",
+      "technique": "Spicy-Advert Holography",
+      "tagline": "同一构图的深度景深重制：远景区按估测深度渐进虚化，主体保持锐利。",
+      "edition": "010 / 010",
+      "collection": "Haaland Multiverse · Meme Series",
+      "description": "哈兰德给王老吉拍的蹩脚中文魔性广告'怕上火，喝王老吉'，全网 7.5 亿阅读。凉茶 + 火焰吐息，中国特供梗。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "深度景深"
+      ],
+      "url": "cards/haaland-wanglaoji-depth/",
+      "thumb": "cards/haaland-wanglaoji-depth/thumb.jpg",
+      "date": "2026-11-11",
+      "preview": "cards/haaland-wanglaoji-depth/preview.webm"
+    },
+    {
+      "id": "shang-yin-xu-depth",
+      "title": "殷墟 · 景深重制",
+      "subtitle": "洹水之滨 · 殷商之墟",
+      "technique": "Sleeping-Capital-Etching",
+      "tagline": "同一构图的深度景深重制：远景区按估测深度渐进虚化，主体保持锐利。",
+      "edition": "012 / 014",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "安阳殷墟，商朝晚期都城遗址，2006 年列入世界文化遗产。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "殷商",
+        "都城",
+        "殷墟",
+        "深度景深"
+      ],
+      "url": "cards/shang-yin-xu-depth/",
+      "thumb": "cards/shang-yin-xu-depth/thumb.jpg",
+      "date": "2026-11-11",
+      "preview": "cards/shang-yin-xu-depth/preview.webm"
+    },
+    {
+      "id": "shang-tang-depth",
+      "title": "商汤 · 景深重制",
+      "subtitle": "网开三面 · 天命有归",
+      "technique": "Benevolent-Hunt-Bronze",
+      "tagline": "同一构图的深度景深重制：远景区按估测深度渐进虚化，主体保持锐利。",
+      "edition": "005 / 014",
+      "collection": "Yin-Shang Chronicles · 殷商纪",
+      "description": "网开三面的仁德之君，鸣条一战，天命有归。",
+      "author": "HoloLab Studio",
+      "style_tags": [
+        "殷商",
+        "帝王",
+        "开国",
+        "深度景深"
+      ],
+      "url": "cards/shang-tang-depth/",
+      "thumb": "cards/shang-tang-depth/thumb.jpg",
+      "date": "2026-11-11",
+      "preview": "cards/shang-tang-depth/preview.webm"
+    },
+    {
       "id": "shang-wu-ding-depth",
       "title": "武丁 · 景深重制",
       "subtitle": "商之中兴 · 梦得傅说",
